@@ -1,0 +1,788 @@
+rank= 1 get_block_size= 10200 get_time= 0.000240215 acc_block_size= 10200 acc_time= 0.000019824  total_block_size= 20400 add_time= 0.001812594
+rank= 1 get_block_size= 10710 get_time= 0.000769633 acc_block_size= 10710 acc_time= 0.000018973  total_block_size= 21420 add_time= 0.000888194
+rank= 1 get_block_size= 10500 get_time= 0.000611349 acc_block_size= 10500 acc_time= 0.000018547  total_block_size= 21000 add_time= 0.000791950
+rank= 1 get_block_size= 9450 get_time= 0.000858454 acc_block_size= 9450 acc_time= 0.000013184  total_block_size= 18900 add_time= 0.000933382
+rank= 1 get_block_size= 10500 get_time= 0.000749160 acc_block_size= 10500 acc_time= 0.000044502  total_block_size= 21000 add_time= 0.000829800
+rank= 1 get_block_size= 10000 get_time= 0.000017137 get_block_size= 9000 get_time= 0.000913048 acc_block_size= 9000 acc_time= 0.000074358  total_block_size= 28000 mult_time= 0.001336659
+rank= 1 get_block_size= 10000 get_time= 0.000564887 get_block_size= 10500 get_time= 0.000504389 acc_block_size= 10500 acc_time= 0.000021104  total_block_size= 31000 mult_time= 0.001400117
+rank= 1 get_block_size= 9000 get_time= 0.000961693 get_block_size= 9000 get_time= 0.000285967 acc_block_size= 10000 acc_time= 0.000016035  total_block_size= 28000 mult_time= 0.001434881
+rank= 1 get_block_size= 10200 get_time= 0.000240541 get_block_size= 10000 get_time= 0.000037970 acc_block_size= 10200 acc_time= 0.000037355  total_block_size= 30400 mult_time= 0.000492733
+rank= 1 get_block_size= 10200 get_time= 0.000950471 get_block_size= 10500 get_time= 0.000966182 acc_block_size= 10710 acc_time= 0.000016147  total_block_size= 31410 mult_time= 0.002205287
+rank= 1 get_block_size= 11025 get_time= 0.001496962 get_block_size= 10500 get_time= 0.002963827 acc_block_size= 10500 acc_time= 0.000013580  total_block_size= 32025 mult_time= 0.004679851
+rank= 1 get_block_size= 10000 get_time= 0.001308985 get_block_size= 10500 get_time= 0.001308384 acc_block_size= 10500 acc_time= 0.000012384  total_block_size= 31000 mult_time= 0.002826531
+rank= 1 get_block_size= 10000 get_time= 0.000782555 get_block_size= 10200 get_time= 0.000244416 acc_block_size= 10200 acc_time= 0.000012765  total_block_size= 30400 mult_time= 0.001220725
+rank= 1 get_block_size= 10500 get_time= 0.002857057 get_block_size= 10500 get_time= 0.000379785 acc_block_size= 10000 acc_time= 0.000035092  total_block_size= 31000 mult_time= 0.003453434
+rank= 1 get_block_size= 10710 get_time= 0.003224961 get_block_size= 9450 get_time= 0.000813144 acc_block_size= 9180 acc_time= 0.000012608  total_block_size= 29340 mult_time= 0.004220189
+rank= 1 get_block_size= 9450 get_time= 0.001850685 get_block_size= 10500 get_time= 0.000204826 acc_block_size= 9000 acc_time= 0.000011572  total_block_size= 28950 mult_time= 0.002235458
+rank= 1 get_block_size= 10500 get_time= 0.000037436 get_block_size= 10710 get_time= 0.001220836 acc_block_size= 10200 acc_time= 0.000074801  total_block_size= 31410 mult_time= 0.001522783
+rank= 1 get_block_size= 10200 get_time= 0.000331142 get_block_size= 10710 get_time= 0.000359935 acc_block_size= 10500 acc_time= 0.000012673  total_block_size= 31410 mult_time= 0.000890159
+rank= 1 get_block_size= 10500 get_time= 0.000116536 get_block_size= 10710 get_time= 0.000049497 acc_block_size= 10200 acc_time= 0.000012043  total_block_size= 31410 mult_time= 0.000370289
+rank= 1 get_block_size= 10200 get_time= 0.000730576 get_block_size= 10500 get_time= 0.000323793 acc_block_size= 10710 acc_time= 0.000013840  total_block_size= 31410 mult_time= 0.001259815
+rank= 1 get_block_size= 10500 get_time= 0.001290109 get_block_size= 10000 get_time= 0.000146605 acc_block_size= 10500 acc_time= 0.000017460  total_block_size= 31000 mult_time= 0.001778927
+rank= 1 get_block_size= 10710 get_time= 0.001269010 get_block_size= 10710 get_time= 0.000651682 acc_block_size= 11025 acc_time= 0.000045250  total_block_size= 32445 mult_time= 0.002311302
+rank= 1 get_block_size= 10000 get_time= 0.000879502 get_block_size= 10000 get_time= 0.001612324 acc_block_size= 10000 acc_time= 0.000016683  total_block_size= 30000 mult_time= 0.002687768
+rank= 1 get_block_size= 11025 get_time= 0.001578226 get_block_size= 11025 get_time= 0.000702808 acc_block_size= 11025 acc_time= 0.000012544  total_block_size= 33075 mult_time= 0.002490416
+rank= 1 get_block_size= 11025 get_time= 0.001030727 get_block_size= 10500 get_time= 0.000373061 acc_block_size= 10500 acc_time= 0.000012191  total_block_size= 32025 mult_time= 0.001595917
+rank= 1 get_block_size= 10710 get_time= 0.001702933 get_block_size= 10710 get_time= 0.000315922 acc_block_size= 10404 acc_time= 0.000017563  total_block_size= 31824 mult_time= 0.002299741
+rank= 1 get_block_size= 10500 get_time= 0.002510896 get_block_size= 10500 get_time= 0.000491617 acc_block_size= 10000 acc_time= 0.000037304  total_block_size= 31000 mult_time= 0.003221352
+rank= 1 get_block_size= 9000 get_time= 0.000910865 acc_block_size= 9000 acc_time= 0.000030463  total_block_size= 18000 add_time= 0.001008197
+rank= 1 get_block_size= 10500 get_time= 0.000741299 acc_block_size= 10500 acc_time= 0.000015143  total_block_size= 21000 add_time= 0.000804924
+rank= 1 get_block_size= 10710 get_time= 0.001052163 get_block_size= 10710 get_time= 0.000566742 acc_block_size= 1 acc_time= 0.000005123  total_block_size= 21421 mult_time= 0.001697423
+rank= 1 get_block_size= 10710 get_time= 0.001189954 acc_block_size= 10710 acc_time= 0.000015304  total_block_size= 21420 add_time= 0.001242330
+rank= 1 get_block_size= 11025 get_time= 0.000462776 acc_block_size= 11025 acc_time= 0.000012253  total_block_size= 22050 add_time= 0.000505290
+rank= 1 get_block_size= 10000 get_time= 0.000020605 acc_block_size= 10000 acc_time= 0.000070821  total_block_size= 20000 add_time= 0.000135974
+rank= 1 get_block_size= 10710 get_time= 0.001625133 acc_block_size= 10710 acc_time= 0.000013872  total_block_size= 21420 add_time= 0.001702273
+rank= 1 get_block_size= 10500 get_time= 0.000022189 get_block_size= 10500 get_time= 0.000721553 acc_block_size= 10000 acc_time= 0.000075847  total_block_size= 31000 mult_time= 0.001114306
+rank= 1 get_block_size= 10500 get_time= 0.000730137 get_block_size= 11025 get_time= 0.000516856 acc_block_size= 10500 acc_time= 0.000013091  total_block_size= 32025 mult_time= 0.001476651
+rank= 1 get_block_size= 10000 get_time= 0.000012941 get_block_size= 10000 get_time= 0.002794312 acc_block_size= 10000 acc_time= 0.000018614  total_block_size= 30000 mult_time= 0.003034496
+rank= 1 get_block_size= 10200 get_time= 0.000720020 get_block_size= 10000 get_time= 0.000151709 acc_block_size= 10200 acc_time= 0.000013833  total_block_size= 30400 mult_time= 0.001074982
+rank= 1 get_block_size= 10404 get_time= 0.001565848 get_block_size= 9180 get_time= 0.000356925 acc_block_size= 9180 acc_time= 0.000035588  total_block_size= 28764 mult_time= 0.002129746
+rank= 1 get_block_size= 10500 get_time= 0.001985982 get_block_size= 10200 get_time= 0.000280310 acc_block_size= 10710 acc_time= 0.000034041  total_block_size= 31410 mult_time= 0.002733295
+rank= 1 get_block_size= 10500 get_time= 0.003841892 get_block_size= 9450 get_time= 0.000278552 acc_block_size= 9000 acc_time= 0.000017395  total_block_size= 28950 mult_time= 0.004308209
+rank= 1 get_block_size= 10500 get_time= 0.002884049 get_block_size= 10500 get_time= 0.000152820 acc_block_size= 10000 acc_time= 0.000011892  total_block_size= 31000 mult_time= 0.003222287
+rank= 1 get_block_size= 10710 get_time= 0.003221271 get_block_size= 10710 get_time= 0.000247645 acc_block_size= 10404 acc_time= 0.000011948  total_block_size= 31824 mult_time= 0.003662962
+rank= 1 get_block_size= 9450 get_time= 0.001241674 get_block_size= 10710 get_time= 0.000229661 acc_block_size= 9180 acc_time= 0.000031122  total_block_size= 29340 mult_time= 0.001672290
+rank= 1 get_block_size= 10000 get_time= 0.000037159 get_block_size= 10000 get_time= 0.000723036 acc_block_size= 10000 acc_time= 0.000079029  total_block_size= 30000 mult_time= 0.001022830
+rank= 1 get_block_size= 9000 get_time= 0.000862718 get_block_size= 9180 get_time= 0.000778768 acc_block_size= 10200 acc_time= 0.000013669  total_block_size= 28380 mult_time= 0.001819259
+rank= 1 get_block_size= 10000 get_time= 0.000049881 get_block_size= 10500 get_time= 0.000036768 acc_block_size= 10500 acc_time= 0.000018717  total_block_size= 31000 mult_time= 0.000590545
+rank= 1 get_block_size= 10500 get_time= 0.001095307 get_block_size= 10500 get_time= 0.000581781 acc_block_size= 10000 acc_time= 0.000012591  total_block_size= 31000 mult_time= 0.001874669
+rank= 1 get_block_size= 10404 get_time= 0.000312549 get_block_size= 10404 get_time= 0.000162217 acc_block_size= 10404 acc_time= 0.000012849  total_block_size= 31212 mult_time= 0.000690876
+rank= 1 get_block_size= 10710 get_time= 0.000497940 get_block_size= 10500 get_time= 0.000199476 acc_block_size= 10200 acc_time= 0.000011729  total_block_size= 31410 mult_time= 0.000904174
+rank= 1 get_block_size= 10500 get_time= 0.001854834 get_block_size= 10500 get_time= 0.000035933 acc_block_size= 11025 acc_time= 0.000013998  total_block_size= 32025 mult_time= 0.002090118
+rank= 1 get_block_size= 10000 get_time= 0.001439399 get_block_size= 10000 get_time= 0.000536581 acc_block_size= 10000 acc_time= 0.000033738  total_block_size= 30000 mult_time= 0.002185297
+rank= 1 get_block_size= 11025 get_time= 0.001727748 get_block_size= 11025 get_time= 0.001075061 acc_block_size= 11025 acc_time= 0.000012741  total_block_size= 33075 mult_time= 0.003012009
+rank= 1 get_block_size= 10500 get_time= 0.003700151 get_block_size= 9450 get_time= 0.000149072 acc_block_size= 9000 acc_time= 0.000019316  total_block_size= 28950 mult_time= 0.004116701
+rank= 1 get_block_size= 10500 get_time= 0.002419316 get_block_size= 10500 get_time= 0.001790432 acc_block_size= 10000 acc_time= 0.000014865  total_block_size= 31000 mult_time= 0.004407314
+rank= 1 get_block_size= 10500 get_time= 0.000572263 acc_block_size= 10500 acc_time= 0.000026891  total_block_size= 21000 add_time= 0.000630693
+rank= 1 get_block_size= 10500 get_time= 0.000190620 acc_block_size= 10500 acc_time= 0.000015272  total_block_size= 21000 add_time= 0.000387935
+rank= 1 get_block_size= 9000 get_time= 0.000024126 acc_block_size= 9000 acc_time= 0.000064006  total_block_size= 18000 add_time= 0.000133126
+rank= 1 get_block_size= 10000 get_time= 0.000044761 get_block_size= 10000 get_time= 0.000944837 acc_block_size= 1 acc_time= 0.000004859  total_block_size= 20001 mult_time= 0.001130909
+rank= 1 get_block_size= 9000 get_time= 0.000955504 acc_block_size= 9000 acc_time= 0.000012938  total_block_size= 18000 add_time= 0.001007836
+rank= 1 get_block_size= 10000 get_time= 0.000039905 acc_block_size= 10000 acc_time= 0.000068825  total_block_size= 20000 add_time= 0.000146777
+rank= 1 get_block_size= 9180 get_time= 0.000208500 acc_block_size= 9180 acc_time= 0.000023985  total_block_size= 18360 add_time= 0.000261664
+rank= 1 get_block_size= 10200 get_time= 0.000796175 get_block_size= 10200 get_time= 0.000683374 acc_block_size= 1 acc_time= 0.000004905  total_block_size= 20401 mult_time= 0.001564012
+rank= 1 get_block_size= 10000 get_time= 0.000013359 acc_block_size= 10000 acc_time= 0.000074707  total_block_size= 20000 add_time= 0.000131519
+rank= 1 get_block_size= 10500 get_time= 0.000562646 acc_block_size= 10500 acc_time= 0.000040188  total_block_size= 21000 add_time= 0.000640699
+rank= 1 get_block_size= 10500 get_time= 0.000302404 acc_block_size= 10500 acc_time= 0.000017946  total_block_size= 21000 add_time= 0.000352788
+rank= 1 get_block_size= 9000 get_time= 0.000680239 acc_block_size= 9000 acc_time= 0.000018633  total_block_size= 18000 add_time= 0.000738288
+rank= 1 get_block_size= 10000 get_time= 0.000044289 acc_block_size= 10000 acc_time= 0.000042424  total_block_size= 20000 add_time= 0.000153808
+rank= 1 get_block_size= 11025 get_time= 0.000112163 acc_block_size= 11025 acc_time= 0.000023569  total_block_size= 22050 add_time= 0.000181397
+rank= 1 get_block_size= 10200 get_time= 0.000016268 get_block_size= 10710 get_time= 0.001342005 acc_block_size= 10500 acc_time= 0.000086298  total_block_size= 31410 mult_time= 0.001874087
+rank= 1 get_block_size= 10000 get_time= 0.000307112 get_block_size= 10000 get_time= 0.000486994 acc_block_size= 10000 acc_time= 0.000013011  total_block_size= 30000 mult_time= 0.000990254
+rank= 1 get_block_size= 10000 get_time= 0.000010635 get_block_size= 9000 get_time= 0.000287947 acc_block_size= 9000 acc_time= 0.000017152  total_block_size= 28000 mult_time= 0.000485826
+rank= 1 get_block_size= 10710 get_time= 0.000634311 get_block_size= 11025 get_time= 0.000260287 acc_block_size= 10710 acc_time= 0.000013423  total_block_size= 32445 mult_time= 0.001122934
+rank= 1 get_block_size= 10500 get_time= 0.002859135 get_block_size= 10500 get_time= 0.000142271 acc_block_size= 11025 acc_time= 0.000013408  total_block_size= 32025 mult_time= 0.003213581
+rank= 1 get_block_size= 10500 get_time= 0.002707399 get_block_size= 10710 get_time= 0.001957078 acc_block_size= 10200 acc_time= 0.000012837  total_block_size= 31410 mult_time= 0.004858610
+rank= 1 get_block_size= 10500 get_time= 0.001623136 get_block_size= 10500 get_time= 0.001412927 acc_block_size= 10000 acc_time= 0.000012093  total_block_size= 31000 mult_time= 0.003227893
+rank= 1 get_block_size= 10200 get_time= 0.000099333 get_block_size= 10000 get_time= 0.000161707 acc_block_size= 10200 acc_time= 0.000012923  total_block_size= 30400 mult_time= 0.000454340
+rank= 1 get_block_size= 10000 get_time= 0.000607483 get_block_size= 10200 get_time= 0.000126870 acc_block_size= 10200 acc_time= 0.000011933  total_block_size= 30400 mult_time= 0.000922618
+rank= 1 get_block_size= 10500 get_time= 0.001924682 get_block_size= 10710 get_time= 0.001657534 acc_block_size= 10200 acc_time= 0.000012367  total_block_size= 31410 mult_time= 0.003781069
+rank= 1 get_block_size= 10500 get_time= 0.001223819 get_block_size= 10500 get_time= 0.000583697 acc_block_size= 10000 acc_time= 0.000068608  total_block_size= 31000 mult_time= 0.002107451
+rank= 1 get_block_size= 10200 get_time= 0.000549168 get_block_size= 10710 get_time= 0.000606924 acc_block_size= 10500 acc_time= 0.000012142  total_block_size= 31410 mult_time= 0.001350398
+rank= 1 get_block_size= 9000 get_time= 0.001062274 get_block_size= 9450 get_time= 0.000504688 acc_block_size= 10500 acc_time= 0.000014099  total_block_size= 28950 mult_time= 0.001751848
+rank= 1 get_block_size= 10200 get_time= 0.000936808 get_block_size= 10500 get_time= 0.000248487 acc_block_size= 10710 acc_time= 0.000014077  total_block_size= 31410 mult_time= 0.001390430
+rank= 1 get_block_size= 10500 get_time= 0.000264538 get_block_size= 10000 get_time= 0.000185980 acc_block_size= 10500 acc_time= 0.000013431  total_block_size= 31000 mult_time= 0.000634017
+rank= 1 get_block_size= 11025 get_time= 0.001114011 get_block_size= 11025 get_time= 0.003850954 acc_block_size= 11025 acc_time= 0.000021583  total_block_size= 33075 mult_time= 0.005189152
+rank= 1 get_block_size= 9450 get_time= 0.000964783 get_block_size= 9180 get_time= 0.000430979 acc_block_size= 10710 acc_time= 0.000013079  total_block_size= 29340 mult_time= 0.001574056
+rank= 1 get_block_size= 10000 get_time= 0.000436589 get_block_size= 10000 get_time= 0.001733630 acc_block_size= 10000 acc_time= 0.000011922  total_block_size= 30000 mult_time= 0.002350280
+rank= 1 get_block_size= 10200 get_time= 0.000236132 get_block_size= 10200 get_time= 0.000124581 acc_block_size= 10404 acc_time= 0.000020876  total_block_size= 30804 mult_time= 0.000563017
+rank= 1 get_block_size= 10500 get_time= 0.000438078 get_block_size= 10710 get_time= 0.000259091 acc_block_size= 10200 acc_time= 0.000015969  total_block_size= 31410 mult_time= 0.000895405
+rank= 1 get_block_size= 10500 get_time= 0.001057309 acc_block_size= 10500 acc_time= 0.000014352  total_block_size= 21000 add_time= 0.001101138
+rank= 1 get_block_size= 10500 get_time= 0.000323320 acc_block_size= 10500 acc_time= 0.000012982  total_block_size= 21000 add_time= 0.000412448
+rank= 1 get_block_size= 10000 get_time= 0.000888234 acc_block_size= 10000 acc_time= 0.000011242  total_block_size= 20000 add_time= 0.000936790
+rank= 1 get_block_size= 10000 get_time= 0.000054020 get_block_size= 10000 get_time= 0.000033034 acc_block_size= 1 acc_time= 0.000004159  total_block_size= 20001 mult_time= 0.000215789
+rank= 1 get_block_size= 10000 get_time= 0.000046658 get_block_size= 10000 get_time= 0.000441894 acc_block_size= 1 acc_time= 0.000004263  total_block_size= 20001 mult_time= 0.000609096
+rank= 1 get_block_size= 10200 get_time= 0.000045034 get_block_size= 10200 get_time= 0.000282637 acc_block_size= 1 acc_time= 0.000005295  total_block_size= 20401 mult_time= 0.000454551
+rank= 1 get_block_size= 10200 get_time= 0.000720572 acc_block_size= 10200 acc_time= 0.000013855  total_block_size= 20400 add_time= 0.000783368
+rank= 1 get_block_size= 11025 get_time= 0.000108915 acc_block_size= 11025 acc_time= 0.000026981  total_block_size= 22050 add_time= 0.000171138
+rank= 1 get_block_size= 10710 get_time= 0.000775850 acc_block_size= 10710 acc_time= 0.000035360  total_block_size= 21420 add_time= 0.000859782
+rank= 1 get_block_size= 10500 get_time= 0.000543172 acc_block_size= 10500 acc_time= 0.000013238  total_block_size= 21000 add_time= 0.000587973
+rank= 1 get_block_size= 11025 get_time= 0.001610158 get_block_size= 11025 get_time= 0.000970253 acc_block_size= 1 acc_time= 0.000015395  total_block_size= 22051 mult_time= 0.002750114
+rank= 1 get_block_size= 10000 get_time= 0.000602344 acc_block_size= 10000 acc_time= 0.000046032  total_block_size= 20000 add_time= 0.000682904
+rank= 1 get_block_size= 10500 get_time= 0.000840400 acc_block_size= 10500 acc_time= 0.000018654  total_block_size= 21000 add_time= 0.000899494
+rank= 1 get_block_size= 10200 get_time= 0.000043177 acc_block_size= 10200 acc_time= 0.000055892  total_block_size= 20400 add_time= 0.000142774
+rank= 1 get_block_size= 10000 get_time= 0.000118228 acc_block_size= 10000 acc_time= 0.000027185  total_block_size= 20000 add_time= 0.000177978
+rank= 1 get_block_size= 10000 get_time= 0.000024697 get_block_size= 10500 get_time= 0.001197287 acc_block_size= 10500 acc_time= 0.000075108  total_block_size= 31000 mult_time= 0.001725261
+rank= 1 get_block_size= 10000 get_time= 0.000314486 get_block_size= 10000 get_time= 0.000711018 acc_block_size= 10000 acc_time= 0.000013784  total_block_size= 30000 mult_time= 0.001242384
+rank= 1 get_block_size= 10000 get_time= 0.000010533 get_block_size= 10000 get_time= 0.001196264 acc_block_size= 10000 acc_time= 0.000014658  total_block_size= 30000 mult_time= 0.001394332
+rank= 1 get_block_size= 10710 get_time= 0.000594067 get_block_size= 10710 get_time= 0.000286468 acc_block_size= 10404 acc_time= 0.000013575  total_block_size= 31824 mult_time= 0.001090377
+rank= 1 get_block_size= 11025 get_time= 0.000183612 get_block_size= 10500 get_time= 0.000103202 acc_block_size= 10500 acc_time= 0.000012539  total_block_size= 32025 mult_time= 0.000499761
+rank= 1 get_block_size= 10500 get_time= 0.001590632 get_block_size= 10000 get_time= 0.000421108 acc_block_size= 10500 acc_time= 0.000043170  total_block_size= 31000 mult_time= 0.002247549
+rank= 1 get_block_size= 10500 get_time= 0.002279529 get_block_size= 9000 get_time= 0.000156883 acc_block_size= 9450 acc_time= 0.000012086  total_block_size= 28950 mult_time= 0.002615529
+rank= 1 get_block_size= 10000 get_time= 0.001017454 get_block_size= 10000 get_time= 0.000869177 acc_block_size= 10000 acc_time= 0.000032947  total_block_size= 30000 mult_time= 0.002095455
+rank= 1 get_block_size= 10200 get_time= 0.000057264 get_block_size= 9180 get_time= 0.000050956 acc_block_size= 9000 acc_time= 0.000011459  total_block_size= 28380 mult_time= 0.000281071
+rank= 1 get_block_size= 10000 get_time= 0.002110936 get_block_size= 10000 get_time= 0.000219985 acc_block_size= 10000 acc_time= 0.000012105  total_block_size= 30000 mult_time= 0.002515977
+rank= 1 get_block_size= 10200 get_time= 0.002450821 get_block_size= 10200 get_time= 0.000371847 acc_block_size= 10000 acc_time= 0.000012557  total_block_size= 30400 mult_time= 0.003007592
+rank= 1 get_block_size= 10000 get_time= 0.000119216 get_block_size= 10500 get_time= 0.000773973 acc_block_size= 10500 acc_time= 0.000011990  total_block_size= 31000 mult_time= 0.001087211
+rank= 1 get_block_size= 10200 get_time= 0.002388744 get_block_size= 9180 get_time= 0.000148954 acc_block_size= 9000 acc_time= 0.000011416  total_block_size= 28380 mult_time= 0.002714098
+rank= 1 get_block_size= 9000 get_time= 0.000011304 get_block_size= 9000 get_time= 0.000246416 acc_block_size= 10000 acc_time= 0.000069347  total_block_size= 28000 mult_time= 0.000491219
+rank= 1 get_block_size= 10000 get_time= 0.000550810 get_block_size= 10200 get_time= 0.000698584 acc_block_size= 10200 acc_time= 0.000016423  total_block_size= 30400 mult_time= 0.001453462
+rank= 1 get_block_size= 9000 get_time= 0.000876909 get_block_size= 9000 get_time= 0.000877643 acc_block_size= 10000 acc_time= 0.000013369  total_block_size= 28000 mult_time= 0.002019727
+rank= 1 get_block_size= 10200 get_time= 0.000649664 get_block_size= 10000 get_time= 0.000124692 acc_block_size= 10200 acc_time= 0.000017610  total_block_size= 30400 mult_time= 0.000979371
+rank= 1 get_block_size= 10404 get_time= 0.000413843 get_block_size= 10710 get_time= 0.000394543 acc_block_size= 10710 acc_time= 0.000017057  total_block_size= 31824 mult_time= 0.001015397
+rank= 1 get_block_size= 11025 get_time= 0.001792238 get_block_size= 10500 get_time= 0.001464556 acc_block_size= 10500 acc_time= 0.000015898  total_block_size= 32025 mult_time= 0.003459516
+rank= 1 get_block_size= 10200 get_time= 0.000857940 get_block_size= 10200 get_time= 0.000179511 acc_block_size= 10000 acc_time= 0.000012130  total_block_size= 30400 mult_time= 0.001219271
+rank= 1 get_block_size= 9450 get_time= 0.001908167 get_block_size= 8100 get_time= 0.000142303 acc_block_size= 9450 acc_time= 0.000012498  total_block_size= 27000 mult_time= 0.002225631
+rank= 1 get_block_size= 10200 get_time= 0.001026595 get_block_size= 9180 get_time= 0.000188283 acc_block_size= 9000 acc_time= 0.000032001  total_block_size= 28380 mult_time= 0.001404093
+rank= 1 get_block_size= 10200 get_time= 0.001332753 get_block_size= 10000 get_time= 0.000035944 acc_block_size= 10200 acc_time= 0.000016554  total_block_size= 30400 mult_time= 0.001567382
+rank= 1 get_block_size= 10000 get_time= 0.001633156 get_block_size= 10500 get_time= 0.003078309 acc_block_size= 10500 acc_time= 0.000032759  total_block_size= 31000 mult_time= 0.004917632
+rank= 1 get_block_size= 10500 get_time= 0.000041343 acc_block_size= 10500 acc_time= 0.000073593  total_block_size= 21000 add_time= 0.000145523
+rank= 1 get_block_size= 10000 get_time= 0.000035164 acc_block_size= 10000 acc_time= 0.000018217  total_block_size= 20000 add_time= 0.000111897
+rank= 1 get_block_size= 10500 get_time= 0.000019418 acc_block_size= 10500 acc_time= 0.000072300  total_block_size= 21000 add_time= 0.000134876
+rank= 1 get_block_size= 10500 get_time= 0.000045578 get_block_size= 10500 get_time= 0.001412875 acc_block_size= 1 acc_time= 0.000004211  total_block_size= 21001 mult_time= 0.001589192
+rank= 1 get_block_size= 10404 get_time= 0.000443526 get_block_size= 10404 get_time= 0.000375732 acc_block_size= 1 acc_time= 0.000004589  total_block_size= 20809 mult_time= 0.000935866
+rank= 1 get_block_size= 10200 get_time= 0.000754095 get_block_size= 10200 get_time= 0.001145748 acc_block_size= 1 acc_time= 0.000004238  total_block_size= 20401 mult_time= 0.002020080
+rank= 1 get_block_size= 10000 get_time= 0.000042254 get_block_size= 10000 get_time= 0.000314738 acc_block_size= 1 acc_time= 0.000004489  total_block_size= 20001 mult_time= 0.000466465
+rank= 1 get_block_size= 10500 get_time= 0.001637379 get_block_size= 10500 get_time= 0.000840879 acc_block_size= 1 acc_time= 0.000004668  total_block_size= 21001 mult_time= 0.002640789
+rank= 1 get_block_size= 9180 get_time= 0.001002540 acc_block_size= 9180 acc_time= 0.000013066  total_block_size= 18360 add_time= 0.001070958
+rank= 1 get_block_size= 10500 get_time= 0.000158457 acc_block_size= 10500 acc_time= 0.000017582  total_block_size= 21000 add_time= 0.000227053
+rank= 1 get_block_size= 10500 get_time= 0.001005029 acc_block_size= 10500 acc_time= 0.000014608  total_block_size= 21000 add_time= 0.001064503
+rank= 1 get_block_size= 10200 get_time= 0.000311948 acc_block_size= 10200 acc_time= 0.000019485  total_block_size= 20400 add_time= 0.000380266
+rank= 1 get_block_size= 10500 get_time= 0.000756567 get_block_size= 10500 get_time= 0.000724846 acc_block_size= 1 acc_time= 0.000005167  total_block_size= 21001 mult_time= 0.001582103
+rank= 1 get_block_size= 10200 get_time= 0.000625985 acc_block_size= 10200 acc_time= 0.000013297  total_block_size= 20400 add_time= 0.000717206
+rank= 1 get_block_size= 10000 get_time= 0.000024494 acc_block_size= 10000 acc_time= 0.000054465  total_block_size= 20000 add_time= 0.000125938
+rank= 1 get_block_size= 10200 get_time= 0.000015262 acc_block_size= 10200 acc_time= 0.000047817  total_block_size= 20400 add_time= 0.000128349
+rank= 1 get_block_size= 10710 get_time= 0.000349564 acc_block_size= 10710 acc_time= 0.000019684  total_block_size= 21420 add_time= 0.000398912
+rank= 1 get_block_size= 10500 get_time= 0.000025571 get_block_size= 10500 get_time= 0.001119666 acc_block_size= 10000 acc_time= 0.000103987  total_block_size= 31000 mult_time= 0.001512485
+rank= 1 get_block_size= 10200 get_time= 0.000571967 get_block_size= 10710 get_time= 0.000895437 acc_block_size= 10500 acc_time= 0.000014558  total_block_size= 31410 mult_time= 0.001682546
+rank= 1 get_block_size= 10000 get_time= 0.000918420 get_block_size= 10000 get_time= 0.000234170 acc_block_size= 10000 acc_time= 0.000014649  total_block_size= 30000 mult_time= 0.001358426
+rank= 1 get_block_size= 10200 get_time= 0.000549333 get_block_size= 10200 get_time= 0.000155364 acc_block_size= 10404 acc_time= 0.000012705  total_block_size= 30804 mult_time= 0.000904556
+rank= 1 get_block_size= 11025 get_time= 0.001348401 get_block_size= 11025 get_time= 0.001973466 acc_block_size= 11025 acc_time= 0.000023446  total_block_size= 33075 mult_time= 0.003550127
+rank= 1 get_block_size= 10500 get_time= 0.001382597 get_block_size= 10200 get_time= 0.000422400 acc_block_size= 10710 acc_time= 0.000013046  total_block_size= 31410 mult_time= 0.002005623
+rank= 1 get_block_size= 10200 get_time= 0.001557396 get_block_size= 9180 get_time= 0.000236745 acc_block_size= 9000 acc_time= 0.000011720  total_block_size= 28380 mult_time= 0.001970095
+rank= 1 get_block_size= 10500 get_time= 0.004424132 get_block_size= 10500 get_time= 0.000251890 acc_block_size= 10000 acc_time= 0.000012720  total_block_size= 31000 mult_time= 0.004866406
+rank= 1 get_block_size= 9450 get_time= 0.001504177 get_block_size= 10500 get_time= 0.000245562 acc_block_size= 9000 acc_time= 0.000011451  total_block_size= 28950 mult_time= 0.001929173
+rank= 1 get_block_size= 10000 get_time= 0.001305485 get_block_size= 10500 get_time= 0.000551417 acc_block_size= 10500 acc_time= 0.000013291  total_block_size= 31000 mult_time= 0.002051086
+rank= 1 get_block_size= 10500 get_time= 0.001385226 get_block_size= 10500 get_time= 0.000867876 acc_block_size= 10000 acc_time= 0.000013179  total_block_size= 31000 mult_time= 0.002449131
+rank= 1 get_block_size= 10200 get_time= 0.000769644 get_block_size= 10200 get_time= 0.000138206 acc_block_size= 10404 acc_time= 0.000012903  total_block_size= 30804 mult_time= 0.001114121
+rank= 1 get_block_size= 10710 get_time= 0.001101765 get_block_size= 10500 get_time= 0.000196388 acc_block_size= 10200 acc_time= 0.000013636  total_block_size= 31410 mult_time= 0.001486519
+rank= 1 get_block_size= 11025 get_time= 0.001369840 get_block_size= 11025 get_time= 0.002819605 acc_block_size= 11025 acc_time= 0.000012816  total_block_size= 33075 mult_time= 0.004403920
+rank= 1 get_block_size= 10000 get_time= 0.001760863 get_block_size= 9000 get_time= 0.000058011 acc_block_size= 9000 acc_time= 0.000011998  total_block_size= 28000 mult_time= 0.001987578
+rank= 1 get_block_size= 10500 get_time= 0.003933700 get_block_size= 10200 get_time= 0.002965547 acc_block_size= 10710 acc_time= 0.000012389  total_block_size= 31410 mult_time= 0.007095870
+rank= 1 get_block_size= 10200 get_time= 0.002318339 get_block_size= 9000 get_time= 0.000294990 acc_block_size= 9180 acc_time= 0.000011821  total_block_size= 28380 mult_time= 0.002781009
+rank= 1 get_block_size= 9450 get_time= 0.000464975 get_block_size= 10500 get_time= 0.000079338 acc_block_size= 9000 acc_time= 0.000011583  total_block_size= 28950 mult_time= 0.000734384
+rank= 1 get_block_size= 9450 get_time= 0.002027006 get_block_size= 10500 get_time= 0.000051337 acc_block_size= 9000 acc_time= 0.000011462  total_block_size= 28950 mult_time= 0.002257473
+rank= 1 get_block_size= 10000 get_time= 0.000038982 acc_block_size= 10000 acc_time= 0.000070408  total_block_size= 20000 add_time= 0.000138190
+rank= 1 get_block_size= 10500 get_time= 0.000184867 acc_block_size= 10500 acc_time= 0.000107645  total_block_size= 21000 add_time= 0.000434090
+rank= 1 get_block_size= 11025 get_time= 0.000405659 acc_block_size= 11025 acc_time= 0.000038836  total_block_size= 22050 add_time= 0.000528424
+rank= 1 get_block_size= 10000 get_time= 0.000597998 acc_block_size= 10000 acc_time= 0.000013573  total_block_size= 20000 add_time= 0.000648332
+rank= 1 get_block_size= 10500 get_time= 0.000783655 get_block_size= 10500 get_time= 0.000467596 acc_block_size= 1 acc_time= 0.000007597  total_block_size= 21001 mult_time= 0.001429596
+rank= 1 get_block_size= 10200 get_time= 0.001176671 get_block_size= 10200 get_time= 0.000474170 acc_block_size= 1 acc_time= 0.000004572  total_block_size= 20401 mult_time= 0.001759862
+rank= 1 get_block_size= 10500 get_time= 0.000993256 get_block_size= 10500 get_time= 0.000717346 acc_block_size= 1 acc_time= 0.000004117  total_block_size= 21001 mult_time= 0.001833870
+rank= 1 get_block_size= 10000 get_time= 0.000046807 get_block_size= 10000 get_time= 0.000033987 acc_block_size= 1 acc_time= 0.000005178  total_block_size= 20001 mult_time= 0.000207372
+rank= 1 get_block_size= 10500 get_time= 0.000046844 get_block_size= 10500 get_time= 0.000670446 acc_block_size= 1 acc_time= 0.000004697  total_block_size= 21001 mult_time= 0.000831436
+rank= 1 get_block_size= 10200 get_time= 0.001244990 get_block_size= 10200 get_time= 0.000447301 acc_block_size= 1 acc_time= 0.000004716  total_block_size= 20401 mult_time= 0.001802076
+rank= 1 get_block_size= 10200 get_time= 0.000759714 get_block_size= 10200 get_time= 0.000587724 acc_block_size= 1 acc_time= 0.000004406  total_block_size= 20401 mult_time= 0.001455530
+rank= 1 get_block_size= 10000 get_time= 0.000050417 get_block_size= 10000 get_time= 0.000035168 acc_block_size= 1 acc_time= 0.000005177  total_block_size= 20001 mult_time= 0.000212336
+rank= 1 get_block_size= 10500 get_time= 0.000686337 get_block_size= 10500 get_time= 0.001573149 acc_block_size= 1 acc_time= 0.000004325  total_block_size= 21001 mult_time= 0.002373336
+rank= 1 get_block_size= 10000 get_time= 0.002053671 acc_block_size= 10000 acc_time= 0.000014232  total_block_size= 20000 add_time= 0.002110259
+rank= 1 get_block_size= 10500 get_time= 0.000212735 acc_block_size= 10500 acc_time= 0.000014759  total_block_size= 21000 add_time= 0.000261147
+rank= 1 get_block_size= 10404 get_time= 0.000289716 acc_block_size= 10404 acc_time= 0.000014597  total_block_size= 20808 add_time= 0.000332903
+rank= 1 get_block_size= 9000 get_time= 0.000196666 acc_block_size= 9000 acc_time= 0.000023769  total_block_size= 18000 add_time= 0.000248490
+rank= 1 get_block_size= 10200 get_time= 0.000042740 acc_block_size= 10200 acc_time= 0.000071937  total_block_size= 20400 add_time= 0.000158120
+rank= 1 get_block_size= 9000 get_time= 0.000055592 acc_block_size= 9000 acc_time= 0.000023819  total_block_size= 18000 add_time= 0.000106042
+rank= 1 get_block_size= 10000 get_time= 0.000014969 get_block_size= 10000 get_time= 0.000007390 acc_block_size= 1 acc_time= 0.000004341  total_block_size= 20001 mult_time= 0.000101413
+rank= 1 get_block_size= 10200 get_time= 0.000017314 acc_block_size= 10200 acc_time= 0.000075574  total_block_size= 20400 add_time= 0.000140425
+rank= 1 get_block_size= 10500 get_time= 0.000273413 acc_block_size= 10500 acc_time= 0.000050861  total_block_size= 21000 add_time= 0.000357659
+rank= 1 get_block_size= 10000 get_time= 0.000836404 acc_block_size= 10000 acc_time= 0.000013663  total_block_size= 20000 add_time= 0.000888962
+rank= 1 get_block_size= 10500 get_time= 0.000888070 acc_block_size= 10500 acc_time= 0.000013371  total_block_size= 21000 add_time= 0.000947518
+rank= 1 get_block_size= 10000 get_time= 0.000514959 acc_block_size= 10000 acc_time= 0.000011444  total_block_size= 20000 add_time= 0.000557946
+rank= 1 get_block_size= 10000 get_time= 0.000024386 get_block_size= 10000 get_time= 0.000623188 acc_block_size= 10000 acc_time= 0.000105412  total_block_size= 30000 mult_time= 0.000982480
+rank= 1 get_block_size= 10000 get_time= 0.000790452 get_block_size= 10500 get_time= 0.000678676 acc_block_size= 10500 acc_time= 0.000021357  total_block_size= 31000 mult_time= 0.001695392
+rank= 1 get_block_size= 10500 get_time= 0.001981071 get_block_size= 10500 get_time= 0.000682741 acc_block_size= 10000 acc_time= 0.000018226  total_block_size= 31000 mult_time= 0.002870562
+rank= 1 get_block_size= 10404 get_time= 0.000687592 get_block_size= 10200 get_time= 0.000295954 acc_block_size= 10200 acc_time= 0.000014550  total_block_size= 30804 mult_time= 0.001171958
+rank= 1 get_block_size= 10200 get_time= 0.001361166 get_block_size= 10000 get_time= 0.000178533 acc_block_size= 10200 acc_time= 0.000012944  total_block_size= 30400 mult_time= 0.001734231
+rank= 1 get_block_size= 10710 get_time= 0.001419530 get_block_size= 10710 get_time= 0.000280434 acc_block_size= 11025 acc_time= 0.000029060  total_block_size= 32445 mult_time= 0.001924160
+rank= 1 get_block_size= 10500 get_time= 0.002765504 get_block_size= 9000 get_time= 0.000086539 acc_block_size= 9450 acc_time= 0.000011758  total_block_size= 28950 mult_time= 0.003026430
+rank= 1 get_block_size= 10500 get_time= 0.000815988 get_block_size= 10500 get_time= 0.000165487 acc_block_size= 11025 acc_time= 0.000012767  total_block_size= 32025 mult_time= 0.001185777
+rank= 1 get_block_size= 10710 get_time= 0.001851669 get_block_size= 10200 get_time= 0.000309235 acc_block_size= 10500 acc_time= 0.000012413  total_block_size= 31410 mult_time= 0.002349356
+rank= 1 get_block_size= 10200 get_time= 0.000204598 get_block_size= 10500 get_time= 0.000052574 acc_block_size= 10710 acc_time= 0.000012579  total_block_size= 31410 mult_time= 0.000473878
+rank= 1 get_block_size= 10000 get_time= 0.001536475 get_block_size= 10500 get_time= 0.000654933 acc_block_size= 10500 acc_time= 0.000013584  total_block_size= 31000 mult_time= 0.002386215
+rank= 1 get_block_size= 9450 get_time= 0.002363715 get_block_size= 9450 get_time= 0.000047733 acc_block_size= 8100 acc_time= 0.000011450  total_block_size= 27000 mult_time= 0.002577129
+rank= 1 get_block_size= 10200 get_time= 0.000041285 get_block_size= 10200 get_time= 0.000304792 acc_block_size= 10000 acc_time= 0.000046565  total_block_size= 30400 mult_time= 0.000565012
+rank= 1 get_block_size= 10000 get_time= 0.000009161 get_block_size= 10500 get_time= 0.000035662 acc_block_size= 10500 acc_time= 0.000017011  total_block_size= 31000 mult_time= 0.000245784
+rank= 1 get_block_size= 10500 get_time= 0.001606541 get_block_size= 11025 get_time= 0.000731384 acc_block_size= 10500 acc_time= 0.000013110  total_block_size= 32025 mult_time= 0.002542924
+rank= 1 get_block_size= 10200 get_time= 0.000928845 get_block_size= 10404 get_time= 0.000349055 acc_block_size= 10200 acc_time= 0.000012215  total_block_size= 30804 mult_time= 0.001477625
+rank= 1 get_block_size= 10404 get_time= 0.000810322 get_block_size= 10200 get_time= 0.000361844 acc_block_size= 10200 acc_time= 0.000013295  total_block_size= 30804 mult_time= 0.001366080
+rank= 1 get_block_size= 10500 get_time= 0.000093756 get_block_size= 10000 get_time= 0.000074455 acc_block_size= 10500 acc_time= 0.000026846  total_block_size= 31000 mult_time= 0.000429889
+rank= 1 get_block_size= 11025 get_time= 0.000795115 get_block_size= 11025 get_time= 0.001743313 acc_block_size= 11025 acc_time= 0.000013117  total_block_size= 33075 mult_time= 0.002750745
+rank= 1 get_block_size= 10000 get_time= 0.002862481 get_block_size= 10000 get_time= 0.000430415 acc_block_size= 10000 acc_time= 0.000012280  total_block_size= 30000 mult_time= 0.003482875
+rank= 1 get_block_size= 11025 get_time= 0.001362016 get_block_size= 9450 get_time= 0.002446843 acc_block_size= 9450 acc_time= 0.000016162  total_block_size= 29925 mult_time= 0.003999805
+rank= 1 get_block_size= 10404 get_time= 0.002205979 get_block_size= 10710 get_time= 0.000170137 acc_block_size= 10710 acc_time= 0.000012759  total_block_size= 31824 mult_time= 0.002579120
+rank= 1 get_block_size= 10000 get_time= 0.003376963 get_block_size= 10000 get_time= 0.000331949 acc_block_size= 10000 acc_time= 0.000027072  total_block_size= 30000 mult_time= 0.003940095
+rank= 1 get_block_size= 10200 get_time= 0.000327198 acc_block_size= 10200 acc_time= 0.000040496  total_block_size= 20400 add_time= 0.000408157
+rank= 1 get_block_size= 10000 get_time= 0.000957134 acc_block_size= 10000 acc_time= 0.000043370  total_block_size= 20000 add_time= 0.001044056
+rank= 1 get_block_size= 10500 get_time= 0.001204190 get_block_size= 10500 get_time= 0.000038236 acc_block_size= 1 acc_time= 0.000005502  total_block_size= 21001 mult_time= 0.001398795
+rank= 1 get_block_size= 10200 get_time= 0.000211453 get_block_size= 10200 get_time= 0.000188668 acc_block_size= 1 acc_time= 0.000004445  total_block_size= 20401 mult_time= 0.000515959
+rank= 1 get_block_size= 10500 get_time= 0.000043773 get_block_size= 10500 get_time= 0.001524528 acc_block_size= 1 acc_time= 0.000004384  total_block_size= 21001 mult_time= 0.001700651
+rank= 1 get_block_size= 11025 get_time= 0.000965317 get_block_size= 11025 get_time= 0.001331269 acc_block_size= 1 acc_time= 0.000004595  total_block_size= 22051 mult_time= 0.002518099
+rank= 1 get_block_size= 10710 get_time= 0.000695521 get_block_size= 10710 get_time= 0.001128307 acc_block_size= 1 acc_time= 0.000004424  total_block_size= 21421 mult_time= 0.002122286
+rank= 1 get_block_size= 10200 get_time= 0.000909600 get_block_size= 10200 get_time= 0.000216382 acc_block_size= 1 acc_time= 0.000008667  total_block_size= 20401 mult_time= 0.001283242
+rank= 1 get_block_size= 10000 get_time= 0.000042109 get_block_size= 10000 get_time= 0.000469384 acc_block_size= 1 acc_time= 0.000004512  total_block_size= 20001 mult_time= 0.000624078
+rank= 1 get_block_size= 10000 get_time= 0.000043733 get_block_size= 10000 get_time= 0.000033696 acc_block_size= 1 acc_time= 0.000005315  total_block_size= 20001 mult_time= 0.000211521
+rank= 1 get_block_size= 10404 get_time= 0.000874053 get_block_size= 10404 get_time= 0.001299666 acc_block_size= 1 acc_time= 0.000004307  total_block_size= 20809 mult_time= 0.002284668
+rank= 1 get_block_size= 10500 get_time= 0.000016597 get_block_size= 10500 get_time= 0.000139635 acc_block_size= 1 acc_time= 0.000004209  total_block_size= 21001 mult_time= 0.000263816
+rank= 1 get_block_size= 9450 get_time= 0.000791319 get_block_size= 9450 get_time= 0.000667779 acc_block_size= 1 acc_time= 0.000004462  total_block_size= 18901 mult_time= 0.001583472
+rank= 1 get_block_size= 10500 get_time= 0.000580352 get_block_size= 10500 get_time= 0.000507112 acc_block_size= 1 acc_time= 0.000004145  total_block_size= 21001 mult_time= 0.001211453
+rank= 1 get_block_size= 10500 get_time= 0.000418505 get_block_size= 10500 get_time= 0.000937112 acc_block_size= 1 acc_time= 0.000004161  total_block_size= 21001 mult_time= 0.001476325
+rank= 1 get_block_size= 10500 get_time= 0.000057438 get_block_size= 10500 get_time= 0.001141942 acc_block_size= 1 acc_time= 0.000004301  total_block_size= 21001 mult_time= 0.001324707
+rank= 1 get_block_size= 10000 get_time= 0.000462375 get_block_size= 10000 get_time= 0.000475592 acc_block_size= 1 acc_time= 0.000005215  total_block_size= 20001 mult_time= 0.001068645
+rank= 1 get_block_size= 10000 get_time= 0.000050007 acc_block_size= 10000 acc_time= 0.000054158  total_block_size= 20000 add_time= 0.000162918
+rank= 1 get_block_size= 10710 get_time= 0.000130279 acc_block_size= 10710 acc_time= 0.000025678  total_block_size= 21420 add_time= 0.000185878
+rank= 1 get_block_size= 10000 get_time= 0.000042022 acc_block_size= 10000 acc_time= 0.000046880  total_block_size= 20000 add_time= 0.000114496
+rank= 1 get_block_size= 10710 get_time= 0.000443980 acc_block_size= 10710 acc_time= 0.000015598  total_block_size= 21420 add_time= 0.000488225
+rank= 1 get_block_size= 10200 get_time= 0.001018039 acc_block_size= 10200 acc_time= 0.000013870  total_block_size= 20400 add_time= 0.001072542
+rank= 1 get_block_size= 9000 get_time= 0.000432899 acc_block_size= 9000 acc_time= 0.000022966  total_block_size= 18000 add_time= 0.000486709
+rank= 1 get_block_size= 10200 get_time= 0.000024842 get_block_size= 10200 get_time= 0.000017696 acc_block_size= 1 acc_time= 0.000004841  total_block_size= 20401 mult_time= 0.000121604
+rank= 1 get_block_size= 10200 get_time= 0.000575150 acc_block_size= 10200 acc_time= 0.000011833  total_block_size= 20400 add_time= 0.000627214
+rank= 1 get_block_size= 10500 get_time= 0.001341514 acc_block_size= 10500 acc_time= 0.000011866  total_block_size= 21000 add_time= 0.001382397
+rank= 1 get_block_size= 10000 get_time= 0.000016279 acc_block_size= 10000 acc_time= 0.000050359  total_block_size= 20000 add_time= 0.000108864
+rank= 1 get_block_size= 10500 get_time= 0.000051603 acc_block_size= 10500 acc_time= 0.000047303  total_block_size= 21000 add_time= 0.000141968
+rank= 1 get_block_size= 11025 get_time= 0.000809827 acc_block_size= 11025 acc_time= 0.000016633  total_block_size= 22050 add_time= 0.000858392
+rank= 1 get_block_size= 10200 get_time= 0.000028631 get_block_size= 10200 get_time= 0.000798052 acc_block_size= 10000 acc_time= 0.000067763  total_block_size= 30400 mult_time= 0.001134622
+rank= 1 get_block_size= 10000 get_time= 0.000014316 get_block_size= 10500 get_time= 0.000489735 acc_block_size= 10500 acc_time= 0.000014260  total_block_size= 31000 mult_time= 0.000715731
+rank= 1 get_block_size= 10200 get_time= 0.000813438 get_block_size= 10710 get_time= 0.000566007 acc_block_size= 10500 acc_time= 0.000013824  total_block_size= 31410 mult_time= 0.001578151
+rank= 1 get_block_size= 10000 get_time= 0.001528805 get_block_size= 9000 get_time= 0.000217509 acc_block_size= 9000 acc_time= 0.000013041  total_block_size= 28000 mult_time= 0.001922087
+rank= 1 get_block_size= 10710 get_time= 0.001370170 get_block_size= 11025 get_time= 0.000419567 acc_block_size= 10710 acc_time= 0.000014080  total_block_size= 32445 mult_time= 0.001998236
+rank= 1 get_block_size= 10710 get_time= 0.000974567 get_block_size= 10710 get_time= 0.000362575 acc_block_size= 11025 acc_time= 0.000014373  total_block_size= 32445 mult_time= 0.001541433
+rank= 1 get_block_size= 9450 get_time= 0.000826723 get_block_size= 9450 get_time= 0.000219478 acc_block_size= 11025 acc_time= 0.000012938  total_block_size= 29925 mult_time= 0.001226397
+rank= 1 get_block_size= 10200 get_time= 0.002269041 get_block_size= 10404 get_time= 0.001165925 acc_block_size= 10200 acc_time= 0.000012093  total_block_size= 30804 mult_time= 0.003620689
+rank= 1 get_block_size= 9450 get_time= 0.000603973 get_block_size= 9450 get_time= 0.000191430 acc_block_size= 11025 acc_time= 0.000014435  total_block_size= 29925 mult_time= 0.000978669
+rank= 1 get_block_size= 10500 get_time= 0.001458504 get_block_size= 10710 get_time= 0.000570464 acc_block_size= 10200 acc_time= 0.000013407  total_block_size= 31410 mult_time= 0.002218779
+rank= 1 get_block_size= 10404 get_time= 0.000497315 get_block_size= 10404 get_time= 0.002628995 acc_block_size= 10404 acc_time= 0.000014610  total_block_size= 31212 mult_time= 0.003318419
+rank= 1 get_block_size= 10500 get_time= 0.002220157 get_block_size= 11025 get_time= 0.000322768 acc_block_size= 10500 acc_time= 0.000013501  total_block_size= 32025 mult_time= 0.002740017
+rank= 1 get_block_size= 9000 get_time= 0.002174724 get_block_size= 10000 get_time= 0.000247220 acc_block_size= 9000 acc_time= 0.000013241  total_block_size= 28000 mult_time= 0.002590428
+rank= 1 get_block_size= 10200 get_time= 0.000040166 get_block_size= 10200 get_time= 0.000281121 acc_block_size= 10000 acc_time= 0.000050338  total_block_size= 30400 mult_time= 0.000543688
+rank= 1 get_block_size= 9000 get_time= 0.001120846 get_block_size= 9000 get_time= 0.000583947 acc_block_size= 10000 acc_time= 0.000042510  total_block_size= 28000 mult_time= 0.001906627
+rank= 1 get_block_size= 10000 get_time= 0.001197335 get_block_size= 10500 get_time= 0.000594668 acc_block_size= 10500 acc_time= 0.000016393  total_block_size= 31000 mult_time= 0.001990220
+rank= 1 get_block_size= 10200 get_time= 0.000903104 get_block_size= 10500 get_time= 0.000378446 acc_block_size= 10710 acc_time= 0.000015452  total_block_size= 31410 mult_time= 0.001512120
+rank= 1 get_block_size= 10710 get_time= 0.001009686 get_block_size= 10200 get_time= 0.000582429 acc_block_size= 10500 acc_time= 0.000012829  total_block_size= 31410 mult_time= 0.001806400
+rank= 1 get_block_size= 10710 get_time= 0.002041145 get_block_size= 10200 get_time= 0.001319474 acc_block_size= 10500 acc_time= 0.000017032  total_block_size= 31410 mult_time= 0.003566539
+rank= 1 get_block_size= 9450 get_time= 0.000308363 get_block_size= 9000 get_time= 0.000274486 acc_block_size= 10500 acc_time= 0.000014054  total_block_size= 28950 mult_time= 0.000769973
+rank= 1 get_block_size= 10500 get_time= 0.001500519 get_block_size= 10500 get_time= 0.000161392 acc_block_size= 11025 acc_time= 0.000014259  total_block_size= 32025 mult_time= 0.001870885
+rank= 1 get_block_size= 10000 get_time= 0.002505791 get_block_size= 10500 get_time= 0.000336947 acc_block_size= 10500 acc_time= 0.000012336  total_block_size= 31000 mult_time= 0.003040917
+rank= 1 get_block_size= 10200 get_time= 0.000311654 get_block_size= 10000 get_time= 0.000181784 acc_block_size= 10200 acc_time= 0.000013864  total_block_size= 30400 mult_time= 0.000678688
+rank= 1 get_block_size= 10200 get_time= 0.000911461 get_block_size= 10710 get_time= 0.000145817 acc_block_size= 10500 acc_time= 0.000012890  total_block_size= 31410 mult_time= 0.001248235
+rank= 1 get_block_size= 9000 get_time= 0.000661924 get_block_size= 10000 get_time= 0.000586141 acc_block_size= 9000 acc_time= 0.000012878  total_block_size= 28000 mult_time= 0.001414355
+rank= 1 get_block_size= 9450 get_time= 0.001977994 get_block_size= 10710 get_time= 0.001160450 acc_block_size= 9180 acc_time= 0.000012529  total_block_size= 29340 mult_time= 0.003319311
+rank= 1 get_block_size= 10000 get_time= 0.000010310 acc_block_size= 10000 acc_time= 0.000079419  total_block_size= 20000 add_time= 0.000119322
+rank= 1 get_block_size= 9180 get_time= 0.000303491 acc_block_size= 9180 acc_time= 0.000011344  total_block_size= 18360 add_time= 0.000364416
+rank= 1 get_block_size= 9000 get_time= 0.000017948 acc_block_size= 9000 acc_time= 0.000065162  total_block_size= 18000 add_time= 0.000123434
+rank= 1 get_block_size= 10500 get_time= 0.000852004 get_block_size= 10500 get_time= 0.000013234 acc_block_size= 1 acc_time= 0.000006144  total_block_size= 21001 mult_time= 0.001019853
+rank= 1 get_block_size= 10200 get_time= 0.000015385 get_block_size= 10200 get_time= 0.000400417 acc_block_size= 1 acc_time= 0.000004560  total_block_size= 20401 mult_time= 0.000534045
+rank= 1 get_block_size= 11025 get_time= 0.000712371 get_block_size= 11025 get_time= 0.001063882 acc_block_size= 1 acc_time= 0.000004487  total_block_size= 22051 mult_time= 0.001910229
+rank= 1 get_block_size= 10500 get_time= 0.000023812 get_block_size= 10500 get_time= 0.000821810 acc_block_size= 1 acc_time= 0.000004144  total_block_size= 21001 mult_time= 0.000970208
+rank= 1 get_block_size= 10500 get_time= 0.000023015 get_block_size= 10500 get_time= 0.000655552 acc_block_size= 1 acc_time= 0.000004241  total_block_size= 21001 mult_time= 0.000815512
+rank= 1 get_block_size= 11025 get_time= 0.000641237 get_block_size= 11025 get_time= 0.000339134 acc_block_size= 1 acc_time= 0.000005716  total_block_size= 22051 mult_time= 0.001107513
+rank= 1 get_block_size= 10500 get_time= 0.000014649 get_block_size= 10500 get_time= 0.000183036 acc_block_size= 1 acc_time= 0.000004299  total_block_size= 21001 mult_time= 0.000307669
+rank= 1 get_block_size= 10500 get_time= 0.000017837 get_block_size= 10500 get_time= 0.000128255 acc_block_size= 1 acc_time= 0.000004175  total_block_size= 21001 mult_time= 0.000258176
+rank= 1 get_block_size= 10500 get_time= 0.000016257 get_block_size= 10500 get_time= 0.000375033 acc_block_size= 1 acc_time= 0.000004302  total_block_size= 21001 mult_time= 0.000506390
+rank= 1 get_block_size= 10000 get_time= 0.000020691 get_block_size= 10000 get_time= 0.000011953 acc_block_size= 1 acc_time= 0.000006251  total_block_size= 20001 mult_time= 0.000168426
+rank= 1 get_block_size= 10710 get_time= 0.000646715 get_block_size= 10710 get_time= 0.001462867 acc_block_size= 1 acc_time= 0.000004500  total_block_size= 21421 mult_time= 0.002229736
+rank= 1 get_block_size= 10000 get_time= 0.001191415 get_block_size= 10000 get_time= 0.000986229 acc_block_size= 1 acc_time= 0.000004777  total_block_size= 20001 mult_time= 0.002290289
+rank= 1 get_block_size= 11025 get_time= 0.000911018 get_block_size= 11025 get_time= 0.000595810 acc_block_size= 1 acc_time= 0.000004651  total_block_size= 22051 mult_time= 0.001632626
+rank= 1 get_block_size= 10000 get_time= 0.000041656 get_block_size= 10000 get_time= 0.000380252 acc_block_size= 1 acc_time= 0.000004260  total_block_size= 20001 mult_time= 0.000530580
+rank= 1 get_block_size= 9000 get_time= 0.000599625 get_block_size= 9000 get_time= 0.000362554 acc_block_size= 1 acc_time= 0.000004246  total_block_size= 18001 mult_time= 0.001096172
+rank= 1 get_block_size= 10710 get_time= 0.000670049 get_block_size= 10710 get_time= 0.001470170 acc_block_size= 1 acc_time= 0.000006542  total_block_size= 21421 mult_time= 0.002349773
+rank= 1 get_block_size= 10200 get_time= 0.001388127 get_block_size= 10200 get_time= 0.000121017 acc_block_size= 1 acc_time= 0.000004153  total_block_size= 20401 mult_time= 0.001617530
+rank= 1 get_block_size= 10000 get_time= 0.000044892 get_block_size= 10000 get_time= 0.000423831 acc_block_size= 1 acc_time= 0.000003996  total_block_size= 20001 mult_time= 0.000572448
+rank= 1 get_block_size= 10200 get_time= 0.000915168 get_block_size= 10200 get_time= 0.001349346 acc_block_size= 1 acc_time= 0.000004536  total_block_size= 20401 mult_time= 0.002376736
+rank= 1 get_block_size= 10500 get_time= 0.000734800 acc_block_size= 10500 acc_time= 0.000013876  total_block_size= 21000 add_time= 0.000794269
+rank= 1 get_block_size= 10710 get_time= 0.000217357 acc_block_size= 10710 acc_time= 0.000018215  total_block_size= 21420 add_time= 0.000290119
+rank= 1 get_block_size= 10710 get_time= 0.000273547 acc_block_size= 10710 acc_time= 0.000016269  total_block_size= 21420 add_time= 0.000320897
+rank= 1 get_block_size= 10710 get_time= 0.000546213 acc_block_size= 10710 acc_time= 0.000012822  total_block_size= 21420 add_time= 0.000586788
+rank= 1 get_block_size= 10000 get_time= 0.000968423 acc_block_size= 10000 acc_time= 0.000014064  total_block_size= 20000 add_time= 0.001075049
+rank= 1 get_block_size= 10200 get_time= 0.000108670 acc_block_size= 10200 acc_time= 0.000024710  total_block_size= 20400 add_time= 0.000191989
+rank= 1 get_block_size= 10000 get_time= 0.001007719 get_block_size= 10000 get_time= 0.000665635 acc_block_size= 1 acc_time= 0.000010119  total_block_size= 20001 mult_time= 0.001802899
+rank= 1 get_block_size= 10000 get_time= 0.000608005 acc_block_size= 10000 acc_time= 0.000020146  total_block_size= 20000 add_time= 0.000714055
+rank= 1 get_block_size= 10500 get_time= 0.000480576 acc_block_size= 10500 acc_time= 0.000029250  total_block_size= 21000 add_time= 0.000565655
+rank= 1 get_block_size= 10200 get_time= 0.000016470 acc_block_size= 10200 acc_time= 0.000048480  total_block_size= 20400 add_time= 0.000108650
+rank= 1 get_block_size= 10500 get_time= 0.000573385 acc_block_size= 10500 acc_time= 0.000013192  total_block_size= 21000 add_time= 0.000615341
+rank= 1 get_block_size= 10500 get_time= 0.000019152 get_block_size= 10500 get_time= 0.000236398 acc_block_size= 10000 acc_time= 0.000044336  total_block_size= 31000 mult_time= 0.000527394
+rank= 1 get_block_size= 9000 get_time= 0.001972006 get_block_size= 9450 get_time= 0.000627305 acc_block_size= 10500 acc_time= 0.000013730  total_block_size= 28950 mult_time= 0.002787475
+rank= 1 get_block_size= 10000 get_time= 0.000657434 get_block_size= 10000 get_time= 0.000163530 acc_block_size= 10000 acc_time= 0.000014102  total_block_size= 30000 mult_time= 0.001011857
+rank= 1 get_block_size= 10710 get_time= 0.000070495 get_block_size= 11025 get_time= 0.000088249 acc_block_size= 10710 acc_time= 0.000012280  total_block_size= 32445 mult_time= 0.000367968
+rank= 1 get_block_size= 11025 get_time= 0.000721624 get_block_size= 11025 get_time= 0.000081754 acc_block_size= 11025 acc_time= 0.000012853  total_block_size= 33075 mult_time= 0.001016510
+rank= 1 get_block_size= 11025 get_time= 0.002527240 get_block_size= 10710 get_time= 0.002184288 acc_block_size= 10710 acc_time= 0.000014726  total_block_size= 32445 mult_time= 0.004976529
+rank= 1 get_block_size= 10500 get_time= 0.001283898 get_block_size= 10000 get_time= 0.000248858 acc_block_size= 10500 acc_time= 0.000014589  total_block_size= 31000 mult_time= 0.001734274
+rank= 1 get_block_size= 9000 get_time= 0.001553448 get_block_size= 9000 get_time= 0.000258663 acc_block_size= 10000 acc_time= 0.000013494  total_block_size= 28000 mult_time= 0.001980418
+rank= 1 get_block_size= 9180 get_time= 0.000207734 get_block_size= 9000 get_time= 0.000271849 acc_block_size= 10200 acc_time= 0.000013255  total_block_size= 28380 mult_time= 0.000650852
+rank= 1 get_block_size= 10710 get_time= 0.005498373 get_block_size= 9450 get_time= 0.000861651 acc_block_size= 9180 acc_time= 0.000012244  total_block_size= 29340 mult_time= 0.006537861
+rank= 1 get_block_size= 10200 get_time= 0.000041107 get_block_size= 10200 get_time= 0.000639757 acc_block_size= 10000 acc_time= 0.000049732  total_block_size= 30400 mult_time= 0.000902323
+rank= 1 get_block_size= 10200 get_time= 0.000586515 get_block_size= 10710 get_time= 0.000794700 acc_block_size= 10500 acc_time= 0.000013956  total_block_size= 31410 mult_time= 0.001577422
+rank= 1 get_block_size= 10200 get_time= 0.001741652 get_block_size= 10710 get_time= 0.002111455 acc_block_size= 10500 acc_time= 0.000024741  total_block_size= 31410 mult_time= 0.004053427
+rank= 1 get_block_size= 10200 get_time= 0.000288091 get_block_size= 10200 get_time= 0.000038880 acc_block_size= 10404 acc_time= 0.000013308  total_block_size= 30804 mult_time= 0.000517742
+rank= 1 get_block_size= 11025 get_time= 0.001274617 get_block_size= 11025 get_time= 0.003345962 acc_block_size= 11025 acc_time= 0.000014141  total_block_size= 33075 mult_time= 0.004828414
+rank= 1 get_block_size= 10000 get_time= 0.003558919 get_block_size= 10000 get_time= 0.000379967 acc_block_size= 10000 acc_time= 0.000013003  total_block_size= 30000 mult_time= 0.004125446
+rank= 1 get_block_size= 10000 get_time= 0.002932595 get_block_size= 9000 get_time= 0.000431241 acc_block_size= 9000 acc_time= 0.000012961  total_block_size= 28000 mult_time= 0.003546662
+rank= 1 get_block_size= 10500 get_time= 0.001228301 get_block_size= 11025 get_time= 0.000268702 acc_block_size= 10500 acc_time= 0.000013318  total_block_size= 32025 mult_time= 0.001695104
+rank= 1 get_block_size= 9450 get_time= 0.002122207 get_block_size= 10710 get_time= 0.000356602 acc_block_size= 9180 acc_time= 0.000013278  total_block_size= 29340 mult_time= 0.002674835
+rank= 1 get_block_size= 10500 get_time= 0.000047266 acc_block_size= 10500 acc_time= 0.000075791  total_block_size= 21000 add_time= 0.000152436
+rank= 1 get_block_size= 10000 get_time= 0.000707527 acc_block_size= 10000 acc_time= 0.000017357  total_block_size= 20000 add_time= 0.000786209
+rank= 1 get_block_size= 11025 get_time= 0.001374658 get_block_size= 11025 get_time= 0.001174371 acc_block_size= 1 acc_time= 0.000004466  total_block_size= 22051 mult_time= 0.002673617
+rank= 1 get_block_size= 9000 get_time= 0.001038367 get_block_size= 9000 get_time= 0.000926936 acc_block_size= 1 acc_time= 0.000004336  total_block_size= 18001 mult_time= 0.002067265
+rank= 1 get_block_size= 11025 get_time= 0.000174617 get_block_size= 11025 get_time= 0.002014148 acc_block_size= 1 acc_time= 0.000004527  total_block_size= 22051 mult_time= 0.002306442
+rank= 1 get_block_size= 10200 get_time= 0.000017000 get_block_size= 10200 get_time= 0.000441437 acc_block_size= 1 acc_time= 0.000004090  total_block_size= 20401 mult_time= 0.000573649
+rank= 1 get_block_size= 10000 get_time= 0.000039666 get_block_size= 10000 get_time= 0.000832834 acc_block_size= 1 acc_time= 0.000004172  total_block_size= 20001 mult_time= 0.000984715
+rank= 1 get_block_size= 10710 get_time= 0.001356266 get_block_size= 10710 get_time= 0.000842214 acc_block_size= 1 acc_time= 0.000004203  total_block_size= 21421 mult_time= 0.002313725
+rank= 1 get_block_size= 10000 get_time= 0.000014478 get_block_size= 10000 get_time= 0.000210004 acc_block_size= 1 acc_time= 0.000005418  total_block_size= 20001 mult_time= 0.000381309
+rank= 1 get_block_size= 10000 get_time= 0.000041154 get_block_size= 10000 get_time= 0.000709478 acc_block_size= 1 acc_time= 0.000004145  total_block_size= 20001 mult_time= 0.000858542
+rank= 1 get_block_size= 10500 get_time= 0.000307868 get_block_size= 10500 get_time= 0.000999018 acc_block_size= 1 acc_time= 0.000004527  total_block_size= 21001 mult_time= 0.001421607
+rank= 1 get_block_size= 9000 get_time= 0.000040932 get_block_size= 9000 get_time= 0.000413691 acc_block_size= 1 acc_time= 0.000004253  total_block_size= 18001 mult_time= 0.000561342
+rank= 1 get_block_size= 10000 get_time= 0.000018826 get_block_size= 10000 get_time= 0.000301824 acc_block_size= 1 acc_time= 0.000004111  total_block_size= 20001 mult_time= 0.000429215
+rank= 1 get_block_size= 10500 get_time= 0.000014685 get_block_size= 10500 get_time= 0.000331885 acc_block_size= 1 acc_time= 0.000005957  total_block_size= 21001 mult_time= 0.000479803
+rank= 1 get_block_size= 11025 get_time= 0.000529571 get_block_size= 11025 get_time= 0.000813524 acc_block_size= 1 acc_time= 0.000004266  total_block_size= 22051 mult_time= 0.001462418
+rank= 1 get_block_size= 10500 get_time= 0.000461693 get_block_size= 10500 get_time= 0.000991342 acc_block_size= 1 acc_time= 0.000004772  total_block_size= 21001 mult_time= 0.001569131
+rank= 1 get_block_size= 10000 get_time= 0.000044649 get_block_size= 10000 get_time= 0.000298260 acc_block_size= 1 acc_time= 0.000004013  total_block_size= 20001 mult_time= 0.000450727
+rank= 1 get_block_size= 10500 get_time= 0.000046326 get_block_size= 10500 get_time= 0.000374737 acc_block_size= 1 acc_time= 0.000003890  total_block_size= 21001 mult_time= 0.000533739
+rank= 1 get_block_size= 10710 get_time= 0.001491129 get_block_size= 10710 get_time= 0.000503221 acc_block_size= 1 acc_time= 0.000008311  total_block_size= 21421 mult_time= 0.002205888
+rank= 1 get_block_size= 10500 get_time= 0.000639177 get_block_size= 10500 get_time= 0.000012128 acc_block_size= 1 acc_time= 0.000005497  total_block_size= 21001 mult_time= 0.000787815
+rank= 1 get_block_size= 10500 get_time= 0.001162512 get_block_size= 10500 get_time= 0.000571959 acc_block_size= 1 acc_time= 0.000004185  total_block_size= 21001 mult_time= 0.001845221
+rank= 1 get_block_size= 10000 get_time= 0.000044397 get_block_size= 10000 get_time= 0.000633537 acc_block_size= 1 acc_time= 0.000004030  total_block_size= 20001 mult_time= 0.000792086
+rank= 1 get_block_size= 10500 get_time= 0.000782395 get_block_size= 10500 get_time= 0.000042525 acc_block_size= 1 acc_time= 0.000005360  total_block_size= 21001 mult_time= 0.000961778
+rank= 1 get_block_size= 10500 get_time= 0.000045440 get_block_size= 10500 get_time= 0.000222840 acc_block_size= 1 acc_time= 0.000004868  total_block_size= 21001 mult_time= 0.000383273
+rank= 1 get_block_size= 10000 get_time= 0.000015172 get_block_size= 10000 get_time= 0.000213622 acc_block_size= 1 acc_time= 0.000004265  total_block_size= 20001 mult_time= 0.000335941
+rank= 1 get_block_size= 10500 get_time= 0.000047530 get_block_size= 10500 get_time= 0.001007160 acc_block_size= 1 acc_time= 0.000004146  total_block_size= 21001 mult_time= 0.001164261
+rank= 1 get_block_size= 10500 get_time= 0.000043861 get_block_size= 10500 get_time= 0.000447757 acc_block_size= 1 acc_time= 0.000004303  total_block_size= 21001 mult_time= 0.000620344
+rank= 1 get_block_size= 10500 get_time= 0.000754361 get_block_size= 10500 get_time= 0.000344095 acc_block_size= 1 acc_time= 0.000004278  total_block_size= 21001 mult_time= 0.001211858
+rank= 1 get_block_size= 10000 get_time= 0.000043209 get_block_size= 10000 get_time= 0.000568383 acc_block_size= 1 acc_time= 0.000004049  total_block_size= 20001 mult_time= 0.000717709
+rank= 1 get_block_size= 9450 get_time= 0.002191195 acc_block_size= 9450 acc_time= 0.000017649  total_block_size= 18900 add_time= 0.002247475
+rank= 1 get_block_size= 10500 get_time= 0.000121071 acc_block_size= 10500 acc_time= 0.000014098  total_block_size= 21000 add_time= 0.000164809
+rank= 1 get_block_size= 10000 get_time= 0.000298951 acc_block_size= 10000 acc_time= 0.000013140  total_block_size= 20000 add_time= 0.000346074
+rank= 1 get_block_size= 10000 get_time= 0.000041476 acc_block_size= 10000 acc_time= 0.000049056  total_block_size= 20000 add_time= 0.000119288
+rank= 1 get_block_size= 11025 get_time= 0.000113394 acc_block_size= 11025 acc_time= 0.000024820  total_block_size= 22050 add_time= 0.000168037
+rank= 1 get_block_size= 9180 get_time= 0.000158099 acc_block_size= 9180 acc_time= 0.000011695  total_block_size= 18360 add_time= 0.000195284
+rank= 1 get_block_size= 10200 get_time= 0.000402160 acc_block_size= 10200 acc_time= 0.000012896  total_block_size= 20400 add_time= 0.000459755
+rank= 1 get_block_size= 11025 get_time= 0.001001558 acc_block_size= 11025 acc_time= 0.000013576  total_block_size= 22050 add_time= 0.001047185
+rank= 1 get_block_size= 10500 get_time= 0.000030684 get_block_size= 10500 get_time= 0.000024181 acc_block_size= 1 acc_time= 0.000005201  total_block_size= 21001 mult_time= 0.000148402
+rank= 1 get_block_size= 10000 get_time= 0.000021371 acc_block_size= 10000 acc_time= 0.000077100  total_block_size= 20000 add_time= 0.000142500
+rank= 1 get_block_size= 11025 get_time= 0.000801974 acc_block_size= 11025 acc_time= 0.000012947  total_block_size= 22050 add_time= 0.000858832
+rank= 1 get_block_size= 10200 get_time= 0.000035763 acc_block_size= 10200 acc_time= 0.000076754  total_block_size= 20400 add_time= 0.000156247
+rank= 1 get_block_size= 10200 get_time= 0.000018024 acc_block_size= 10200 acc_time= 0.000051293  total_block_size= 20400 add_time= 0.000123649
+rank= 1 get_block_size= 10500 get_time= 0.000899180 acc_block_size= 10500 acc_time= 0.000012685  total_block_size= 21000 add_time= 0.000939816
+rank= 1 get_block_size= 10000 get_time= 0.000021962 get_block_size= 10000 get_time= 0.000039788 acc_block_size= 10000 acc_time= 0.000155746  total_block_size= 30000 mult_time= 0.000653850
+rank= 1 get_block_size= 10000 get_time= 0.000990374 get_block_size= 10500 get_time= 0.000811435 acc_block_size= 10500 acc_time= 0.000014435  total_block_size= 31000 mult_time= 0.002026272
+rank= 1 get_block_size= 10200 get_time= 0.000947720 get_block_size= 10710 get_time= 0.000848758 acc_block_size= 10500 acc_time= 0.000014022  total_block_size= 31410 mult_time= 0.002008526
+rank= 1 get_block_size= 10200 get_time= 0.000526636 get_block_size= 9180 get_time= 0.000348420 acc_block_size= 9000 acc_time= 0.000011573  total_block_size= 28380 mult_time= 0.001074605
+rank= 1 get_block_size= 9180 get_time= 0.000770932 get_block_size= 9450 get_time= 0.000376110 acc_block_size= 10710 acc_time= 0.000014560  total_block_size= 29340 mult_time= 0.001337069
+rank= 1 get_block_size= 10500 get_time= 0.002343754 get_block_size= 9000 get_time= 0.000428241 acc_block_size= 9450 acc_time= 0.000017032  total_block_size= 28950 mult_time= 0.002954095
+rank= 1 get_block_size= 10200 get_time= 0.000469463 get_block_size= 10200 get_time= 0.000173929 acc_block_size= 10000 acc_time= 0.000019184  total_block_size= 30400 mult_time= 0.000833018
+rank= 1 get_block_size= 10500 get_time= 0.001874505 get_block_size= 10500 get_time= 0.000616908 acc_block_size= 10000 acc_time= 0.000012708  total_block_size= 31000 mult_time= 0.002679269
+rank= 1 get_block_size= 10500 get_time= 0.002687083 get_block_size= 10200 get_time= 0.003469554 acc_block_size= 10710 acc_time= 0.000012393  total_block_size= 31410 mult_time= 0.006346301
+rank= 1 get_block_size= 10710 get_time= 0.004395858 get_block_size= 10500 get_time= 0.000829422 acc_block_size= 10200 acc_time= 0.000012595  total_block_size= 31410 mult_time= 0.005425384
+rank= 1 get_block_size= 10000 get_time= 0.000016746 get_block_size= 10000 get_time= 0.000562020 acc_block_size= 10000 acc_time= 0.000047486  total_block_size= 30000 mult_time= 0.000991360
+rank= 1 get_block_size= 10500 get_time= 0.001007981 get_block_size= 11025 get_time= 0.000583699 acc_block_size= 10500 acc_time= 0.000019271  total_block_size= 32025 mult_time= 0.001816946
+rank= 1 get_block_size= 10500 get_time= 0.001593618 get_block_size= 11025 get_time= 0.000563998 acc_block_size= 10500 acc_time= 0.000014312  total_block_size= 32025 mult_time= 0.002364735
+rank= 1 get_block_size= 10200 get_time= 0.000658262 get_block_size= 10200 get_time= 0.000037736 acc_block_size= 10404 acc_time= 0.000018270  total_block_size= 30804 mult_time= 0.000896820
+rank= 1 get_block_size= 10500 get_time= 0.001168045 get_block_size= 10500 get_time= 0.000142694 acc_block_size= 11025 acc_time= 0.000014858  total_block_size= 32025 mult_time= 0.001520631
+rank= 1 get_block_size= 10500 get_time= 0.002418540 get_block_size= 10500 get_time= 0.000032431 acc_block_size= 11025 acc_time= 0.000026517  total_block_size= 32025 mult_time= 0.002730468
+rank= 1 get_block_size= 10500 get_time= 0.001900186 get_block_size= 10500 get_time= 0.003246842 acc_block_size= 10000 acc_time= 0.000014586  total_block_size= 31000 mult_time= 0.005350898
+rank= 1 get_block_size= 10000 get_time= 0.003825718 get_block_size= 10000 get_time= 0.000119053 acc_block_size= 10000 acc_time= 0.000012269  total_block_size= 30000 mult_time= 0.004126964
+rank= 1 get_block_size= 10000 get_time= 0.000256625 get_block_size= 10500 get_time= 0.002259588 acc_block_size= 10500 acc_time= 0.000012295  total_block_size= 31000 mult_time= 0.002718304
+rank= 1 get_block_size= 9000 get_time= 0.001798139 get_block_size= 10000 get_time= 0.002539268 acc_block_size= 9000 acc_time= 0.000011107  total_block_size= 28000 mult_time= 0.004508106
+rank= 1 get_block_size= 10000 get_time= 0.000036659 acc_block_size= 10000 acc_time= 0.000072604  total_block_size= 20000 add_time= 0.000140002
+rank= 1 get_block_size= 9000 get_time= 0.000234058 acc_block_size= 9000 acc_time= 0.000013755  total_block_size= 18000 add_time= 0.000309256
+rank= 1 get_block_size= 10200 get_time= 0.000422023 acc_block_size= 10200 acc_time= 0.000042237  total_block_size= 20400 add_time= 0.000502471
+rank= 1 get_block_size= 10200 get_time= 0.000044492 get_block_size= 10200 get_time= 0.001159637 acc_block_size= 1 acc_time= 0.000004278  total_block_size= 20401 mult_time= 0.001313561
+rank= 1 get_block_size= 9180 get_time= 0.000327853 get_block_size= 9180 get_time= 0.000696318 acc_block_size= 1 acc_time= 0.000004630  total_block_size= 18361 mult_time= 0.001130733
+rank= 1 get_block_size= 10000 get_time= 0.000189211 get_block_size= 10000 get_time= 0.001361745 acc_block_size= 1 acc_time= 0.000004320  total_block_size= 20001 mult_time= 0.001658417
+rank= 1 get_block_size= 11025 get_time= 0.000418627 get_block_size= 11025 get_time= 0.001867562 acc_block_size= 1 acc_time= 0.000004464  total_block_size= 22051 mult_time= 0.002406232
+rank= 1 get_block_size= 10500 get_time= 0.000782735 get_block_size= 10500 get_time= 0.000916193 acc_block_size= 1 acc_time= 0.000004161  total_block_size= 21001 mult_time= 0.001814115
+rank= 1 get_block_size= 10710 get_time= 0.001554283 get_block_size= 10710 get_time= 0.000560882 acc_block_size= 1 acc_time= 0.000004131  total_block_size= 21421 mult_time= 0.002225443
+rank= 1 get_block_size= 10500 get_time= 0.000015737 get_block_size= 10500 get_time= 0.000279163 acc_block_size= 1 acc_time= 0.000004317  total_block_size= 21001 mult_time= 0.000403359
+rank= 1 get_block_size= 10000 get_time= 0.000014962 get_block_size= 10000 get_time= 0.000091654 acc_block_size= 1 acc_time= 0.000004100  total_block_size= 20001 mult_time= 0.000211443
+rank= 1 get_block_size= 10500 get_time= 0.000016141 get_block_size= 10500 get_time= 0.000499929 acc_block_size= 1 acc_time= 0.000004046  total_block_size= 21001 mult_time= 0.000627757
+rank= 1 get_block_size= 9000 get_time= 0.000796101 get_block_size= 9000 get_time= 0.000724849 acc_block_size= 1 acc_time= 0.000004482  total_block_size= 18001 mult_time= 0.001630743
+rank= 1 get_block_size= 10500 get_time= 0.000016654 get_block_size= 10500 get_time= 0.000680480 acc_block_size= 1 acc_time= 0.000004630  total_block_size= 21001 mult_time= 0.000807493
+rank= 1 get_block_size= 10200 get_time= 0.000561396 get_block_size= 10200 get_time= 0.001225351 acc_block_size= 1 acc_time= 0.000004573  total_block_size= 20401 mult_time= 0.001897010
+rank= 1 get_block_size= 10710 get_time= 0.000659363 get_block_size= 10710 get_time= 0.000748269 acc_block_size= 1 acc_time= 0.000004134  total_block_size= 21421 mult_time= 0.001515315
+rank= 1 get_block_size= 10000 get_time= 0.000016794 get_block_size= 10000 get_time= 0.000104272 acc_block_size= 1 acc_time= 0.000004077  total_block_size= 20001 mult_time= 0.000234205
+rank= 1 get_block_size= 10500 get_time= 0.000265007 get_block_size= 10500 get_time= 0.000717399 acc_block_size= 1 acc_time= 0.000005409  total_block_size= 21001 mult_time= 0.001116384
+rank= 1 get_block_size= 10200 get_time= 0.000042843 get_block_size= 10200 get_time= 0.000546281 acc_block_size= 1 acc_time= 0.000004248  total_block_size= 20401 mult_time= 0.000704383
+rank= 1 get_block_size= 10500 get_time= 0.000016504 get_block_size= 10500 get_time= 0.000237248 acc_block_size= 1 acc_time= 0.000004169  total_block_size= 21001 mult_time= 0.000369764
+rank= 1 get_block_size= 10500 get_time= 0.000017265 get_block_size= 10500 get_time= 0.000537436 acc_block_size= 1 acc_time= 0.000004103  total_block_size= 21001 mult_time= 0.000666960
+rank= 1 get_block_size= 10000 get_time= 0.000015546 get_block_size= 10000 get_time= 0.000437113 acc_block_size= 1 acc_time= 0.000004034  total_block_size= 20001 mult_time= 0.000560765
+rank= 1 get_block_size= 10200 get_time= 0.000751462 get_block_size= 10200 get_time= 0.001106230 acc_block_size= 1 acc_time= 0.000004504  total_block_size= 20401 mult_time= 0.001964931
+rank= 1 get_block_size= 10000 get_time= 0.000015230 get_block_size= 10000 get_time= 0.000383704 acc_block_size= 1 acc_time= 0.000004067  total_block_size= 20001 mult_time= 0.000503729
+rank= 1 get_block_size= 10500 get_time= 0.000045716 get_block_size= 10500 get_time= 0.000244243 acc_block_size= 1 acc_time= 0.000004077  total_block_size= 21001 mult_time= 0.000402205
+rank= 1 get_block_size= 11025 get_time= 0.000801952 get_block_size= 11025 get_time= 0.001162087 acc_block_size= 1 acc_time= 0.000004259  total_block_size= 22051 mult_time= 0.002080104
+rank= 1 get_block_size= 10000 get_time= 0.001839402 get_block_size= 10000 get_time= 0.000524446 acc_block_size= 1 acc_time= 0.000004433  total_block_size= 20001 mult_time= 0.002470894
+rank= 1 get_block_size= 10710 get_time= 0.001635609 get_block_size= 10710 get_time= 0.000324860 acc_block_size= 1 acc_time= 0.000004471  total_block_size= 21421 mult_time= 0.002170851
+rank= 1 get_block_size= 10200 get_time= 0.001023429 get_block_size= 10200 get_time= 0.000741059 acc_block_size= 1 acc_time= 0.000004278  total_block_size= 20401 mult_time= 0.002023087
+rank= 1 get_block_size= 10500 get_time= 0.000606274 get_block_size= 10500 get_time= 0.000884386 acc_block_size= 1 acc_time= 0.000004140  total_block_size= 21001 mult_time= 0.001616046
+rank= 1 get_block_size= 10200 get_time= 0.000048343 get_block_size= 10200 get_time= 0.000681082 acc_block_size= 1 acc_time= 0.000004044  total_block_size= 20401 mult_time= 0.000847136
+rank= 1 get_block_size= 10000 get_time= 0.000039937 get_block_size= 10000 get_time= 0.000719379 acc_block_size= 1 acc_time= 0.000004478  total_block_size= 20001 mult_time= 0.000938697
+rank= 1 get_block_size= 10200 get_time= 0.000750314 get_block_size= 10200 get_time= 0.000464025 acc_block_size= 1 acc_time= 0.000004572  total_block_size= 20401 mult_time= 0.001351502
+rank= 1 get_block_size= 10500 get_time= 0.000818372 get_block_size= 10500 get_time= 0.000738596 acc_block_size= 1 acc_time= 0.000003921  total_block_size= 21001 mult_time= 0.001681583
+rank= 1 get_block_size= 10500 get_time= 0.000049970 get_block_size= 10500 get_time= 0.000366649 acc_block_size= 1 acc_time= 0.000004071  total_block_size= 21001 mult_time= 0.000545025
+rank= 1 get_block_size= 9450 get_time= 0.000894273 get_block_size= 9450 get_time= 0.000756481 acc_block_size= 1 acc_time= 0.000004086  total_block_size= 18901 mult_time= 0.001761439
+rank= 1 get_block_size= 10200 get_time= 0.000917343 get_block_size= 10200 get_time= 0.000295425 acc_block_size= 1 acc_time= 0.000004149  total_block_size= 20401 mult_time= 0.001337254
+rank= 1 get_block_size= 10200 get_time= 0.000737245 get_block_size= 10200 get_time= 0.000045368 acc_block_size= 1 acc_time= 0.000004999  total_block_size= 20401 mult_time= 0.000911063
+rank= 1 get_block_size= 10500 get_time= 0.001111031 acc_block_size= 10500 acc_time= 0.000014664  total_block_size= 21000 add_time= 0.001179243
+rank= 1 get_block_size= 10710 get_time= 0.000452024 acc_block_size= 10710 acc_time= 0.000019428  total_block_size= 21420 add_time= 0.000500468
+rank= 1 get_block_size= 10200 get_time= 0.000219790 acc_block_size= 10200 acc_time= 0.000011740  total_block_size= 20400 add_time= 0.000256800
+rank= 1 get_block_size= 10710 get_time= 0.000276780 acc_block_size= 10710 acc_time= 0.000012469  total_block_size= 21420 add_time= 0.000315317
+rank= 1 get_block_size= 11025 get_time= 0.000303171 acc_block_size= 11025 acc_time= 0.000012484  total_block_size= 22050 add_time= 0.000358567
+rank= 1 get_block_size= 10000 get_time= 0.000052528 acc_block_size= 10000 acc_time= 0.000073959  total_block_size= 20000 add_time= 0.000165138
+rank= 1 get_block_size= 10000 get_time= 0.000203803 acc_block_size= 10000 acc_time= 0.000011974  total_block_size= 20000 add_time= 0.000247766
+rank= 1 get_block_size= 10500 get_time= 0.001179815 get_block_size= 10500 get_time= 0.000415836 acc_block_size= 1 acc_time= 0.000004475  total_block_size= 21001 mult_time= 0.001677279
+rank= 1 get_block_size= 10000 get_time= 0.000030529 acc_block_size= 10000 acc_time= 0.000070672  total_block_size= 20000 add_time= 0.000145575
+rank= 1 get_block_size= 10500 get_time= 0.000796764 acc_block_size= 10500 acc_time= 0.000016143  total_block_size= 21000 add_time= 0.000842168
+rank= 1 get_block_size= 10500 get_time= 0.000891515 acc_block_size= 10500 acc_time= 0.000015168  total_block_size= 21000 add_time= 0.000952059
+rank= 1 get_block_size= 10710 get_time= 0.001092852 acc_block_size= 10710 acc_time= 0.000014982  total_block_size= 21420 add_time= 0.001149254
+rank= 1 get_block_size= 10710 get_time= 0.000261044 acc_block_size= 10710 acc_time= 0.000012767  total_block_size= 21420 add_time= 0.000298774
+rank= 1 get_block_size= 10000 get_time= 0.000028824 get_block_size= 10000 get_time= 0.000021369 acc_block_size= 10000 acc_time= 0.000049983  total_block_size= 30000 mult_time= 0.000329186
+rank= 1 get_block_size= 10500 get_time= 0.000844166 get_block_size= 11025 get_time= 0.001245617 acc_block_size= 10500 acc_time= 0.000013809  total_block_size= 32025 mult_time= 0.002296822
+rank= 1 get_block_size= 10500 get_time= 0.001984598 get_block_size= 10500 get_time= 0.000767354 acc_block_size= 10000 acc_time= 0.000013288  total_block_size= 31000 mult_time= 0.002945325
+rank= 1 get_block_size= 10200 get_time= 0.001551752 get_block_size= 10500 get_time= 0.000341582 acc_block_size= 10710 acc_time= 0.000013846  total_block_size= 31410 mult_time= 0.002091489
+rank= 1 get_block_size= 9450 get_time= 0.001220288 get_block_size= 9450 get_time= 0.000180523 acc_block_size= 11025 acc_time= 0.000017315  total_block_size= 29925 mult_time= 0.001594282
+rank= 1 get_block_size= 11025 get_time= 0.001734773 get_block_size= 10500 get_time= 0.002726522 acc_block_size= 10500 acc_time= 0.000015802  total_block_size= 32025 mult_time= 0.004666614
+rank= 1 get_block_size= 9450 get_time= 0.000520307 get_block_size= 9180 get_time= 0.000550881 acc_block_size= 10710 acc_time= 0.000013940  total_block_size= 29340 mult_time= 0.001254454
+rank= 1 get_block_size= 10000 get_time= 0.001468952 get_block_size= 10000 get_time= 0.000010394 acc_block_size= 10000 acc_time= 0.000012173  total_block_size= 30000 mult_time= 0.001660603
+rank= 1 get_block_size= 10000 get_time= 0.002164629 get_block_size= 9000 get_time= 0.000572042 acc_block_size= 9000 acc_time= 0.000016775  total_block_size= 28000 mult_time= 0.002909963
+rank= 1 get_block_size= 10500 get_time= 0.000379997 get_block_size= 10500 get_time= 0.000202007 acc_block_size= 10000 acc_time= 0.000012099  total_block_size= 31000 mult_time= 0.000801196
+rank= 1 get_block_size= 10200 get_time= 0.000925755 get_block_size= 10710 get_time= 0.000558403 acc_block_size= 10500 acc_time= 0.000013735  total_block_size= 31410 mult_time= 0.001686117
+rank= 1 get_block_size= 9000 get_time= 0.000800513 get_block_size= 10500 get_time= 0.000583883 acc_block_size= 9450 acc_time= 0.000013374  total_block_size= 28950 mult_time= 0.001556762
+rank= 1 get_block_size= 9180 get_time= 0.000552007 get_block_size= 10710 get_time= 0.000836820 acc_block_size= 9450 acc_time= 0.000012191  total_block_size= 29340 mult_time= 0.001566173
+rank= 1 get_block_size= 10500 get_time= 0.001155815 get_block_size= 10710 get_time= 0.001018120 acc_block_size= 10200 acc_time= 0.000013958  total_block_size= 31410 mult_time= 0.002375481
+rank= 1 get_block_size= 9000 get_time= 0.002451989 get_block_size= 9450 get_time= 0.000993277 acc_block_size= 10500 acc_time= 0.000012912  total_block_size= 28950 mult_time= 0.003622808
+rank= 1 get_block_size= 10200 get_time= 0.001351228 get_block_size= 10200 get_time= 0.001205152 acc_block_size= 10000 acc_time= 0.000012271  total_block_size= 30400 mult_time= 0.002737943
+rank= 1 get_block_size= 9180 get_time= 0.000720265 get_block_size= 9450 get_time= 0.000191953 acc_block_size= 10710 acc_time= 0.000013239  total_block_size= 29340 mult_time= 0.001111566
+rank= 1 get_block_size= 10710 get_time= 0.001934617 get_block_size= 10710 get_time= 0.002719911 acc_block_size= 11025 acc_time= 0.000013941  total_block_size= 32445 mult_time= 0.004853581
+rank= 1 get_block_size= 10000 get_time= 0.002588638 get_block_size= 10500 get_time= 0.000144579 acc_block_size= 10500 acc_time= 0.000012956  total_block_size= 31000 mult_time= 0.002921615
+rank= 1 get_block_size= 11025 get_time= 0.002034874 get_block_size= 11025 get_time= 0.001679993 acc_block_size= 11025 acc_time= 0.000015815  total_block_size= 33075 mult_time= 0.003919296
+rank= 1 get_block_size= 9000 get_time= 0.000494738 get_block_size= 9450 get_time= 0.000158518 acc_block_size= 10500 acc_time= 0.000014782  total_block_size= 28950 mult_time= 0.000828927
+rank= 1 get_block_size= 10404 get_time= 0.000382640 get_block_size= 10200 get_time= 0.000648493 acc_block_size= 10200 acc_time= 0.000012601  total_block_size= 30804 mult_time= 0.001213730
+rank= 1 get_block_size= 10200 get_time= 0.002988487 get_block_size= 10200 get_time= 0.000389974 acc_block_size= 10404 acc_time= 0.000012874  total_block_size= 30804 mult_time= 0.003568927
+rank= 1 get_block_size= 9450 get_time= 0.001707808 get_block_size= 11025 get_time= 0.000129385 acc_block_size= 9450 acc_time= 0.000012930  total_block_size= 29925 mult_time= 0.002020340
+rank= 1 get_block_size= 10500 get_time= 0.000420628 acc_block_size= 10500 acc_time= 0.000016818  total_block_size= 21000 add_time= 0.000468669
+rank= 1 get_block_size= 11025 get_time= 0.000382958 acc_block_size= 11025 acc_time= 0.000016175  total_block_size= 22050 add_time= 0.000458447
+rank= 1 get_block_size= 10000 get_time= 0.000037409 acc_block_size= 10000 acc_time= 0.000073741  total_block_size= 20000 add_time= 0.000156290
+rank= 1 get_block_size= 10500 get_time= 0.000017698 get_block_size= 10500 get_time= 0.000088463 acc_block_size= 1 acc_time= 0.000004361  total_block_size= 21001 mult_time= 0.000226152
+rank= 1 get_block_size= 10000 get_time= 0.000014661 get_block_size= 10000 get_time= 0.000130365 acc_block_size= 1 acc_time= 0.000005760  total_block_size= 20001 mult_time= 0.000268872
+rank= 1 get_block_size= 9450 get_time= 0.000311368 get_block_size= 9450 get_time= 0.000686405 acc_block_size= 1 acc_time= 0.000005302  total_block_size= 18901 mult_time= 0.001109330
+rank= 1 get_block_size= 10500 get_time= 0.000021024 get_block_size= 10500 get_time= 0.000272603 acc_block_size= 1 acc_time= 0.000004223  total_block_size= 21001 mult_time= 0.000403338
+rank= 1 get_block_size= 10000 get_time= 0.000020385 get_block_size= 10000 get_time= 0.000451100 acc_block_size= 1 acc_time= 0.000004578  total_block_size= 20001 mult_time= 0.000582669
+rank= 1 get_block_size= 11025 get_time= 0.000812267 get_block_size= 11025 get_time= 0.000895758 acc_block_size= 1 acc_time= 0.000004202  total_block_size= 22051 mult_time= 0.001822848
+rank= 1 get_block_size= 10000 get_time= 0.000803244 get_block_size= 10000 get_time= 0.000172736 acc_block_size= 1 acc_time= 0.000004271  total_block_size= 20001 mult_time= 0.001083522
+rank= 1 get_block_size= 10200 get_time= 0.000019402 get_block_size= 10200 get_time= 0.000205213 acc_block_size= 1 acc_time= 0.000004451  total_block_size= 20401 mult_time= 0.000332342
+rank= 1 get_block_size= 10200 get_time= 0.000017277 get_block_size= 10200 get_time= 0.000591026 acc_block_size= 1 acc_time= 0.000004488  total_block_size= 20401 mult_time= 0.000713178
+rank= 1 get_block_size= 10500 get_time= 0.000018888 get_block_size= 10500 get_time= 0.000416709 acc_block_size= 1 acc_time= 0.000004302  total_block_size= 21001 mult_time= 0.000564404
+rank= 1 get_block_size= 9000 get_time= 0.000807883 get_block_size= 9000 get_time= 0.000415112 acc_block_size= 1 acc_time= 0.000004191  total_block_size= 18001 mult_time= 0.001324644
+rank= 1 get_block_size= 10710 get_time= 0.000761837 get_block_size= 10710 get_time= 0.001600277 acc_block_size= 1 acc_time= 0.000004068  total_block_size= 21421 mult_time= 0.002486304
+rank= 1 get_block_size= 9450 get_time= 0.001542315 get_block_size= 9450 get_time= 0.000782229 acc_block_size= 1 acc_time= 0.000003972  total_block_size= 18901 mult_time= 0.002439610
+rank= 1 get_block_size= 10000 get_time= 0.001018714 get_block_size= 10000 get_time= 0.000660522 acc_block_size= 1 acc_time= 0.000004284  total_block_size= 20001 mult_time= 0.001792005
+rank= 1 get_block_size= 10500 get_time= 0.000870187 get_block_size= 10500 get_time= 0.000772976 acc_block_size= 1 acc_time= 0.000003810  total_block_size= 21001 mult_time= 0.001771179
+rank= 1 get_block_size= 10000 get_time= 0.000046939 get_block_size= 10000 get_time= 0.000629895 acc_block_size= 1 acc_time= 0.000003986  total_block_size= 20001 mult_time= 0.000806963
+rank= 1 get_block_size= 10000 get_time= 0.000027708 get_block_size= 10000 get_time= 0.000556686 acc_block_size= 1 acc_time= 0.000004249  total_block_size= 20001 mult_time= 0.000724983
+rank= 1 get_block_size= 10200 get_time= 0.000024790 get_block_size= 10200 get_time= 0.000435180 acc_block_size= 1 acc_time= 0.000004108  total_block_size= 20401 mult_time= 0.000580238
+rank= 1 get_block_size= 10500 get_time= 0.000019532 get_block_size= 10500 get_time= 0.000413033 acc_block_size= 1 acc_time= 0.000004355  total_block_size= 21001 mult_time= 0.000568337
+rank= 1 get_block_size= 10500 get_time= 0.000023845 get_block_size= 10500 get_time= 0.000283178 acc_block_size= 1 acc_time= 0.000004140  total_block_size= 21001 mult_time= 0.000428701
+rank= 1 get_block_size= 10000 get_time= 0.000050853 get_block_size= 10000 get_time= 0.000360904 acc_block_size= 1 acc_time= 0.000004265  total_block_size= 20001 mult_time= 0.000535931
+rank= 1 get_block_size= 10000 get_time= 0.000017869 get_block_size= 10000 get_time= 0.000489958 acc_block_size= 1 acc_time= 0.000004439  total_block_size= 20001 mult_time= 0.000627605
+rank= 1 get_block_size= 10200 get_time= 0.001106549 get_block_size= 10200 get_time= 0.001415262 acc_block_size= 1 acc_time= 0.000004352  total_block_size= 20401 mult_time= 0.002648817
+rank= 1 get_block_size= 10500 get_time= 0.000825510 get_block_size= 10500 get_time= 0.000997097 acc_block_size= 1 acc_time= 0.000004329  total_block_size= 21001 mult_time= 0.001945777
+rank= 1 get_block_size= 10404 get_time= 0.001022391 get_block_size= 10404 get_time= 0.000678780 acc_block_size= 1 acc_time= 0.000004475  total_block_size= 20809 mult_time= 0.001828283
+rank= 1 get_block_size= 10500 get_time= 0.000017295 get_block_size= 10500 get_time= 0.000126442 acc_block_size= 1 acc_time= 0.000004518  total_block_size= 21001 mult_time= 0.000260887
+rank= 1 get_block_size= 10000 get_time= 0.000016897 get_block_size= 10000 get_time= 0.000169166 acc_block_size= 1 acc_time= 0.000004560  total_block_size= 20001 mult_time= 0.000297127
+rank= 1 get_block_size= 10000 get_time= 0.000014821 get_block_size= 10000 get_time= 0.000292901 acc_block_size= 1 acc_time= 0.000004224  total_block_size= 20001 mult_time= 0.000417864
+rank= 1 get_block_size= 10710 get_time= 0.000451613 get_block_size= 10710 get_time= 0.000768252 acc_block_size= 1 acc_time= 0.000004261  total_block_size= 21421 mult_time= 0.001335110
+rank= 1 get_block_size= 10500 get_time= 0.000816493 get_block_size= 10500 get_time= 0.000307879 acc_block_size= 1 acc_time= 0.000005549  total_block_size= 21001 mult_time= 0.001257801
+rank= 1 get_block_size= 9000 get_time= 0.000326318 get_block_size= 9000 get_time= 0.000648483 acc_block_size= 1 acc_time= 0.000004062  total_block_size= 18001 mult_time= 0.001079218
+rank= 1 get_block_size= 10710 get_time= 0.001305202 get_block_size= 10710 get_time= 0.001055515 acc_block_size= 1 acc_time= 0.000004187  total_block_size= 21421 mult_time= 0.002471251
+rank= 1 get_block_size= 10500 get_time= 0.000017328 get_block_size= 10500 get_time= 0.000075484 acc_block_size= 1 acc_time= 0.000004102  total_block_size= 21001 mult_time= 0.000208336
+rank= 1 get_block_size= 10500 get_time= 0.000015295 get_block_size= 10500 get_time= 0.000430551 acc_block_size= 1 acc_time= 0.000004261  total_block_size= 21001 mult_time= 0.000561037
+rank= 1 get_block_size= 10200 get_time= 0.000441859 get_block_size= 10200 get_time= 0.001640177 acc_block_size= 1 acc_time= 0.000004308  total_block_size= 20401 mult_time= 0.002190563
+rank= 1 get_block_size= 10500 get_time= 0.000047350 get_block_size= 10500 get_time= 0.000651661 acc_block_size= 1 acc_time= 0.000003980  total_block_size= 21001 mult_time= 0.000807337
+rank= 1 get_block_size= 10000 get_time= 0.000044137 get_block_size= 10000 get_time= 0.000033783 acc_block_size= 1 acc_time= 0.000005635  total_block_size= 20001 mult_time= 0.000208502
+rank= 1 get_block_size= 9000 get_time= 0.000676994 get_block_size= 9000 get_time= 0.000687127 acc_block_size= 1 acc_time= 0.000004031  total_block_size= 18001 mult_time= 0.001533534
+rank= 1 get_block_size= 10710 get_time= 0.001884919 get_block_size= 10710 get_time= 0.000147872 acc_block_size= 1 acc_time= 0.000006149  total_block_size= 21421 mult_time= 0.002352062
+rank= 1 get_block_size= 10200 get_time= 0.000758597 get_block_size= 10200 get_time= 0.000840241 acc_block_size= 1 acc_time= 0.000004778  total_block_size= 20401 mult_time= 0.001742245
+rank= 1 get_block_size= 10710 get_time= 0.001129777 get_block_size= 10710 get_time= 0.000955061 acc_block_size= 1 acc_time= 0.000004165  total_block_size= 21421 mult_time= 0.002228030
+rank= 1 get_block_size= 10000 get_time= 0.000047445 acc_block_size= 10000 acc_time= 0.000061082  total_block_size= 20000 add_time= 0.000162729
+rank= 1 get_block_size= 10500 get_time= 0.000282342 acc_block_size= 10500 acc_time= 0.000012454  total_block_size= 21000 add_time= 0.000337717
+rank= 1 get_block_size= 9000 get_time= 0.000321000 acc_block_size= 9000 acc_time= 0.000012887  total_block_size= 18000 add_time= 0.000370633
+rank= 1 get_block_size= 10000 get_time= 0.000099579 acc_block_size= 10000 acc_time= 0.000015165  total_block_size= 20000 add_time= 0.000155880
+rank= 1 get_block_size= 10500 get_time= 0.000086180 acc_block_size= 10500 acc_time= 0.000013555  total_block_size= 21000 add_time= 0.000137904
+rank= 1 get_block_size= 10200 get_time= 0.000355247 acc_block_size= 10200 acc_time= 0.000021278  total_block_size= 20400 add_time= 0.000415881
+rank= 1 get_block_size= 10000 get_time= 0.000025758 acc_block_size= 10000 acc_time= 0.000045997  total_block_size= 20000 add_time= 0.000121922
+rank= 1 get_block_size= 10500 get_time= 0.000157052 acc_block_size= 10500 acc_time= 0.000013772  total_block_size= 21000 add_time= 0.000199928
+rank= 1 get_block_size= 10710 get_time= 0.000593999 get_block_size= 10710 get_time= 0.001228546 acc_block_size= 1 acc_time= 0.000011618  total_block_size= 21421 mult_time= 0.001906144
+rank= 1 get_block_size= 10500 get_time= 0.000730628 acc_block_size= 10500 acc_time= 0.000014376  total_block_size= 21000 add_time= 0.000789489
+rank= 1 get_block_size= 10500 get_time= 0.000115930 acc_block_size= 10500 acc_time= 0.000017232  total_block_size= 21000 add_time= 0.000167307
+rank= 1 get_block_size= 10404 get_time= 0.000063668 acc_block_size= 10404 acc_time= 0.000016256  total_block_size= 20808 add_time= 0.000111106
+rank= 1 get_block_size= 10000 get_time= 0.000019933 acc_block_size= 10000 acc_time= 0.000043095  total_block_size= 20000 add_time= 0.000114239
+rank= 1 get_block_size= 10500 get_time= 0.000045756 acc_block_size= 10500 acc_time= 0.000048969  total_block_size= 21000 add_time= 0.000140504
+rank= 1 get_block_size= 10000 get_time= 0.000397471 acc_block_size= 10000 acc_time= 0.000017346  total_block_size= 20000 add_time= 0.000448818
+rank= 1 get_block_size= 10500 get_time= 0.000024067 get_block_size= 10500 get_time= 0.000585518 acc_block_size= 10000 acc_time= 0.000043042  total_block_size= 31000 mult_time= 0.000880290
+rank= 1 get_block_size= 10000 get_time= 0.000011957 get_block_size= 10500 get_time= 0.000580086 acc_block_size= 10500 acc_time= 0.000013598  total_block_size= 31000 mult_time= 0.000784538
+rank= 1 get_block_size= 10000 get_time= 0.001676629 get_block_size= 10000 get_time= 0.001264424 acc_block_size= 10000 acc_time= 0.000013170  total_block_size= 30000 mult_time= 0.003145815
+rank= 1 get_block_size= 10710 get_time= 0.000932877 get_block_size= 10500 get_time= 0.001231208 acc_block_size= 10200 acc_time= 0.000014593  total_block_size= 31410 mult_time= 0.002372784
+rank= 1 get_block_size= 10500 get_time= 0.001455759 get_block_size= 10200 get_time= 0.000012979 acc_block_size= 10710 acc_time= 0.000014647  total_block_size= 31410 mult_time= 0.001667170
+rank= 1 get_block_size= 10500 get_time= 0.002802109 get_block_size= 10000 get_time= 0.000079142 acc_block_size= 10500 acc_time= 0.000013337  total_block_size= 31000 mult_time= 0.003069873
+rank= 1 get_block_size= 11025 get_time= 0.002800209 get_block_size= 11025 get_time= 0.001002310 acc_block_size= 11025 acc_time= 0.000013244  total_block_size= 33075 mult_time= 0.004015802
+rank= 1 get_block_size= 10000 get_time= 0.002823443 get_block_size= 10000 get_time= 0.003570044 acc_block_size= 10000 acc_time= 0.000011429  total_block_size= 30000 mult_time= 0.006581876
+rank= 1 get_block_size= 10000 get_time= 0.000035196 get_block_size= 10500 get_time= 0.000849639 acc_block_size= 10500 acc_time= 0.000109228  total_block_size= 31000 mult_time= 0.001189000
+rank= 1 get_block_size= 10500 get_time= 0.000941317 get_block_size= 11025 get_time= 0.000495741 acc_block_size= 10500 acc_time= 0.000012193  total_block_size= 32025 mult_time= 0.001639576
+rank= 1 get_block_size= 9000 get_time= 0.001721502 get_block_size= 9000 get_time= 0.000776017 acc_block_size= 10000 acc_time= 0.000013926  total_block_size= 28000 mult_time= 0.002675148
+rank= 1 get_block_size= 10710 get_time= 0.000849322 get_block_size= 10500 get_time= 0.001186692 acc_block_size= 10200 acc_time= 0.000012182  total_block_size= 31410 mult_time= 0.002235403
+rank= 1 get_block_size= 10500 get_time= 0.001399734 get_block_size= 10500 get_time= 0.000264010 acc_block_size= 11025 acc_time= 0.000013763  total_block_size= 32025 mult_time= 0.001860576
+rank= 1 get_block_size= 10710 get_time= 0.001347672 get_block_size= 10404 get_time= 0.000204981 acc_block_size= 10710 acc_time= 0.000011672  total_block_size= 31824 mult_time= 0.001742929
+rank= 1 get_block_size= 10500 get_time= 0.002794530 get_block_size= 9450 get_time= 0.001098985 acc_block_size= 9000 acc_time= 0.000020296  total_block_size= 28950 mult_time= 0.004090981
+rank= 1 get_block_size= 10000 get_time= 0.002609586 get_block_size= 10500 get_time= 0.000067342 acc_block_size= 10500 acc_time= 0.000011788  total_block_size= 31000 mult_time= 0.002863266
+rank= 1 get_block_size= 9180 get_time= 0.000102756 get_block_size= 9180 get_time= 0.000124686 acc_block_size= 10404 acc_time= 0.000012371  total_block_size= 28764 mult_time= 0.000416521
+rank= 1 get_block_size= 10000 get_time= 0.001354094 get_block_size= 10500 get_time= 0.001890368 acc_block_size= 10500 acc_time= 0.000013089  total_block_size= 31000 mult_time= 0.003439640
+rank= 1 get_block_size= 8100 get_time= 0.001266855 get_block_size= 9000 get_time= 0.002398419 acc_block_size= 9000 acc_time= 0.000012057  total_block_size= 26100 mult_time= 0.003818281
+rank= 1 get_block_size= 10404 get_time= 0.000186495 acc_block_size= 10404 acc_time= 0.000025533  total_block_size= 20808 add_time= 0.000240693
+rank= 1 get_block_size= 8100 get_time= 0.000115918 acc_block_size= 8100 acc_time= 0.000011966  total_block_size= 16200 add_time= 0.000177037
+rank= 1 get_block_size= 10200 get_time= 0.000018762 acc_block_size= 10200 acc_time= 0.000043172  total_block_size= 20400 add_time= 0.000105876
+rank= 1 get_block_size= 10000 get_time= 0.000043856 get_block_size= 10000 get_time= 0.000006644 acc_block_size= 1 acc_time= 0.000006056  total_block_size= 20001 mult_time= 0.000203192
+rank= 1 get_block_size= 10500 get_time= 0.000016360 get_block_size= 10500 get_time= 0.000775517 acc_block_size= 1 acc_time= 0.000004219  total_block_size= 21001 mult_time= 0.000921105
+rank= 1 get_block_size= 10200 get_time= 0.001087610 get_block_size= 10200 get_time= 0.001288777 acc_block_size= 1 acc_time= 0.000004628  total_block_size= 20401 mult_time= 0.002494434
+rank= 1 get_block_size= 10500 get_time= 0.001081086 get_block_size= 10500 get_time= 0.000013464 acc_block_size= 1 acc_time= 0.000011072  total_block_size= 21001 mult_time= 0.001233102
+rank= 1 get_block_size= 10710 get_time= 0.001342531 get_block_size= 10710 get_time= 0.000748996 acc_block_size= 1 acc_time= 0.000004279  total_block_size= 21421 mult_time= 0.002201687
+rank= 1 get_block_size= 10000 get_time= 0.000603399 get_block_size= 10000 get_time= 0.000804609 acc_block_size= 1 acc_time= 0.000004027  total_block_size= 20001 mult_time= 0.001522833
+rank= 1 get_block_size= 10500 get_time= 0.000035119 get_block_size= 10500 get_time= 0.000880512 acc_block_size= 1 acc_time= 0.000005029  total_block_size= 21001 mult_time= 0.001073199
+rank= 1 get_block_size= 10500 get_time= 0.001319816 get_block_size= 10500 get_time= 0.000124167 acc_block_size= 1 acc_time= 0.000004229  total_block_size= 21001 mult_time= 0.001579558
+rank= 1 get_block_size= 10500 get_time= 0.000017935 get_block_size= 10500 get_time= 0.000687691 acc_block_size= 1 acc_time= 0.000004053  total_block_size= 21001 mult_time= 0.000828181
+rank= 1 get_block_size= 10404 get_time= 0.001066337 get_block_size= 10404 get_time= 0.000455191 acc_block_size= 1 acc_time= 0.000004117  total_block_size= 20809 mult_time= 0.001631229
+rank= 1 get_block_size= 10000 get_time= 0.000189813 get_block_size= 10000 get_time= 0.000048787 acc_block_size= 1 acc_time= 0.000005435  total_block_size= 20001 mult_time= 0.000397812
+rank= 1 get_block_size= 10000 get_time= 0.000864765 get_block_size= 10000 get_time= 0.000251738 acc_block_size= 1 acc_time= 0.000004198  total_block_size= 20001 mult_time= 0.001249311
+rank= 1 get_block_size= 10000 get_time= 0.000018232 get_block_size= 10000 get_time= 0.000353255 acc_block_size= 1 acc_time= 0.000004551  total_block_size= 20001 mult_time= 0.000482326
+rank= 1 get_block_size= 10200 get_time= 0.000871814 get_block_size= 10200 get_time= 0.000124158 acc_block_size= 1 acc_time= 0.000004297  total_block_size= 20401 mult_time= 0.001195613
+rank= 1 get_block_size= 10500 get_time= 0.000966723 get_block_size= 10500 get_time= 0.000510960 acc_block_size= 1 acc_time= 0.000004453  total_block_size= 21001 mult_time= 0.001592333
+rank= 1 get_block_size= 9450 get_time= 0.000922250 get_block_size= 9450 get_time= 0.000554542 acc_block_size= 1 acc_time= 0.000004410  total_block_size= 18901 mult_time= 0.001586327
+rank= 1 get_block_size= 10500 get_time= 0.000015991 get_block_size= 10500 get_time= 0.000713026 acc_block_size= 1 acc_time= 0.000004312  total_block_size= 21001 mult_time= 0.000842658
+rank= 1 get_block_size= 9180 get_time= 0.000992343 get_block_size= 9180 get_time= 0.001020313 acc_block_size= 1 acc_time= 0.000004099  total_block_size= 18361 mult_time= 0.002125817
+rank= 1 get_block_size= 10200 get_time= 0.000049728 get_block_size= 10200 get_time= 0.000634818 acc_block_size= 1 acc_time= 0.000004232  total_block_size= 20401 mult_time= 0.000802535
+rank= 1 get_block_size= 10500 get_time= 0.000016136 get_block_size= 10500 get_time= 0.000698641 acc_block_size= 1 acc_time= 0.000004069  total_block_size= 21001 mult_time= 0.000823929
+rank= 1 get_block_size= 10000 get_time= 0.000018799 get_block_size= 10000 get_time= 0.000774066 acc_block_size= 1 acc_time= 0.000004558  total_block_size= 20001 mult_time= 0.000907359
+rank= 1 get_block_size= 11025 get_time= 0.000778331 get_block_size= 11025 get_time= 0.000761579 acc_block_size= 1 acc_time= 0.000004098  total_block_size= 22051 mult_time= 0.001650502
+rank= 1 get_block_size= 10500 get_time= 0.000503870 get_block_size= 10500 get_time= 0.001701337 acc_block_size= 1 acc_time= 0.000004234  total_block_size= 21001 mult_time= 0.002325279
+rank= 1 get_block_size= 10500 get_time= 0.000025651 get_block_size= 10500 get_time= 0.000804323 acc_block_size= 1 acc_time= 0.000004276  total_block_size= 21001 mult_time= 0.000970184
+rank= 1 get_block_size= 10000 get_time= 0.000024233 get_block_size= 10000 get_time= 0.000339156 acc_block_size= 1 acc_time= 0.000004174  total_block_size= 20001 mult_time= 0.000487619
+rank= 1 get_block_size= 9450 get_time= 0.001651962 get_block_size= 9450 get_time= 0.000393783 acc_block_size= 1 acc_time= 0.000004344  total_block_size= 18901 mult_time= 0.002160214
+rank= 1 get_block_size= 10500 get_time= 0.000023988 get_block_size= 10500 get_time= 0.000861244 acc_block_size= 1 acc_time= 0.000004488  total_block_size= 21001 mult_time= 0.001005753
+rank= 1 get_block_size= 10000 get_time= 0.001081306 get_block_size= 10000 get_time= 0.000532074 acc_block_size= 1 acc_time= 0.000004267  total_block_size= 20001 mult_time= 0.001739288
+rank= 1 get_block_size= 10500 get_time= 0.000525259 get_block_size= 10500 get_time= 0.001141568 acc_block_size= 1 acc_time= 0.000004093  total_block_size= 21001 mult_time= 0.001789604
+rank= 1 get_block_size= 10500 get_time= 0.000693895 get_block_size= 10500 get_time= 0.001644124 acc_block_size= 1 acc_time= 0.000004301  total_block_size= 21001 mult_time= 0.002462727
+rank= 1 get_block_size= 9000 get_time= 0.001075384 get_block_size= 9000 get_time= 0.000241030 acc_block_size= 1 acc_time= 0.000004106  total_block_size= 18001 mult_time= 0.001425316
+rank= 1 get_block_size= 10404 get_time= 0.000935179 get_block_size= 10404 get_time= 0.000758130 acc_block_size= 1 acc_time= 0.000004065  total_block_size= 20809 mult_time= 0.001817366
+rank= 1 get_block_size= 10500 get_time= 0.000058462 get_block_size= 10500 get_time= 0.001324315 acc_block_size= 1 acc_time= 0.000004272  total_block_size= 21001 mult_time= 0.001508926
+rank= 1 get_block_size= 11025 get_time= 0.001134051 get_block_size= 11025 get_time= 0.000667513 acc_block_size= 1 acc_time= 0.000004402  total_block_size= 22051 mult_time= 0.001925220
+rank= 1 get_block_size= 10710 get_time= 0.000579834 get_block_size= 10710 get_time= 0.001675738 acc_block_size= 1 acc_time= 0.000004472  total_block_size= 21421 mult_time= 0.002377620
+rank= 1 get_block_size= 10000 get_time= 0.000028495 get_block_size= 10000 get_time= 0.000725506 acc_block_size= 1 acc_time= 0.000004337  total_block_size= 20001 mult_time= 0.000891044
+rank= 1 get_block_size= 10200 get_time= 0.000051144 get_block_size= 10200 get_time= 0.000827888 acc_block_size= 1 acc_time= 0.000004141  total_block_size= 20401 mult_time= 0.001033048
+rank= 1 get_block_size= 10200 get_time= 0.000021120 get_block_size= 10200 get_time= 0.000540179 acc_block_size= 1 acc_time= 0.000004316  total_block_size= 20401 mult_time= 0.000686629
+rank= 1 get_block_size= 9450 get_time= 0.000417130 get_block_size= 9450 get_time= 0.000735839 acc_block_size= 1 acc_time= 0.000004459  total_block_size= 18901 mult_time= 0.001267965
+rank= 1 get_block_size= 10000 get_time= 0.000047872 get_block_size= 10000 get_time= 0.000039584 acc_block_size= 1 acc_time= 0.000004178  total_block_size= 20001 mult_time= 0.000209546
+rank= 1 get_block_size= 10000 get_time= 0.000049282 get_block_size= 10000 get_time= 0.000919625 acc_block_size= 1 acc_time= 0.000015161  total_block_size= 20001 mult_time= 0.001103393
+rank= 1 get_block_size= 10404 get_time= 0.000891524 get_block_size= 10404 get_time= 0.000561003 acc_block_size= 1 acc_time= 0.000004409  total_block_size= 20809 mult_time= 0.001576148
+rank= 1 get_block_size= 10710 get_time= 0.000662198 get_block_size= 10710 get_time= 0.001309074 acc_block_size= 1 acc_time= 0.000004251  total_block_size= 21421 mult_time= 0.002093533
+rank= 1 get_block_size= 10500 get_time= 0.000022716 get_block_size= 10500 get_time= 0.000476142 acc_block_size= 1 acc_time= 0.000004119  total_block_size= 21001 mult_time= 0.000615974
+rank= 1 get_block_size= 10000 get_time= 0.000045517 get_block_size= 10000 get_time= 0.000470960 acc_block_size= 1 acc_time= 0.000004228  total_block_size= 20001 mult_time= 0.000643606
+rank= 1 get_block_size= 10000 get_time= 0.000019910 get_block_size= 10000 get_time= 0.000354745 acc_block_size= 1 acc_time= 0.000004392  total_block_size= 20001 mult_time= 0.000493245
+rank= 1 get_block_size= 10000 get_time= 0.000875545 get_block_size= 10000 get_time= 0.001470344 acc_block_size= 1 acc_time= 0.000007458  total_block_size= 20001 mult_time= 0.002473034
+rank= 1 get_block_size= 11025 get_time= 0.000868284 get_block_size= 11025 get_time= 0.000679509 acc_block_size= 1 acc_time= 0.000004947  total_block_size= 22051 mult_time= 0.001665741
+rank= 1 get_block_size= 9000 get_time= 0.000835861 get_block_size= 9000 get_time= 0.000290247 acc_block_size= 1 acc_time= 0.000005468  total_block_size= 18001 mult_time= 0.001256252
+rank= 1 get_block_size= 10200 get_time= 0.000686842 get_block_size= 10200 get_time= 0.000889324 acc_block_size= 1 acc_time= 0.000004182  total_block_size= 20401 mult_time= 0.001686237
+rank= 1 get_block_size= 10500 get_time= 0.000045680 get_block_size= 10500 get_time= 0.000311275 acc_block_size= 1 acc_time= 0.000004038  total_block_size= 21001 mult_time= 0.000464612
+rank= 1 get_block_size= 10200 get_time= 0.000732906 acc_block_size= 10200 acc_time= 0.000013438  total_block_size= 20400 add_time= 0.000786293
+rank= 1 get_block_size= 10500 get_time= 0.000641498 acc_block_size= 10500 acc_time= 0.000012381  total_block_size= 21000 add_time= 0.000684680
+rank= 1 get_block_size= 10200 get_time= 0.000246675 acc_block_size= 10200 acc_time= 0.000011557  total_block_size= 20400 add_time= 0.000308350
+rank= 1 get_block_size= 10000 get_time= 0.000013809 acc_block_size= 10000 acc_time= 0.000042392  total_block_size= 20000 add_time= 0.000086173
+rank= 1 get_block_size= 9180 get_time= 0.000172474 acc_block_size= 9180 acc_time= 0.000012785  total_block_size= 18360 add_time= 0.000208187
+rank= 1 get_block_size= 11025 get_time= 0.000224184 acc_block_size= 11025 acc_time= 0.000023259  total_block_size= 22050 add_time= 0.000280049
+rank= 1 get_block_size= 9180 get_time= 0.000349555 acc_block_size= 9180 acc_time= 0.000012210  total_block_size= 18360 add_time= 0.000389908
+rank= 1 get_block_size= 10000 get_time= 0.000114084 acc_block_size= 10000 acc_time= 0.000024278  total_block_size= 20000 add_time= 0.000170457
+rank= 1 get_block_size= 10500 get_time= 0.000048037 acc_block_size= 10500 acc_time= 0.000072343  total_block_size= 21000 add_time= 0.000164878
+rank= 1 get_block_size= 10500 get_time= 0.000707689 acc_block_size= 10500 acc_time= 0.000023734  total_block_size= 21000 add_time= 0.000765788
+rank= 1 get_block_size= 10500 get_time= 0.000781293 acc_block_size= 10500 acc_time= 0.000014365  total_block_size= 21000 add_time= 0.000831856
+rank= 1 get_block_size= 11025 get_time= 0.000278740 acc_block_size= 11025 acc_time= 0.000027178  total_block_size= 22050 add_time= 0.000348731
+rank= 1 get_block_size= 10500 get_time= 0.000027344 acc_block_size= 10500 acc_time= 0.000073157  total_block_size= 21000 add_time= 0.000149154
+rank= 1 get_block_size= 9000 get_time= 0.001803494 acc_block_size= 9000 acc_time= 0.000013458  total_block_size= 18000 add_time= 0.001861239
+rank= 1 get_block_size= 9000 get_time= 0.000019242 get_block_size= 9000 get_time= 0.000634230 acc_block_size= 10000 acc_time= 0.000104451  total_block_size= 28000 mult_time= 0.001015026
+rank= 1 get_block_size= 10000 get_time= 0.000770452 get_block_size= 10500 get_time= 0.000637467 acc_block_size= 10500 acc_time= 0.000032882  total_block_size= 31000 mult_time= 0.001647061
+rank= 1 get_block_size= 10000 get_time= 0.002685211 get_block_size= 10500 get_time= 0.000806969 acc_block_size= 10500 acc_time= 0.000025080  total_block_size= 31000 mult_time= 0.003704910
+rank= 1 get_block_size= 10200 get_time= 0.001185646 get_block_size= 10000 get_time= 0.000379522 acc_block_size= 10200 acc_time= 0.000020714  total_block_size= 30400 mult_time= 0.001775312
+rank= 1 get_block_size= 9180 get_time= 0.001938176 get_block_size= 9000 get_time= 0.000344715 acc_block_size= 10200 acc_time= 0.000011892  total_block_size= 28380 mult_time= 0.002475867
+rank= 1 get_block_size= 10500 get_time= 0.001599886 get_block_size= 10500 get_time= 0.001601935 acc_block_size= 11025 acc_time= 0.000013248  total_block_size= 32025 mult_time= 0.003409237
+rank= 1 get_block_size= 9000 get_time= 0.002748141 get_block_size= 9450 get_time= 0.000122759 acc_block_size= 10500 acc_time= 0.000013093  total_block_size= 28950 mult_time= 0.003054087
+rank= 1 get_block_size= 10500 get_time= 0.002425723 get_block_size= 10500 get_time= 0.000173063 acc_block_size= 10000 acc_time= 0.000011749  total_block_size= 31000 mult_time= 0.002785992
+rank= 1 get_block_size= 10404 get_time= 0.000910107 get_block_size= 10200 get_time= 0.000063872 acc_block_size= 10200 acc_time= 0.000011517  total_block_size= 30804 mult_time= 0.001155713
+rank= 1 get_block_size= 10404 get_time= 0.000392350 get_block_size= 10404 get_time= 0.000183283 acc_block_size= 10404 acc_time= 0.000012675  total_block_size= 31212 mult_time= 0.000770097
+rank= 1 get_block_size= 10500 get_time= 0.000931507 get_block_size= 11025 get_time= 0.000375216 acc_block_size= 10500 acc_time= 0.000013719  total_block_size= 32025 mult_time= 0.001501723
+rank= 1 get_block_size= 9000 get_time= 0.001204424 get_block_size= 10200 get_time= 0.000056729 acc_block_size= 9180 acc_time= 0.000011695  total_block_size= 28380 mult_time= 0.001440782
+rank= 1 get_block_size= 10000 get_time= 0.000010597 get_block_size= 10000 get_time= 0.000042245 acc_block_size= 10000 acc_time= 0.000045009  total_block_size= 30000 mult_time= 0.000273826
+rank= 1 get_block_size= 10000 get_time= 0.000010910 get_block_size= 10500 get_time= 0.000010856 acc_block_size= 10500 acc_time= 0.000014272  total_block_size= 31000 mult_time= 0.000222649
+rank= 1 get_block_size= 10000 get_time= 0.002582406 get_block_size= 10500 get_time= 0.000522572 acc_block_size= 10500 acc_time= 0.000039655  total_block_size= 31000 mult_time= 0.003318735
+rank= 1 get_block_size= 10000 get_time= 0.000033844 get_block_size= 10000 get_time= 0.001990894 acc_block_size= 10000 acc_time= 0.000014662  total_block_size= 30000 mult_time= 0.002208460
+rank= 1 get_block_size= 10000 get_time= 0.000996909 get_block_size= 9000 get_time= 0.000457877 acc_block_size= 9000 acc_time= 0.000015246  total_block_size= 28000 mult_time= 0.001632864
+rank= 1 get_block_size= 11025 get_time= 0.000115778 get_block_size= 10500 get_time= 0.000056389 acc_block_size= 10500 acc_time= 0.000011353  total_block_size= 32025 mult_time= 0.000396754
+rank= 1 get_block_size= 10500 get_time= 0.000932702 get_block_size= 10200 get_time= 0.000651550 acc_block_size= 10710 acc_time= 0.000016866  total_block_size= 31410 mult_time= 0.001799323
+rank= 1 get_block_size= 10710 get_time= 0.002027971 get_block_size= 10200 get_time= 0.000549269 acc_block_size= 10500 acc_time= 0.000011636  total_block_size= 31410 mult_time= 0.002765038
+rank= 1 get_block_size= 10500 get_time= 0.000757173 get_block_size= 10500 get_time= 0.000371178 acc_block_size= 11025 acc_time= 0.000023750  total_block_size= 32025 mult_time= 0.001428527
+rank= 1 get_block_size= 10000 get_time= 0.002266409 get_block_size= 10500 get_time= 0.000410244 acc_block_size= 10500 acc_time= 0.000019966  total_block_size= 31000 mult_time= 0.002882702
+rank= 1 get_block_size= 10200 get_time= 0.000606958 get_block_size= 10000 get_time= 0.000135688 acc_block_size= 10200 acc_time= 0.000022239  total_block_size= 30400 mult_time= 0.000932594
+rank= 1 get_block_size= 10200 get_time= 0.002902809 get_block_size= 9000 get_time= 0.000099281 acc_block_size= 9180 acc_time= 0.000014523  total_block_size= 28380 mult_time= 0.003190722
+rank= 1 get_block_size= 9000 get_time= 0.001875533 get_block_size= 10500 get_time= 0.000238315 acc_block_size= 9450 acc_time= 0.000015896  total_block_size= 28950 mult_time= 0.002295574
+rank= 1 get_block_size= 10500 get_time= 0.000039518 acc_block_size= 10500 acc_time= 0.000075189  total_block_size= 21000 add_time= 0.000143017
+rank= 1 get_block_size= 10000 get_time= 0.000716284 acc_block_size= 10000 acc_time= 0.000014732  total_block_size= 20000 add_time= 0.000810215
+rank= 1 get_block_size= 10000 get_time= 0.000822853 acc_block_size= 10000 acc_time= 0.000014343  total_block_size= 20000 add_time= 0.000877832
+rank= 1 get_block_size= 11025 get_time= 0.000510768 get_block_size= 11025 get_time= 0.000679115 acc_block_size= 1 acc_time= 0.000005682  total_block_size= 22051 mult_time= 0.001319530
+rank= 1 get_block_size= 10710 get_time= 0.000899148 get_block_size= 10710 get_time= 0.000163485 acc_block_size= 1 acc_time= 0.000004215  total_block_size= 21421 mult_time= 0.001203553
+rank= 1 get_block_size= 10500 get_time= 0.000022523 get_block_size= 10500 get_time= 0.000375238 acc_block_size= 1 acc_time= 0.000003936  total_block_size= 21001 mult_time= 0.000523606
+rank= 1 get_block_size= 10000 get_time= 0.000020227 get_block_size= 10000 get_time= 0.000598134 acc_block_size= 1 acc_time= 0.000004368  total_block_size= 20001 mult_time= 0.000742827
+rank= 1 get_block_size= 10000 get_time= 0.001056032 get_block_size= 10000 get_time= 0.000269872 acc_block_size= 1 acc_time= 0.000004756  total_block_size= 20001 mult_time= 0.001455019
+rank= 1 get_block_size= 10500 get_time= 0.000910082 get_block_size= 10500 get_time= 0.001277829 acc_block_size= 1 acc_time= 0.000004113  total_block_size= 21001 mult_time= 0.002320981
+rank= 1 get_block_size= 10000 get_time= 0.000668549 get_block_size= 10000 get_time= 0.000492063 acc_block_size= 1 acc_time= 0.000005095  total_block_size= 20001 mult_time= 0.001295811
+rank= 1 get_block_size= 11025 get_time= 0.001688328 get_block_size= 11025 get_time= 0.000607732 acc_block_size= 1 acc_time= 0.000004244  total_block_size= 22051 mult_time= 0.002424314
+rank= 1 get_block_size= 9000 get_time= 0.000505258 get_block_size= 9000 get_time= 0.000226317 acc_block_size= 1 acc_time= 0.000004929  total_block_size= 18001 mult_time= 0.000850959
+rank= 1 get_block_size= 10710 get_time= 0.001021736 get_block_size= 10710 get_time= 0.000643825 acc_block_size= 1 acc_time= 0.000009934  total_block_size= 21421 mult_time= 0.001844362
+rank= 1 get_block_size= 10200 get_time= 0.000688460 get_block_size= 10200 get_time= 0.001346975 acc_block_size= 1 acc_time= 0.000004287  total_block_size= 20401 mult_time= 0.002203423
+rank= 1 get_block_size= 10500 get_time= 0.000844482 get_block_size= 10500 get_time= 0.000654215 acc_block_size= 1 acc_time= 0.000004168  total_block_size= 21001 mult_time= 0.001658400
+rank= 1 get_block_size= 10200 get_time= 0.000628051 get_block_size= 10200 get_time= 0.000715927 acc_block_size= 1 acc_time= 0.000004334  total_block_size= 20401 mult_time= 0.001498852
+rank= 1 get_block_size= 9000 get_time= 0.001031402 get_block_size= 9000 get_time= 0.000883740 acc_block_size= 1 acc_time= 0.000004116  total_block_size= 18001 mult_time= 0.002050633
+rank= 1 get_block_size= 10000 get_time= 0.000701544 get_block_size= 10000 get_time= 0.000388473 acc_block_size= 1 acc_time= 0.000004719  total_block_size= 20001 mult_time= 0.001238923
+rank= 1 get_block_size= 9000 get_time= 0.000310682 get_block_size= 9000 get_time= 0.001958782 acc_block_size= 1 acc_time= 0.000004200  total_block_size= 18001 mult_time= 0.002404647
+rank= 1 get_block_size= 11025 get_time= 0.000928318 get_block_size= 11025 get_time= 0.001024399 acc_block_size= 1 acc_time= 0.000004070  total_block_size= 22051 mult_time= 0.002109142
+rank= 1 get_block_size= 10500 get_time= 0.001096518 get_block_size= 10500 get_time= 0.000250123 acc_block_size= 1 acc_time= 0.000003855  total_block_size= 21001 mult_time= 0.001492927
+rank= 1 get_block_size= 11025 get_time= 0.000953609 get_block_size= 11025 get_time= 0.000441385 acc_block_size= 1 acc_time= 0.000004178  total_block_size= 22051 mult_time= 0.001545321
+rank= 1 get_block_size= 11025 get_time= 0.000644566 get_block_size= 11025 get_time= 0.001289761 acc_block_size= 1 acc_time= 0.000003831  total_block_size= 22051 mult_time= 0.002067178
+rank= 1 get_block_size= 10500 get_time= 0.001023710 get_block_size= 10500 get_time= 0.000077643 acc_block_size= 1 acc_time= 0.000003697  total_block_size= 21001 mult_time= 0.001232209
+rank= 1 get_block_size= 10200 get_time= 0.000048038 get_block_size= 10200 get_time= 0.000473901 acc_block_size= 1 acc_time= 0.000004098  total_block_size= 20401 mult_time= 0.000650702
+rank= 1 get_block_size= 10000 get_time= 0.001575917 get_block_size= 10000 get_time= 0.000591708 acc_block_size= 1 acc_time= 0.000003881  total_block_size= 20001 mult_time= 0.002286170
+rank= 1 get_block_size= 10500 get_time= 0.000960788 get_block_size= 10500 get_time= 0.000368412 acc_block_size= 1 acc_time= 0.000004009  total_block_size= 21001 mult_time= 0.001459156
+rank= 1 get_block_size= 10500 get_time= 0.000021638 get_block_size= 10500 get_time= 0.000300043 acc_block_size= 1 acc_time= 0.000004213  total_block_size= 21001 mult_time= 0.000441369
+rank= 1 get_block_size= 10500 get_time= 0.000918308 get_block_size= 10500 get_time= 0.001477475 acc_block_size= 1 acc_time= 0.000004039  total_block_size= 21001 mult_time= 0.002519115
+rank= 1 get_block_size= 10200 get_time= 0.000569552 get_block_size= 10200 get_time= 0.002136556 acc_block_size= 1 acc_time= 0.000004261  total_block_size= 20401 mult_time= 0.002825830
+rank= 1 get_block_size= 10710 get_time= 0.000751021 get_block_size= 10710 get_time= 0.001105173 acc_block_size= 1 acc_time= 0.000006544  total_block_size= 21421 mult_time= 0.001985667
+rank= 1 get_block_size= 11025 get_time= 0.000956656 get_block_size= 11025 get_time= 0.000238925 acc_block_size= 1 acc_time= 0.000004803  total_block_size= 22051 mult_time= 0.001334509
+rank= 1 get_block_size= 10500 get_time= 0.000018102 get_block_size= 10500 get_time= 0.000906715 acc_block_size= 1 acc_time= 0.000004806  total_block_size= 21001 mult_time= 0.001057956
+rank= 1 get_block_size= 9000 get_time= 0.000043112 get_block_size= 9000 get_time= 0.000162410 acc_block_size= 1 acc_time= 0.000004546  total_block_size= 18001 mult_time= 0.000311556
+rank= 1 get_block_size= 9000 get_time= 0.000015844 get_block_size= 9000 get_time= 0.000202914 acc_block_size= 1 acc_time= 0.000003995  total_block_size= 18001 mult_time= 0.000318808
+rank= 1 get_block_size= 10000 get_time= 0.000015619 get_block_size= 10000 get_time= 0.000249913 acc_block_size= 1 acc_time= 0.000004384  total_block_size= 20001 mult_time= 0.000372698
+rank= 1 get_block_size= 10500 get_time= 0.000861225 get_block_size= 10500 get_time= 0.000013313 acc_block_size= 1 acc_time= 0.000006245  total_block_size= 21001 mult_time= 0.001009516
+rank= 1 get_block_size= 9450 get_time= 0.001071112 get_block_size= 9450 get_time= 0.000775201 acc_block_size= 1 acc_time= 0.000003967  total_block_size= 18901 mult_time= 0.001954767
+rank= 1 get_block_size= 10000 get_time= 0.000046313 get_block_size= 10000 get_time= 0.000035351 acc_block_size= 1 acc_time= 0.000004003  total_block_size= 20001 mult_time= 0.000191187
+rank= 1 get_block_size= 10000 get_time= 0.000705528 get_block_size= 10000 get_time= 0.000889699 acc_block_size= 1 acc_time= 0.000004145  total_block_size= 20001 mult_time= 0.001702784
+rank= 1 get_block_size= 10200 get_time= 0.000541680 get_block_size= 10200 get_time= 0.000042602 acc_block_size= 1 acc_time= 0.000005534  total_block_size= 20401 mult_time= 0.000714924
+rank= 1 get_block_size= 10000 get_time= 0.000766509 get_block_size= 10000 get_time= 0.000044038 acc_block_size= 1 acc_time= 0.000005814  total_block_size= 20001 mult_time= 0.000944370
+rank= 1 get_block_size= 10200 get_time= 0.000043496 get_block_size= 10200 get_time= 0.000114472 acc_block_size= 1 acc_time= 0.000004127  total_block_size= 20401 mult_time= 0.000268525
+rank= 1 get_block_size= 10500 get_time= 0.000585396 get_block_size= 10500 get_time= 0.001088523 acc_block_size= 1 acc_time= 0.000004328  total_block_size= 21001 mult_time= 0.001788515
+rank= 1 get_block_size= 10500 get_time= 0.000017392 get_block_size= 10500 get_time= 0.000693009 acc_block_size= 1 acc_time= 0.000004171  total_block_size= 21001 mult_time= 0.000829501
+rank= 1 get_block_size= 10500 get_time= 0.000474222 get_block_size= 10500 get_time= 0.000951490 acc_block_size= 1 acc_time= 0.000004801  total_block_size= 21001 mult_time= 0.001615556
+rank= 1 get_block_size= 10500 get_time= 0.001525481 get_block_size= 10500 get_time= 0.000318988 acc_block_size= 1 acc_time= 0.000004131  total_block_size= 21001 mult_time= 0.002073282
+rank= 1 get_block_size= 11025 get_time= 0.000763480 get_block_size= 11025 get_time= 0.001453355 acc_block_size= 1 acc_time= 0.000004405  total_block_size= 22051 mult_time= 0.002427034
+rank= 1 get_block_size= 10000 get_time= 0.000713041 get_block_size= 10000 get_time= 0.000848255 acc_block_size= 1 acc_time= 0.000004075  total_block_size= 20001 mult_time= 0.001678280
+rank= 1 get_block_size= 10200 get_time= 0.000607722 get_block_size= 10200 get_time= 0.001039596 acc_block_size= 1 acc_time= 0.000004051  total_block_size= 20401 mult_time= 0.001757575
+rank= 1 get_block_size= 10500 get_time= 0.000278147 get_block_size= 10500 get_time= 0.000904332 acc_block_size= 1 acc_time= 0.000004708  total_block_size= 21001 mult_time= 0.001296727
+rank= 1 get_block_size= 10710 get_time= 0.001120094 get_block_size= 10710 get_time= 0.001201711 acc_block_size= 1 acc_time= 0.000004170  total_block_size= 21421 mult_time= 0.002434721
+rank= 1 get_block_size= 10000 get_time= 0.000042446 get_block_size= 10000 get_time= 0.000036310 acc_block_size= 1 acc_time= 0.000003950  total_block_size= 20001 mult_time= 0.000186978
+rank= 1 get_block_size= 10500 get_time= 0.000965406 get_block_size= 10500 get_time= 0.000337036 acc_block_size= 1 acc_time= 0.000004373  total_block_size= 21001 mult_time= 0.001414036
+rank= 1 get_block_size= 10500 get_time= 0.000048580 get_block_size= 10500 get_time= 0.000979096 acc_block_size= 1 acc_time= 0.000003954  total_block_size= 21001 mult_time= 0.001132751
+rank= 1 get_block_size= 10200 get_time= 0.000806543 get_block_size= 10200 get_time= 0.000748262 acc_block_size= 1 acc_time= 0.000007220  total_block_size= 20401 mult_time= 0.001737517
+rank= 1 get_block_size= 10000 get_time= 0.000331314 get_block_size= 10000 get_time= 0.000012370 acc_block_size= 1 acc_time= 0.000005761  total_block_size= 20001 mult_time= 0.000476819
+rank= 1 get_block_size= 10500 get_time= 0.000438340 acc_block_size= 10500 acc_time= 0.000013253  total_block_size= 21000 add_time= 0.000492625
+rank= 1 get_block_size= 11025 get_time= 0.001048367 acc_block_size= 11025 acc_time= 0.000020013  total_block_size= 22050 add_time= 0.001103360
+rank= 1 get_block_size= 10500 get_time= 0.000173295 acc_block_size= 10500 acc_time= 0.000019492  total_block_size= 21000 add_time= 0.000233276
+rank= 1 get_block_size= 9000 get_time= 0.000117882 acc_block_size= 9000 acc_time= 0.000023316  total_block_size= 18000 add_time= 0.000169842
+rank= 1 get_block_size= 9000 get_time= 0.000056010 acc_block_size= 9000 acc_time= 0.000033665  total_block_size= 18000 add_time= 0.000122692
+rank= 1 get_block_size= 9450 get_time= 0.000118263 acc_block_size= 9450 acc_time= 0.000012780  total_block_size= 18900 add_time= 0.000173238
+rank= 1 get_block_size= 10500 get_time= 0.000074213 acc_block_size= 10500 acc_time= 0.000012887  total_block_size= 21000 add_time= 0.000127580
+rank= 1 get_block_size= 10710 get_time= 0.000428822 acc_block_size= 10710 acc_time= 0.000021726  total_block_size= 21420 add_time= 0.000522045
+rank= 1 get_block_size= 9000 get_time= 0.000043614 acc_block_size= 9000 acc_time= 0.000059488  total_block_size= 18000 add_time= 0.000163342
+rank= 1 get_block_size= 10500 get_time= 0.000652662 acc_block_size= 10500 acc_time= 0.000351785  total_block_size= 21000 add_time= 0.001049337
+rank= 1 get_block_size= 10200 get_time= 0.001813819 get_block_size= 10200 get_time= 0.000639020 acc_block_size= 1 acc_time= 0.000010009  total_block_size= 20401 mult_time= 0.002554901
+rank= 1 get_block_size= 10000 get_time= 0.000015194 acc_block_size= 10000 acc_time= 0.000044445  total_block_size= 20000 add_time= 0.000110229
+rank= 1 get_block_size= 11025 get_time= 0.000801312 acc_block_size= 11025 acc_time= 0.000015414  total_block_size= 22050 add_time= 0.000859490
+rank= 1 get_block_size= 10710 get_time= 0.001050310 acc_block_size= 10710 acc_time= 0.000023732  total_block_size= 21420 add_time= 0.001133306
+rank= 1 get_block_size= 10200 get_time= 0.000024926 acc_block_size= 10200 acc_time= 0.000046860  total_block_size= 20400 add_time= 0.000129186
+rank= 1 get_block_size= 11025 get_time= 0.000406728 acc_block_size= 11025 acc_time= 0.000020667  total_block_size= 22050 add_time= 0.000472015
+rank= 1 get_block_size= 10500 get_time= 0.000021259 get_block_size= 10500 get_time= 0.000777034 acc_block_size= 10000 acc_time= 0.000043588  total_block_size= 31000 mult_time= 0.001121543
+rank= 1 get_block_size= 10000 get_time= 0.000925434 get_block_size= 10500 get_time= 0.000526442 acc_block_size= 10500 acc_time= 0.000014017  total_block_size= 31000 mult_time= 0.001648390
+rank= 1 get_block_size= 10500 get_time= 0.000928045 get_block_size= 10500 get_time= 0.000630161 acc_block_size= 10000 acc_time= 0.000013052  total_block_size= 31000 mult_time= 0.001758915
+rank= 1 get_block_size= 10200 get_time= 0.000497441 get_block_size= 10500 get_time= 0.000039445 acc_block_size= 10710 acc_time= 0.000013035  total_block_size= 31410 mult_time= 0.000741285
+rank= 1 get_block_size= 11025 get_time= 0.001182238 get_block_size= 11025 get_time= 0.003131819 acc_block_size= 11025 acc_time= 0.000013394  total_block_size= 33075 mult_time= 0.004548924
+rank= 1 get_block_size= 10200 get_time= 0.003899516 get_block_size= 10200 get_time= 0.000631984 acc_block_size= 10000 acc_time= 0.000012918  total_block_size= 30400 mult_time= 0.004722576
+rank= 1 get_block_size= 10000 get_time= 0.004663740 get_block_size= 10000 get_time= 0.000229206 acc_block_size= 10000 acc_time= 0.000012503  total_block_size= 30000 mult_time= 0.005084494
+rank= 1 get_block_size= 10000 get_time= 0.002292523 get_block_size= 10000 get_time= 0.001170372 acc_block_size= 10000 acc_time= 0.000012058  total_block_size= 30000 mult_time= 0.003650493
+rank= 1 get_block_size= 9000 get_time= 0.002589120 get_block_size= 9000 get_time= 0.000074135 acc_block_size= 8100 acc_time= 0.000011000  total_block_size= 26100 mult_time= 0.002849101
+rank= 1 get_block_size= 9000 get_time= 0.000010769 get_block_size= 9000 get_time= 0.000204015 acc_block_size= 10000 acc_time= 0.000080071  total_block_size= 28000 mult_time= 0.000517647
+rank= 1 get_block_size= 10000 get_time= 0.000009880 get_block_size= 10500 get_time= 0.001015212 acc_block_size= 10500 acc_time= 0.000018290  total_block_size= 31000 mult_time= 0.001223329
+rank= 1 get_block_size= 10000 get_time= 0.001296143 get_block_size= 10500 get_time= 0.001154049 acc_block_size= 10500 acc_time= 0.000013691  total_block_size= 31000 mult_time= 0.002643621
+rank= 1 get_block_size= 10200 get_time= 0.001377904 get_block_size= 10404 get_time= 0.000357063 acc_block_size= 10200 acc_time= 0.000022135  total_block_size= 30804 mult_time= 0.001941120
+rank= 1 get_block_size= 10200 get_time= 0.000896325 get_block_size= 10500 get_time= 0.000538614 acc_block_size= 10710 acc_time= 0.000022868  total_block_size= 31410 mult_time= 0.001642500
+rank= 1 get_block_size= 10710 get_time= 0.001831726 get_block_size= 10404 get_time= 0.000705746 acc_block_size= 10710 acc_time= 0.000012004  total_block_size= 31824 mult_time= 0.002753822
+rank= 1 get_block_size= 11025 get_time= 0.000574851 get_block_size= 11025 get_time= 0.000360448 acc_block_size= 11025 acc_time= 0.000012602  total_block_size= 33075 mult_time= 0.001149936
+rank= 1 get_block_size= 10500 get_time= 0.001685341 get_block_size= 9450 get_time= 0.001075884 acc_block_size= 9000 acc_time= 0.000011592  total_block_size= 28950 mult_time= 0.002950582
+rank= 1 get_block_size= 10000 get_time= 0.000409814 get_block_size= 10200 get_time= 0.000042510 acc_block_size= 10200 acc_time= 0.000012451  total_block_size= 30400 mult_time= 0.000633520
+rank= 1 get_block_size= 10000 get_time= 0.001041066 get_block_size= 10000 get_time= 0.001475941 acc_block_size= 10000 acc_time= 0.000012351  total_block_size= 30000 mult_time= 0.002695674
+rank= 1 get_block_size= 10200 get_time= 0.000868744 get_block_size= 10000 get_time= 0.000038454 acc_block_size= 10200 acc_time= 0.000011634  total_block_size= 30400 mult_time= 0.001094423
+rank= 1 get_block_size= 10000 get_time= 0.000720768 get_block_size= 10500 get_time= 0.004365688 acc_block_size= 10500 acc_time= 0.000067687  total_block_size= 31000 mult_time= 0.005420869
+rank= 1 get_block_size= 10500 get_time= 0.000989743 acc_block_size= 10500 acc_time= 0.000017103  total_block_size= 21000 add_time= 0.001064970
+rank= 1 get_block_size= 10200 get_time= 0.000757317 get_block_size= 10200 get_time= 0.000264248 acc_block_size= 1 acc_time= 0.000025344  total_block_size= 20401 mult_time= 0.001223423
+rank= 1 get_block_size= 11025 get_time= 0.000143439 get_block_size= 11025 get_time= 0.000059759 acc_block_size= 1 acc_time= 0.000004521  total_block_size= 22051 mult_time= 0.000348027
+rank= 1 get_block_size= 10200 get_time= 0.000738734 get_block_size= 10200 get_time= 0.000403902 acc_block_size= 1 acc_time= 0.000004944  total_block_size= 20401 mult_time= 0.001313749
+rank= 1 get_block_size= 10000 get_time= 0.000019399 get_block_size= 10000 get_time= 0.000096521 acc_block_size= 1 acc_time= 0.000006004  total_block_size= 20001 mult_time= 0.000250866
+rank= 1 get_block_size= 10500 get_time= 0.000016472 get_block_size= 10500 get_time= 0.000390486 acc_block_size= 1 acc_time= 0.000003968  total_block_size= 21001 mult_time= 0.000524859
+rank= 1 get_block_size= 10200 get_time= 0.000018064 get_block_size= 10200 get_time= 0.000431082 acc_block_size= 1 acc_time= 0.000004211  total_block_size= 20401 mult_time= 0.000560571
+rank= 1 get_block_size= 9000 get_time= 0.000040457 get_block_size= 9000 get_time= 0.000358390 acc_block_size= 1 acc_time= 0.000004183  total_block_size= 18001 mult_time= 0.000497153
+rank= 1 get_block_size= 10200 get_time= 0.000521863 get_block_size= 10200 get_time= 0.001172826 acc_block_size= 1 acc_time= 0.000004230  total_block_size= 20401 mult_time= 0.001803133
+rank= 1 get_block_size= 10000 get_time= 0.000047261 get_block_size= 10000 get_time= 0.000041510 acc_block_size= 1 acc_time= 0.000005765  total_block_size= 20001 mult_time= 0.000212436
+rank= 1 get_block_size= 10500 get_time= 0.000017089 get_block_size= 10500 get_time= 0.000293570 acc_block_size= 1 acc_time= 0.000004070  total_block_size= 21001 mult_time= 0.000420308
+rank= 1 get_block_size= 10200 get_time= 0.000016077 get_block_size= 10200 get_time= 0.000162183 acc_block_size= 1 acc_time= 0.000006100  total_block_size= 20401 mult_time= 0.000312179
+rank= 1 get_block_size= 9000 get_time= 0.000016973 get_block_size= 9000 get_time= 0.000346593 acc_block_size= 1 acc_time= 0.000004236  total_block_size= 18001 mult_time= 0.000467228
+rank= 1 get_block_size= 10500 get_time= 0.000568588 get_block_size= 10500 get_time= 0.000664571 acc_block_size= 1 acc_time= 0.000004398  total_block_size= 21001 mult_time= 0.001366373
+rank= 1 get_block_size= 10500 get_time= 0.000135626 get_block_size= 10500 get_time= 0.000796960 acc_block_size= 1 acc_time= 0.000004782  total_block_size= 21001 mult_time= 0.001044359
+rank= 1 get_block_size= 10500 get_time= 0.001328659 get_block_size= 10500 get_time= 0.000487341 acc_block_size= 1 acc_time= 0.000003960  total_block_size= 21001 mult_time= 0.001942024
+rank= 1 get_block_size= 10000 get_time= 0.000016619 get_block_size= 10000 get_time= 0.000178707 acc_block_size= 1 acc_time= 0.000006473  total_block_size= 20001 mult_time= 0.000328290
+rank= 1 get_block_size= 9000 get_time= 0.000015532 get_block_size= 9000 get_time= 0.000189757 acc_block_size= 1 acc_time= 0.000006042  total_block_size= 18001 mult_time= 0.000336583
+rank= 1 get_block_size= 10500 get_time= 0.000471553 get_block_size= 10500 get_time= 0.000393788 acc_block_size= 1 acc_time= 0.000004537  total_block_size= 21001 mult_time= 0.000975926
+rank= 1 get_block_size= 10710 get_time= 0.001169642 get_block_size= 10710 get_time= 0.000705799 acc_block_size= 1 acc_time= 0.000004276  total_block_size= 21421 mult_time= 0.001987754
+rank= 1 get_block_size= 9000 get_time= 0.000016487 get_block_size= 9000 get_time= 0.000185715 acc_block_size= 1 acc_time= 0.000004376  total_block_size= 18001 mult_time= 0.000308352
+rank= 1 get_block_size= 10000 get_time= 0.000019023 get_block_size= 10000 get_time= 0.000012945 acc_block_size= 1 acc_time= 0.000005716  total_block_size= 20001 mult_time= 0.000160165
+rank= 1 get_block_size= 10500 get_time= 0.000017622 get_block_size= 10500 get_time= 0.001486865 acc_block_size= 1 acc_time= 0.000004372  total_block_size= 21001 mult_time= 0.001646056
+rank= 1 get_block_size= 10404 get_time= 0.000387303 get_block_size= 10404 get_time= 0.000733501 acc_block_size= 1 acc_time= 0.000005786  total_block_size= 20809 mult_time= 0.001227140
+rank= 1 get_block_size= 11025 get_time= 0.000613093 get_block_size= 11025 get_time= 0.000950481 acc_block_size= 1 acc_time= 0.000004896  total_block_size= 22051 mult_time= 0.001675468
+rank= 1 get_block_size= 10200 get_time= 0.000560802 get_block_size= 10200 get_time= 0.000190671 acc_block_size= 1 acc_time= 0.000007533  total_block_size= 20401 mult_time= 0.000904322
+rank= 1 get_block_size= 11025 get_time= 0.000886372 get_block_size= 11025 get_time= 0.001035602 acc_block_size= 1 acc_time= 0.000004455  total_block_size= 22051 mult_time= 0.002035902
+rank= 1 get_block_size= 10200 get_time= 0.000018880 get_block_size= 10200 get_time= 0.000998962 acc_block_size= 1 acc_time= 0.000004013  total_block_size= 20401 mult_time= 0.001135140
+rank= 1 get_block_size= 10500 get_time= 0.000553220 get_block_size= 10500 get_time= 0.000012720 acc_block_size= 1 acc_time= 0.000005252  total_block_size= 21001 mult_time= 0.000694144
+rank= 1 get_block_size= 10500 get_time= 0.000017840 get_block_size= 10500 get_time= 0.000907529 acc_block_size= 1 acc_time= 0.000004196  total_block_size= 21001 mult_time= 0.001040836
+rank= 1 get_block_size= 11025 get_time= 0.000236770 get_block_size= 11025 get_time= 0.000685453 acc_block_size= 1 acc_time= 0.000004500  total_block_size= 22051 mult_time= 0.001043818
+rank= 1 get_block_size= 10000 get_time= 0.000017177 get_block_size= 10000 get_time= 0.000858551 acc_block_size= 1 acc_time= 0.000003970  total_block_size= 20001 mult_time= 0.000989396
+rank= 1 get_block_size= 10404 get_time= 0.000984347 get_block_size= 10404 get_time= 0.000571902 acc_block_size= 1 acc_time= 0.000004265  total_block_size= 20809 mult_time= 0.001662765
+rank= 1 get_block_size= 11025 get_time= 0.000753284 get_block_size= 11025 get_time= 0.000771807 acc_block_size= 1 acc_time= 0.000004814  total_block_size= 22051 mult_time= 0.001723908
+rank= 1 get_block_size= 10200 get_time= 0.000016487 get_block_size= 10200 get_time= 0.000509109 acc_block_size= 1 acc_time= 0.000003990  total_block_size= 20401 mult_time= 0.000630301
+rank= 1 get_block_size= 9000 get_time= 0.000017573 get_block_size= 9000 get_time= 0.000278698 acc_block_size= 1 acc_time= 0.000003977  total_block_size= 18001 mult_time= 0.000408513
+rank= 1 get_block_size= 11025 get_time= 0.001184765 get_block_size= 11025 get_time= 0.000975167 acc_block_size= 1 acc_time= 0.000004309  total_block_size= 22051 mult_time= 0.002273810
+rank= 1 get_block_size= 10000 get_time= 0.001477768 get_block_size= 10000 get_time= 0.000619248 acc_block_size= 1 acc_time= 0.000009253  total_block_size= 20001 mult_time= 0.002254773
+rank= 1 get_block_size= 9450 get_time= 0.001116355 get_block_size= 9450 get_time= 0.000551974 acc_block_size= 1 acc_time= 0.000004128  total_block_size= 18901 mult_time= 0.001802510
+rank= 1 get_block_size= 10500 get_time= 0.001054241 get_block_size= 10500 get_time= 0.000856782 acc_block_size= 1 acc_time= 0.000004120  total_block_size= 21001 mult_time= 0.002051684
+rank= 1 get_block_size= 10500 get_time= 0.000493942 get_block_size= 10500 get_time= 0.001140257 acc_block_size= 1 acc_time= 0.000004271  total_block_size= 21001 mult_time= 0.001772095
+rank= 1 get_block_size= 9450 get_time= 0.000943669 get_block_size= 9450 get_time= 0.000852102 acc_block_size= 1 acc_time= 0.000004104  total_block_size= 18901 mult_time= 0.001927870
+rank= 1 get_block_size= 9000 get_time= 0.001726574 get_block_size= 9000 get_time= 0.000459338 acc_block_size= 1 acc_time= 0.000004213  total_block_size= 18001 mult_time= 0.002313137
+rank= 1 get_block_size= 10500 get_time= 0.000864939 get_block_size= 10500 get_time= 0.001111597 acc_block_size= 1 acc_time= 0.000004207  total_block_size= 21001 mult_time= 0.002114381
+rank= 1 get_block_size= 11025 get_time= 0.001491746 get_block_size= 11025 get_time= 0.000522420 acc_block_size= 1 acc_time= 0.000008338  total_block_size= 22051 mult_time= 0.002296062
+rank= 1 get_block_size= 10500 get_time= 0.000883677 get_block_size= 10500 get_time= 0.000294712 acc_block_size= 1 acc_time= 0.000061973  total_block_size= 21001 mult_time= 0.001376374
+rank= 1 get_block_size= 10000 get_time= 0.000025376 get_block_size= 10000 get_time= 0.000018711 acc_block_size= 1 acc_time= 0.000004223  total_block_size= 20001 mult_time= 0.000182930
+rank= 1 get_block_size= 10500 get_time= 0.001023187 get_block_size= 10500 get_time= 0.000156950 acc_block_size= 1 acc_time= 0.000004081  total_block_size= 21001 mult_time= 0.001325082
+rank= 1 get_block_size= 10200 get_time= 0.000865005 get_block_size= 10200 get_time= 0.000043531 acc_block_size= 1 acc_time= 0.000004198  total_block_size= 20401 mult_time= 0.001033720
+rank= 1 get_block_size= 10500 get_time= 0.000746927 get_block_size= 10500 get_time= 0.000903574 acc_block_size= 1 acc_time= 0.000004437  total_block_size= 21001 mult_time= 0.001795783
+rank= 1 get_block_size= 10500 get_time= 0.000251311 get_block_size= 10500 get_time= 0.000971119 acc_block_size= 1 acc_time= 0.000004305  total_block_size= 21001 mult_time= 0.001346361
+rank= 1 get_block_size= 10500 get_time= 0.000987748 get_block_size= 10500 get_time= 0.000954610 acc_block_size= 1 acc_time= 0.000004269  total_block_size= 21001 mult_time= 0.002070816
+rank= 1 get_block_size= 9000 get_time= 0.001137870 get_block_size= 9000 get_time= 0.000625277 acc_block_size= 1 acc_time= 0.000004286  total_block_size= 18001 mult_time= 0.001871969
+rank= 1 get_block_size= 10000 get_time= 0.001070179 get_block_size= 10000 get_time= 0.000043275 acc_block_size= 1 acc_time= 0.000004557  total_block_size= 20001 mult_time= 0.001255543
+rank= 1 get_block_size= 10200 get_time= 0.001266515 acc_block_size= 10200 acc_time= 0.000014959  total_block_size= 20400 add_time= 0.001346776
+rank= 1 get_block_size= 10000 get_time= 0.000058440 acc_block_size= 10000 acc_time= 0.000048851  total_block_size= 20000 add_time= 0.000132454
+rank= 1 get_block_size= 10710 get_time= 0.000470462 acc_block_size= 10710 acc_time= 0.000013851  total_block_size= 21420 add_time= 0.000518827
+rank= 1 get_block_size= 11025 get_time= 0.000259614 acc_block_size= 11025 acc_time= 0.000018445  total_block_size= 22050 add_time= 0.000307502
+rank= 1 get_block_size= 9450 get_time= 0.000254613 acc_block_size= 9450 acc_time= 0.000011404  total_block_size= 18900 add_time= 0.000312569
+rank= 1 get_block_size= 10404 get_time= 0.000262737 acc_block_size= 10404 acc_time= 0.000012254  total_block_size= 20808 add_time= 0.000302779
+rank= 1 get_block_size= 10710 get_time= 0.000451456 acc_block_size= 10710 acc_time= 0.000012233  total_block_size= 21420 add_time= 0.000494371
+rank= 1 get_block_size= 10000 get_time= 0.000038758 acc_block_size= 10000 acc_time= 0.000046866  total_block_size= 20000 add_time= 0.000142690
+rank= 1 get_block_size= 11025 get_time= 0.000396454 acc_block_size= 11025 acc_time= 0.000014000  total_block_size= 22050 add_time= 0.000444790
+rank= 1 get_block_size= 10710 get_time= 0.001111588 get_block_size= 10710 get_time= 0.000960128 acc_block_size= 1 acc_time= 0.000010658  total_block_size= 21421 mult_time= 0.002203804
+rank= 1 get_block_size= 10500 get_time= 0.000637300 acc_block_size= 10500 acc_time= 0.000013513  total_block_size= 21000 add_time= 0.000705979
+rank= 1 get_block_size= 10500 get_time= 0.000653659 acc_block_size= 10500 acc_time= 0.000065658  total_block_size= 21000 add_time= 0.000762524

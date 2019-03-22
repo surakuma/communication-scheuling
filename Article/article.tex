@@ -383,7 +383,7 @@ This problem can be expressed as 2-machine flowshop problem with infinite storag
    	
    	\begin{figure}[htb]
    		\centering
-   		\includegraphics[scale=0.07]{3PARToSched.jpg}
+   		\includegraphics[scale=0.07]{Figs/3PARToSched.jpg}
    		\caption{ \label{fig:firstSegment} First segment of Schedule $S$}
    	\end{figure}
    	
@@ -552,6 +552,32 @@ We use a mixed integer linear program  to obtain the order of data transfers and
 		\item Description of all kernels (Molecular Chemistry Kernels)
 		\item Think about results and graphs (Most probably results in $R$ plots)
 	\end{itemize}
+\newpage
+The following table exhibits favorable scenarios for different heuristics. This table allows programmers to use appropriate strategies to maximize communication-computation overlap for their applications.
+
+\begin{table}[htb]
+	\scriptsize
+	\begin{tabular}{|c|p{3cm}|}
+		\hline
+		\textbf{Heuristic} & \textbf{Favorable Situation} \\ \hline
+		order\_of\_optimal\_strategy\_infinite\_memory & Unlimited memory capacity (\textcolor{green}{Optimal}) \\ \hline
+		increasing\_order\_of\_communication\_strategy & Unlimited memory capacity and tasks are compute intensive (\textcolor{green}{Optimal}) \\ \hline
+		decreasing\_order\_of\_computation\_strategy & Unlimited memory capacity and tasks are communication intensive (\textcolor{green}{Optimal}) \\ \hline
+		increasing\_order\_of\_communication\_plus\_computation\_strategy & Moderate memory capacity and most tasks are compute intensive \\ \hline
+		decreasing\_order\_of\_communication\_plus\_computation\_strategy & Moderate memory capacity and most tasks are communication intensive \\ \hline
+		largest\_communication\_task\_respects\_memory\_restriction &  Limited memory capacity and significant percentage of tasks are communication intensive \\ \hline
+		smallest\_communication\_task\_respects\_memory\_restriction & Limited memory capacity and most tasks are compute intensive \\ \hline
+		maximum\_accelerated\_task\_respects\_memory\_restriction &  Limited memory capacity and number of communication and compute intensive tasks are approximately equal \\ \hline
+		optimal\_order\_infinite\_memory\_largest\_communication\_task\_respects\_memory\_restriction & Moderate memory capacity and significant percentage of tasks are communication intensive\\ \hline
+		optimal\_order\_infinite\_memory\_smallest\_communication\_task\_respects\_memory\_restriction & Moderate memory capacity and most tasks are compute intensive \\ \hline
+		optimal\_order\_infinite\_memory\_maximum\_accelerated\_task\_respects\_memory\_restriction & Moderate   memory capacity and number of communication and compute intensive tasks are approximately equal \\ \hline
+	\end{tabular}\caption{~\label{tab:heuristicsAndFavorableScenarios}Heuristics and their favorable scenarios}
+\end{table}
+
+
+Here moderate memory capacity refers to limited capacity but close to the maximum memory  requirement of the considered application.
+
+\newpage
 	\section{Conclusion and Perspectives}
 	\begin{itemize}
 		\item Evaluated different heuristics

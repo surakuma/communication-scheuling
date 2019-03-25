@@ -543,7 +543,42 @@ We use a mixed integer linear program  to obtain the order of data transfers and
 	\section{Experimental Results}
 	\label{sec:exp}
 	
+	\todo[inline]{Machine information and our model}
 	
+	We consider a machine, Cascade, available at PNNL, for our experiments. We obtain traces by running  two molecular chemistry applications,  double precision version of Hartree-Fock (HF) and Coupled Cluster Single Double (CCSD) of NWChem package on 10 nodes of this machine. Each node is composed of 16 Intel Xeon E5-2670 cores, hence we use 160 processes for the execution. NWChem takes advantages of a Partitioned Global Address Space Programming Model, Global Arrays (GA), to use shared-memory programming APIs  on distributed memory computers.  Our data transfer model is quite simple and  we consider that all data transfers between each process's local memory and GA memory take the same route. Modeling of different routes of data transfers for the same source-destination pair, bandwidth sharing for different source-destination pairs and network congestion is more challenging and part of our future work. Our model is simple yet it provides insight to the application developers (or runtime system) that  in what-order all data transfer  are issued for the same source-destination pair to maximise communication-computation overlap. Our model is easily adaptable to any source-destination where there is one fixed route between source and destination (such as between CPU and GPU, one copy engine to transfer data from CPU (resp. GPU) to GPU (resp. CPU) ).
+	\todo[inline]{More about tiling}
+	Both application mainly perform two types of computations, tensor transpose and tensor contractions.  HF expects to specify a tile size and we set it to 100, so that each core can be efficiently utilize.  CCSD automatically determines tile sizes at different program points based on the input (molecule?).  Hence, HF operates on almost homogeneous tiles while CCSD on heterogeneous tiles.
+	
+	\todo[inline]{Scheduled based on Gilmore-Gomory algorithm and its performance }
+	\todo[inline]{Skumar: HF performance plots}
+	\begin{figure}[htb]
+		\includegraphics[scale=0.25]{../HFPlots/ratio_to_optimal.pdf}
+		\caption{HF Performance.}
+		\label{fig:staticOrderDynamicCorrectionsExample}
+	\end{figure}
+	\begin{figure}[htb]
+	\includegraphics[scale=0.25]{../CCSDPlots/best_ccsd.pdf}
+	\caption{HF best Performance.}
+	\label{fig:staticOrderDynamicCorrectionsExample}
+\end{figure}
+	\todo[inline]{Skumar: CCSD performance plots}
+		\begin{figure}[htb]
+		\includegraphics[scale=0.25]{../CCSDPlots/ratio_to_optimal_ccsd.pdf}
+		\caption{CCSD Performance.}
+		\label{fig:staticOrderDynamicCorrectionsExample}
+	\end{figure}
+	\begin{figure}[htb]
+		\includegraphics[scale=0.25]{../CCSDPlots/best_ccsd.pdf}
+		\caption{CCSD best Performance.}
+		\label{fig:staticOrderDynamicCorrectionsExample}
+	\end{figure}
+	\todo[inline]{Skumar: Effect of Random memory with HF or CCSD}
+	
+	\begin{figure}[htb]
+	\includegraphics[scale=0.25]{../HFPlots/ratio_to_optimal_random_memory.pdf}
+	\caption{HF Performance with random memory requirement of a task.}
+	\label{fig:staticOrderDynamicCorrectionsExample}
+\end{figure}	
 	\todo[inline]{SKumar: Evaluate different metrics for HF, Cholesky and CCSD applications}
 	\todo[inline]{SKumar: decide metrics: ratio to optimal, percentage overlap, 100 - percentage non overlap}
 	\begin{itemize}
@@ -553,7 +588,7 @@ We use a mixed integer linear program  to obtain the order of data transfers and
 		\item Think about results and graphs (Most probably results in $R$ plots)
 	\end{itemize}
 \newpage
-The following table exhibits favorable scenarios for different heuristics. This table allows programmers to use appropriate strategies to maximize communication-computation overlap for their applications.
+\noindent The following table exhibits favorable scenarios for different heuristics. This table allows programmers to use the appropriate strategies to maximize communication-computation overlap for their applications.
 
 \begin{table}[htb]
 	\scriptsize

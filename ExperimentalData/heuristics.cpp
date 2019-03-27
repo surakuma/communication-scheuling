@@ -20,22 +20,22 @@ using namespace std;
 class Task
 {
     public:
-        unsigned int task_id;
+        long unsigned int task_id;
 
         double input_comm_time, comp_time, output_comm_time;
-        unsigned int input_volume, output_volume;
+        long unsigned int input_volume, output_volume;
 
         double start_comm_time, end_comm_time;
         double start_comp_time, end_comp_time;
 
-        unsigned int internal_memory_requirement;
-        unsigned int memory_requirement;
+        long unsigned int internal_memory_requirement;
+        long unsigned int memory_requirement;
 
-        unsigned int available_memory_after_comm_scheduling = CAPACITY;
-        unsigned int available_memory_after_comp_scheduling = CAPACITY;
+        long unsigned int available_memory_after_comm_scheduling = CAPACITY;
+        long unsigned int available_memory_after_comp_scheduling = CAPACITY;
         std::string task_name;
         //private:
-        unsigned int getMemoryRequirement() { return input_volume + internal_memory_requirement; }
+        long unsigned int getMemoryRequirement() { return input_volume + internal_memory_requirement; }
 };
 
 //TODO: don't think how we can use it as the first step of quick sort
@@ -50,7 +50,7 @@ bool commPlusCompDecrease(Task x, Task y) { return x.input_comm_time + x.comp_ti
 void optimal_order_infinite_memory(Task tasks[], int ntasks)
 {
     Task tmp = tasks[ntasks-1];
-    unsigned int i = ntasks-1;
+    long unsigned int i = ntasks-1;
 
     for(int j=ntasks-2; j>=0; j--)
     {
@@ -75,14 +75,14 @@ void optimal_order_infinite_memory(Task tasks[], int ntasks)
 
 void compute_schedule_for_specified_order(Task tasks[], int ntasks)
 {
-    unsigned int available_memory_for_present_task = CAPACITY;
+    long unsigned int available_memory_for_present_task = CAPACITY;
     double early_available_comm_time = 0;
     double early_available_comp_time = 0;
     std::queue<Task> computation_queue;
 
-    unsigned int i=0;
+    long unsigned int i=0;
     //k denotes the index of next task in computation channel 
-    unsigned int k=0;
+    long unsigned int k=0;
     //While all tasks complete on computation channel
     while(k<ntasks)
     {
@@ -144,8 +144,8 @@ void print_schedule(string alg_name, Task tasks[], int ntasks)
     cout<< alg_name << " " << makespan << endl;
 //    outputfile<<alg_name <<" "<< makespan <<"\n";
 }
-int find_next_maximum_accelerated_task_with_memory_restriction(Task tasks[], unsigned int i, unsigned int ntasks, double early_available_comm_time,
-        double early_available_comp_time, unsigned int available_memory_for_present_task)
+int find_next_maximum_accelerated_task_with_memory_restriction(Task tasks[], long unsigned int i, long unsigned int ntasks, double early_available_comm_time,
+        double early_available_comp_time, long unsigned int available_memory_for_present_task)
 {
     int index = -1;
     int gap = std::numeric_limits<int>::max();
@@ -177,13 +177,13 @@ int find_next_maximum_accelerated_task_with_memory_restriction(Task tasks[], uns
 
 
 
-int find_next_smallest_communication_task_with_memory_restriction(Task tasks[], unsigned int i, unsigned int ntasks, double early_available_comm_time,
-        double early_available_comp_time, unsigned int available_memory_for_present_task)
+int find_next_smallest_communication_task_with_memory_restriction(Task tasks[], long unsigned int i, long unsigned int ntasks, double early_available_comm_time,
+        double early_available_comp_time, long unsigned int available_memory_for_present_task)
 {
 
     int index = -1;
     int gap = std::numeric_limits<int>::max();
-    unsigned int length = 0;
+    long unsigned int length = 0;
 
     for(int j=i; j<ntasks; j++)
     {
@@ -207,12 +207,12 @@ int find_next_smallest_communication_task_with_memory_restriction(Task tasks[], 
 }
 
 
-int find_next_largest_communication_task_with_memory_restriction(Task tasks[], unsigned int i, unsigned int ntasks, double early_available_comm_time,
-        double early_available_comp_time, unsigned int available_memory_for_present_task)
+int find_next_largest_communication_task_with_memory_restriction(Task tasks[], long unsigned int i, long unsigned int ntasks, double early_available_comm_time,
+        double early_available_comp_time, long unsigned int available_memory_for_present_task)
 {
     int index = -1;
     int gap = std::numeric_limits<int>::max();
-    unsigned int length = 0;
+    long unsigned int length = 0;
 
     for(int j=i; j<ntasks; j++)
     {
@@ -235,18 +235,18 @@ int find_next_largest_communication_task_with_memory_restriction(Task tasks[], u
     return index;
 }
 template <class criteria>
-void compute_schedule_next_task_heuristic(Task tasks[], unsigned int ntasks, criteria criteria_lambda, bool initial_order=false)
+void compute_schedule_next_task_heuristic(Task tasks[], long unsigned int ntasks, criteria criteria_lambda, bool initial_order=false)
 {
-        unsigned int available_memory_for_present_task = CAPACITY;
+        long unsigned int available_memory_for_present_task = CAPACITY;
         double early_available_comm_time = 0;
         double early_available_comp_time = 0;
         std::queue<Task> computation_queue;
 
         int index;
 
-        unsigned int i=0;
+        long unsigned int i=0;
         //k denotes the index of next task in computation channel 
-        unsigned int k=0;
+        long unsigned int k=0;
         //While all tasks complete on computation channel
         while(k<ntasks)
         {
@@ -320,7 +320,7 @@ int main(int argc, char* argv[])
     {
         string str;
         int i = 0;
-        unsigned int max_capacity_requirement=0;
+        long unsigned int max_capacity_requirement=0;
         while(getline(file, str))
         {
             if(str[0] == '#') continue;
@@ -377,7 +377,7 @@ int main(int argc, char* argv[])
         /*
            {
            Task tmp = tasks[0];
-           unsigned int i = 0;
+           long unsigned int i = 0;
 
            for(auto j=1; j<ntasks; j++)
            {
@@ -528,12 +528,12 @@ int main(int argc, char* argv[])
 
         print_schedule(alg_name, tasks, ntasks);
         /*
-           unsigned int available_memory_for_present_task = CAPACITY;
+           long unsigned int available_memory_for_present_task = CAPACITY;
            double early_available_comm_time = 0;
            double early_available_comp_time = 0;
            std::queue<Task> computation_queue;
 
-           unsigned int i=0;
+           long unsigned int i=0;
 
            while((i<ntasks) || (!computation_queue.empty()))
            {

@@ -20,7 +20,8 @@
 \usepackage{color}
 \usepackage{paralist}
 \usepackage{framed}
-\usepackage{caption}
+%%\usepackage{caption}
+\usepackage{subcaption}
 \usepackage{todonotes}
 %%\newtheorem{theorem}{Theorem}
 %%\newtheorem{corollary}{Corollary}[theorem]
@@ -509,6 +510,9 @@ Initial order is obtained by infinity memory heuristic. When communication chann
 
 Fig~\ref{fig:staticOrderDynamicCorrectionsExample} shows schedules for all proposed heuristics of this class for task set of Table (ref).
 
+
+
+
 \subsection{Solving Linear Program Iteratively}
 %%\subsection{Solving Linear Program Iteratively}
 We use a mixed integer linear program  to obtain the order of data transfers and computations. We are unable to mange the optimal solution for the complete set $S$ in limited amount of time.  Hence, we construct and solve the linear program iteratively for a small subset of size $k$ . $CP(i)$ and $CM(i)$ represent computation and communication timings of task $T_i$. $TM(i)$ denotes intermediate memory requirement of task $T_i$ . Memory capacity of the  target system is $C$. In the linear program formulation, $s_i$ and $e_i$ (resp. $s'_i$ and $e'_i$) represent start and end time of communication (resp. computation) for task $T_i$. The formulation contains $i)$ n-1 boolean variables, $a_{ij}$, for each task $T_i$ to denote the order of $T_i$ and $T_j$  on communication channel   $ii)$ n-1 boolean variables, $b_{ij}$, for each task $T_i$ to denote the order of $T_i$ and $T_j$  on computation channel $iii)$ n-1 boolean variables, $c_{ij}$, for each task $T_i$ to denote the order of $s_i$ and $e'_j$, and $iv)$ (optional, if we consider temporary buffer requirement for each task) n-1 boolean variables, $d_{ij}$, for each task $T_i$ to denote the order of $e'_i$ and $s_j$.
@@ -540,58 +544,7 @@ We use a mixed integer linear program  to obtain the order of data transfers and
 & \sum_r (d_{ir} - b_{ir})CM(r) + TM(i) \le C\\
 \end{align*} 
 
-	\section{Experimental Results}
-	\label{sec:exp}
-	
-	\todo[inline]{Machine information and our model}
-	
-	We consider a machine called Cascade, available at PNNL, for our experiments. We obtain traces by running  two molecular chemistry applications,  double precision version of Hartree-Fock (HF) and Coupled Cluster Single Double (CCSD) of NWChem package with 4 Uracil molecules input on 10 nodes of this machine. Each node is composed of 16 Intel Xeon E5-2670 cores, hence we use 160 processes for the execution. Each process executes 300-800 tasks.  NWChem takes advantages of a Partitioned Global Address Space Programming Model, Global Arrays (GA), to use shared-memory programming APIs  on distributed memory computers.  Our data transfer model is quite simple and  we consider that all data transfers between each process's local memory and GA memory take the same route. Modeling of different routes of data transfers for the same source-destination pair, bandwidth sharing for different source-destination pairs and network congestion is more challenging and part of our future work. Our model is simple yet it provides insight to the application developers (or runtime system) that  in what-order all data transfer  are issued for the same source-destination pair to maximise communication-computation overlap. Our model is easily adaptable to any source-destination where there is one fixed route between source and destination (such as between CPU and GPU, one copy engine to transfer data from CPU (resp. GPU) to GPU (resp. CPU) ).
-	\todo[inline]{More about tiling}
-	Both application mainly perform two types of computations, tensor transpose and tensor contractions.  HF expects to specify a tile size and we set it to 100, so that each core can be efficiently utilize.  CCSD automatically determines tile sizes at different program points based on the input (molecule?).  Hence, HF operates on almost homogeneous tiles while CCSD on heterogeneous tiles.
-	
-%%	\todo[inline]{Scheduled based on Gilmore-Gomory algorithm and its performance }
-	We also consider an algorithm, proposed by Gilmore and Gomory, to obtain the minimal cost sequence for a set of jobs. In this algorithm, each job has a start and end state and a cost is associated to change the state. In our context, this cost can be seen as non-overlap time of computation for two adjacent jobs. Here is the main idea of this algorithm. Initially partial sequence of jobs is represented by a graph such that their overlap is maximum. Subsequently edges are added to this graph which minimized the total non-overlap cost  and connects two components. When all nodes of this graph is connected then an edge interchange mechanism is taken into account to determine the sequence of jobs, which ensures that the sequence has minimal cost.
-	
-	We refer ~\cite{Gilmore-Gomory:1964} for the detailed algorithm and ~\cite{gitworkrepo} for our implementation. This algorithm does not take memory capacity into consideration and only provides the sequence of processing. We applied the same sequence with different memory capacity restrictions for our experiments and call this heuristic as \textit{Gilmore-Gomory}.
-	
-	\todo[inline]{Skumar: HF performance plots}
-	\begin{figure}[htb]
-		\includegraphics[scale=0.25]{../HFPlots/ratio_to_optimal.pdf}
-		\caption{HF Performance.}
-		\label{fig:staticOrderDynamicCorrectionsExample}
-	\end{figure}
-	\begin{figure}[htb]
-	\includegraphics[scale=0.25]{../CCSDPlots/best_ccsd.pdf}
-	\caption{HF best Performance.}
-	\label{fig:staticOrderDynamicCorrectionsExample}
-\end{figure}
-	\todo[inline]{Skumar: CCSD performance plots}
-		\begin{figure}[htb]
-		\includegraphics[scale=0.25]{../CCSDPlots/ratio_to_optimal_ccsd.pdf}
-		\caption{CCSD Performance.}
-		\label{fig:staticOrderDynamicCorrectionsExample}
-	\end{figure}
-	\begin{figure}[htb]
-		\includegraphics[scale=0.25]{../CCSDPlots/best_ccsd.pdf}
-		\caption{CCSD best Performance.}
-		\label{fig:staticOrderDynamicCorrectionsExample}
-	\end{figure}
-	\todo[inline]{Skumar: Effect of Random memory with HF or CCSD}
-	
-	\begin{figure}[htb]
-	\includegraphics[scale=0.25]{../HFPlots/ratio_to_optimal_random_memory.pdf}
-	\caption{HF Performance with random memory requirement of a task.}
-	\label{fig:staticOrderDynamicCorrectionsExample}
-\end{figure}	
-	\todo[inline]{SKumar: Evaluate different metrics for HF, Cholesky and CCSD applications}
-	\todo[inline]{SKumar: decide metrics: ratio to optimal, percentage overlap, 100 - percentage non overlap}
-	\begin{itemize}
-		\item Machine description
-		\item temporary data requirement
-		\item Description of all kernels (Molecular Chemistry Kernels)
-		\item Think about results and graphs (Most probably results in $R$ plots)
-	\end{itemize}
-\newpage
+\subsection{Favorable Situation for Heuristics}
 \noindent The following table exhibits favorable scenarios for different heuristics. This table allows programmers to use the appropriate strategies to maximize communication-computation overlap for their applications.
 
 \begin{table}[htb]
@@ -616,13 +569,132 @@ We use a mixed integer linear program  to obtain the order of data transfers and
 
 Here moderate memory capacity refers to limited capacity but close to the maximum memory  requirement of the considered application.
 
-\newpage
-	\section{Conclusion and Perspectives}
-	\begin{itemize}
-		\item Evaluated different heuristics
-		\item proved NP-complete problem
-		\item Plan to implement the best heuristic in a runtime system  for NWChem algorithms and evaluation on Summit supercomputer
-	\end{itemize}
+
+
+
+
+	\section{Experimental Results}
+	\label{sec:exp}
+	
+	\todo[inline]{Machine information and our model}
+	
+	We consider a machine called Cascade, available at PNNL, for our experiments. We obtain traces by running  two molecular chemistry applications,  double precision version of Hartree-Fock (HF) and Coupled Cluster Single Double (CCSD) of NWChem package with 4 Uracil molecules input on 10 nodes of this machine. Each node is composed of 16 Intel Xeon E5-2670 cores, hence we use 160 processes for the execution. Each process executes 300-800 tasks.  NWChem takes advantages of a Partitioned Global Address Space Programming Model, Global Arrays (GA), to use shared-memory programming APIs  on distributed memory computers.  Our data transfer model is quite simple and  we consider that all data transfers between each process's local memory and GA memory take the same route. Modeling of different routes of data transfers for the same source-destination pair, bandwidth sharing for different source-destination pairs and network congestion is more challenging and part of our future work. Our model is simple yet it provides insight to the application developers (or runtime system) that  in what-order all data transfer  are issued for the same source-destination pair to maximise communication-computation overlap. Our model is easily adaptable to any source-destination where there is one fixed route between source and destination (such as between CPU and GPU, one copy engine to transfer data from CPU (resp. GPU) to GPU (resp. CPU) ).
+	\todo[inline]{More about tiling}
+	Both applications mainly perform two types of computations, tensor transpose and tensor contractions.  HF expects to specify a tile size and we set it to 100, so that each core can be efficiently utilize.  CCSD automatically determines tile sizes at different program points based on the input (molecule?).  Hence, HF operates on almost homogeneous tiles while CCSD on heterogeneous tiles.
+	
+%%	\todo[inline]{Scheduled based on Gilmore-Gomory algorithm and its performance }
+	We also consider an algorithm, proposed by Gilmore and Gomory, to obtain the minimal cost sequence for a set of jobs. In this algorithm, each job has a start and end state and a cost is associated to change the state. In our context, this cost can be seen as non-overlap time of computation for two adjacent jobs. Here is the main idea of this algorithm. Initially partial sequence of jobs is represented by a graph such that their overlap is maximum. Subsequently edges are added to this graph which minimized the total non-overlap cost  and connects two components. When all nodes of this graph is connected then an edge interchange mechanism is taken into account to determine the sequence of jobs, which ensures that the sequence has minimal cost.
+	
+	We refer ~\cite{Gilmore-Gomory:1964} for the detailed algorithm and ~\cite{gitworkrepo} for our implementation. This algorithm does not take memory capacity into consideration and only provides the sequence of processing. We applied the same sequence with different memory capacity restrictions for our experiments and call this heuristic as \textit{Gilmore-Gomory}.
+	
+	\todo[inline]{may convert 10 subplots to 8 in all performance diagrams}
+	\todo[inline]{increase font size in all plots, may be free scale-y}
+	\todo[inline]{SKumar: decide metrics: ratio to optimal, percentage overlap, 100 - percentage non overlap}
+	
+	
+	IWe evaluate different data transfer heuristics for the several memory capacities. From the obtained traces, first we determine the minimum requirement of the memory capacity $m_c$ to execute all tasks. Then we observe the behavior of all heuristics with memory capacity  $m_c$ to $2m_c$, in the gap of $0.1m_c$. Our performance metric is $ratio\_to\_optimal$, which is defined as the following. Let the makespan of a heuristic $H$ is $M_H$ and the makespan of the $optimal  case$ with infinite memory is $M_O$, then  $ratio\_to\_optimal (H)$ is $\frac{M_H}{M_O}$ (lower value is better). This value would be  greater or equal to $1$. A value closer to $1$ indicates that suitability of a particular heuristic and maximum possible communication-computation overlap has been achieved for that heuristic.
+	
+	
+	Figures ~\ref{fig:ratio_to_optimal_hf} and ~\ref{fig:ratio_to_optimal_ccsd} depict the distribution of the performance  of each heuristic for all considered memory capacities, where plots are categorized by memory capacities. For each memory capacity and each heuristic, the box on the plot displays the median, first and last quartile, and the whiskers indicate minimum and maximum values, with outliers are shown by black dots.
+\subsection{HF Performance}	
+	\begin{figure}[htb]
+		\includegraphics[scale=0.3]{../ExperimentalResults/ratio_to_optimal_hf.pdf}
+		\caption{Comparison of different heuristics for HF.}
+		\label{fig:ratio_to_optimal_hf}
+	\end{figure}
+ As indicated above, HF tasks are highly homogeneous, this is also noticeable in Figure~\ref{fig:ratio_to_optimal_hf}. All heuristics depict similar behavior for minimum memory capacity $m_c$  and  increasing the memory capacity slightly does not change the performance of all heuristics. As memory capacity increased further, dynamic variants of heuristics starts performing better and for the moderate memory capacities (close to $2m_c$ ), staticOrderDynamicCorrection variants outperforms others. \textit{Gilmore-Gomory} heuristic does not achieve good performance. it can be understand from the fact that task sequence is obtained considering no extra memory is available, but here we apply the same sequence for a different scenario,  overall memory consumed at each point is limited to memory capacity.
+
+
+	\begin{figure}[htb]
+	\includegraphics[scale=0.25]{../ExperimentalResults/inverse_ratio_to_optimal_hf-best.pdf}
+	\caption{Comparision of best variants of all categories for HF.}
+	\label{fig:ratio_to_optimal_best_hf}
+	\end{figure}
+
+ 
+Figure~\ref{fig:ratio_to_optimal_best_hf} shows the performance comparison of best variants of all categories with the $order_of_submission$ strategy. Static strategies are expected to perform better when there is not any memory capacity restriction, hence this plot indicates that static strategies face capacity bottleneck and underperform. Dynamic strategies achieve better performance with limited memory capacity and staticOrderDynamicCorrection  strategies suit in moderate memory capacity scenarios.
+
+\subsection{CCSD Performance}
+
+	\begin{figure}[htb]
+	\includegraphics[scale=0.3]{../ExperimentalResults/ratio_to_optimal_ccsd.pdf}
+	\caption{Comparison of different heuristics for CCSD.}
+	\label{fig:ratio_to_optimal_ccsd}
+	\end{figure}	
+
+CCSD application operates on tasks of different sizes, hence different heuristics depict distinct behaviors even at minimum memory capacity $m_c$ . Heterogeneity favors to dynamic strategies, therefore both dynamic and static+dynamic correction based strategies perform good than  static based strategies. Similar to HF,  static+dynamic correction based strategies outperform others as memory capacity becomes moderate. 
+
+
+	\begin{figure}[htb]
+	\includegraphics[scale=0.25]{../ExperimentalResults/inverse_ratio_to_optimal_ccsd-best.pdf}
+	\caption{Comparision of best variants of all categories for CCSD.}
+	\label{fig:ratio_to_optimal_best_ccsd}
+	\end{figure}
+
+Figure~\ref{fig:ratio_to_optimal_best_ccsd} shows that best variants of dynamic and static+dynamic strategies achieve similar performance at minimum memory capacity $m_c$. But as memory capacity increases hterogeneity allows static+dynamic strategies to take advantage of static knowledge to get maximum overlap and dynamic correction to select another task in case of memory capacity limitation. Static strategies also start performing better at the end, which indicates that this application has potential for significant communication-computation overlap and pure dynamic strategies are unable to take scheduling decision based on this information.
+
+\subsection{HF and CCSD Characteristics}
+
+
+  
+\begin{figure}[htb]
+	\centering
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=.95\linewidth]{../ExperimentalResults/application_properties_hf.pdf}
+		\caption{HF workloads}
+		\label{fig:hfProperties}
+	\end{subfigure}%
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=.95\linewidth]{../ExperimentalResults/application_properties_ccsd.pdf}
+		\caption{CCSD workloads}
+		\label{fig:ccsdProperties}
+	\end{subfigure}
+	\caption{HF and CCSD tasks characteristics.}
+	\label{fig:ApplicationProperties}
+\end{figure}
+
+To get more insights into the considered applications, we also look in to their workloads. Figure~\ref{fig:ApplicationProperties} exhibits that HF is a communication intensive application and maximum 20\%  can be expected in the best scenario. While in CCSD , communications and computations are almost evenly distributed and  40-75\% communication-computation overlap is possible.
+
+
+\subsection{LP Formulation}
+%%\todo[inline]{SKumar: LP evaluation and discussion}
+%%
+%%	\todo[inline]{Skumar: Effect of Random memory with HF or CCSD}
+%%	
+\subsection{Impact of heterogeneity on different heuristics}
+
+	\begin{figure}[htb]
+	\includegraphics[scale=0.3]{../ExperimentalResults/ccsd-random/ratio_to_optimal_ccsd_random.pdf}
+	\caption{Comparison of different heuristics for CCSD with highly heterogeneous tasks.}
+	\label{fig:ratio_to_optimal_ccsd_random}
+	\end{figure}	
+
+
+To know the affect of heterogeneity, we set the memory requirement of each task in CCSD trace randomly between 100 to 900 and observe the behavior of different heuristics in  Figure~\ref{fig:ratio_to_optimal_ccsd_random}. This plot also exhibits that static+dynamic variants make good use of static information to maximize communication-computation overlap and dynamic mechanism to minimize the penalty caused by memory capacity limitation. Pure static strategies suffer from memory capacity imitation and pure dynamic strategies are unable to maximize communication-computation overlap.
+
+\subsection{Tasks in Batches}
+%%	\begin{figure}[htb]
+%%	\includegraphics[scale=0.25]{../ExperimentalResults/ccsd-random/ratio_to_optimal_ccsd_random.pdf}
+%%	\caption{HF Performance with random memory requirement of a task.}
+%%	\label{fig:staticOrderDynamicCorrectionsExample}
+%%\end{figure}	
+
+\section{Conclusion and Perspectives}
+\begin{itemize}
+	\item Evaluated different heuristics
+	\item proved NP-complete problem
+	\item Plan to implement the best heuristic in a runtime system  for NWChem algorithms and evaluation on Summit supercomputer
+\end{itemize}
+	
+%%	\begin{itemize}
+%%		\item Machine description
+%%		\item temporary data requirement
+%%		\item Description of all kernels (Molecular Chemistry Kernels)
+%%		\item Think about results and graphs (Most probably results in $R$ plots)
+%%	\end{itemize}
+
 %%%%	\section{First Section}
 %%%%	 \subsection{A Subsection Sample} Please note that the
 %%%%	first paragraph of a section or subsection is not indented. The first paragraph

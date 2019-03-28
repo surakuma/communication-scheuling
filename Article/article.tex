@@ -514,7 +514,7 @@ Fig~\ref{fig:staticOrderDynamicCorrectionsExample} shows schedules for all propo
 
 
 \subsection{Solving Linear Program Iteratively}
-%%\subsection{Solving Linear Program Iteratively}
+\label{subsec:linearprogrammingformulation}
 We use a mixed integer linear program  to obtain the order of data transfers and computations. We are unable to mange the optimal solution for the complete set $S$ in limited amount of time.  Hence, we construct and solve the linear program iteratively for a small subset of size $k$ . $CP(i)$ and $CM(i)$ represent computation and communication timings of task $T_i$. $TM(i)$ denotes intermediate memory requirement of task $T_i$ . Memory capacity of the  target system is $C$. In the linear program formulation, $s_i$ and $e_i$ (resp. $s'_i$ and $e'_i$) represent start and end time of communication (resp. computation) for task $T_i$. The formulation contains $i)$ n-1 boolean variables, $a_{ij}$, for each task $T_i$ to denote the order of $T_i$ and $T_j$  on communication channel   $ii)$ n-1 boolean variables, $b_{ij}$, for each task $T_i$ to denote the order of $T_i$ and $T_j$  on computation channel $iii)$ n-1 boolean variables, $c_{ij}$, for each task $T_i$ to denote the order of $s_i$ and $e'_j$, and $iv)$ (optional, if we consider temporary buffer requirement for each task) n-1 boolean variables, $d_{ij}$, for each task $T_i$ to denote the order of $e'_i$ and $s_j$.
 
 
@@ -658,7 +658,15 @@ Figure~\ref{fig:ratio_to_optimal_best_ccsd} shows that best variants of dynamic 
 To get more insights into the considered applications, we also look in to their workloads. Figure~\ref{fig:ApplicationProperties} exhibits that HF is a communication intensive application and maximum 20\%  can be expected in the best scenario. While in CCSD , communications and computations are almost evenly distributed and  40-75\% communication-computation overlap is possible.
 
 
-\subsection{LP Formulation}
+\subsection{MILP Based Strategy}
+ We use GLPK solver v4.65 to solve the MILP problem described in Section~\ref{subsec:linearprogrammingformulation}. The solver was unable to handle number of variables required to solve MILP at the scale of our interest. Hence, we solve the linear program iteratively for a small subset of size $k=3,4,5$ (solver was unable to handle number of variables required for $k\ge6$ ) and represent the makespan calculated by this heuristic as $lp.k$. At the boundary of two iterations we fixed the event (communication or computation) of an unfinished task who has  started before the boundary point and consider other events flexible. We compute various  $lp.k$ values for different memory capacities and observe that most of the other heuristics perform better than this heuristic. Figure~\ref{fig:iterativeLpSolution} shows the comparison of different heuristics with MILP based heuristic for various memory capacities of a single trace file.
+
+	\begin{figure}[htb]
+	\includegraphics[scale=0.25]{../ExperimentalResults/makespan_with_lp.pdf}
+	\caption{Comparision of different heuristics with MILP solution based heuristic.}
+	\label{fig:iterativeLpSolution}
+\end{figure}
+
 %%\todo[inline]{SKumar: LP evaluation and discussion}
 %%
 %%	\todo[inline]{Skumar: Effect of Random memory with HF or CCSD}
@@ -674,7 +682,7 @@ To get more insights into the considered applications, we also look in to their 
 
 To know the affect of heterogeneity, we set the memory requirement of each task in CCSD trace randomly between 100 to 900 and observe the behavior of different heuristics in  Figure~\ref{fig:ratio_to_optimal_ccsd_random}. This plot also exhibits that static+dynamic variants make good use of static information to maximize communication-computation overlap and dynamic mechanism to minimize the penalty caused by memory capacity limitation. Pure static strategies suffer from memory capacity imitation and pure dynamic strategies are unable to maximize communication-computation overlap.
 
-\subsection{Tasks in Batches}
+%%\subsection{Tasks in Batches}
 %%	\begin{figure}[htb]
 %%	\includegraphics[scale=0.25]{../ExperimentalResults/ccsd-random/ratio_to_optimal_ccsd_random.pdf}
 %%	\caption{HF Performance with random memory requirement of a task.}

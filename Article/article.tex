@@ -1,15 +1,7 @@
-% This is samplepaper.tex, a sample chapter demonstrating the
-% LLNCS macro package for Springer Computer Science proceedings;
-% Version 2.20 of 2017/10/04
+
 %
 \documentclass[runningheads]{llncs} %
-\usepackage{graphicx} % Used for displaying a sample figure. If possible, figure
-% files should
-% be included in EPS format.
-%
-% If you use the hyperref package, please uncomment the following line
-% to display URLs in blue roman font according to Springer's eBook style:
-% \renewcommand\UrlFont{\color{blue}\rmfamily}
+\usepackage{graphicx} 
 
 \usepackage[utf8]{inputenc}
 %%\usepackage{amsmath}
@@ -24,12 +16,8 @@
 \usepackage{subcaption}
 \captionsetup{compatibility=false}
 \usepackage{todonotes}
-%%\newtheorem{theorem}{Theorem}
-%%\newtheorem{corollary}{Corollary}[theorem]
-%%\newtheorem{lemma}[theorem]{Lemma}
-%%
-%%\newtheorem*{example}{Example}
-%%\newtheorem{remark}{Remark}
+
+
 
 \usepackage[shortlabels]{enumitem}
 
@@ -51,7 +39,6 @@
 
 \begin{document} %
 	%	\title{Contribution Title\thanks{Supported by organization x.}}
-%%	\title{Order of Data Transfers between CPU and GPU: A Case Study}
 	\title{Performance Models for Data Transfers: A Case Study with Molecular Chemistry Kernels}
 	%\titlerunning{Abbreviated paper title}
 	% If the paper title is too long for the running head, you can set
@@ -78,38 +65,16 @@
 %%		The abstract should briefly summarize the contents of the
 %%		paper in 150--250 words.
 
-With increasing complexity of hardwares, systems with different memory nodes are ubiquitous in high performance computing (HPC). It is paramount to develop strategies to overlap the data transfers between memory nodes with the computation in order to exploit the full potential of these systems. In this article, we consider the problem of deciding the  order of data transfers between two memory nodes for a set of independent tasks  with the objective to minimize the makespan. We propose an optimal heuristic to obtain the order of data transfers when there is not any restriction on memory limit. We also show that with finite memory capacity obtaining the optimal order of data transfers is an NP-complete problem. We propose several heuristics for this problem and provide analysis of them on traces obtained by running 3 molecular chemistry kernels, namely, Hartree–Fock , Cholesky contraction, and CCSD on 16 nodes of an HPC system. Our results show that some of our heuristics achieve \% overlap for intermediate memory capacities and are very close to the lower bound of makespan.
-		\begin{itemize}
-			\item Task-based systems
-%%			\item goal is to provide analysis of different scheduling strategies
-%%			\item Problem with simple assumption is NP-hard
-%%			\item compare with the lower bound of performance
-		\end{itemize}
+With increasing complexity of hardwares, systems with different memory nodes are ubiquitous in high performance computing (HPC). It is paramount to develop strategies to overlap the data transfers between memory nodes with the computation in order to exploit the full potential of these systems. In this article, we consider the problem of deciding the  order of data transfers between two memory nodes for a set of independent tasks  with the objective to minimize the makespan. We propose an optimal heuristic to obtain the order of data transfers when there is not any restriction on memory limit. We also show that with finite memory capacity obtaining the optimal order of data transfers is an NP-complete problem. We propose several heuristics for this problem and provide analysis of them on traces obtained by running 2 molecular chemistry kernels, namely, Hartree–Fock (HF)  and CCSD on 10 nodes of an HPC system. Our results show that some of our heuristics achieve significant overlap for moderate memory capacities and are very close to the lower bound of makespan.
+
 		\keywords{Communication Scheduling  \and Memory Nodes \and Molecular Chemistry.}
 	\end{abstract} %
-	%
-	%
+
+
 	
 	\section{Introduction} 
-	
-	
-%%	\begin{itemize}
-%%%%		\item limitation of previous approaches
-%%%%		\item scheduling problems are NP-complete, several  phenomena are added to inherent NP-hard optimization problems
-%%%%		\item hard to precisely predict the performance of both computations and communications
-%%%%		\item number of architectures have increased drastically in recent years
-%%%%		\item Task based runtime systems
-%%%%		\item Communication is one of the main bottleneck on hpc systems (cite Gullium Aupy work)
-%%%%		\item Stress on communication avoidance algorithms (Communication avoidance algorithm)
-%%%%		\item A lot of work on the computation scheduling
-%%%%		\item Assume communications can be completely overlapped for dense linear algebra computations (Our citations)
-%%%%		\item Our framework can be easily extended to any system which operates on different types of memory
-%%%%		\item To think what are the bottlenecks, which would restrict us from parallel communications
-%%%%		\item Focus and contributions of this paper
-%%				
-%%	\end{itemize}
-		
-	With the advent of multicore, and the use of accelerators, it is notoriously cumbersome to exploit the full capacity of a machine. Indeed, there are several challenges come into picture. First, every architecture provides its own efficacy and interface. Therefore, a steep learning curve is required for programmers to take good utilization of all resources. Second, scheduling is a well known NP-Complete optimization problem, and hybrid and distributed resources make this problem harder (we refer ~\cite{webpagescheduling} for a survey on the complexity of scheduling problems and ~\cite{bleuse2015scheduling} for a recent survey in the case of hybrid nodes). Third, due to shared buses, parallel resources, it is hard to obtain a precise model based on prediction of computation and communication timings. Fourth, number of architectures has increased drastically in recent years, therefore it is almost impossible to develop hand tune optimized code for all these architectures. All these observations led to the development of different task based runtime systems. Among several runtimes, we may cite QUARK~\cite{YarKhan:2011:Quark:Manual} and PaRSEC~\cite{parsec} from from ICL, Univ. of Tennessee Knoxville (USA), StarPU~\cite{starpu} form INRIA Bordeaux (FRANCE), Legion~\cite{legion12} from Stanford Univ. (USA), StarSs~\cite{ompss} from Barcelona Supercomputing Center (Spain), KAPPI~\cite{kaapi} from INRIA Grenoble (France). All these runtime systems allow programmers to express their algorithms at the abstract level in the form of direct acyclic graphs, where vertices represent computations and edges represent dependencies among them. Sometimes some static information such as distance to exit (last) node as a priority or affinity of computation towards resources is also provided along with the DAG. Then runtime manages scheduling of computations and communications, data transfer among different memories, computation-communication overlap, load balance in the best possible way.  
+			
+	With the advent of multicore, and the use of accelerators, it is notoriously cumbersome to exploit the full capacity of a machine. Indeed, there are several challenges come into picture. First, every architecture provides its own efficacy and interface. Therefore, a steep learning curve is required for programmers to take good utilization of all resources. Second, scheduling is a well known NP-Complete optimization problem, and hybrid and distributed resources make this problem harder (we refer ~\cite{webpagescheduling} for a survey on the complexity of scheduling problems and ~\cite{bleuse2015scheduling} for a recent survey in the case of hybrid nodes). Third, due to shared buses, parallel resources, it is hard to obtain a precise model based on prediction of computation and communication timings. Fourth, number of architectures has increased drastically in recent years, therefore it is almost impossible to develop hand tune optimized code for all these architectures. All these observations led to the development of different task based runtime systems. Among several runtimes, we may cite QUARK~\cite{YarKhan:2011:Quark:Manual} and PaRSEC~\cite{parsec} from from ICL, Univ. of Tennessee Knoxville (USA), StarPU~\cite{starpu} form INRIA Bordeaux (France), Legion~\cite{legion12} from Stanford Univ. (USA), StarSs~\cite{ompss} from Barcelona Supercomputing Center (Spain), KAPPI~\cite{kaapi} from INRIA Grenoble (France). All these runtime systems allow programmers to express their algorithms at the abstract level in the form of direct acyclic graphs, where vertices represent computations and edges represent dependencies among them. Sometimes some static information such as distance to exit (last) node as a priority or affinity of computation towards resources is also provided along with the DAG. Then runtime manages scheduling of computations and communications, data transfer among different memories, computation-communication overlap, load balance in the best possible way.  
 		
 		
 %%	Historically there is a great focus on the design of parallel algorithms and to minimize the complexity of the computations. Also In the last decade, there is a drastic improvement in the hardware to provide perminent rate of computation, but little improvement has been achieved for the rate of data movement. With extreme scale computing, supercomputers face bottlenecks due to ever growing need of data. Therefore focus of HPC community is now changing towards avoiding, hiding and minimizing communications. (Kyelick work and http://science.energy.gov/~/media/ascr/ ascac/pdf/meetings/20140210/Top10reportFEB14.pdf )
@@ -147,33 +112,13 @@ There is also a numerous study pertaining to the scheduling with limited memory 
 
 
 \begin{itemize}
-	%%	\item Papadimitriou work
-	%%	\item Johnson's work
-	%%	\item Kethrin Yelik work
-	%%	\item Task graph work by Loris
-	%%	\item Vivek Sarkar work
-	%%	\item Register coloring by Sethi
-	\item roofline model
 	\item theoretical/performance work on molecular chemistry kernels
 \end{itemize}
 
-%%	\begin{itemize} 
-%%%%		\item may consider transfer between two memory nodes
-%%%%		 \item perform experiments for transfer between CPU and GPU 
-%%%%%%		\item Task based approach, communication-computation maximum overlap 
-%%%%%%		\item concurrent execution of multiple kernels 
-%%%%%%		\item proof for maximum computation-communication overlap with infinite memory 
-%%%%%%		\item Problem statement : NP complete problem
-%%%%%%		\item extended version of NP complete problem 
-%%%%%%		\item Different proposed heuristics for order of data transfers 
-%%%%		\item Simulation results for all proposed heuristics 
-%%%%%%%		\item Experiments on actual platform with the best proposed heuristic 
-%%	\end{itemize}
+
 	\todo[inline]{SKumar: Modify both proofs }
 	\section{Data Transfer problem formulation}
-	
-%%	\newpage 
-	\section*{Order of data transfers}
+%%	\section*{Order of data transfers}
 	
 	To exploit the full potential of a system tasks may get scheduled on processing
 	units where all of their data does not reside. A task may require all of its data
@@ -409,20 +354,16 @@ requested input data and memory is acquired before starting the data transfer on
 channel(1st machine).
 
 
-
-
-
-	
 	
 	\section{Order of Data Transfer and Computation heuristics}
-	\begin{itemize}
-		\item Talk about optimal strategy
-		\item Order of computations and communications are same
-		\item Static strategy
-		\item Dynamic strategies
-		\item Combination of Static and dynamic strategies
-		\item strategies based on linear program 
-	\end{itemize}
+%%	\begin{itemize}
+%%		\item Talk about optimal strategy
+%%		\item Order of computations and communications are same
+%%		\item Static strategy
+%%		\item Dynamic strategies
+%%		\item Combination of Static and dynamic strategies
+%%		\item strategies based on linear program 
+%%	\end{itemize}
 
 The heuristic proposed in the Section provides the optimal makespan when there is not any constraint on memory capacity. This optimal value indicates a lower bound on the makespan. We use $optimal_makespan_infinite_memory$ to represent this value. We assess the efficiency of other proposed heuristics in limited memory capacity in Section~\ref{sec:exp} with respect to this lower bound, $optimal_makespan_infinite_memory$.
 
@@ -670,10 +611,27 @@ To get more insights into the considered applications, we also look in to their 
 	\label{fig:iterativeLpSolution}
 \end{figure}
 
-%%\todo[inline]{SKumar: LP evaluation and discussion}
-%%
-%%	\todo[inline]{Skumar: Effect of Random memory with HF or CCSD}
-%%	
+\subsection{Scheduling In Batches}
+In most applications, scheduler can only observe a limited batch of independent tasks. Therefore we organize tasks of each trace file in the group of 100 and apply each heuristic on them consecutively.  Figure~\ref{fig:best_variants_batch} shows performance of the best variants of all categories for both applications. The plots exhibit behavior similar to Figures~\ref{fig:ratio_to_optimal_best_hf} and ~\ref{fig:ratio_to_optimal_best_CCSD}, static+dynamic variants attain maximum communication-computation overlap and outperform other heuristics.
+\todo[inline]{SKumar:combine both plots}
+\begin{figure}[htb]
+	\centering
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=.95\linewidth]{../ExperimentalResults/batch-100/inverse_ratio_to_optimal_hf_batch-best.pdf}
+		\caption{Best variants of HF.}
+		\label{fig:hf_best_variants_batch}
+	\end{subfigure}%
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=.95\linewidth]{../ExperimentalResults/batch-100/inverse_ratio_to_optimal_ccsd_batch-best.pdf}
+		\caption{Best variants of CCSD.}
+		\label{fig:hf_best_variants_batch}
+	\end{subfigure}
+	\caption{Best variants of all categories where heuristics are applied in the batches of 100 tasks.}
+	\label{fig:best_variants_batch}
+\end{figure}
+
 \subsection{Impact of heterogeneity on different heuristics}
 
 	\begin{figure}[htb]
@@ -685,12 +643,7 @@ To get more insights into the considered applications, we also look in to their 
 
 To know the affect of heterogeneity, we set the memory requirement of each task in CCSD trace randomly between 100 to 900 and observe the behavior of different heuristics in  Figure~\ref{fig:ratio_to_optimal_ccsd_random}. This plot also exhibits that static+dynamic variants make good use of static information to maximize communication-computation overlap and dynamic mechanism to minimize the penalty caused by memory capacity limitation. Pure static strategies suffer from memory capacity imitation and pure dynamic strategies are unable to maximize communication-computation overlap.
 
-%%\subsection{Tasks in Batches}
-%%	\begin{figure}[htb]
-%%	\includegraphics[scale=0.25]{../ExperimentalResults/ccsd-random/ratio_to_optimal_ccsd_random.pdf}
-%%	\caption{HF Performance with random memory requirement of a task.}
-%%	\label{fig:staticOrderDynamicCorrectionsExample}
-%%\end{figure}	
+
 
 \section{Conclusion and Perspectives}
 

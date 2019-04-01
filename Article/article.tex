@@ -413,10 +413,10 @@ D & 2 & 1\\ \hline
 	\centering
 %% 	\subfloat[Optimal schedule]{
 		\begin{tikzpicture}[decoration={brace, amplitude=5},scale=0.5, every node/.style={scale=0.5}]
-		\tikzstyle{legend}=[below=0.25, anchor=mid] 	
+		\tikzstyle{legend}=[below=0.1, anchor=mid] 	
 		\node(t1) at (0,0) {};   
 		
-	    \node[above right=0.8cm and 0cm of t1.mid, minimum height=0.5cm, minimum width=13cm, draw=white, fill=white](IMC) {$Infinite Memory Capacity$}; 	    		
+	    \node[above right=0.4cm and 0cm of t1.mid, minimum height=0.5cm, minimum width=9cm, draw=white, fill=white, scale=1.5](IMC) {$Infinite Memory Capacity$}; 	    		
 		    		
 		\node[above right=0cm and 0cm of t1.mid, minimum height=0.5cm, minimum width=1cm,draw,fill=white](b11) {$B$};
 		
@@ -439,16 +439,16 @@ D & 2 & 1\\ \hline
 %%		\draw[->] ([xshift=-0.1cm, yshift=-1cm] b11.south west)--([xshift=13cm, yshift=-1cm] b11.south west);
 
 		\draw[->] ([shift={(-0.1, -0.65)}] t1.mid)
-             -- ([shift={(0, -0.65)}] t1.mid)node[legend,scale=0.5] {$0$}
-             -- ([shift={(1, -0.65)}] t1.mid)node[legend,scale=0.5] {$1$}
-             -- ([shift={(4, -0.65)}] t1.mid)node[legend,scale=0.5] {$4$}
-             -- ([shift={(5, -0.65)}] t1.mid)node[legend,scale=0.5] {$5$}
-             -- ([shift={(8, -0.65)}] t1.mid)node[legend,scale=0.5] {$8$}
-             -- ([shift={(9, -0.65)}] t1.mid)node[legend,scale=0.5] {$9$}
-             -- ([shift={(10, -0.65)}] t1.mid)node[legend,scale=0.5] {$10$}
-             -- ([shift={(11, -0.65)}] t1.mid)node[legend,scale=0.5] {$11$}
-             -- ([shift={(12, -0.65)}] t1.mid)node[legend,scale=0.5] {$12$}                                      
-              --([shift={(17, -0.65)}] t1.mid)node[right,scale=0.5] {$t$};
+             -- ([shift={(0, -0.65)}] t1.mid)node[legend,scale=0.65]{$0$}
+             -- ([shift={(1, -0.65)}] t1.mid)node[legend,scale=0.65]{$1$}
+             -- ([shift={(4, -0.65)}] t1.mid)node[legend,scale=0.65]{$4$}
+             -- ([shift={(5, -0.65)}] t1.mid)node[legend,scale=0.65]{$5$}
+             -- ([shift={(8, -0.65)}] t1.mid)node[legend,scale=0.65]{$8$}
+             -- ([shift={(9, -0.65)}] t1.mid)node[legend,scale=0.65]{$9$}
+             -- ([shift={(10, -0.65)}] t1.mid)node[legend,scale=0.65]{$10$}
+             -- ([shift={(11, -0.65)}] t1.mid)node[legend,scale=0.65]{$11$}
+             -- ([shift={(12, -0.65)}] t1.mid)node[legend,scale=0.65]{$12$}                                      
+              --([shift={(17, -0.65)}] t1.mid)node[right,scale=0.65]{$t$};
               
       \foreach \x in {0, 1, 4, 5, 8, 9, 10, 11, 12} \draw ([shift={(\x, -0.61)}] t1.mid) -- ([shift={(\x, -0.69)}] t1.mid);
       
@@ -457,13 +457,13 @@ D & 2 & 1\\ \hline
 %%      \node[above right=-1.15cm and -2cm of t1.mid, scale=1, rotate=0] {$Hello BCAD$};
               
  
- 		\node(t1) at ([shift={(0, -3)}] t1.mid) {};   
-	    \node[above right=0cm and 0cm of t1.mid, minimum height=0.5cm, minimum width=13cm, draw=white, fill=white](MC) {$Memory Capacity=6$}; 
-	    
+ 		\node(t1) at ([shift={(0, -3.8)}] t1.mid) {};   
+%%	    \node[above right=0cm and 0cm of t1.mid, minimum height=0.5cm, minimum width=9cm, draw=white, fill=white, scale=1.5](MC) {$Memory Capacity=6$}; 
+	    \node[above right=0.4cm and 0cm of t1.mid, minimum height=0.5cm, minimum width=9cm, draw=white, fill=white, scale=1.5](IMC) {$Memory Capacity=6$};	    
 
 	    
 	    
-   		\node(t1) at ([shift={(0, -0.8)}] t1.mid) {};                		
+%%   		\node(t1) at ([shift={(0, -1.0)}] t1.mid) {};                		
 		\node[above right=0cm and 0cm of t1.mid, minimum height=0.5cm, minimum width=1cm,draw,fill=white](b21) {$B$};          
 		
 		\node[below right=0cm and 0cm of b21.south east, minimum height=0.5cm, minimum width=3cm,draw,fill=white](b22) {$B$};			
@@ -482,15 +482,15 @@ D & 2 & 1\\ \hline
 
 
 		\draw[->] ([shift={(-0.1, -0.65)}] t1.mid)
-		-- ([shift={(0, -0.65)}] t1.mid)node[legend,scale=0.5] {$0$}
-		-- ([shift={(1, -0.65)}] t1.mid)node[legend,scale=0.5] {$1$}
-		-- ([shift={(4, -0.65)}] t1.mid)node[legend,scale=0.5] {$4$}
-		-- ([shift={(5, -0.65)}] t1.mid)node[legend,scale=0.5] {$5$}
-		-- ([shift={(9, -0.65)}] t1.mid)node[legend,scale=0.5] {$9$}
-		-- ([shift={(12, -0.65)}] t1.mid)node[legend,scale=0.5] {$12$}         
-		-- ([shift={(14, -0.65)}] t1.mid)node[legend,scale=0.5] {$14$}                                      
-		-- ([shift={(15, -0.65)}] t1.mid)node[legend,scale=0.5]{$15$}
-	  	-- ([shift={(17, -0.65)}] t1.mid)node[right,scale=0.5] {$t$};
+		-- ([shift={(0, -0.65)}] t1.mid)node[legend,scale=0.65]{$0$}
+		-- ([shift={(1, -0.65)}] t1.mid)node[legend,scale=0.65]{$1$}
+		-- ([shift={(4, -0.65)}] t1.mid)node[legend,scale=0.65]{$4$}
+		-- ([shift={(5, -0.65)}] t1.mid)node[legend,scale=0.65]{$5$}
+		-- ([shift={(9, -0.65)}] t1.mid)node[legend,scale=0.65]{$9$}
+		-- ([shift={(12, -0.65)}] t1.mid)node[legend,scale=0.65]{$12$}         
+		-- ([shift={(14, -0.65)}] t1.mid)node[legend,scale=0.65]{$14$}                                      
+		-- ([shift={(15, -0.65)}] t1.mid)node[legend,scale=0.65]{$15$}
+	  	-- ([shift={(17, -0.65)}] t1.mid)node[right,scale=0.65]{$t$};
 
 		\foreach \x in {0, 1, 4, 5, 9, 12, 14, 15} \draw ([shift={(\x, -0.61)}] t1.mid) -- ([shift={(\x, -0.69)}] t1.mid);
 
@@ -516,16 +516,16 @@ D & 2 & 1\\ \hline
 
 
 		\draw[->] ([shift={(-0.1, -0.65)}] t1.mid)
-		-- ([shift={(0, -0.65)}] t1.mid)node[legend,scale=0.5] {$0$}
-		-- ([shift={(1, -0.65)}] t1.mid)node[legend,scale=0.5] {$1$}
-		-- ([shift={(3, -0.65)}] t1.mid)node[legend,scale=0.5] {$3$}
-		-- ([shift={(4, -0.65)}] t1.mid)node[legend,scale=0.5] {$4$}
-		-- ([shift={(5, -0.65)}] t1.mid)node[legend,scale=0.5] {$5$}
-		-- ([shift={(6, -0.65)}] t1.mid)node[legend,scale=0.5] {$6$}         
-		-- ([shift={(8, -0.65)}] t1.mid)node[legend,scale=0.5] {$8$}                                      
-		-- ([shift={(12, -0.65)}] t1.mid)node[legend,scale=0.5]{$12$} 
-		-- ([shift={(16, -0.65)}] t1.mid)node[legend,scale=0.5] {$16$}
-		--([shift={(17, -0.65)}] t1.mid)node[right,scale=0.5] {$t$};
+		-- ([shift={(0, -0.65)}] t1.mid)node[legend,scale=0.65]{$0$}
+		-- ([shift={(1, -0.65)}] t1.mid)node[legend,scale=0.65]{$1$}
+		-- ([shift={(3, -0.65)}] t1.mid)node[legend,scale=0.65]{$3$}
+		-- ([shift={(4, -0.65)}] t1.mid)node[legend,scale=0.65]{$4$}
+		-- ([shift={(5, -0.65)}] t1.mid)node[legend,scale=0.65]{$5$}
+		-- ([shift={(6, -0.65)}] t1.mid)node[legend,scale=0.65]{$6$}         
+		-- ([shift={(8, -0.65)}] t1.mid)node[legend,scale=0.65]{$8$}                                      
+		-- ([shift={(12, -0.65)}] t1.mid)node[legend,scale=0.65]{$12$} 
+		-- ([shift={(16, -0.65)}] t1.mid)node[legend,scale=0.65]{$16$}
+		--([shift={(17, -0.65)}] t1.mid)node[right,scale=0.65]{$t$};
 		
 		\foreach \x in {0, 1, 3, 4, 5, 6, 8, 12, 16} \draw ([shift={(\x, -0.61)}] t1.mid) -- ([shift={(\x, -0.69)}] t1.mid);
 		
@@ -552,14 +552,14 @@ D & 2 & 1\\ \hline
 		
 		
 		\draw[->] ([shift={(-0.1, -0.65)}] t1.mid)
-		-- ([shift={(0, -0.65)}] t1.mid)node[legend,scale=0.5] {$0$}
-		-- ([shift={(4, -0.65)}] t1.mid)node[legend,scale=0.5] {$4$}
-		-- ([shift={(5, -0.65)}] t1.mid)node[legend,scale=0.5] {$5$}
-		-- ([shift={(8, -0.65)}] t1.mid)node[legend,scale=0.5] {$8$}
-		-- ([shift={(11, -0.65)}] t1.mid)node[legend,scale=0.5] {$11$}
-		-- ([shift={(13, -0.65)}] t1.mid)node[legend,scale=0.5] {$13$}         
-		-- ([shift={(14, -0.65)}] t1.mid)node[legend,scale=0.5] {$14$} 
-		--([shift={(17, -0.65)}] t1.mid)node[right,scale=0.5] {$t$};
+		-- ([shift={(0, -0.65)}] t1.mid)node[legend,scale=0.65]{$0$}
+		-- ([shift={(4, -0.65)}] t1.mid)node[legend,scale=0.65]{$4$}
+		-- ([shift={(5, -0.65)}] t1.mid)node[legend,scale=0.65]{$5$}
+		-- ([shift={(8, -0.65)}] t1.mid)node[legend,scale=0.65]{$8$}
+		-- ([shift={(11, -0.65)}] t1.mid)node[legend,scale=0.65]{$11$}
+		-- ([shift={(13, -0.65)}] t1.mid)node[legend,scale=0.65]{$13$}         
+		-- ([shift={(14, -0.65)}] t1.mid)node[legend,scale=0.65]{$14$} 
+		--([shift={(17, -0.65)}] t1.mid)node[right,scale=0.65]{$t$};
 		
 		\foreach \x in {0, 4, 5, 8, 11, 13, 14} \draw ([shift={(\x, -0.61)}] t1.mid) -- ([shift={(\x, -0.69)}] t1.mid);
 		
@@ -585,14 +585,14 @@ D & 2 & 1\\ \hline
 		
 		
 		\draw[->] ([shift={(-0.1, -0.65)}] t1.mid)
-		-- ([shift={(0, -0.65)}] t1.mid)node[legend,scale=0.5] {$0$}
-		-- ([shift={(2, -0.65)}] t1.mid)node[legend,scale=0.5] {$2$}
-		-- ([shift={(3, -0.65)}] t1.mid)node[legend,scale=0.5] {$3$}
-		-- ([shift={(6, -0.65)}] t1.mid)node[legend,scale=0.5] {$6$}
-		-- ([shift={(8, -0.65)}] t1.mid)node[legend,scale=0.5] {$8$}
-		-- ([shift={(12, -0.65)}] t1.mid)node[legend,scale=0.5] {$12$}         
-		-- ([shift={(16, -0.65)}] t1.mid)node[legend,scale=0.5] {$16$} 
-		--([shift={(17, -0.65)}] t1.mid)node[right,scale=0.5] {$t$};
+		-- ([shift={(0, -0.65)}] t1.mid)node[legend,scale=0.65]{$0$}
+		-- ([shift={(2, -0.65)}] t1.mid)node[legend,scale=0.65]{$2$}
+		-- ([shift={(3, -0.65)}] t1.mid)node[legend,scale=0.65]{$3$}
+		-- ([shift={(6, -0.65)}] t1.mid)node[legend,scale=0.65]{$6$}
+		-- ([shift={(8, -0.65)}] t1.mid)node[legend,scale=0.65]{$8$}
+		-- ([shift={(12, -0.65)}] t1.mid)node[legend,scale=0.65]{$12$}         
+		-- ([shift={(16, -0.65)}] t1.mid)node[legend,scale=0.65]{$16$} 
+		--([shift={(17, -0.65)}] t1.mid)node[right,scale=0.65]{$t$};
 		
 		\foreach \x in {0, 2, 3, 6, 8, 12, 16} \draw ([shift={(\x, -0.61)}] t1.mid) -- ([shift={(\x, -0.69)}] t1.mid);
 		
@@ -618,16 +618,16 @@ D & 2 & 1\\ \hline
 		
 		
 		\draw[->] ([shift={(-0.1, -0.65)}] t1.mid)
-		-- ([shift={(0, -0.65)}] t1.mid)node[legend,scale=0.5] {$0$}
-		-- ([shift={(4, -0.65)}] t1.mid)node[legend,scale=0.5] {$4$}
-		-- ([shift={(8, -0.65)}] t1.mid)node[legend,scale=0.5] {$8$}
-		-- ([shift={(11, -0.65)}] t1.mid)node[legend,scale=0.5] {$11$}
-		-- ([shift={(12, -0.65)}] t1.mid)node[legend,scale=0.5] {$12$}
-		-- ([shift={(13, -0.65)}] t1.mid)node[legend,scale=0.5] {$13$}         
-		-- ([shift={(14, -0.65)}] t1.mid)node[legend,scale=0.5] {$14$}
-		-- ([shift={(16, -0.65)}] t1.mid)node[legend,scale=0.5] {$16$} 
-		-- ([shift={(17, -0.65)}] t1.mid)node[legend,scale=0.5] {$17$}  
-		--([shift={(17.1, -0.65)}] t1.mid)node[right,scale=0.5] {$t$};
+		-- ([shift={(0, -0.65)}] t1.mid)node[legend,scale=0.65]{$0$}
+		-- ([shift={(4, -0.65)}] t1.mid)node[legend,scale=0.65]{$4$}
+		-- ([shift={(8, -0.65)}] t1.mid)node[legend,scale=0.65]{$8$}
+		-- ([shift={(11, -0.65)}] t1.mid)node[legend,scale=0.65]{$11$}
+		-- ([shift={(12, -0.65)}] t1.mid)node[legend,scale=0.65]{$12$}
+		-- ([shift={(13, -0.65)}] t1.mid)node[legend,scale=0.65]{$13$}         
+		-- ([shift={(14, -0.65)}] t1.mid)node[legend,scale=0.65]{$14$}
+		-- ([shift={(16, -0.65)}] t1.mid)node[legend,scale=0.65]{$16$} 
+		-- ([shift={(17, -0.65)}] t1.mid)node[legend,scale=0.65]{$17$}  
+		--([shift={(17.1, -0.65)}] t1.mid)node[right,scale=0.65]{$t$};
 		
 		\foreach \x in {0, 4, 8, 11, 12, 13, 14, 16, 17} \draw ([shift={(\x, -0.61)}] t1.mid) -- ([shift={(\x, -0.69)}] t1.mid);
 		
@@ -642,7 +642,7 @@ D & 2 & 1\\ \hline
 %%		\node[above left=0.15cm and 0cm of t3.south west, scale=0.5, rotate=0] {$CPU$};		
 %%		
 %%		\tikzstyle{legend}=[below=0.35, anchor=mid] 	
-%%		\draw[->] (-0.1, -0.1) -- (0, -0.1)  node[legend,scale=0.5] {$0$} --(1,-0.1) node [legend,scale=0.5] {$1$} --(1.5, -0.1) node[right,scale=0.5] {$t$}; 
+%%		\draw[->] (-0.1, -0.1) -- (0, -0.1)  node[legend,scale=0.65]{$0$} --(1,-0.1) node [legend,scale=0.65]{$1$} --(1.5, -0.1) node[right,scale=0.65]{$t$}; 
 %%		
 %%		\foreach \x in {0cm, 1cm} \draw (\x, -0.12) -- (\x, -0.08);
 %%		%%			To align both figures of subfloat-- an object without drawing at the same depth
@@ -659,7 +659,7 @@ D & 2 & 1\\ \hline
 %%		\node[above right=0.5cm and 0cm of t2.north west, draw, minimum height=0.5cm, minimum width=1.618cm,draw,fill=white](t3) {$X$};								
 %%		
 %%		\tikzstyle{legend}=[below=0.35, anchor=mid] 	
-%%		\draw[->] (-0.1, -0.1) -- (0, -0.1)  node[legend,scale=0.5] {$0$} --(0.618,-0.1) node [legend,scale=0.5] {$\tfrac{1}{\phi}$} --(1.618,-0.1) node [legend,scale=0.5] {$\phi$} --(2, -0.1) node[right,scale=0.5] {$t$}; 
+%%		\draw[->] (-0.1, -0.1) -- (0, -0.1)  node[legend,scale=0.65]{$0$} --(0.618,-0.1) node [legend,scale=0.65]{$\tfrac{1}{\phi}$} --(1.618,-0.1) node [legend,scale=0.65]{$\phi$} --(2, -0.1) node[right,scale=0.65]{$t$}; 
 %%		
 %%		\foreach \x in {0cm, 0.618cm, 1.618cm} \draw (\x, -0.12) -- (\x, -0.08);
 %%		%%			To align both figures of subfloat -- an object without drawing at the same depth

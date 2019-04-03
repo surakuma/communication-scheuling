@@ -83,16 +83,17 @@
 %%		The abstract should briefly summarize the contents of the
 %%		paper in 150--250 words.
 
-With increasing complexity of hardwares, systems with different memory nodes are ubiquitous in high performance computing (HPC). It is paramount to develop strategies to overlap the data transfers between memory nodes with the computation in order to exploit the full potential of these systems. In this article, we consider the problem of deciding the  order of data transfers between two memory nodes for a set of independent tasks  with the objective to minimize the makespan. We propose an optimal heuristic to obtain the order of data transfers when there is not any restriction on memory limit. We also show that with finite memory capacity obtaining the optimal order of data transfers is an NP-complete problem. We propose several heuristics for this problem and provide details about their favorable situations. We present analysis of our heuristics on traces obtained by running 2 molecular chemistry kernels, namely, Hartree–Fock (HF)  and Coupled Cluster Single Double (CCSD) on 10 nodes of an HPC system. Our results show that some of our heuristics achieve significant overlap for moderate memory capacities and are very close to the lower bound of makespan.
+With increasing complexity of hardwares, systems with different memory nodes are ubiquitous in high performance computing (HPC). It is paramount to develop strategies to overlap the data transfers between memory nodes with the computation in order to exploit the full potential of these systems. In this article, we consider the problem of deciding the  order of data transfers between two memory nodes for a set of independent tasks  with the objective to minimize the makespan. We propose an optimal heuristic to obtain the order of data transfers when there is not any restriction on memory limit. We also show that with finite memory capacity obtaining the optimal order of data transfers is an NP-complete problem. We propose several heuristics for this problem and provide details about their favorable situations. We present analysis of our heuristics on traces, obtained by running 2 molecular chemistry kernels, namely, Hartree–Fock (HF)  and Coupled Cluster Single Double (CCSD) on 10 nodes of an HPC system. Our results show that some of our heuristics achieve significant overlap for moderate memory capacities and are very close to the lower bound of makespan.
 
-		\keywords{Communication Scheduling  \and Memory Nodes \and Molecular Chemistry.}
+		\keywords{Communication Scheduling  \and Memory Nodes \and Runtime Systems \and Communication-Computation Overlap \and Molecular Chemistry.}
 	\end{abstract} %
 
 
 	
 	\section{Introduction} 
+	\label{sec:intro}
 			
-	With the advent of multicore, and the use of accelerators, it is notoriously cumbersome to exploit the full capacity of a machine. Indeed, there are several challenges come into picture. First, every architecture provides its own efficacy and interface. Therefore, a steep learning curve is required for programmers to take good utilization of all resources. Second, scheduling is a well known NP-Complete optimization problem, and hybrid and distributed resources make this problem harder (we refer ~\cite{webpagescheduling} for a survey on the complexity of scheduling problems and ~\cite{bleuse2015scheduling} for a recent survey in the case of hybrid nodes). Third, due to shared buses, parallel resources, it is hard to obtain a precise model based on prediction of computation and communication timings. Fourth, number of architectures has increased drastically in recent years, therefore it is almost impossible to develop hand tune optimized code for all these architectures. All these observations led to the development of different task based runtime systems. Among several runtimes, we may cite QUARK~\cite{YarKhan:2011:Quark:Manual} and PaRSEC~\cite{parsec} from from ICL, Univ. of Tennessee Knoxville (USA), StarPU~\cite{starpu} form INRIA Bordeaux (France), Legion~\cite{legion12} from Stanford Univ. (USA), StarSs~\cite{ompss} from Barcelona Supercomputing Center (Spain), KAPPI~\cite{kaapi} from INRIA Grenoble (France). All these runtime systems allow programmers to express their algorithms at the abstract level in the form of direct acyclic graphs, where vertices represent computations and edges represent dependencies among them. Sometimes some static information such as distance to exit (last) node as a priority or affinity of computation towards resources is also provided along with the DAG. Then runtime manages scheduling of computations and communications, data transfer among different memories, computation-communication overlap, load balance in the best possible way.  
+	With the advent of multicore, and the use of accelerators, it is notoriously cumbersome to exploit the full capability of a machine. Indeed, there are several challenges come into picture. First, every architecture provides its own efficacy and interface. Therefore, a steep learning curve is required for programmers to take good utilization of all resources. Second, scheduling is a well known NP-Complete optimization problem, and hybrid and distributed resources make this problem harder (we refer ~\cite{webpagescheduling} for a survey on the complexity of scheduling problems and ~\cite{bleuse2015scheduling} for a recent survey in the case of hybrid nodes). Third, due to shared buses, parallel resources, it is hard to obtain a precise model based on prediction of computation and communication timings. Fourth, number of architectures has increased drastically in recent years, therefore it is almost impossible to develop hand tune optimized code for all these architectures. All these observations led to the development of different task based runtime systems. Among several runtimes, we may cite QUARK~\cite{YarKhan:2011:Quark:Manual} and PaRSEC~\cite{parsec} from from ICL, Univ. of Tennessee Knoxville (USA), StarPU~\cite{starpu} form INRIA Bordeaux (France), Legion~\cite{legion12} from Stanford Univ. (USA), StarSs~\cite{ompss} from Barcelona Supercomputing Center (Spain), KAPPI~\cite{kaapi} from INRIA Grenoble (France). All these runtime systems allow programmers to express their algorithms at the abstract level in the form of direct acyclic graphs (DAG), where vertices represent computations and edges represent dependencies among them. Sometimes some static information such as distance to exit (last) node as a priority or affinity of computation towards resources is also provided along with the DAG. Then runtime manages scheduling of computations and communications, data transfer among different memories, computation-communication overlap, load balance in the best possible way.  
 		
 		
 %%	Historically there is a great focus on the design of parallel algorithms and to minimize the complexity of the computations. Also In the last decade, there is a drastic improvement in the hardware to provide perminent rate of computation, but little improvement has been achieved for the rate of data movement. With extreme scale computing, supercomputers face bottlenecks due to ever growing need of data. Therefore focus of HPC community is now changing towards avoiding, hiding and minimizing communications. (Kyelick work and http://science.energy.gov/~/media/ascr/ ascac/pdf/meetings/20140210/Top10reportFEB14.pdf )
@@ -101,42 +102,37 @@ With increasing complexity of hardwares, systems with different memory nodes are
 	 In the last few decades, there is a drastic improvement in the hardware to provide perminent rate of computation, but little improvement has been achieved for the rate of data movement. With extreme scale computing, supercomputers face bottlenecks due to the need of large amount of data~\cite{ascaccommitteereport2014,yelick2016}. Therefore focus of HPC community is now changing towards avoiding, hiding and minimizing communication costs.
 	 
 	
-	Certain applications such as dense linear algebra kernels have regular structure. Therefore it is possible to associate priorities, based on the task graph structure, with computations, which runtime uses to make the execution efficient. In some applications, such as sparse linear algebra kernels, where programmers do not know the precise structure of the tasks graphs in advance,  tasks are added recursively based on certain sentinel constraints. For such applications, runtime sees a set of independent ready tasks and schedule them on different processing units. It is extremely important for runtimes to decide the order of data transfers for these scheduled computations such that overlap between computations and communications can be maximised. This is the main topic of this paper. We propose different strategies for runtimes such that it can maximize the overlap of computation and communication for kernels running on two different memory nodes. We prove that one of our proposed strategies is an optimal one when we do not have any restriction on the capacity of memory node. We also prove that order of communication on two memory nodes  with the objective of minimizing the makespan is  NP-Complete. We evaluate our strategies on a cluster of homogeneous nodes. But our approach is generic and easily adaptable to any system which operates on different memory spaces. Here are the important contributions of this paper.
+	Certain applications such as dense linear algebra kernels have regular structure. Therefore, it is possible to associate priorities, based on the task graph structure, with computations, which runtime uses to make the execution efficient. In some applications, such as sparse linear algebra kernels, where programmers do not know the precise structure of the tasks graphs in advance,  tasks are added recursively based on certain sentinel constraints. For such applications, runtime sees a set of independent ready tasks and schedule them on different processing units. It is extremely important for runtimes to decide the order of data transfers for these scheduled computations such that overlap between computations and communications can be maximised. This is the main topic of this paper. We propose different strategies for runtimes such that it can maximize the overlap of computation and communication for kernels running on two different memory nodes. We prove that one of our proposed strategies is an optimal one when we do not have any restriction on the capacity of memory node. We also prove that order of communication on two memory nodes  with the objective of minimizing the makespan is  NP-Complete. We evaluate our strategies on a cluster of homogeneous nodes. But our approach is generic and easily adaptable to any system which operates on different memory spaces. Here are the important contributions of this paper.
 	
 	\renewcommand{\labelitemi}{$\bullet$}
 	\begin{itemize}
 		\item Proposed different scheduling strategies with the objective to minimize the makespan
-		\item An optimal strategy and its proof, when there is not any memory capacity constraint on target machine
+		\item An optimal strategy and its proof, when there is not any memory capacity constraint on the target machine
 		\item NP-Completeness proof for the general data-transfer problem  
 		\item Linear programming formulation of the problem
 		\item Numerous  experiments to assess the effectiveness of our strategies on molecular chemistry kernels 
 	\end{itemize}
-		
 
-\todo[inline]{Add outline of this article (in the end)}
+The outline of the article is the following. Section~\ref{sec:relatedWork} describes past work on the computations with limited memory and similar problems in the literature. In section~\ref{sec:theoreticalProof}, we present an algorithm to obtain the order of data transfers when there is not any memory capacity restriction and prove its optimality. Then, we also prove that in general data transfer problem is NP-complete. In Section~\ref{sec:heuristics}, we propose several heuristics and describe their favorable scenarios. We mainly consider three categories of heuristics: Static heuristics, dynamic heuristics and static heuristics with dynamic corrections. We evaluate our proposed strategies on two molecular chemistry kernels in Section~\ref{sec:exp}.  Our results show that static heuristics with dynamic corrections achieve good performance in most cases. We finally  propose conclusions and perspectives in Section~\ref{sec:conclusion}.
+
 \section{Related Work}
-
-
+\label{sec:relatedWork}
 
 Historically there has been a great emphasis on the development of parallel algorithms and minimizing the complexity of computations. As the number of computation cores has increased drastically in recent years, supercomputers face bottleneck due to communication required by an application. Hence, in recent years the focus has changed towards developing communication avoiding algorithms, strategies to hiding communications and  minimizing the data accessed by applications~\cite{yelick2016}. 
 
   
 The problem of scheduling tasks has been highly studied in literature and this problem is known to be NP-Complete~\cite{GareyJohnson}.  Many static and dynamic strategies have been proposed and analyzed for this problem~\cite{heft-Topcuoglu,hipc16multiresource,ipdps16starpu}. There ia also a number of studies in the direction of task scheduling with the emphasis of improving locality and minimizing the communication cost~\cite{starpu,heft-Topcuoglu}. Stanisic et. al proposed a heuristic to schedule tasks on a computing resource where most of its data is available~\cite{luka-dmdar}. Similar approach has been adopted by Agullo et. al for the scheduling of sparse linear algebra kernels~\cite{agullo_fmm}.  Predari et.al  proposed  heuristics to  partition the task graph across a number of processors such that inter processor communication can be minimized ~\cite{predari:tel-01518956}.
 
-The problem considered in this paper also can be viewed as a flow shop problem. Communication and computation timings of a task can be considered as processing timings on different machines.  Johnson has provided scheduling strategies for 2 and 3-machine flow shop problems with infinite memory capacity~\cite{johnson}. 2-machine flow shop problem with finite memory capacity has been proven NP-Complete by Papadimitriou et. al~\cite{Papadimitriou:1980:FSL:322203.322213}. The main difference with the our approach is that they consider unit buffer requirement on 1st machine after job completion. On the contrary, our approach is designed for tasks appearing in scientific workloads whose sizes are highly irregular and memory is acquired before starting the communication.
+The problem considered in this article also can be viewed as a flow shop problem. Communication and computation timings of a task can be considered as processing timings on different machines.  Johnson has provided scheduling strategies for 2 and 3-machine flow shop problems with infinite memory capacity~\cite{johnson}. 2-machine flow shop problem with finite memory capacity has been proven NP-Complete by Papadimitriou et. al~\cite{Papadimitriou:1980:FSL:322203.322213}. The main difference with the our approach is that they consider unit buffer requirement on 1st machine after job completion. On the contrary, our approach is designed for tasks appearing in scientific workloads whose sizes are highly irregular and memory is acquired before starting the communication.
 
-There is also a numerous study pertaining to the scheduling with limited memory and storage, since the work of Sethi and Ulman, register allocation for arithmetic expressions~\cite{Sethi:1970:GOC:321607.321620}.  Sarkar et. al  worked on the scheduling of graphs of smaller-grain tasks with limited memory, where each task requires homogeneous data size ~\cite{vsarkar-pact}. The same work has been extend by Loris et. al for task graphs where memory requirement of each task is highly irregular~\cite{loris-ipdps18}.
+There is also a numerous study pertaining to the scheduling with limited memory and storage, since the work of Sethi and Ulman, register allocation for arithmetic expressions~\cite{Sethi:1970:GOC:321607.321620}.  Sarkar et. al  worked on the scheduling of graphs of smaller-grain tasks with limited memory, where each task requires homogeneous data size ~\cite{vsarkar-pact}. The same work has been extend by Marchal et. al for task graphs where memory requirement of each task is highly irregular~\cite{loris-ipdps18}.
 
 
-
-\begin{itemize}
-	\item theoretical/performance work on molecular chemistry kernels
-\end{itemize}
-
+\todo[inline]{theoretical/performance work on molecular chemistry kernels}
 
 %%	\todo[inline]{SKumar: Modify both proofs }
-	\section{Data Transfer problem formulation}
-%%	\section*{Order of data transfers}
+	\section{Data Transfer Problem Formulation}
+	\label{sec:theoreticalProof}
 	
 	To exploit the full potential of a system tasks may get scheduled on processing
 	units where all of their data does not reside. A task may require all of its data
@@ -473,14 +469,7 @@ channel(1st machine).
 
 	
 	\section{Order of Data Transfer and Computation heuristics}
-%%	\begin{itemize}
-%%		\item Talk about optimal strategy
-%%		\item Order of computations and communications are same
-%%		\item Static strategy
-%%		\item Dynamic strategies
-%%		\item Combination of Static and dynamic strategies
-%%		\item strategies based on linear program 
-%%	\end{itemize}
+	\label{sec:heuristics}
 
 The heuristic proposed in the Section provides the optimal makespan when there is not any constraint on memory capacity. This optimal value indicates a lower bound on the makespan. We use $optimal_makespan_infinite_memory$ to represent this value. We assess the efficiency of other proposed heuristics in limited memory capacity in Section~\ref{sec:exp} with respect to this lower bound, $optimal_makespan_infinite_memory$.
 
@@ -1332,6 +1321,7 @@ To know the affect of heterogeneity, we set the memory requirement of each task 
 
 
 \section{Conclusion and Perspectives}
+\label{sec:conclusion}
 
 
 %%We also plan to extend our model by taking bandwidth sharing and different possible routes for the same source-destination pair into account.

@@ -31,12 +31,27 @@
 %%to comment all todos
 %\renewcommand{\todo}{}
 
-\newcommand{\hp}{{\sc HeteroPrio}\xspace}
+
 \SetKw{continue}{continue}
 
 \usepackage{tikz}
 \usetikzlibrary{fit,calc,positioning,decorations.pathreplacing,matrix}
 
+
+\definecolor{pdfurlcolor}{rgb}{0,0,0.6}
+\definecolor{pdfcitecolor}{rgb}{0,0.6,0}
+\definecolor{pdflinkcolor}{rgb}{0.6,0,0}
+\usepackage{epsfig,color}
+%\usepackage[colorlinks=true,citecolor=pdfcitecolor,urlcolor=pdfurlcolor,linkcolor=pdflinkcolor,pdfborder={0 0 0}]{hyperref}
+
+
+\newcommand{\scomm}{\ensuremath{{\cal S}_{\text{COMM}}}}
+\newcommand{\scomp}{\ensuremath{{\cal S}_{\text{COMP}}}}
+
+
+%%\newtheorem{theorem}{Theorem}
+%%\newtheorem{corollary}{Corollary}[theorem]
+%\newtheorem{lemma}[theorem]{Lemma}
 
 %%\pagenumbering{gobble}
 
@@ -119,7 +134,7 @@ There is also a numerous study pertaining to the scheduling with limited memory 
 \end{itemize}
 
 
-	\todo[inline]{SKumar: Modify both proofs }
+%%	\todo[inline]{SKumar: Modify both proofs }
 	\section{Data Transfer problem formulation}
 %%	\section*{Order of data transfers}
 	
@@ -129,56 +144,50 @@ There is also a numerous study pertaining to the scheduling with limited memory 
 	scheduled on a processing unit, which require to transfer data from the same
 	memory node. Order of data transfers for such tasks is very crucial for the
 	communication-computation overlap, thus for the overall performance. Tasks may
-	also produce some output data, which, in general, is very less.  It is often the case that future tasks running on the same memory node require output data of the past tasks. Therefore, most runtime systems transfer data to other memory nodes based on the demand -- not immediately. It is possible that all output data can be stored in a preallocated separate buffer on a memory node. Hence, we do not consider output data separately in our analysis and assume that output data is negligible (zero or stored in a separate buffer) for each task. We prove that order of execution of such tasks with finite memory capacity, is an NP-complete problem.
+	also produce some output data, which, in general, is very less.  It is often the case that future tasks running on the same memory node require output data of the past tasks. Therefore, most runtime systems transfer data to other memory nodes based on the demand -- not immediately. It is possible that all output data can be stored in a preallocated separate buffer on a memory node. Hence, we do not consider output data separately in our analysis and assume that output data is negligible (zero or stored in a separate buffer) for each task. We prove that order of execution of such tasks with finite memory capacity, is an NP-complete problem. We also present an optimal algorithm to determine the order of execution of tasks when there is not any  restriction on memory limit.
 	
 	
 	\subsection{Infinite Memory Case}
-	Let $S$ be the set of tasks assigned on processor $P$ with memory unit $M$, and this set of tasks  need input data from another memory unit $M'$. We assume that size of $M$ is very large and there will not be any memory capacity restriction for tasks.
+	Let $S$ be the set of tasks assigned on a processor with memory unit $M$, and this set of tasks  need input data from another memory unit $M'$. We assume that size of $M$ is very large and there will not be any memory capacity restriction for tasks.
 	
+	Let \scomm($i$) and  \scomp($i$) represent the start times of task $i$ on communication and computation resources. $CM_i$ and $CP_i$ are communication and computation times of task $i$.
 	
 	\begin{algorithm}
-	\caption{\label{alg:OrderOfExecutionInfinteMemory}Algorithm to determine the order of processing for a set of ready tasks (infinite memory case)}
+	\caption{\label{alg:OrderOfExecutionInfinteMemory}Algorithm to determine the order of processing and schedule for a set of ready tasks (infinite memory case)}
 	\begin{algorithmic}[1]
 		\STATE Divide ready tasks in two sets $S_1$ and $S_2$. If computation time of a task $T$is not less than its communication time, then $T$ is in $S_1$ otherwise $S_2$.
 		\STATE Sort $S_1$ in queue $Q_1$ by non-decreasing communication times
 		\STATE Sort $S_2$ in queue $Q_2$ by non-increasing computation times
-		\WHILE{all tasks did not complete}
-		\IF{$Q_1 \neq \emptyset$}
-		\STATE remove a task $T$ from beginning of $Q_1$ for processing
-		\ELSE 
-		\STATE remove a task $T$ from beginning of $Q_2$ for processing
-		\ENDIF
+		\STATE $Q \gets  Q_1$
+		\STATE Append $Q_2$ to $Q$
+		\STATE $early\_available\_time\_on\_communication\_resource \gets 0$
+		\STATE $early\_available\_time\_on\_computation\_resource \gets 0$
+		\WHILE{$Q \neq \emptyset$}
+		\STATE remove a task $T$ from beginning of $Q$ for processing
+		\STATE $\scomm(T) \gets  early\_available\_time\_on\_communication\_resource$
+		\STATE $\scomp(T) \gets  max(\scomm(T) + CM_T, early\_available\_time\_on\_computation\_resource)$
+		\STATE $early\_available\_time\_on\_communication\_resource \gets  \scomm(T) + CM_T$
+		\STATE $early\_available\_time\_on\_computation\_resource \gets  \scomp(T) + CP_T$
 		\ENDWHILE
 	\end{algorithmic}
 \end{algorithm}
 	
 	
-	\noindent \textbf{Claim} : Order provided by Algorithm~\ref{alg:OrderOfExecutionInfinteMemory} achives the optimal makespan for a set of ready tasks.
-	\todo[inline]{SKumar:rewrite this proof}
-	\begin{proof}
-		Let us first define some notations which we need for this proof.
-%%		\todo[inline]{SKumar: Specify the destination for all notations}
-		\begin{align*}
-		t : & \text{Time at which data transfer for task A starts in original schedule}\\
-		S_A : & \text{ Start of computation  time of task A in original schedule}\\
-		S_B : & \text{ Start of computation time of task B in original schedule}\\
-		S'_A : & \text{ Start of computation time of task A in swapped schedule}\\
-		S'_B : & \text{ Start of computation time of task B in swapped schedule}\\
-		CM(A) : & \text{ Data transfer time for task A}\\
-		CM(B) : & \text{ Data transfer time for task B}\\
-		CP(A) : & \text{ Computation time of of task A}\\
-		CP(B) : & \text{ Computation time of task B}\\
-		\rho : & \text{ ratio of length of task and data transfer time}
-		\end{align*}
-	\end{proof}
+%%	\noindent \textbf{Claim} : Order provided by Algorithm~\ref{alg:OrderOfExecutionInfinteMemory} achives the optimal makespan for a set of ready tasks.
+%%	\todo[inline]{SKumar:rewrite this proof}
+In order to prove the optimality of makespan for the schedule obtained by the above algorithm, we need the following lemma.
+
+	\begin{lemma}\label{lemma:swappingOfTasks}
+	Swapping two contiguous tasks $A$ and $B$ in a schedule does not improve the makespan if one of the conditions is true.
+	\begin{enumerate}[label=\roman*)]
+		\item  $CP_A \ge CM_A, CP_B \ge CM_B, CM_A \le CM_B$
+		\item $CP_A < CM_A, CP_B < CM_B, CP_A \ge CP_B$
+		\item $CP_A \ge CM_A, CP_B < CM_B$
+	\end{enumerate}
+\end{lemma}
+\begin{proof}
+	Let $t_1$ and $t_2$ be the early start time on communication and computation resources just before the task $A$ starts.
 	
-	Let $S$ be the schedule obtained by the above heuristic and $O$ be an optimal schedule. We prove the above claim by converting $S$ to $O$ and showing that at each step completing time of intermediate schedule is not less than the completion time of original schedule $S$. In order to do so, we make sure order of two tasks in both schedules $S$ and $O$ is same. If not, We perform swapping of two tasks.
-	
-	\noindent If we prove the swapping strategy for two contiguous tasks holds, then the same strategy transitively hold for any two tasks of Schedule $S$ 
-	
-	
-	Let $A$ and $B$ are two contiguous tasks of schedule $S$, which need to be swapped.
-	\todo[inline]{SKumar: draw an equivalent xfig diagram}
 	\begin{figure}[htb]
 		\centering
 		\includegraphics[width=\textwidth, height=0.5\textheight, 
@@ -186,62 +195,165 @@ There is also a numerous study pertaining to the scheduling with limited memory 
 		\caption{ \label{fig:bothSchedule} Original and Swapped Schedule}
 	\end{figure}
 	
-	We can write the following constraints based on the two schedules of the Fig~\ref{fig:bothSchedule}.
+	We write the following constraints based on the two schedules of the Fig~\ref{fig:bothSchedule}.
 	
 	\begin{eqnarray*}
-		S_A & = & max(CM(A), l) \\
-		S_B & = & max(S_A + CP(A), CM(A) + CM(B))
+		\scomp(A) & = & max(t_1 + CM_A, t_2) \\
+		\scomp(B) & = & max(\scomp(A) + CP_A,  t_1 + CM_A + CM_B)
 	\end{eqnarray*}
 	
-	Completion time in original Schedule = $S_B + CP(B)$
+	Completion time of $B$ in original Schedule = $\scomm(B) + CP_B$
+	
 	\begin{eqnarray*}
-		S'_B & = & max(CM(B), l) \\
-		S'_A & = & max(S'_B + CP(B), CM(A) + CM(B))
+		\text{Completion time of $B$ in swapped Schedule, } \scomp '(B) & = & max(t_1 + CM_B, t_2)\\
+		\text{Completion time of $A$ in swapped Schedule, } \scomp '(A) & = & max(\scomp'(B) + CP_B, t_1 + CM_B + CM_A)
 	\end{eqnarray*}
 	
-	Completion time in swapped Schedule = $S'_A + CP(A)$
+	In both schedules, early available time on communication resource after scheduling $A$ and $B$ is same. If we show that early available time on computation resource in swapped schedule after scheduling both tasks is not less than the time of original schedule, then we are done. Hence our goal is to prove that,		
+	$$\scomp(B) + CP_B \le \scomp'(A) + CP_A $$
 	
-	Our goal is to prove the following inequality.
+	
+	
 	\begin{eqnarray*}
-		S_B + CP(B) & \le & S'_A + CP(A)
+		\scomp(B) + CP_B & = & max(\scomp(A) + CP_A + CP_B,  t_1 + CM_A + CM_B + CP_B)\\
+		& = & max(t_1 + CM_A + CP_A + CP_B, t_2 + CP_A + CP_B, t_1 + CM_A + CM_B + CP_B) 
 	\end{eqnarray*}
+	
+	Case I: $CP_A \ge CM_A, CP_B \ge CM_B, CM_A \le CM_B$
+	\begin{eqnarray*}
+		\scomp(B) + CP_B & = & max(t_1 + CM_A + CP_A + CP_B, t_2 + CP_A + CP_B, t_1 + CM_A + CM_B + CP_B)\\
+		& \le& max(t_1 + CM_A + CP_B, t_2  + CP_B, t_1  + CM_B + CP_B) + CP_A\\
+		& = & max( t_1  + CM_B + CP_B, t_2  + CP_B) + CP_A \\
+		& = & max(max(t_1 + CM_B, t_2) + CP_B, t_1 + CM_A + CM_B) + CP_A\\
+		& = & max(\scomp'(B) + CP_B, t_1 + CM_A + CM_B) + CP_A \\
+		& = & \scomp'(A) + CP_A
+	\end{eqnarray*}
+	Case II: $CP_A < CM_A, CP_B < CM_B, CP_A \ge CP_B$
+	\begin{eqnarray*}
+		\scomp(B) + CP_B & = & max(t_1 + CM_A + CP_A + CP_B, t_2 + CP_A + CP_B, t_1 + CM_A + CM_B + CP_B)\\
+		& \le & max(t_1 + CM_A + CP_B, t_2+CP_B, t_1 + CM_A + CM_B) + CP_A\\
+		& = & max(t_1 + CM_A + CM_B, t_2+ CP_B) + CP_A \\
+		& = & max(t_1 + CM_B + CP_B, t_2 + CP_B, t_1 + CM(A) + CM_B) + CP_A \\
+		& = & max(max(t_1 + CM_B, t_2) + CP_B, t_1 + CM_A + CM_B) + CP_A \\
+		& = & max(\scomp'(B) + CP_B, t_1 + CM_A +CM_B) + CP_A \\
+		& = & \scomp'(A) + CP_A
+	\end{eqnarray*}
+	Case III: $CP_A \ge CM_A, CP_B < CM_B$
+	\begin{eqnarray*}
+		\scomp(B) + CP_B & = & max(t_1 + CM_A + CP_A + CP_B, t_2 + CP_A + CP_B, t_1 + CM_A + CM_B + CP_B)\\
+		& \le & max(t_1 + CM_A + CP_B, t_2 + CP_B, t_1 + CM_B + CP_B) + CP_A\\
+		& \le & max(t_1 + CM_A + CM_B, t_2 + CP_B, t_1 + CM_B + CP_B) + CP_A \\
+		& = & max(max(t_1 + CM_B, t_2) + CP_B, t_1 + CM_A + CM_B) + CP_A \\
+		& = & max(\scomp'(B) + CP_B, t_1 + CM_A +CM_B) + CP_A \\
+		& = & \scomp'(A) + CP_A
+	\end{eqnarray*}
+\end{proof}
+
+
+\begin{theorem}
+	Scheduled constructed by Algorithm~\ref{alg:OrderOfExecutionInfinteMemory} achieves optimal makespan.
+\end{theorem}
+%%	\begin{proof}
+%%		Let us first define some notations which we need for this proof.
+%%%%		\todo[inline]{SKumar: Specify the destination for all notations}
+%%		\begin{align*}
+%%		t : & \text{Time at which data transfer for task A starts in original schedule}\\
+%%		S_A : & \text{ Start of computation  time of task A in original schedule}\\
+%%		S_B : & \text{ Start of computation time of task B in original schedule}\\
+%%		S'_A : & \text{ Start of computation time of task A in swapped schedule}\\
+%%		S'_B : & \text{ Start of computation time of task B in swapped schedule}\\
+%%		CM(A) : & \text{ Data transfer time for task A}\\
+%%		CM(B) : & \text{ Data transfer time for task B}\\
+%%		CP(A) : & \text{ Computation time of of task A}\\
+%%		CP(B) : & \text{ Computation time of task B}\\
+%%		\rho : & \text{ ratio of length of task and data transfer time}
+%%		\end{align*}
+%%	\end{proof}
+	
 	\begin{proof}
-		\begin{eqnarray*}
-			S_B + CP(B) & = & max(S_A + CP(A)+CP(B), CM(A) + CM(B) + CP(B))\\
-			& = & max(CM(A) + CP(A) + CP(B), l+CP(A) + CP(B), CM(A) + CM(B) + CP(B)) 
-		\end{eqnarray*}
-		Case I: $A, B\in ST_1, CM(A) \le CM(B), CP(A) \ge CM(A), CP(B) \ge CM(B)$
-		\begin{eqnarray*}
-			S_B + CP(B) & = & max(CM(A) + CP(A) + CP(B), l+CP(A) + CP(B), CM(A) + CM(B) + CP(B)) \\
-			& \le & max(CM(A) + CP(B), l+CP(B), CM(B)+CP(B)) + CP(A)\\
-			& = & max(CM(B) + CP(B), l + CP(B)) + CP(A) \\
-			& = & max(max(CM(B), l) + CP(B), CM(A) + CM(B)) + CP(A) \\
-			& = & max(S'_B + CP(B), CM(A) +CM(B)) + CP(A) \\
-			& = & S'_A + CP(A)
-		\end{eqnarray*}
-		Case II: $A, B\in ST_2, CP(A) \ge CP(B), CP(A) < CM(A), CP(B) < CM(B)$
-		\begin{eqnarray*}
-			S_B + CP(B) & = & max(CM(A) + CP(A) + CP(B), l+CP(A) + CP(B), CM(A) + CM(B) + CP(B)) \\
-			& \le & max(CM(A) + CP(B), l+CP(B), CM(A)+CM(B)) + CP(A)\\
-			& = & max(CM(A) + CM(B), l + CP(B)) + CP(A) \\
-			& = & max(CM(B) + CP(B), l + CP(B), CM(A) + CM(B)) + CP(A) \\
-			& = & max(max(CM(B), l) + CP(B), CM(A) + CM(B)) + CP(A) \\
-			& = & max(S'_B + CP(B), CM(A) +CM(B)) + CP(A) \\
-			& = & S'_A + CP(A)
-		\end{eqnarray*}
-		Case III: $A \in ST_1, B\in ST_2, CP(A) \ge CM(A), CP(B) < CM(B)$
-		\begin{eqnarray*}
-			S_B + CP(B) & = & max(CM(A) + CP(A) + CP(B), l+CP(A) + CP(B), CM(A) + CM(B) + CP(B)) \\
-			& \le & max(CM(A) + CP(B), l + CP(B), CM(B) + CP(B)) + CP(A)\\
-			& \le & max(CM(A) + CM(B), l + CP(B), CM(B) + CP(B)) + CP(A) \\
-			& = & max(max(CM(B), l) + CP(B), CM(A) + CM(B)) + CP(A) \\
-			& = & max(S'_B + CP(B), CM(A) +CM(B)) + CP(A) \\
-			& = & S'_A + CP(A)
-		\end{eqnarray*}
-	\end{proof}	
+	
+	Let $O$ be an optimal schedule. We assume that order of communications and computations is same on both resources in $O$. If it is not the case, we make the order of computations same as the order of communications without increasing the makespan.  Suppose two tasks have opposite order on both resources then we position the second task just before the first task on the computation resource. It is evident that this change does not alter the optimal  makespan, we repeat this procedure until order of communications and computations is same in $O$.
+	
+	Let $S$ be the  schedule obtained from Algorithm~\ref{alg:OrderOfExecutionInfinteMemory}. We prove the theorem by converting $S$ to $O$ and showing that at each step makespan of intermediate schedule is not less than the original makespan. We rely on Lemma~\ref{lemma:swappingOfTasks} to convert $S$ to $O$.
+
+  We traverse schedule $O$ from left to right and for each $ith$ task in sequence, we apply Lemma~\ref{lemma:swappingOfTasks} repetitively until order of task in the swapped schedule is same. It is obvious that after moving the $ith$ task at the beginning remaining schedule (schedule after $ith$ task) still satisfies one of the conditions of Lemma~\ref{lemma:swappingOfTasks}.
+  
+  Let the final swapped schedule is $S_{final}$. From Lemma~\ref{lemma:swappingOfTasks}, $makespan(S_{final}) \ge makesapn(S)$. From the construction, $makespan(S_{final}) \le makesapn(O)$. As $O$ is an optimal schedule, hence $makespan(S) = makesapn(O)$. This completes our proof.
+	
+	
+	\end{proof}
+
+%%	 
+%%	Let $S$ be the schedule obtained by the above heuristic and $O$ be an optimal schedule. We prove the above claim by converting $S$ to $O$ and showing that at each step completing time of intermediate schedule is not less than the completion time of original schedule $S$. In order to do so, we make sure order of two tasks in both schedules $S$ and $O$ is same. If not, We perform swapping of two tasks.
+%%	
+%%	\noindent If we prove the swapping strategy for two contiguous tasks holds, then the same strategy transitively hold for any two tasks of Schedule $S$ 
+	
+	
+%%	Let $A$ and $B$ are two contiguous tasks of schedule $S$, which need to be swapped.
+%%	\todo[inline]{SKumar: draw an equivalent xfig diagram}
+%%	\begin{figure}[htb]
+%%		\centering
+%%		\includegraphics[width=\textwidth, height=0.5\textheight, 
+%%		keepaspectratio]{Figs/swappedSchedule.jpg}
+%%		\caption{ \label{fig:bothSchedule} Original and Swapped Schedule}
+%%	\end{figure}
+%%	
+%%	We can write the following constraints based on the two schedules of the Fig~\ref{fig:bothSchedule}.
+%%	
+%%	\begin{eqnarray*}
+%%		S_A & = & max(CM(A), l) \\
+%%		S_B & = & max(S_A + CP(A), CM(A) + CM(B))
+%%	\end{eqnarray*}
+%%	
+%%	Completion time in original Schedule = $S_B + CP(B)$
+%%	\begin{eqnarray*}
+%%		S'_B & = & max(CM(B), l) \\
+%%		S'_A & = & max(S'_B + CP(B), CM(A) + CM(B))
+%%	\end{eqnarray*}
+%%	
+%%	Completion time in swapped Schedule = $S'_A + CP(A)$
+%%	
+%%	Our goal is to prove the following inequality.
+%%	\begin{eqnarray*}
+%%		S_B + CP(B) & \le & S'_A + CP(A)
+%%	\end{eqnarray*}
+%%	\begin{proof}
+%%		\begin{eqnarray*}
+%%			S_B + CP(B) & = & max(S_A + CP(A)+CP(B), CM(A) + CM(B) + CP(B))\\
+%%			& = & max(CM(A) + CP(A) + CP(B), l+CP(A) + CP(B), CM(A) + CM(B) + CP(B)) 
+%%		\end{eqnarray*}
+%%		Case I: $A, B\in ST_1, CM(A) \le CM(B), CP(A) \ge CM(A), CP(B) \ge CM(B)$
+%%		\begin{eqnarray*}
+%%			S_B + CP(B) & = & max(CM(A) + CP(A) + CP(B), l+CP(A) + CP(B), CM(A) + CM(B) + CP(B)) \\
+%%			& \le & max(CM(A) + CP(B), l+CP(B), CM(B)+CP(B)) + CP(A)\\
+%%			& = & max(CM(B) + CP(B), l + CP(B)) + CP(A) \\
+%%			& = & max(max(CM(B), l) + CP(B), CM(A) + CM(B)) + CP(A) \\
+%%			& = & max(S'_B + CP(B), CM(A) +CM(B)) + CP(A) \\
+%%			& = & S'_A + CP(A)
+%%		\end{eqnarray*}
+%%		Case II: $A, B\in ST_2, CP(A) \ge CP(B), CP(A) < CM(A), CP(B) < CM(B)$
+%%		\begin{eqnarray*}
+%%			S_B + CP(B) & = & max(CM(A) + CP(A) + CP(B), l+CP(A) + CP(B), CM(A) + CM(B) + CP(B)) \\
+%%			& \le & max(CM(A) + CP(B), l+CP(B), CM(A)+CM(B)) + CP(A)\\
+%%			& = & max(CM(A) + CM(B), l + CP(B)) + CP(A) \\
+%%			& = & max(CM(B) + CP(B), l + CP(B), CM(A) + CM(B)) + CP(A) \\
+%%			& = & max(max(CM(B), l) + CP(B), CM(A) + CM(B)) + CP(A) \\
+%%			& = & max(S'_B + CP(B), CM(A) +CM(B)) + CP(A) \\
+%%			& = & S'_A + CP(A)
+%%		\end{eqnarray*}
+%%		Case III: $A \in ST_1, B\in ST_2, CP(A) \ge CM(A), CP(B) < CM(B)$
+%%		\begin{eqnarray*}
+%%			S_B + CP(B) & = & max(CM(A) + CP(A) + CP(B), l+CP(A) + CP(B), CM(A) + CM(B) + CP(B)) \\
+%%			& \le & max(CM(A) + CP(B), l + CP(B), CM(B) + CP(B)) + CP(A)\\
+%%			& \le & max(CM(A) + CM(B), l + CP(B), CM(B) + CP(B)) + CP(A) \\
+%%			& = & max(max(CM(B), l) + CP(B), CM(A) + CM(B)) + CP(A) \\
+%%			& = & max(S'_B + CP(B), CM(A) +CM(B)) + CP(A) \\
+%%			& = & S'_A + CP(A)
+%%		\end{eqnarray*}
+%%	\end{proof}	
 
 
-This problem can be expressed as 2-machine flowshop problem with infinite storage, where communication time is the processing time on first machine and computation time is the processing time on second machine and the goal is to minimize the overall makespan. In ~\cite{GareyJohnson}, Johnson's algorithm also achieves the optimal makespan but the proof techniques and algorithm are quite different from ours.
+The problem considered here can also be expressed as 2-machine flowshop problem with infinite storage, where communication time is the processing time on first machine and computation time is the processing time on second machine and the goal is to minimize the overall makespan. In ~\cite{johnson}, Johnson's algorithm also achieves the optimal makespan but the proof techniques and algorithm are quite different from ours.
 	\subsection{Finite Memory}
 	
 	In general, order of task execution with input and output data transfers can be 

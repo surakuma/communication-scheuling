@@ -15,6 +15,9 @@
 #define PRINTCOMPLETESCHEDULE 0
 #endif
 
+#define BATCHSIZE 100
+
+
 using namespace std;
 
 class Task
@@ -248,63 +251,70 @@ void compute_schedule_next_task_heuristic(Task tasks[], long unsigned int ntasks
         //k denotes the index of next task in computation channel 
         long unsigned int k=0;
         //While all tasks complete on computation channel
+        long unsigned int end = min(i+BATCHSIZE, ntasks);
+
         while(k<ntasks)
         {
-            if(!computation_queue.empty())
+            //std::cout << "start = " << i <<" end = " <<end <<std::endl;
+            while((i < end)|| ((i == ntasks) && (k<ntasks)))
             {
-                if(computation_queue.front().end_comp_time <= early_available_comm_time)
+                if(!computation_queue.empty())
                 {
-                    available_memory_for_present_task += computation_queue.front().memory_requirement;
-                    computation_queue.pop();
+                    if(computation_queue.front().end_comp_time <= early_available_comm_time)
+                    {
+                        available_memory_for_present_task += computation_queue.front().memory_requirement;
+                        computation_queue.pop();
+                    }
                 }
-            }
-            if(k<i && early_available_comp_time <= early_available_comm_time)
-            {
-                tasks[k].start_comp_time = max(early_available_comp_time, tasks[k].end_comm_time);
-                early_available_comp_time = tasks[k].start_comp_time + tasks[k].comp_time;
-                tasks[k].end_comp_time = early_available_comp_time;
-                computation_queue.push(tasks[k]);
-                tasks[k].available_memory_after_comp_scheduling = available_memory_for_present_task;
-                k++;
-
-            }
-            else if((initial_order == true )&&(i<ntasks) && (tasks[i].memory_requirement <= available_memory_for_present_task ))
-            {
-                tasks[i].start_comm_time = early_available_comm_time;
-                early_available_comm_time += tasks[i].input_comm_time;
-                tasks[i].end_comm_time = early_available_comm_time;
-                available_memory_for_present_task -= tasks[i].memory_requirement;
-                tasks[i].available_memory_after_comm_scheduling = available_memory_for_present_task;
-                i++;
-            }
-            else if((i<ntasks)&&((index=criteria_lambda(tasks, i, ntasks, early_available_comm_time,
-                                early_available_comp_time, available_memory_for_present_task)) != -1))
-            {
-                Task temp = tasks[index];
-                if(initial_order)
+                if(k<i && early_available_comp_time <= early_available_comm_time)
                 {
-                    for(int j=index; j>i; j--)
-                        tasks[j] = tasks[j-1];
+                    tasks[k].start_comp_time = max(early_available_comp_time, tasks[k].end_comm_time);
+                    early_available_comp_time = tasks[k].start_comp_time + tasks[k].comp_time;
+                    tasks[k].end_comp_time = early_available_comp_time;
+                    computation_queue.push(tasks[k]);
+                    tasks[k].available_memory_after_comp_scheduling = available_memory_for_present_task;
+                    k++;
+
+                }
+                else if((initial_order == true )&& (i<ntasks) && (tasks[i].memory_requirement <= available_memory_for_present_task ))
+                {
+                    tasks[i].start_comm_time = early_available_comm_time;
+                    early_available_comm_time += tasks[i].input_comm_time;
+                    tasks[i].end_comm_time = early_available_comm_time;
+                    available_memory_for_present_task -= tasks[i].memory_requirement;
+                    tasks[i].available_memory_after_comm_scheduling = available_memory_for_present_task;
+                    i++;
+                }
+                else if((i<ntasks)&& ((index=criteria_lambda(tasks, i, end, early_available_comm_time,
+                                    early_available_comp_time, available_memory_for_present_task)) != -1))
+                {
+                    Task temp = tasks[index];
+                    if(initial_order)
+                    {
+                        for(int j=index; j>i; j--)
+                            tasks[j] = tasks[j-1];
+                    }
+                    else
+                        tasks[index] = tasks[i];
+
+                    tasks[i] = temp;
+
+                    //                cout<<temp.input_comm_time<<" "<<temp.comp_time<<"\n";
+
+                    tasks[i].start_comm_time = early_available_comm_time;
+                    early_available_comm_time += tasks[i].input_comm_time;
+                    tasks[i].end_comm_time = early_available_comm_time;
+                    available_memory_for_present_task -= tasks[i].memory_requirement;
+                    tasks[i].available_memory_after_comm_scheduling = available_memory_for_present_task;
+                    i++;
                 }
                 else
-                tasks[index] = tasks[i];
+                {
+                    early_available_comm_time = early_available_comp_time;
+                }
 
-                tasks[i] = temp;
-
-//                cout<<temp.input_comm_time<<" "<<temp.comp_time<<"\n";
-                
-                tasks[i].start_comm_time = early_available_comm_time;
-                early_available_comm_time += tasks[i].input_comm_time;
-                tasks[i].end_comm_time = early_available_comm_time;
-                available_memory_for_present_task -= tasks[i].memory_requirement;
-                tasks[i].available_memory_after_comm_scheduling = available_memory_for_present_task;
-                i++;
             }
-            else
-            {
-                early_available_comm_time = early_available_comp_time;
-            }
-
+            end = min(i+BATCHSIZE, ntasks);
         }
 
 }
@@ -400,7 +410,16 @@ int main(int argc, char* argv[])
            }
          */
 
-        optimal_order_infinite_memory(tasks, ntasks);
+        int start = 0;
+        int end = min(start+BATCHSIZE, ntasks);
+
+        while(start < ntasks)
+        {
+            optimal_order_infinite_memory(tasks+start, end-start);
+            start = end;
+            end = min(start+BATCHSIZE, ntasks);
+        }
+
 
         double early_available_comm_time = 0;
         double early_available_comp_time = 0;
@@ -425,7 +444,6 @@ int main(int argc, char* argv[])
     {   
         string alg_name="order_of_submission";
         alg_name = "OS";
-
         compute_schedule_for_specified_order(tasks, ntasks);
         print_schedule(alg_name, tasks, ntasks);
 
@@ -439,7 +457,16 @@ int main(int argc, char* argv[])
         string alg_name="order_of_optimal_strategy_infinite_memory";
         alg_name = "OOSIM";
 
-        optimal_order_infinite_memory(tasks, ntasks);
+        int start = 0;
+        int end = min(start+BATCHSIZE, ntasks);
+
+        while(start < ntasks)
+        {
+            optimal_order_infinite_memory(tasks+start, end-start);
+            start = end;
+            end = min(start+BATCHSIZE, ntasks);
+        }
+
         compute_schedule_for_specified_order(tasks, ntasks);
         print_schedule(alg_name, tasks, ntasks);
 
@@ -479,11 +506,19 @@ int main(int argc, char* argv[])
     }
     else if(alg_choice==3)
     {
-        //Heuristic Increasing orde of communication
+        //Heuristic: Increasing order of communication
         string alg_name="increasing_order_of_communication_strategy";
         alg_name = "IOCMS";
-        sort(tasks, tasks+ntasks, commIncrease);
-        //sort(tasks+i, tasks+ntasks, compDecrease);
+
+        int start = 0;
+        int end = min(start+BATCHSIZE, ntasks);
+
+        while(start < ntasks)
+        {
+            sort(tasks+start, tasks+end, commIncrease);
+            start = end;
+            end = min(start+BATCHSIZE, ntasks);
+        }
 
         compute_schedule_for_specified_order(tasks, ntasks);
         print_schedule(alg_name, tasks, ntasks);
@@ -493,9 +528,16 @@ int main(int argc, char* argv[])
         //Heuristic: decreasing order of computation time
         string alg_name="decreasing_order_of_computation_strategy";
         alg_name = "DOCPS";
-        //sort(tasks, tasks+ntasks, commIncrease);
-        sort(tasks, tasks+ntasks, compDecrease);
 
+        int start = 0;
+        int end = min(start+BATCHSIZE, ntasks);
+
+        while(start < ntasks)
+        {
+            sort(tasks+start, tasks+end, compDecrease);
+            start = end;
+            end = min(start+BATCHSIZE, ntasks);
+        }
 
         compute_schedule_for_specified_order(tasks, ntasks);
         print_schedule(alg_name, tasks, ntasks);
@@ -505,9 +547,16 @@ int main(int argc, char* argv[])
         //Heuristic: increasing order of communication + computation time
         string alg_name="increasing_order_of_communication_plus_computation_strategy";
         alg_name = "IOCCS";
-        sort(tasks, tasks+ntasks, commPlusCompIncrease);
-        //sort(tasks, tasks+ntasks, commPlusCompDecrease);
 
+        int start = 0;
+        int end = min(start+BATCHSIZE, ntasks);
+
+        while(start < ntasks)
+        {
+            sort(tasks+start, tasks+end, commPlusCompIncrease);
+            start = end;
+            end = min(start+BATCHSIZE, ntasks);
+        }
 
         compute_schedule_for_specified_order(tasks, ntasks);
         print_schedule(alg_name, tasks, ntasks);
@@ -517,14 +566,21 @@ int main(int argc, char* argv[])
         //Heuristic: decreasing order of communication + computation time
         string alg_name="decreasing_order_of_communication_plus_computation_strategy";
         alg_name = "DOCCS";
-        //sort(tasks, tasks+ntasks, commPlusCompIncrease);
-        sort(tasks, tasks+ntasks, commPlusCompDecrease);
 
+        int start = 0;
+        int end = min(start+BATCHSIZE, ntasks);
+
+        while(start < ntasks)
+        {
+            sort(tasks+start, tasks+end, commPlusCompDecrease);
+            start = end;
+            end = min(start+BATCHSIZE, ntasks);
+        }
 
         compute_schedule_for_specified_order(tasks, ntasks);
         print_schedule(alg_name, tasks, ntasks);
     }
-    //TODO: heuristics based on input volume and intermediate meory requirements
+    //TODO: heuristics based on input volume and intermediate memory requirements
     else if(alg_choice == 7)
     {
         //Heuristic: When communication channel is idle, the largest task is selected which respects memory requirement
@@ -612,7 +668,17 @@ int main(int argc, char* argv[])
         string alg_name="optimal_order_infinite_memory_largest_communication_task_respects_memory_restriction";
         alg_name = "OOLCMR";
         bool initial_order = true;
-        optimal_order_infinite_memory(tasks, ntasks);
+
+        int start = 0;
+        int end = min(start+BATCHSIZE, ntasks);
+
+        while(start < ntasks)
+        {
+            optimal_order_infinite_memory(tasks+start, end-start);
+            start = end;
+            end = min(start+BATCHSIZE, ntasks);
+        }
+
         compute_schedule_next_task_heuristic(tasks, ntasks,
                 find_next_largest_communication_task_with_memory_restriction, initial_order);
 
@@ -626,7 +692,17 @@ int main(int argc, char* argv[])
         string alg_name="optimal_order_infinite_memory_smallest_communication_task_respects_memory_restriction";
         alg_name = "OOSCMR";
         bool initial_order = true;
-        optimal_order_infinite_memory(tasks, ntasks);
+
+        int start = 0;
+        int end = min(start+BATCHSIZE, ntasks);
+
+        while(start < ntasks)
+        {
+            optimal_order_infinite_memory(tasks+start, end-start);
+            start = end;
+            end = min(start+BATCHSIZE, ntasks);
+        }
+
         compute_schedule_next_task_heuristic(tasks, ntasks,
                 find_next_largest_communication_task_with_memory_restriction, initial_order);
 
@@ -641,7 +717,17 @@ int main(int argc, char* argv[])
         string alg_name="optimal_order_infinite_memory_maximum_accelerated_task_respects_memory_restriction";
         alg_name = "OOMAMR";
         bool initial_order = true;
-        optimal_order_infinite_memory(tasks, ntasks);
+
+        int start = 0;
+        int end = min(start+BATCHSIZE, ntasks);
+
+        while(start < ntasks)
+        {
+            optimal_order_infinite_memory(tasks+start, end-start);
+            start = end;
+            end = min(start+BATCHSIZE, ntasks);
+        }
+
         compute_schedule_next_task_heuristic(tasks, ntasks,
                 find_next_maximum_accelerated_task_with_memory_restriction, initial_order);
 

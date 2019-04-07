@@ -386,8 +386,8 @@ int main(int argc, char* argv[])
     string alg_name="order_of_Gilmore_Gomory";
 
     long unsigned int capacity = CAPACITY;
-    long unsigned int inc = CAPACITY/10;
-    for(i=0; i<10; i++)
+    long unsigned int inc = CAPACITY/8;
+    for(i=0; i<9; i++)
     {
 
         compute_schedule_for_specified_order(tasks, ntasks, capacity);

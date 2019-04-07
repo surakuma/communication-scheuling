@@ -196,7 +196,7 @@
 	Let \scomm($i$) and  \scomp($i$) represent the start times of task $i$ on communication and computation resources. $CM_i$ and $CP_i$ are communication and computation times of task $i$.
 	
 	\begin{algorithm}
-		\caption{\label{alg:OrderOfExecutionInfinteMemory}Algorithm to determine the order of processing and schedule for a set of ready tasks (infinite memory case)}
+		\caption{\label{alg:OrderOfExecutionInfinteMemory}Algorithm to determine the order of processing and schedule for a set of ready tasks (infinite memory case).}
 		\begin{algorithmic}[1]
 			\STATE Divide ready tasks in two sets $S_1$ and $S_2$. If computation time of a task $T$is not less than its communication time, then $T$ is in $S_1$ otherwise in $S_2$.
 			\STATE Sort $S_1$ in queue $Q$ by non-decreasing communication times
@@ -899,7 +899,7 @@ We use GLPK solver v4.65 to solve the above formulation. The solver was unable t
 			optimal\_order\_infinite\_memory\_largest\_communication\_task\_respects\_memory\_restriction & Moderate memory capacity and significant percentage of tasks are communication intensive\\ \hline
 			optimal\_order\_infinite\_memory\_smallest\_communication\_task\_respects\_memory\_restriction & Moderate memory capacity and most tasks are compute intensive \\ \hline
 			optimal\_order\_infinite\_memory\_maximum\_accelerated\_task\_respects\_memory\_restriction & Moderate   memory capacity and number of communication and compute intensive tasks are approximately equal \\ \hline
-		\end{tabular}\caption{~\label{tab:heuristicsAndFavorableScenarios}Heuristics and their favorable scenarios}
+		\end{tabular}\caption{~\label{tab:heuristicsAndFavorableScenarios}Heuristics and their favorable scenarios.}
 	\end{table*}
 	
 	

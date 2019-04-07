@@ -1043,16 +1043,16 @@ We use GLPK solver v4.65 to solve the above formulation. The solver was unable t
 	%%	\label{fig:best_variants_batch}
 	%%\end{figure}
 	
-	\subsection{Impact of heterogeneity on different heuristics}
-	\todo[inline]{SKumar: remove this subsection or replace with an experiment which shows the performance difference with all classes of heuristics for randomly generated inputs.}
-	\begin{figure*}[htb]
-		\includegraphics[scale=0.25]{./results/plots/ratio_to_optimal_random_selected_ccsd.pdf}
-		\caption{Comparison of different heuristics for CCSD with highly heterogeneous tasks.}
-		\label{fig:ratio_to_optimal_ccsd_random}
-	\end{figure*}	
-	
-	
-	To know the affect of heterogeneity, we set the memory requirement of each task in CCSD trace randomly between 100 to 900 and observe the behavior of different heuristics in  Figure~\ref{fig:ratio_to_optimal_ccsd_random}. This plot also exhibits that static order with dynamic correction variants make good use of static information to maximize communication-computation overlap and dynamic mechanism to minimize the penalty caused by memory capacity limitation. Pure static strategies suffer from memory capacity imitation and pure dynamic strategies are unable to maximize communication-computation overlap.
+%%	\subsection{Impact of heterogeneity on different heuristics}
+%%	\todo[inline]{SKumar: remove this subsection or replace with an experiment which shows the performance difference with all classes of heuristics for randomly generated inputs.}
+%%	\begin{figure*}[htb]
+%%		\includegraphics[scale=0.25]{./results/plots/ratio_to_optimal_random_selected_ccsd.pdf}
+%%		\caption{Comparison of different heuristics for CCSD with highly heterogeneous tasks.}
+%%		\label{fig:ratio_to_optimal_ccsd_random}
+%%	\end{figure*}	
+%%	
+%%	
+%%	To know the affect of heterogeneity, we set the memory requirement of each task in CCSD trace randomly between 100 to 900 and observe the behavior of different heuristics in  Figure~\ref{fig:ratio_to_optimal_ccsd_random}. This plot also exhibits that static order with dynamic correction variants make good use of static information to maximize communication-computation overlap and dynamic mechanism to minimize the penalty caused by memory capacity limitation. Pure static strategies suffer from memory capacity imitation and pure dynamic strategies are unable to maximize communication-computation overlap.
 	
 	
 	

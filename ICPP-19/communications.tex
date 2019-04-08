@@ -881,35 +881,51 @@ We use GLPK solver v4.65 to solve the above formulation. The solver was unable t
 	\caption{Comparision of different heuristics with MILP solution based heuristic.}
 	\label{fig:iterativeLpSolution}
 \end{figure}
-	
-	\subsection{Favorable Situations for Heuristics}
-	\noindent The following table exhibits favorable scenarios for different heuristics. This table allows programmers to use the appropriate strategies to maximize communication-computation overlap for their applications.
-	
-	\begin{table*}[htb]
-		\scriptsize
-		\begin{tabular}{|c|p{3cm}|}
-			\hline
-			\textbf{Heuristic} & \textbf{Favorable Situation} \\ \hline
-			order\_of\_optimal\_strategy\_infinite\_memory & Unlimited memory capacity (\textcolor{green}{Optimal}) \\ \hline
-			increasing\_order\_of\_communication\_strategy & Unlimited memory capacity and tasks are compute intensive (\textcolor{green}{Optimal}) \\ \hline
-			decreasing\_order\_of\_computation\_strategy & Unlimited memory capacity and tasks are communication intensive (\textcolor{green}{Optimal}) \\ \hline
-			increasing\_order\_of\_communication\_plus\_computation\_strategy & Moderate memory capacity and most tasks are compute intensive \\ \hline
-			decreasing\_order\_of\_communication\_plus\_computation\_strategy & Moderate memory capacity and most tasks are communication intensive \\ \hline
-			largest\_communication\_task\_respects\_memory\_restriction &  Limited memory capacity and significant percentage of tasks are communication intensive \\ \hline
-			smallest\_communication\_task\_respects\_memory\_restriction & Limited memory capacity and most tasks are compute intensive \\ \hline
-			maximum\_accelerated\_task\_respects\_memory\_restriction &  Limited memory capacity and number of communication and compute intensive tasks are approximately equal \\ \hline
-			optimal\_order\_infinite\_memory\_largest\_communication\_task\_respects\_memory\_restriction & Moderate memory capacity and significant percentage of tasks are communication intensive\\ \hline
-			optimal\_order\_infinite\_memory\_smallest\_communication\_task\_respects\_memory\_restriction & Moderate memory capacity and most tasks are compute intensive \\ \hline
-			optimal\_order\_infinite\_memory\_maximum\_accelerated\_task\_respects\_memory\_restriction & Moderate   memory capacity and number of communication and compute intensive tasks are approximately equal \\ \hline
-		\end{tabular}\caption{~\label{tab:heuristicsAndFavorableScenarios}Heuristics and their favorable scenarios.}
-	\end{table*}
-	
-	
-	Here moderate memory capacity refers to limited capacity but close to the maximum memory  requirement of the considered application.
-	
-	
-	
-	
+
+\subsection{Favorable Situations for Heuristics}
+Based on the definition of proposed strategies and the  optimality of Algorithm~\ref{alg:OrderOfExecutionInfinteMemory}, we present favorable scenarios for different heuristics in Table~\ref{tab:heuristicsAndFavorableScenarios}. This  allows programmers to use appropriate strategies to maximize communication-computation overlap for their applications.
+
+%%\begin{table*}[htb]
+%%	\scriptsize
+%%	\begin{tabular}{|c|p{3cm}|}
+%%		\hline
+%%		\textbf{Heuristic} & \textbf{Favorable Situation} \\ \hline
+%%		order\_of\_optimal\_strategy\_infinite\_memory & Unlimited memory capacity (\textcolor{green}{Optimal}) \\ \hline
+%%		increasing\_order\_of\_communication\_strategy & Unlimited memory capacity and tasks are compute intensive (\textcolor{green}{Optimal}) \\ \hline
+%%		decreasing\_order\_of\_computation\_strategy & Unlimited memory capacity and tasks are communication intensive (\textcolor{green}{Optimal}) \\ \hline
+%%		increasing\_order\_of\_communication\_plus\_computation\_strategy & Moderate memory capacity and most tasks are compute intensive \\ \hline
+%%		decreasing\_order\_of\_communication\_plus\_computation\_strategy & Moderate memory capacity and most tasks are communication intensive \\ \hline
+%%		largest\_communication\_task\_respects\_memory\_restriction &  Limited memory capacity and significant percentage of tasks are communication intensive \\ \hline
+%%		smallest\_communication\_task\_respects\_memory\_restriction & Limited memory capacity and most tasks are compute intensive \\ \hline
+%%		maximum\_accelerated\_task\_respects\_memory\_restriction &  Limited memory capacity and number of communication and compute intensive tasks are approximately equal \\ \hline
+%%		optimal\_order\_infinite\_memory\_largest\_communication\_task\_respects\_memory\_restriction & Moderate memory capacity and significant percentage of tasks are communication intensive\\ \hline
+%%		optimal\_order\_infinite\_memory\_smallest\_communication\_task\_respects\_memory\_restriction & Moderate memory capacity and most tasks are compute intensive \\ \hline
+%%		optimal\_order\_infinite\_memory\_maximum\_accelerated\_task\_respects\_memory\_restriction & Moderate   memory capacity and number of communication and compute intensive tasks are approximately equal \\ \hline
+%%	\end{tabular}\caption{~\label{tab:heuristicsAndFavorableScenarios}Heuristics and their favorable scenarios.}
+%%\end{table*}
+
+
+\begin{table}[htb]
+	%%	\scriptsize
+	\begin{tabular}{|c|p{6.5cm}|}
+		\hline
+		\textbf{Heuristic} & \textbf{\hspace{2cm}Favorable Situation} \\ \hline
+		$OOSIM$ & Memory capacity is not a restriction (\textcolor{green}{Optimal}) \\ \hline
+		$IOCMS$ & Memory capacity is not a restriction and tasks are compute intensive (\textcolor{green}{Optimal}) \\ \hline
+		$DOCPS$ & Memory capacity is not a restriction and tasks are communication intensive (\textcolor{green}{Optimal}) \\ \hline
+		$IOCCS$ & Moderate memory capacity and most tasks are highly compute intensive \\ \hline
+		$DOCCS$ & Moderate memory capacity and most tasks are highly communication intensive \\ \hline
+		$LCMR$ & Limited memory capacity and significant percentage of tasks with large communication timings are compute intensive\\ \hline
+		$SCMR$ & Limited memory capacity and significant percentage of tasks with small communication timings are compute intensive\\ \hline
+		$MAMR$ & Limited memory capacity and significant percentage of tasks of both types\\ \hline
+		$OOLCMR$ & Moderate memory capacity and significant percentage of tasks are communication intensive\\ \hline
+		$OOSCMR$ & Moderate memory capacity and significant percentage of tasks are compute intensive \\ \hline
+		$OOMAMR$ & Moderate memory capacity and significant percentage of highly compute and  communication intensive tasks \\ \hline
+	\end{tabular}\caption{~\label{tab:heuristicsAndFavorableScenarios}Heuristics and their favorable scenarios.}
+\end{table}
+
+Here moderate memory capacity refers to limited capacity but close to the maximum memory  requirement of the considered application. We can clearly observe the favorable scenarios for a few heuristics in Figures~\ref{fig:ratio_to_optimal_hf} and ~\ref{fig:ratio_to_optimal_ccsd}. For example, HF compute intensive tasks have small communication timings, hence $SCMR$ heuristic exhibits very good performance in limited memory cases. CCSD has significant percentage of both types of tasks, therefore $OOLCMR$ and $OOSCMR$ heuristics performance is very close to optimal in moderate memory cases. 
+
 	
 	\section{Experimental Results}
 	\label{sec:exp}
@@ -921,7 +937,7 @@ We use GLPK solver v4.65 to solve the above formulation. The solver was unable t
 	Both applications mainly perform two types of computations, tensor transpose and tensor contractions.  HF expects to specify a tile size and we set it to 100, so that each core can be efficiently utilize.  CCSD automatically determines tile sizes at different program points based on the input molecules.  Hence, HF operates on almost homogeneous tiles while CCSD on heterogeneous tiles.
 	
 	%%	\todo[inline]{Scheduled based on Gilmore-Gomory algorithm and its performance }
-	We also consider two other heuristics for evaluation. The first heuristic is based on an algorithm, proposed by Gilmore and Gomory, to obtain the minimal cost sequence for a set of jobs. In this algorithm, each job has a start and end state and a cost is associated to change the state. In our context, this cost can be seen as non-overlap time of computation for two adjacent tasks. Here is the main idea of this algorithm. Initially partial sequence of jobs is represented by a graph such that their overlap is maximum. Subsequently edges are added to this graph which minimized the total non-overlap cost  and connects two components. When all nodes of this graph is connected then an edge interchange mechanism is taken into account to determine the sequence of jobs, which ensures that the sequence has minimal cost. We refer ~\cite{Gilmore-Gomory:1964} for the detailed algorithm and ~\cite{gitworkrepo} for our implementation. This algorithm does not take memory capacity into consideration and only provides the sequence of processing. We applied the same sequence with different memory capacity restrictions for our experiments and call this heuristic as \textit{Gilmore-Gomory} ($GG$).
+	We also consider two other static heuristics for evaluation. The first heuristic is based on an algorithm, proposed by Gilmore and Gomory, to obtain the minimal cost sequence for a set of jobs. In this algorithm, each job has a start and end state and a cost is associated to change the state. In our context, this cost can be seen as non-overlap time of computation for two adjacent tasks. Here is the main idea of this algorithm. Initially partial sequence of jobs is represented by a graph such that their overlap is maximum. Subsequently edges are added to this graph which minimized the total non-overlap cost  and connects two components. When all nodes of this graph is connected then an edge interchange mechanism is taken into account to determine the sequence of jobs, which ensures that the sequence has minimal cost. We refer ~\cite{Gilmore-Gomory:1964} for the detailed algorithm and ~\cite{gitworkrepo} for our implementation. This algorithm does not take memory capacity into consideration and only provides the sequence of processing. We applied the same sequence with different memory capacity restrictions for our experiments and call this heuristic as \textit{Gilmore-Gomory} ($GG$).
 	
 	The second heuristic is based on first fit algorithm of bin packing problem. In this heuristic, tasks are considered in random order and added to the first bin which satisfies memory capacity restriction. If no bin is found then a new bin is created and this task is added to it.  When all tasks are added to some bin then we decide the order of processing in the following way. If a task is added to the $jth$ location in the $ith$ bin, then it is placed at the $pth$ position for processing, where $p=\sum_{k<i}(\text{number of tasks in $kth$ bin}) + j$. We call this heuristic as \textit{Bin Packing} ($BP$). 
 	
@@ -1065,7 +1081,6 @@ We use GLPK solver v4.65 to solve the above formulation. The solver was unable t
 %%	
 %%	
 %%	To know the affect of heterogeneity, we set the memory requirement of each task in CCSD trace randomly between 100 to 900 and observe the behavior of different heuristics in  Figure~\ref{fig:ratio_to_optimal_ccsd_random}. This plot also exhibits that static order with dynamic correction variants make good use of static information to maximize communication-computation overlap and dynamic mechanism to minimize the penalty caused by memory capacity limitation. Pure static strategies suffer from memory capacity imitation and pure dynamic strategies are unable to maximize communication-computation overlap.
-	
 	
 	
 	\section{Conclusion and Perspectives}

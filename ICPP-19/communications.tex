@@ -193,7 +193,7 @@
 	\subsection{Infinite Memory Case}
 	Let $S$ be the set of tasks assigned on a processor with memory unit $M$, and this set of tasks  need input data from another memory unit $M'$. We assume that size of $M$ is very large and there will not be any memory capacity restriction for tasks.
 	
-	Let \scomm($i$) and  \scomp($i$) represent the start times of task $i$ on communication and computation resources. $CM_i$ and $CP_i$ are communication and computation times of task $i$.
+	Let \scomm($i$) and  \scomp($i$) represent the start times of task $i$ on communication and computation resources. $CM_i$ and $CP_i$ are communication and computation times of task $i$. We call a task $i$ is compute (resp. communication) intensive if $CP_i $$\ge$ (resp. $<$) $CM_i$ ).
 	
 	\begin{algorithm}
 		\caption{\label{alg:OrderOfExecutionInfinteMemory}Algorithm to determine the order of processing and schedule for a set of ready tasks (infinite memory case).}
@@ -545,7 +545,11 @@
 	%%%%string alg_name="optimal_order_infinite_memory_largest_communication\_task\_respects\_memory\_restriction";
 	%%%%string alg_name="optimal_order_infinite_memory_smallest_communication\_task\_respects\_memory\_restriction";
 	%%%%string alg_name="optimal_order_infinite_memory_maximum_accelerated\_task\_respects\_memory\_restriction";
-	\begin{itemize}[a)]
+
+	\begin{enumerate}[label=\roman*)]
+		\item 
+	\end{enumerate}
+	\begin{enumerate}[label=\roman*)]
 		\item $order\_of\_optimal\_strategy\_infinite\_memory $ ($OOSIM$): Order of communications and computations is obtained by the infinite memory heuristic. At each point in the schedule memory capacity is respected. Hence the makespan of this heuristic may be completely different from $OMIM$.
 		
 		\item $increasing\_order\_of\_communication\_strategy$ ($IOCMS$): Order is obtained by sorting all tasks in non-decreasing order of communication time. 
@@ -554,8 +558,7 @@
 		\item $increasing\_order\_of\_communication\_plus\_computation\_strategy$ ($IOCCS$): Order is obtained by sorting all tasks in non-decreasing order of sum of communication and computation times.
 		\item $decreasing\_order\_of\_communication\_plus\_computation\_strategy$ ($DOCCS$): Order is obtained by sorting all tasks in non-increasing order of sum of communication and computation times.
 		
-	\end{itemize}
-	%%\todo[inline]{SKumar: update short name of each strategy in tikz}
+	\end{enumerate}
 	\begin{table}[htb]
 		\begin{center}
 			
@@ -675,7 +678,7 @@
 	In this class of strategy, when communication channel is idle, a task is chosen which satisfies the selection criteria maximally among other tasks. For example, if the selection criteria is to choose a highly compute intensive task, then  we calculate the ratio of compute time and communication time for all tasks, and the task with the  maximum ratio is selected (ties are broken randomly). As we assume that order on both channels is same, hence order on compute channel will follow the order of communication resource.
 	
 	We select a set of tasks which induce minimum idle time on compute channel and satisfy available memory requirement. Then a task is chosen for processing from this set based on the following heuristics.
-	\begin{itemize}[a)]
+	\begin{enumerate}[label=\roman*)]
 		%%	\item $largest_communication\_task\_respects\_memory\_restriction$:  We select a set of tasks which induce minimum idle time on compute channel. A task with the largest communication time is chosen from this set.  Memory requirement of this task should not be more than presently available memory. 
 		%%	\item $smallest_communication\_task\_respects\_memory\_restriction$: A task with the smallest communication time is chosen.  Memory requirement of this task should not be more than presently available memory. 
 		%%	\item $maximum_accelerated\_task\_respects\_memory\_restriction$:  We select a set of tasks which induce minimum idle time on compute channel. A task with the maximum ratio of compute time to communication time  is chosen from this set.  Memory requirement of this task should not  be more than presently available memory.
@@ -683,8 +686,7 @@
 		\item $largest\_communication\_task\_respects\_memory\_restriction$ ($LCMR$):    A task with the largest communication time is chosen. 
 		\item $smallest\_communication\_task\_respects\_memory\_restriction$ ($SCMR$): A task with the smallest communication time is chosen.
 		\item $maximum\_accelerated\_task\_respects\_memory\_restriction$ ($MAMR$):  A task with the maximum ratio of compute time to communication time  is chosen.
-		
-	\end{itemize}
+	\end{enumerate}
 	\begin{table}[htb]
 		\begin{center}
 			
@@ -754,11 +756,11 @@
 	
 	Initial order is obtained by infinity memory heuristic. When communication channel is idle due to memory requirement of the next task in the order, then we select a set of tasks which induce minimum idle time on compute channel and satisfy memory requirement. We define the following heuristics based on how we select a task from this set. After that order of remaining  tasks is updated without this task.
 	
-	\begin{itemize}[a)]
+	\begin{enumerate}[label=\roman*)]
 		\item $optimal\_order\_infinite\_memory\_largest\_communication\_task\_respects\_memory\_restriction$ ($OOLCMR$): A task with the largest communication time is chosen from the set.
 		\item $optimal\_order\_infinite\_memory\_smallest\_communication\_task\_respects\_memory\_restriction$ ($OOSCMR$):  A task with the smallest communication time is chosen from the set.
 		\item $optimal\_order\_infinite\_memory\_maximum\_accelerated\_task\_respects\_memory\_restriction$ ($OOMAMR$): A task,  whose ratio of compute time to communication time is maximum, is chosen from the set .
-	\end{itemize}
+	\end{enumerate}
 	
 	\begin{table}[htb]
 		\begin{center}
@@ -919,11 +921,10 @@ We use GLPK solver v4.65 to solve the above formulation. The solver was unable t
 	Both applications mainly perform two types of computations, tensor transpose and tensor contractions.  HF expects to specify a tile size and we set it to 100, so that each core can be efficiently utilize.  CCSD automatically determines tile sizes at different program points based on the input molecules.  Hence, HF operates on almost homogeneous tiles while CCSD on heterogeneous tiles.
 	
 	%%	\todo[inline]{Scheduled based on Gilmore-Gomory algorithm and its performance }
-	We also consider an algorithm, proposed by Gilmore and Gomory, to obtain the minimal cost sequence for a set of jobs. In this algorithm, each job has a start and end state and a cost is associated to change the state. In our context, this cost can be seen as non-overlap time of computation for two adjacent tasks. Here is the main idea of this algorithm. Initially partial sequence of jobs is represented by a graph such that their overlap is maximum. Subsequently edges are added to this graph which minimized the total non-overlap cost  and connects two components. When all nodes of this graph is connected then an edge interchange mechanism is taken into account to determine the sequence of jobs, which ensures that the sequence has minimal cost.
+	We also consider two other heuristics for evaluation. The first heuristic is based on an algorithm, proposed by Gilmore and Gomory, to obtain the minimal cost sequence for a set of jobs. In this algorithm, each job has a start and end state and a cost is associated to change the state. In our context, this cost can be seen as non-overlap time of computation for two adjacent tasks. Here is the main idea of this algorithm. Initially partial sequence of jobs is represented by a graph such that their overlap is maximum. Subsequently edges are added to this graph which minimized the total non-overlap cost  and connects two components. When all nodes of this graph is connected then an edge interchange mechanism is taken into account to determine the sequence of jobs, which ensures that the sequence has minimal cost. We refer ~\cite{Gilmore-Gomory:1964} for the detailed algorithm and ~\cite{gitworkrepo} for our implementation. This algorithm does not take memory capacity into consideration and only provides the sequence of processing. We applied the same sequence with different memory capacity restrictions for our experiments and call this heuristic as \textit{Gilmore-Gomory} ($GG$).
 	
-	We refer ~\cite{Gilmore-Gomory:1964} for the detailed algorithm and ~\cite{gitworkrepo} for our implementation. This algorithm does not take memory capacity into consideration and only provides the sequence of processing. We applied the same sequence with different memory capacity restrictions for our experiments and call this heuristic as \textit{Gilmore-Gomory} ($GG$).
+	The second heuristic is based on first fit algorithm of bin packing problem. In this heuristic, tasks are considered in random order and added to the first bin which satisfies memory capacity restriction. If no bin is found then a new bin is created and this task is added to it.  When all tasks are added to some bin then we decide the order of processing in the following way. If a task is added to the $jth$ location in the $ith$ bin, then it is placed at the $pth$ position for processing, where $p=\sum_{k<i}(\text{number of tasks in $kth$ bin}) + j$. We call this heuristic as \textit{Bin Packing} ($BP$). 
 	
-	%%	\todo[inline]{may convert 10 subplots to 8 in all performance diagrams}
 	\todo[inline]{increase font size in all plots, may be free scale-y}
 %%	\todo[inline]{SKumar: decide metrics: ratio to optimal, percentage overlap, 100 - percentage non overlap}
 	
@@ -933,12 +934,17 @@ We use GLPK solver v4.65 to solve the above formulation. The solver was unable t
 	
 	Figures ~\ref{fig:ratio_to_optimal_hf} and ~\ref{fig:ratio_to_optimal_ccsd} depict the distribution of the performance  of each heuristic for all considered memory capacities, where plots are categorized by memory capacities. For each memory capacity and each heuristic, the box on the plot displays the median, first and last quartile, and the whiskers indicate minimum and maximum values, with outliers are shown by black dots.
 	\subsection{HF Performance}	
+%%	\begin{figure*}[htb]
+%%		\includegraphics[scale=0.25]{./results/plots/ratio_to_optimal_selected_hf.pdf}
+%%		\caption{Comparison of different heuristics for HF.}
+%%		\label{fig:ratio_to_optimal_hf}
+%%	\end{figure*}
 	\begin{figure*}[htb]
-		\includegraphics[scale=0.25]{./results/plots/ratio_to_optimal_selected_hf.pdf}
-		\caption{Comparison of different heuristics for HF.}
-		\label{fig:ratio_to_optimal_hf}
-	\end{figure*}
-	As indicated above, HF tasks are highly homogeneous, this is also noticeable in Figure~\ref{fig:ratio_to_optimal_hf}. All heuristics depict similar behavior for minimum memory capacity $m_c$  and  increasing the memory capacity slightly does not change the performance of all heuristics. As memory capacity increased further, dynamic variants of heuristics starts performing better and for the moderate memory capacities (close to $2m_c$ ), static order with dynamic correction variants outperform others. \textit{Gilmore-Gomory} heuristic does not achieve good performance. It can be explained from the fact that the task sequence is obtained considering no extra memory is available, but here we apply the same sequence for a different scenario,  overall memory consumed at each point is limited to memory capacity.
+	\includegraphics[scale=0.25]{./all-binpack/ratio_to_optimal_selected_hf.pdf}
+	\caption{Comparison of different heuristics for HF.}
+	\label{fig:ratio_to_optimal_hf}
+\end{figure*}
+	As indicated above, HF tasks are highly homogeneous, this is also noticeable in Figure~\ref{fig:ratio_to_optimal_hf}. All heuristics depict similar behavior for minimum memory capacity $m_c$  and  increasing the memory capacity slightly does not change the performance of all heuristics. As memory capacity increased further, dynamic variants of heuristics starts performing better and for the moderate memory capacities (close to $2m_c$ ), static order with dynamic correction variants outperform others. $GG$ heuristic does not achieve good performance. It can be explained from the fact that the task sequence is obtained considering no extra memory is available, but here we apply the same sequence for a different scenario,  overall memory consumed at each point is limited to memory capacity. $BP$ heuristic does not take the advantage of task types, hence it performs poorly in most cases.
 	
 	
 	\begin{figure}[htb]
@@ -952,11 +958,17 @@ We use GLPK solver v4.65 to solve the above formulation. The solver was unable t
 	
 	\subsection{CCSD Performance}
 	
+%%	\begin{figure*}[htb]
+%%		\includegraphics[scale=0.25]{./results/plots/ratio_to_optimal_selected_ccsd.pdf}
+%%		\caption{Comparison of different heuristics for CCSD.}
+%%		\label{fig:ratio_to_optimal_ccsd}
+%%	\end{figure*}	
+
 	\begin{figure*}[htb]
-		\includegraphics[scale=0.25]{./results/plots/ratio_to_optimal_selected_ccsd.pdf}
-		\caption{Comparison of different heuristics for CCSD.}
-		\label{fig:ratio_to_optimal_ccsd}
-	\end{figure*}	
+	\includegraphics[scale=0.25]{./all-binpack/ratio_to_optimal_selected_ccsd.pdf}
+	\caption{Comparison of different heuristics for CCSD.}
+	\label{fig:ratio_to_optimal_ccsd}
+\end{figure*}	
 	
 	CCSD application operates on tasks of different sizes, hence different heuristics depict distinct behaviors even at minimum memory capacity $m_c$ . Heterogeneity favors to dynamic strategies, therefore both dynamic and static order with dynamic correction based strategies perform better than  static based strategies. Similar to HF,  static order with dynamic corrections based strategies outperform others as memory capacity becomes moderate. 
 	

@@ -313,7 +313,7 @@ Let \scomm($i$) and  \scomp($i$) represent the start times of task $i$ on commun
 		\end{table}
 		
 		
-		As \textit{Transfer time = Latency + (Data Volume)/Bandwidth}. For simplicity, we consider input transfer time is same as input data volume (i.e., \textit{Latency=0} and \textit{Bandwidth=1}). Otherwise, we can adjust $C$ such that at any point in a schedule at max one $K_i$ and three $A_i$ tasks can be active.
+		As \textit{Transfer time = Latency + (Data Volume)/Bandwidth}. For simplicity, we consider input transfer time is same as input data volume (i.e., \textit{Latency = 0} and \textit{Bandwidth = 1}). Otherwise, we can adjust $C$ such that at any point in a schedule at max one $K_i$ and three $A_i$ tasks can be active.
 		
 		We show that $I$ has a schedule $S$ with makespan at most $L$ if and
 		only if the original \threepart instance has a solution. Notice that
@@ -847,7 +847,7 @@ Let \scomm($i$) and  \scomp($i$) represent the start times of task $i$ on commun
 		%%		\label{fig:ratio_to_optimal_hf}
 		%%	\end{figure*}
 		\begin{figure*}[htb]
-			\includegraphics[scale=0.25]{./all-binpack/ratio_to_optimal_selected_hf.pdf}
+		  \includegraphics[scale=0.5]{./all-binpack/ratio_to_optimal_selected_hf.pdf}
 			\caption{Comparison of different heuristics for HF.}
 			\label{fig:ratio_to_optimal_hf}
 		\end{figure*}
@@ -855,7 +855,7 @@ Let \scomm($i$) and  \scomp($i$) represent the start times of task $i$ on commun
 		
 		
 		\begin{figure}[htb]
-			\includegraphics[scale=0.15]{./results/plots/inverse_ratio_to_optimal_hf-best.pdf}
+			\includegraphics[scale=0.5]{./results/plots/inverse_ratio_to_optimal_hf-best.pdf}
 			\caption{Comparision of best variants of all categories for HF.}
 			\label{fig:ratio_to_optimal_best_hf}
 		\end{figure}
@@ -872,7 +872,7 @@ Let \scomm($i$) and  \scomp($i$) represent the start times of task $i$ on commun
 		%%	\end{figure*}	
 		
 		\begin{figure*}[htb]
-			\includegraphics[scale=0.25]{./all-binpack/ratio_to_optimal_selected_ccsd.pdf}
+			\includegraphics[scale=0.5]{./all-binpack/ratio_to_optimal_selected_ccsd.pdf}
 			\caption{Comparison of different heuristics for CCSD.}
 			\label{fig:ratio_to_optimal_ccsd}
 		\end{figure*}	
@@ -881,7 +881,7 @@ Let \scomm($i$) and  \scomp($i$) represent the start times of task $i$ on commun
 		
 		
 		\begin{figure}[htb]
-			\includegraphics[scale=0.15]{./results/plots/inverse_ratio_to_optimal_ccsd-best.pdf}
+			\includegraphics[scale=0.5]{./results/plots/inverse_ratio_to_optimal_ccsd-best.pdf}
 			\caption{Comparision of best variants of all categories for CCSD.}
 			\label{fig:ratio_to_optimal_best_ccsd}
 		\end{figure}
@@ -890,18 +890,26 @@ Let \scomm($i$) and  \scomp($i$) represent the start times of task $i$ on commun
 		
 		\subsection{HF and CCSD Characteristics}
 		
+%%		\begin{figure}[htb]
+%%			%\begin{tabular}{c}
+%%			\subfloat[HF workloads\label{fig:hfProperties}]{%
+%%				\includegraphics[width=.45\linewidth]{./results/plots/application_properties_hf.pdf}
+%%			}%\\
+%%			\subfloat[CCSD workloads\label{fig:ccsdProperties}]{%
+%%				\includegraphics[width=.45\linewidth]{./results/plots/application_properties_ccsd.pdf}
+%%			}%\\
+%%			%\end{tabular}
+%%			\caption{HF and CCSD tasks characteristics.}
+%%			\label{fig:ApplicationProperties}
+%%		\end{figure}
+
 		\begin{figure}[htb]
-			%\begin{tabular}{c}
-			\subfloat[HF workloads\label{fig:hfProperties}]{%
-				\includegraphics[width=.45\linewidth]{./results/plots/application_properties_hf.pdf}
-			}%\\
-			\subfloat[CCSD workloads\label{fig:ccsdProperties}]{%
-				\includegraphics[width=.45\linewidth]{./results/plots/application_properties_ccsd.pdf}
-			}%\\
-			%\end{tabular}
-			\caption{HF and CCSD tasks characteristics.}
-			\label{fig:ApplicationProperties}
-		\end{figure}
+	%\begin{tabular}{c}
+		\includegraphics[scale=0.5]{./results/plots/application_properties.pdf}
+	\caption{HF and CCSD tasks characteristics.}
+	\label{fig:ApplicationProperties}
+	\end{figure}	
+		
 		
 		
 		%% 
@@ -932,17 +940,26 @@ Let \scomm($i$) and  \scomp($i$) represent the start times of task $i$ on commun
 		In most applications, scheduler may only observe a limited batch of independent tasks. Therefore we organize tasks of each trace file in the batch of 100. Last group may have less than 100 tasks. We apply each heuristic on each group consequently. Figure~\ref{fig:best_variants_batch} shows performance of the best variants of all categories for both applications. The plots exhibit behavior similar to Figures~\ref{fig:ratio_to_optimal_best_hf} and ~\ref{fig:ratio_to_optimal_best_ccsd}, static order with dynamic correction variants attain maximum communication-computation overlap and outperform other heuristics.
 		\todo[inline]{SKumar:combine both plots}
 		
+%%		
+%%		\begin{figure*}[htb]
+%%			\subfloat[Best variants of HF.\label{fig:hf_best_variants_batch}]{%
+%%				\includegraphics[width=.45\linewidth]{./results/plots/inverse_ratio_to_optimal_hf_batch-best.pdf}
+%%			}%\\
+%%			\subfloat[Best variants of CCSD.\label{fig:ccsd_best_variants_batch}]{%
+%%				\includegraphics[width=.45\linewidth]{./results/plots/inverse_ratio_to_optimal_ccsd_batch-best.pdf}
+%%			}%\\
+%%			\caption{Best variants of all categories where heuristics are applied in the batches of 100 tasks.}
+%%			\label{fig:best_variants_batch}
+%%		\end{figure*}
+
 		
-		\begin{figure*}[htb]
-			\subfloat[Best variants of HF.\label{fig:hf_best_variants_batch}]{%
-				\includegraphics[width=.45\linewidth]{./results/plots/inverse_ratio_to_optimal_hf_batch-best.pdf}
-			}%\\
-			\subfloat[Best variants of CCSD.\label{fig:ccsd_best_variants_batch}]{%
-				\includegraphics[width=.45\linewidth]{./results/plots/inverse_ratio_to_optimal_ccsd_batch-best.pdf}
-			}%\\
-			\caption{Best variants of all categories where heuristics are applied in the batches of 100 tasks.}
-			\label{fig:best_variants_batch}
-		\end{figure*}
+\begin{figure*}[htb]
+		\includegraphics[scale=0.5]{./results/plots/inverse_ratio_to_optimal_batch-best.pdf}
+	\caption{Best variants of all categories where heuristics are applied in the batches of 100 tasks.}
+	\label{fig:best_variants_batch}
+\end{figure*}
+	
+	
 		
 		%%\begin{figure}[htb]
 		%%	\centering

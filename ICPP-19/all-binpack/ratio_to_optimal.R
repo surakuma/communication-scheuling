@@ -13,19 +13,19 @@ p <- p + theme(plot.title = element_text(hjust = 0.5)) +  ggtitle("Ratio to Opti
 return (p)
 }
 p<-ratio_to_optimal_func('all_results_hf.txt')
-ggsave(file="ratio_to_optimal_hf.pdf", p, width=23.6, height=13.4)
+ggsave(file="ratio_to_optimal_hf.pdf", p, width=14.25, height=6.5)
 
 p<-ratio_to_optimal_func('all_results_ccsd.txt')
-ggsave(file="ratio_to_optimal_ccsd.pdf", p, width=23.6, height=13.4)
+ggsave(file="ratio_to_optimal_ccsd.pdf", p, width=14.25, height=6.5)
 
 p<-ratio_to_optimal_func('selected_results_hf.txt')
-ggsave(file="ratio_to_optimal_selected_hf.pdf", p, width=23.6, height=13.4)
+ggsave(file="ratio_to_optimal_selected_hf.pdf", p, width=14.25, height=6.5)
 
 p<-ratio_to_optimal_func('selected_results_ccsd.txt')
-ggsave(file="ratio_to_optimal_selected_ccsd.pdf", p, width=23.6, height=13.4)
+ggsave(file="ratio_to_optimal_selected_ccsd.pdf", p, width=14.25, height=6.5)
 
 #p<-ratio_to_optimal_func('all_results_random_ccsd.txt')
-#ggsave(file="ratio_to_optimal_random_ccsd.pdf", p, width=23.6, height=13.4)
+#ggsave(file="ratio_to_optimal_random_ccsd.pdf", p, width=14.25, height=6.5)
 #
 #p<-ratio_to_optimal_func('selected_results_random_ccsd.txt')
-#ggsave(file="ratio_to_optimal_random_selected_ccsd.pdf", p, width=23.6, height=13.4)
+#ggsave(file="ratio_to_optimal_random_selected_ccsd.pdf", p, width=14.25, height=6.5)

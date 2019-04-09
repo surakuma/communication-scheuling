@@ -16,13 +16,13 @@ dftestMelted<-melt(dftest, "capacity")
 names(dftestMelted)<-c("capacity", "Heuristic", "ratio_to_optimal")
 #p<-ggplot(dftestMelted, aes(x=jitter(capacity), y=1/ratio_to_optimal, color=Heuristic))  + geom_smooth()
 p<-ggplot(dftestMelted, aes(x=capacity, y=1/ratio_to_optimal, color=Heuristic))  + geom_smooth(method="loess")
-p<-p + ylab("inverse(ratio_to_optimal)") + theme(plot.title = element_text(hjust = 0.5)) +  ggtitle("Performance With Best of all categories")
+p<-p + ylab("inverse(ratio_to_optimal)") + theme(plot.title = element_text(hjust = 0.5), legend.position="bottom") +  ggtitle("Performance With Best of all categories")
 return (p)
 }
 
 p<-inverse_ratio_to_optimal_best_func('all_results_hf.txt')
-ggsave(file="inverse_ratio_to_optimal_hf-best.pdf", p, width=23.6, height=13.4)
+ggsave(file="inverse_ratio_to_optimal_hf-best.pdf", p + xlim(NA, 340000), width=6.5, height=5)
 
 p<-inverse_ratio_to_optimal_best_func('all_results_ccsd.txt')
-ggsave(file="inverse_ratio_to_optimal_ccsd-best.pdf", p, width=23.6, height=13.4)
+ggsave(file="inverse_ratio_to_optimal_ccsd-best.pdf", p, width=6.5, height=5)
 

@@ -832,7 +832,7 @@ Let \scomm($i$) and  \scomp($i$) represent the start times of task $i$ on commun
 		
 		The second heuristic is based on first fit algorithm of bin packing problem. In this heuristic, tasks are considered in random order and added to the first bin which satisfies memory capacity restriction. If no bin is found then a new bin is created and this task is added to it. When all tasks are added to some bin then we decide the order of processing in the following way. If a task is added to the $jth$ location in the $ith$ bin, then it is placed at the $pth$ position for processing, where $p=\sum_{k<i}(\text{number of tasks in $kth$ bin}) + j$. We call this heuristic \textit{Bin Packing} ($BP$). 
 		
-		\todo[inline]{increase font size in all plots, may be free scale-y}
+%%		\todo[inline]{increase font size in all plots, may be free scale-y}
 		%%	\todo[inline]{SKumar: decide metrics: ratio to optimal, percentage overlap, 100 - percentage non overlap}
 		
 		
@@ -938,7 +938,7 @@ Let \scomm($i$) and  \scomp($i$) represent the start times of task $i$ on commun
 		
 		\subsection{Scheduling in Batches}
 		In most applications, scheduler may only observe a limited batch of independent tasks. Therefore we organize tasks of each trace file in the batch of 100. Last group may have less than 100 tasks. We apply each heuristic on each group consequently. Figure~\ref{fig:best_variants_batch} shows performance of the best variants of all categories for both applications. The plots exhibit behavior similar to Figures~\ref{fig:ratio_to_optimal_best_hf} and ~\ref{fig:ratio_to_optimal_best_ccsd}, static order with dynamic correction variants attain maximum communication-computation overlap and outperform other heuristics.
-		\todo[inline]{SKumar:combine both plots}
+%%		\todo[inline]{SKumar:combine both plots}
 		
 %%		
 %%		\begin{figure*}[htb]

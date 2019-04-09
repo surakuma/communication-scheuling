@@ -70,6 +70,34 @@
 \newcommand{\scomp}{\ensuremath{{S}_{\text{COMP}}}}
 \newcommand{\threepart}{\textsc{3Par}\xspace}
 
+% Command for figures
+
+\tikzset{xtick/.style={inner xsep=0pt, inner ysep=3pt, minimum
+		size=0pt, draw, label=below:#1},%
+	comm/.style args={#1start#2length#3color#4}{rounded corners=1mm, draw, inner
+		sep=0pt, fill=#4, label=center:#1, fit={(#2,0.75)
+			(#2+#3,1.5)}},%
+	comp/.style args={#1start#2length#3color#4}{rounded corners=1mm, draw, inner
+		sep=0pt, fill=#4, label=center:#1, fit={(#2,0)
+			(#2+#3,0.75)}},%
+}
+
+\newcommand{\schedule}[3]{
+	\draw[->] (-0.2, 0) -- (#1, 0) node[below] {$t$};
+	\draw (0, 0) -- (0, 1.5);
+	\node at (-0.8, 0.75)[rotate=90] {#2};
+	\draw[dashed,gray] (0, 0.75) -- (#1, 0.75);
+	\foreach \t in {0,#3} {
+		\node[xtick=\t] at (\t, 0){};
+	}
+}
+\newcommand{\task}[6][0]{
+	\node[comm=#2 start #3 length #4 color #6]{};
+	\node[comp=#2 start #3+#4+#1 length #5 color #6]{}; 
+}
+
+
+
 %%\newtheorem{theorem}{Theorem}
 %%\newtheorem{corollary}{Corollary}[theorem]
 %\newtheorem{lemma}[theorem]{Lemma}
@@ -153,7 +181,7 @@
 	\renewcommand{\labelitemi}{$\bullet$}
 	\begin{itemize}
 		\item Proposed different scheduling strategies with the objective to minimize the makespan
-%%		\item An optimal strategy and its proof, when there is not any memory capacity constraint on the target machine
+		%%		\item An optimal strategy and its proof, when there is not any memory capacity constraint on the target machine
 		\item NP-Completeness proof for the general data-transfer problem 
 		\item Linear programming formulation of the problem
 		\item Numerous experiments to assess the effectiveness of our strategies on molecular chemistry kernels 
@@ -195,12 +223,12 @@
 	In general, output data produced by a task is very less. It is often the case that future tasks running on the same memory node require output data of the past tasks. Therefore, most runtime systems transfer data to other memory nodes based on the demand -- not immediately. It is possible that all output data can be stored in a preallocated separate buffer on a memory node. Hence, we do not consider output data separately in our analysis and assume that output data is negligible or stored in a separate buffer for each task. Thus problem considered here is simpler than general 3-machine flowshop problem. We prove that order of execution of such tasks with finite memory capacity is an NP-complete problem. We also present an optimal algorithm to determine the order of execution of tasks when there is not any restriction on memory limit.
 	
 	\todo[inline]{Find a citation saying 3-machine flowshop problem is NP-Complete.}
-%%%%	done:\todo[inline]{Rewrite both paragraphs together.}
-%%	In general, order of task execution with input and output data transfers can be 
-%%	viewed as 3-machine flowshop problem, where processing time on 1st machine is 
-%%	input data transfer time, processing time on 2nd machine is task execution time, 
-%%	processing time on 3rd machine is output data transfer time and the objective is 
-%%	to minimize the total makespan. This is a well known hard problem~\cite{NPComplete3Machine,johnson}. As stated earlier, we do not consider output data separately in our analysis and assume that output data is negligible or stored in a separate buffer. Hence, problem considered in this article is simpler than general 3-machine flowshop problem.
+	%%%%	done:\todo[inline]{Rewrite both paragraphs together.}
+	%%	In general, order of task execution with input and output data transfers can be 
+	%%	viewed as 3-machine flowshop problem, where processing time on 1st machine is 
+	%%	input data transfer time, processing time on 2nd machine is task execution time, 
+	%%	processing time on 3rd machine is output data transfer time and the objective is 
+	%%	to minimize the total makespan. This is a well known hard problem~\cite{NPComplete3Machine,johnson}. As stated earlier, we do not consider output data separately in our analysis and assume that output data is negligible or stored in a separate buffer. Hence, problem considered in this article is simpler than general 3-machine flowshop problem.
 	
 	\noindent\textbf{Problem $DT$} : A set of tasks $ST=\{T_1,
 	\cdots, T_n\}$ is scheduled on a processing unit $P$ with
@@ -216,10 +244,10 @@
 	\noindent Given $L$, is there a feasible schedule $S$ for $ST$ such that
 	makespan of $S$, $\mu(S) \le L$?
 	
-%%	\todo[inline]{Mention that memory occupation of a task is the same as its communication time. Skumar: it is not required at all, but we use this for simplicity in Theorem~\ref{th:npComplete}}
-%%	\todo[inline]{Mention that it is always best to use the same order on both machines.}
-
-Let \scomm($i$) and  \scomp($i$) represent the start times of task $i$ on communication and computation resources. We call a task $i$ is compute (resp. communication) intensive if $CP_i $$\ge$ (resp. $<$) $CM_i$ ).
+	%%	\todo[inline]{Mention that memory occupation of a task is the same as its communication time. Skumar: it is not required at all, but we use this for simplicity in Theorem~\ref{th:npComplete}}
+	%%	\todo[inline]{Mention that it is always best to use the same order on both machines.}
+	
+	Let \scomm($i$) and  \scomp($i$) represent the start times of task $i$ on communication and computation resources. We call a task $i$ is compute (resp. communication) intensive if $CP_i $$\ge$ (resp. $<$) $CM_i$ ).
 	
 	
 	
@@ -330,7 +358,7 @@ Let \scomm($i$) and  \scomp($i$) represent the start times of task $i$ on commun
 					sep=0pt, fill=#5, label=center:#1, fit={(#2,#4*0.75) (#2+#3,#4*0.75+0.75)}},%
 				vert/.style={inner sep=1pt, fill=black, circle, draw, label=#1}
 			}
-			\newcommand{\schedule}[1]{
+			\newcommand{\scheduleNoName}[1]{
 				\draw[->] (-0.4, 0) -- (#1, 0) node[below] {$t$};
 				\draw (0, 0) -- (0, 1.5) node[pos=0.25, left] {Comp.}
 				node[pos=0.75, left] {Comm.};
@@ -338,7 +366,7 @@ Let \scomm($i$) and  \scomp($i$) represent the start times of task $i$ on commun
 			}
 			\centering
 			\begin{tikzpicture}[yscale=0.7, thick, xscale=0.6]
-			\schedule{12.5}
+			\scheduleNoName{12.5}
 			\node[task=$A_{1,1}$ start 0 length 1 res 1 color cyan]{};
 			\node[task=$A_{1,2}$ start 1 length 1 res 1 color blue!40!white]{};
 			\node[task=$A_{1,3}$ start 2 length 1 res 1 color blue!70!white]{};
@@ -412,6 +440,105 @@ Let \scomm($i$) and  \scomp($i$) represent the start times of task $i$ on commun
 	%% requirement). Hence, problem $DT$ with intermediate memory requirement is also NP-complete.
 	
 	
+	This Theorem shows that adding a memory constraint to our
+	problem makes it more difficult. One additional difficulty
+	compared to limited capacity 2-machine
+	flowshop~\cite{Papadimitriou:1980:FSL:322203.322213} is that
+	it may not be optimal to consider the same ordering on both
+	machines:
+	
+	\begin{proposition}
+		There exists an instance of $DT$ for which in all optimal
+		schedules, the communication order of tasks is different
+		from their computation order.
+	\end{proposition}
+	
+	\begin{table}
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|}
+				\hline
+				%%				\multirow{2}{*}{Task} & Comm Time & \multirow{2}{*}{Comp Time}\\ 
+				%%				&=Comm Volume& \\ \hline
+				Task & Comm Volume & Comm Time & Comp Time\\ \hline 
+				A & 0 & 0 & 5\\ \hline
+				B & 4 & 4 & 3\\ \hline
+				C & 1 & 1 & 6\\ \hline
+				D & 3 & 3 & 7\\ \hline
+				E & 6 & 6 & 0.5\\ \hline
+				F & 7 & 7 & 0.5\\ \hline
+			\end{tabular}
+		\end{center}
+		\caption{Example instance where ordering on both resources
+			has to be different.}
+		\label{table:different.order}
+	\end{table}
+	
+	\begin{figure}
+		\centering
+		\newcommand{\taskA}[1]{\node[comp=$A$ start #1 length 5 color cyan] {};}
+		\newcommand{\taskB}[2][0]{\task[#1]{$B$}{#2}{4}{3}{blue!25!white}}
+		\newcommand{\taskC}[2][0]{\task[#1]{$C$}{#2}{1}{6}{blue!50!white}}
+		\newcommand{\taskD}[2][0]{\task[#1]{$D$}{#2}{3}{7}{blue!75!white}}
+		\newcommand{\taskE}[2][0]{\node[comm=$E$ start #2 length 6 color green!25!white]{};%
+			\node[comp={} start #2+6+#1 length 0.5 color green!25!white]{};}
+		\newcommand{\taskF}[2][0]{\node[comm=$F$ start #2 length 7 color green!50!white]{};%
+			\node[comp={} start #2+7+#1 length 0.5 color green!50!white]{};}
+		
+		\subfloat[][Optimal schedule with common ordering on both
+		resources]{
+			\begin{tikzpicture}[yscale=0.7, thick, xscale=0.3]
+			\schedule{24}{}{5,8,15,21.5,23}
+			\taskA{0}
+			\taskB[1]{0}
+			\taskD[1]{4}
+			\taskE[1]{8}
+			\taskC[0.5]{14}
+			\taskF{15.5}
+			\end{tikzpicture}
+			\label{fig:different.order.same}
+		}
+		
+		\subfloat[][Schedule with different ordering on both
+		resources]{
+			\begin{tikzpicture}[yscale=0.7, thick, xscale=0.3]
+			\schedule{24}{}{5,8,14,22}
+			\taskA{0}
+			\taskB[1]{0}
+			\taskC[3]{4}
+			\taskD[6.5]{5}
+			\taskE{8}
+			\taskF{14.5}
+			\end{tikzpicture}
+			\label{fig:different.order.opt}
+		}
+		\caption{Schedules for the instance of
+			Table~\ref{table:different.order}}
+		\label{fig:different.order}
+	\end{figure}
+	
+	\begin{proof}
+		Consider the instance described on
+		Table~\ref{table:different.order}, in which memory capacity
+		is $C=10$. Figure~\ref{fig:different.order.same} shows the
+		best possible schedule when tasks are scheduled in the same
+		order on both resources (obtained by exhaustive search). On
+		the other hand, Figure~\ref{fig:different.order.opt} shows
+		another schedule with lower makespan, in which the order is
+		different.
+		
+		In the infinite memory case, the standard proof that an
+		optimal schedule exists with the same order on both
+		resources claims that it is possible to swap two tasks which
+		do not satisfy this property. On
+		Figure~\ref{fig:different.order}, this would mean swapping
+		tasks $D$ and $E$. But the communication of task $E$ can not
+		start earlier because it would not fit in memory with tasks
+		$B$ and $C$, and delaying the computation of task $E$ after
+		task $D$ would delay task $F$ because $E$ and $F$ do not fit
+		in memory together. We can see that this claim does not hold
+		in the constrained memory case. 
+	\end{proof}
+	
 	
 	
 	\section{Data Transfer Order heuristics}
@@ -453,8 +580,8 @@ Let \scomm($i$) and  \scomp($i$) represent the start times of task $i$ on commun
 			
 			\begin{tabular}{|c|c|c|c|}
 				\hline
-%%				\multirow{2}{*}{Task} & Comm Time & \multirow{2}{*}{Comp Time}\\ 
-%%				&=Comm Volume& \\ \hline
+				%%				\multirow{2}{*}{Task} & Comm Time & \multirow{2}{*}{Comp Time}\\ 
+				%%				&=Comm Volume& \\ \hline
 				Task & Comm Volume & Comm Time & Comp Time\\ \hline 
 				A & 3 & 3 &  2\\ \hline
 				B & 1 & 1 & 3\\ \hline
@@ -465,28 +592,6 @@ Let \scomm($i$) and  \scomp($i$) represent the start times of task $i$ on commun
 		\end{center}
 	\end{table}
 	
-	\tikzset{xtick/.style={inner xsep=0pt, inner ysep=3pt, minimum
-			size=0pt, draw, label=below:#1},%
-		comm/.style args={#1start#2length#3color#4}{rounded corners=1mm, draw, inner
-			sep=0pt, fill=#4, label=center:#1, fit={(#2,0.75)
-				(#2+#3,1.5)}},%
-		comp/.style args={#1start#2length#3color#4}{rounded corners=1mm, draw, inner
-			sep=0pt, fill=#4, label=center:#1, fit={(#2,0)
-				(#2+#3,0.75)}},%
-	}
-	\newcommand{\schedule}[3]{
-		\draw[->] (-0.2, 0) -- (#1, 0) node[below] {$t$};
-		\draw (0, 0) -- (0, 1.5);
-		\node at (-0.8, 0.75)[rotate=90] {#2};
-		\draw[dashed,gray] (0, 0.75) -- (#1, 0.75);
-		\foreach \t in {0,#3} {
-			\node[xtick=\t] at (\t, 0){};
-		}
-	}
-	\newcommand{\task}[6][0]{
-		\node[comm=#2 start #3 length #4 color #6]{};
-		\node[comp=#2 start #3+#4+#1 length #5 color #6]{}; 
-	}
 	
 	\begin{figure}[htb]
 		\newcommand{\taskA}[2][0]{\task[#1]{$A$}{#2}{3}{2}{cyan}}
@@ -547,7 +652,7 @@ Let \scomm($i$) and  \scomp($i$) represent the start times of task $i$ on commun
 		
 		
 		\caption{ \label{fig:staticOrderExample} Different static order heuristic schedules for Table~\ref{tab:staticOrderExample}}. 
-%%			Optimal schedule length	is 14. 
+		%%			Optimal schedule length	is 14. 
 	\end{figure}
 	
 	%%\begin{figure}[htb]
@@ -580,8 +685,8 @@ Let \scomm($i$) and  \scomp($i$) represent the start times of task $i$ on commun
 			
 			\begin{tabular}{|c|c|c|c|}
 				\hline
-%%				\multirow{2}{*}{Task} & Comm Time & \multirow{2}{*}{Comp Time}\\ 
-%%				&=Comm Volume& \\ \hline
+				%%				\multirow{2}{*}{Task} & Comm Time & \multirow{2}{*}{Comp Time}\\ 
+				%%				&=Comm Volume& \\ \hline
 				Task & Comm Volume & Comm Time & Comp Time\\ \hline 
 				A & 3 & 3 & 2\\ \hline
 				B & 1 & 1 &  6\\ \hline
@@ -625,7 +730,7 @@ Let \scomm($i$) and  \scomp($i$) represent the start times of task $i$ on commun
 		\end{scope}
 		\end{tikzpicture}
 		\caption{ \label{fig:dynamicSelectionExample} Different dynamic heuristic schedules for a task set of Table~\ref{tab:dynamicSelectionExample} for a memory capacity of 6.}
-%%		 Optimal schedule length is 23.
+		%%		 Optimal schedule length is 23.
 	\end{figure} 
 	
 	%%\begin{figure}[htb]
@@ -657,8 +762,8 @@ Let \scomm($i$) and  \scomp($i$) represent the start times of task $i$ on commun
 			
 			\begin{tabular}{|c|c|c|c|}
 				\hline
-%%				\multirow{2}{*}{Task} & Comm Time & \multirow{2}{*}{Comp Time}\\ 
-%%				&=Comm Volume& \\ \hline
+				%%				\multirow{2}{*}{Task} & Comm Time & \multirow{2}{*}{Comp Time}\\ 
+				%%				&=Comm Volume& \\ \hline
 				Task & Comm Volume & Comm Time & Comp Time\\ \hline 
 				A & 4 & 4 &  1\\ \hline
 				B & 2 & 2 & 6\\ \hline
@@ -701,14 +806,14 @@ Let \scomm($i$) and  \scomp($i$) represent the start times of task $i$ on commun
 		\taskA{12}
 		\taskC{17}
 		\end{scope}
-%%		\begin{scope}[yshift=+2.75cm]
-%%		\schedule{40}{OMIM}{2,8,16,24,29,33,38}
-%%		\taskB{0}
-%%		\taskC{8}
-%%		\taskD{24}
-%%		\taskA{29}
-%%		\taskE{33}
-%%		\end{scope}
+		%%		\begin{scope}[yshift=+2.75cm]
+		%%		\schedule{40}{OMIM}{2,8,16,24,29,33,38}
+		%%		\taskB{0}
+		%%		\taskC{8}
+		%%		\taskD{24}
+		%%		\taskA{29}
+		%%		\taskE{33}
+		%%		\end{scope}
 		
 		\end{tikzpicture}
 		\caption{ \label{fig:staticOrderDynamicCorrectionsExample} Different static order dynamic corrections heuristic schedules for a task set of Table~\ref{tab:staticOrderDynamicCorrectionsExample} . The $OMIM$ order is $BCDAE$..}
@@ -832,7 +937,7 @@ Let \scomm($i$) and  \scomp($i$) represent the start times of task $i$ on commun
 		
 		The second heuristic is based on first fit algorithm of bin packing problem. In this heuristic, tasks are considered in random order and added to the first bin which satisfies memory capacity restriction. If no bin is found then a new bin is created and this task is added to it. When all tasks are added to some bin then we decide the order of processing in the following way. If a task is added to the $jth$ location in the $ith$ bin, then it is placed at the $pth$ position for processing, where $p=\sum_{k<i}(\text{number of tasks in $kth$ bin}) + j$. We call this heuristic \textit{Bin Packing} ($BP$). 
 		
-%%		\todo[inline]{increase font size in all plots, may be free scale-y}
+		%%		\todo[inline]{increase font size in all plots, may be free scale-y}
 		%%	\todo[inline]{SKumar: decide metrics: ratio to optimal, percentage overlap, 100 - percentage non overlap}
 		
 		
@@ -847,7 +952,7 @@ Let \scomm($i$) and  \scomp($i$) represent the start times of task $i$ on commun
 		%%		\label{fig:ratio_to_optimal_hf}
 		%%	\end{figure*}
 		\begin{figure*}[htb]
-		  \includegraphics[scale=0.5]{./all-binpack/ratio_to_optimal_selected_hf.pdf}
+			\includegraphics[scale=0.5]{./all-binpack/ratio_to_optimal_selected_hf.pdf}
 			\caption{Comparison of different heuristics for HF.}
 			\label{fig:ratio_to_optimal_hf}
 		\end{figure*}
@@ -890,25 +995,25 @@ Let \scomm($i$) and  \scomp($i$) represent the start times of task $i$ on commun
 		
 		\subsection{HF and CCSD Characteristics}
 		
-%%		\begin{figure}[htb]
-%%			%\begin{tabular}{c}
-%%			\subfloat[HF workloads\label{fig:hfProperties}]{%
-%%				\includegraphics[width=.45\linewidth]{./results/plots/application_properties_hf.pdf}
-%%			}%\\
-%%			\subfloat[CCSD workloads\label{fig:ccsdProperties}]{%
-%%				\includegraphics[width=.45\linewidth]{./results/plots/application_properties_ccsd.pdf}
-%%			}%\\
-%%			%\end{tabular}
-%%			\caption{HF and CCSD tasks characteristics.}
-%%			\label{fig:ApplicationProperties}
-%%		\end{figure}
-
+		%%		\begin{figure}[htb]
+		%%			%\begin{tabular}{c}
+		%%			\subfloat[HF workloads\label{fig:hfProperties}]{%
+		%%				\includegraphics[width=.45\linewidth]{./results/plots/application_properties_hf.pdf}
+		%%			}%\\
+		%%			\subfloat[CCSD workloads\label{fig:ccsdProperties}]{%
+		%%				\includegraphics[width=.45\linewidth]{./results/plots/application_properties_ccsd.pdf}
+		%%			}%\\
+		%%			%\end{tabular}
+		%%			\caption{HF and CCSD tasks characteristics.}
+		%%			\label{fig:ApplicationProperties}
+		%%		\end{figure}
+		
 		\begin{figure}[htb]
-	%\begin{tabular}{c}
-		\includegraphics[scale=0.5]{./results/plots/application_properties.pdf}
-	\caption{HF and CCSD tasks characteristics.}
-	\label{fig:ApplicationProperties}
-	\end{figure}	
+			%\begin{tabular}{c}
+			\includegraphics[scale=0.5]{./results/plots/application_properties.pdf}
+			\caption{HF and CCSD tasks characteristics.}
+			\label{fig:ApplicationProperties}
+		\end{figure}	
 		
 		
 		
@@ -938,28 +1043,28 @@ Let \scomm($i$) and  \scomp($i$) represent the start times of task $i$ on commun
 		
 		\subsection{Scheduling in Batches}
 		In most applications, scheduler may only observe a limited batch of independent tasks. Therefore we organize tasks of each trace file in the batch of 100. Last group may have less than 100 tasks. We apply each heuristic on each group consequently. Figure~\ref{fig:best_variants_batch} shows performance of the best variants of all categories for both applications. The plots exhibit behavior similar to Figures~\ref{fig:ratio_to_optimal_best_hf} and ~\ref{fig:ratio_to_optimal_best_ccsd}, static order with dynamic correction variants attain maximum communication-computation overlap and outperform other heuristics.
-%%		\todo[inline]{SKumar:combine both plots}
+		%%		\todo[inline]{SKumar:combine both plots}
 		
-%%		
-%%		\begin{figure*}[htb]
-%%			\subfloat[Best variants of HF.\label{fig:hf_best_variants_batch}]{%
-%%				\includegraphics[width=.45\linewidth]{./results/plots/inverse_ratio_to_optimal_hf_batch-best.pdf}
-%%			}%\\
-%%			\subfloat[Best variants of CCSD.\label{fig:ccsd_best_variants_batch}]{%
-%%				\includegraphics[width=.45\linewidth]{./results/plots/inverse_ratio_to_optimal_ccsd_batch-best.pdf}
-%%			}%\\
-%%			\caption{Best variants of all categories where heuristics are applied in the batches of 100 tasks.}
-%%			\label{fig:best_variants_batch}
-%%		\end{figure*}
-
+		%%		
+		%%		\begin{figure*}[htb]
+		%%			\subfloat[Best variants of HF.\label{fig:hf_best_variants_batch}]{%
+		%%				\includegraphics[width=.45\linewidth]{./results/plots/inverse_ratio_to_optimal_hf_batch-best.pdf}
+		%%			}%\\
+		%%			\subfloat[Best variants of CCSD.\label{fig:ccsd_best_variants_batch}]{%
+		%%				\includegraphics[width=.45\linewidth]{./results/plots/inverse_ratio_to_optimal_ccsd_batch-best.pdf}
+		%%			}%\\
+		%%			\caption{Best variants of all categories where heuristics are applied in the batches of 100 tasks.}
+		%%			\label{fig:best_variants_batch}
+		%%		\end{figure*}
 		
-\begin{figure*}[htb]
-		\includegraphics[scale=0.5]{./results/plots/inverse_ratio_to_optimal_batch-best.pdf}
-	\caption{Best variants of all categories where heuristics are applied in the batches of 100 tasks.}
-	\label{fig:best_variants_batch}
-\end{figure*}
-	
-	
+		
+		\begin{figure*}[htb]
+			\includegraphics[scale=0.5]{./results/plots/inverse_ratio_to_optimal_batch-best.pdf}
+			\caption{Best variants of all categories where heuristics are applied in the batches of 100 tasks.}
+			\label{fig:best_variants_batch}
+		\end{figure*}
+		
+		
 		
 		%%\begin{figure}[htb]
 		%%	\centering

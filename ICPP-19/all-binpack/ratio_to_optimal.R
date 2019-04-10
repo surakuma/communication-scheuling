@@ -9,7 +9,7 @@ dftest[,2:6]<-NULL
 dftestMelted<-melt(dftest, "capacity")
 names(dftestMelted)<-c("capacity", "Heuristic", "ratio_to_optimal")
 p<-ggplot(dftestMelted, aes(x=Heuristic, y=ratio_to_optimal, color=Heuristic)) + geom_boxplot(outlier.color="black") + facet_wrap(~capacity, ncol=4)  + theme(axis.ticks = element_blank(), axis.text.x = element_blank()) + xlab("")
-p <- p + theme(plot.title = element_text(hjust = 0.5)) +  ggtitle("Ratio to Optimal")
+#p <- p + theme(plot.title = element_text(hjust = 0.5)) +  ggtitle("Ratio to Optimal")
 return (p)
 }
 p<-ratio_to_optimal_func('all_results_hf.txt')

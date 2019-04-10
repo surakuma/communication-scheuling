@@ -13,10 +13,11 @@ dftest$dynamic_best<-do.call('pmin', c(dftest[,8:10]))
 dftest$static_dynamic_best<-do.call('pmin', c(dftest[,11:13]))
 dftest<-dftest[,c(1,2,14:16)]
 dftestMelted<-melt(dftest, "capacity")
-names(dftestMelted)<-c("capacity", "Heuristic", "ratio_to_optimal")
+names(dftestMelted)<-c("Capacity", "Heuristic", "ratio_to_optimal")
 #p<-ggplot(dftestMelted, aes(x=jitter(capacity), y=1/ratio_to_optimal, color=Heuristic))  + geom_smooth()
-p<-ggplot(dftestMelted, aes(x=capacity, y=1/ratio_to_optimal, color=Heuristic))  + geom_smooth(method="loess")
-p<-p + ylab("inverse(ratio_to_optimal)") + theme(plot.title = element_text(hjust = 0.5), legend.position="bottom") +  ggtitle("Performance With Best of all categories")
+p<-ggplot(dftestMelted, aes(x=Capacity, y=1/ratio_to_optimal, color=Heuristic))  + geom_smooth(method="loess")
+#p<-p + ylab("inverse(ratio_to_optimal)") + theme(plot.title = element_text(hjust = 0.5), legend.position="bottom") +  ggtitle("Performance With Best of all categories")
+p<-p + ylab("inverse(ratio_to_optimal)") + xlab ("Memory Capacity") + theme(legend.position="bottom")
 return (p)
 }
 

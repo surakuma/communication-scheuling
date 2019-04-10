@@ -50,6 +50,6 @@ dfMelted <- rbind(dfMelted1, dfMelted2)
 library(ggplot2)
 
 p<-ggplot(dfMelted, aes(x=capacity, y=1/ratio_to_optimal, color=Heuristic))  + geom_smooth(method="loess") +
-facet_wrap(~aname, scale="free") + ylab("inverse(ratio_to_optimal)") + theme (legend.position="bottom")
+facet_wrap(~aname, scale="free") + ylab("inverse(ratio_to_optimal)") + xlab("Memory Capacity") + theme (legend.position="bottom")
 #ggsave(file="test.pdf", p, width=7, height=4)
 ggsave(file="inverse_ratio_to_optimal_batch-best.pdf",p, width=13, height=5)

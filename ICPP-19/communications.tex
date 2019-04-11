@@ -903,19 +903,19 @@
 	\end{align*} 
 	
 	
-	We use GLPK solver v4.65 to solve the above formulation. We also add the following constraints to help the solver: $\forall i, \forall j\ne i$, $a_{ij} + a_{ji}=1$, $b_{ij} + b_{ji} = 1$, $c_{ij} \le a_{ij}$, $c_{ij} \le b_{ij}$, and  $c_{ij} + c_{ji} \le 1$.  The solver was unable to handle the number of variables required to solve this MILP at the scale of our interest. Hence, we solve the linear program iteratively for a small subset of size $k=3,4,5$: at the boundary of two iterations we fix the events (communication and computation) of an unfinished task started before the boundary point and consider other events flexible. The subsets are formed in the order in which tasks are submitted, which is arbitrary. For a given size $k$, we represent the makespan calculated by this heuristic as $lp.k$.
+	We use GLPK solver v4.65 to solve the above formulation. We also add the following constraints to help the solver: $\forall i, \forall j\ne i$, $a_{ij} + a_{ji}=1$, $b_{ij} + b_{ji} = 1$, $c_{ij} \le a_{ij}$, $c_{ij} \le b_{ij}$, and  $c_{ij} + c_{ji} \le 1$. The solver was unable to  solve this MILP at the scale of our interest in limited time. Hence, we solve the linear program iteratively for a small subset of size $k=3,4,5$: at the boundary of two iterations we fix the event (communication or computation) of an unfinished task started before the boundary point and consider other events flexible. The subsets are formed in the order in which tasks are submitted, which is arbitrary. For a given size $k$, we represent the makespan calculated by this heuristic as $lp.k$.
 	We compute various $lp.k$ values for different memory capacities and observe that most of the other heuristics perform better than this heuristic. Hence, we do not include this heuristic for the comparison in Section~{\ref{sec:exp}. Performance comparison of different heuristics with MILP based heuristics is available in an extended version(cite).
 		
-		\todo[inline]{SKumar: Move to an extended version and more clear about results and implementation}
-		Figure~\ref{fig:iterativeLpSolution} shows the performance of different heuristics with MILP based heuristics for various memory capacities of a single trace file.
-		%%	\subsection{MILP Based Strategy}
-		%%We use GLPK solver v4.65 to solve the MILP formulation described in Section~\ref{subsec:linearprogrammingformulation}. The solver was unable to handle number of variables required to solve MILP at the scale of our interest. Hence, we solve the linear program iteratively for a small subset of size $k=3,4,5$ (solver was unable to handle number of variables required for $k\ge6$ ) and represent the makespan calculated by this heuristic as $lp.k$. At the boundary of two iterations we fixed the event (communication or computation) of an unfinished task who has started before the boundary point and consider other events flexible. We compute various $lp.k$ values for different memory capacities and observe that most of the other heuristics perform better than this heuristic. Figure~\ref{fig:iterativeLpSolution} shows the comparison of different heuristics with MILP based heuristic for various memory capacities of a single trace file.
-		\todo[inline]{SKumar: Figure~\ref{fig:iterativeLpSolution} would be removed and I will redraw this or similar figure for extended version}
-		\begin{figure}[htb]
-			\includegraphics[scale=0.5]{./results/makespan_with_lp.pdf}
-			\caption{Comparision of different heuristics with MILP solution based heuristic.\todo[inline]{LED: I understand that this figure will be removed? Otherwise, use aes(fill=) instead of aes(color=) to have color filled bars.}}
-			\label{fig:iterativeLpSolution}
-		\end{figure}
+%%		\todo[inline]{SKumar: Move to an extended version and more clear about results and implementation}
+%%		Figure~\ref{fig:iterativeLpSolution} shows the performance of different heuristics with MILP based heuristics for various memory capacities of a single trace file.
+%%		%%	\subsection{MILP Based Strategy}
+%%		%%We use GLPK solver v4.65 to solve the MILP formulation described in Section~\ref{subsec:linearprogrammingformulation}. The solver was unable to handle number of variables required to solve MILP at the scale of our interest. Hence, we solve the linear program iteratively for a small subset of size $k=3,4,5$ (solver was unable to handle number of variables required for $k\ge6$ ) and represent the makespan calculated by this heuristic as $lp.k$. At the boundary of two iterations we fixed the event (communication or computation) of an unfinished task who has started before the boundary point and consider other events flexible. We compute various $lp.k$ values for different memory capacities and observe that most of the other heuristics perform better than this heuristic. Figure~\ref{fig:iterativeLpSolution} shows the comparison of different heuristics with MILP based heuristic for various memory capacities of a single trace file.
+%%		\todo[inline]{SKumar: Figure~\ref{fig:iterativeLpSolution} would be removed and I will redraw this or similar figure for extended version}
+%%		\begin{figure}[htb]
+%%			\includegraphics[scale=0.5]{./results/makespan_with_lp.pdf}
+%%			\caption{Comparision of different heuristics with MILP solution based heuristic.\todo[inline]{LED: I understand that this figure will be removed? Otherwise, use aes(fill=) instead of aes(color=) to have color filled bars.}}
+%%			\label{fig:iterativeLpSolution}
+%%		\end{figure}
 		
 		\subsection{Favorable Situations for Heuristics}
 		Based on the definition of proposed strategies and the optimality of Algorithm~\ref{alg:OrderOfExecutionInfinteMemory}, we present favorable scenarios for different heuristics in Table~\ref{tab:heuristicsAndFavorableScenarios}. This allows programmers to use appropriate strategies to maximize communication-computation overlap for their applications.

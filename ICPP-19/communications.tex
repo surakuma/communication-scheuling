@@ -259,7 +259,7 @@
 	amount of memory required by all tasks such that $\scomm(i) \leq t
 	\leq \scomp(i) + COMP_i$ is not more than the memory capacity
 	$C$. 
-	\todo[inline]{SKumar: We do not need this assumption everywhere. CommVolume=CommTime is not true for experimental section. We used this assumption only in NP-hard proof.}
+	\todo[inline]{SKumar: We do not need this assumption throughout the paper. CommVolume=CommTime is not true for experimental section. We used this assumption only in NP-hard proof for simplicity.}
 	For simplicity, we assume in all of this paper that the
 	amount of memory required by a task is proportional to its
 	communication time, and without loss of generality we consider
@@ -968,11 +968,11 @@
 		%%			\label{fig:ApplicationProperties}
 		%%		\end{figure}
 		
-		\todo[inline]{SKumar: will do}
 		\begin{figure}[htb]
 			%\begin{tabular}{c}
 			\includegraphics[scale=0.5]{./results/plots/application_properties.pdf}
-			\caption{HF and CCSD tasks characteristics.\todo[inline]{ylab(``Ratio to optimal'') (or to OSIM). Ideally remove underscores from the X axis.}}
+			\caption{HF and CCSD tasks characteristics.}
+%%				\todo[inline]{ylab(``Ratio to optimal'') (or to OSIM). Ideally remove underscores from the X axis.}
 			\label{fig:ApplicationProperties}
 		\end{figure}	
 		
@@ -1023,7 +1023,7 @@
 		%%	\end{figure*}
 		\begin{figure*}[htb]
 			\includegraphics[scale=0.5]{./all-binpack/ratio_to_optimal_selected_hf.pdf}
-			\caption{Comparison of different heuristics for HF.\todo[inline]{LED: Wouldn't it be easier to read if facet labels were expressed as ratios of $m_c$ ($1$, $1.125$, $1.25$, ...) instead of absolute values?. Here also, ylab(``Ratio to optimal'')}}
+			\caption{Comparison of different heuristics for HF.\todo[inline]{LED: Wouldn't it be easier to read if facet labels were expressed as ratios of $m_c$ ($1$, $1.125$, $1.25$, ...) instead of absolute values? Skumar: It'll provide a nice view but $m_c$ values of both experiments are quite different. In that case, we have to explicitly mention $m_c$ values.}}
 			\label{fig:ratio_to_optimal_hf}
 		\end{figure*}
 		
@@ -1031,8 +1031,10 @@
 %%		\todo{you mean infinite memory? SKumar: GG is classic in no-wait (or no buffer) 2-macine flowshop}
 		
 		\begin{figure}[htb]
-			\includegraphics[scale=0.5]{./results/plots/inverse_ratio_to_optimal_hf-best.pdf}
-			\caption{Comparision of best variants of all categories for HF.\todo[inline]{LED: I still believe you should plot the actual ratio $r$ and not $1/r$. Since I am not sure how to redo the plots I will let you do it. Also ylab(``Ratio to optimal'') please (or more explicitley, to OSIM?). And make sure to write ``Best static'' and remove underscores. You can use plyr::revalue for that.} }
+%%			\includegraphics[scale=0.5]{./results/plots/inverse_ratio_to_optimal_hf-best.pdf}
+			\includegraphics[scale=0.5]{./results/plots/ratio_to_optimal_hf-best.pdf}
+			\caption{Comparision of best variants of all categories for HF.}
+%%			\todo[inline]{LED: I still believe you should plot the actual ratio $r$ and not $1/r$. Since I am not sure how to redo the plots I will let you do it. Also ylab(``Ratio to optimal'') please (or more explicitley, to OSIM?). And make sure to write ``Best static'' and remove underscores. You can use plyr::revalue for that.} 
 			\label{fig:ratio_to_optimal_best_hf}
 		\end{figure}
 		
@@ -1060,7 +1062,8 @@
 		
 		
 		\begin{figure}[htb]
-			\includegraphics[scale=0.5]{./results/plots/inverse_ratio_to_optimal_ccsd-best.pdf}
+%%			\includegraphics[scale=0.5]{./results/plots/inverse_ratio_to_optimal_ccsd-best.pdf}
+			\includegraphics[scale=0.5]{./results/plots/ratio_to_optimal_ccsd-best.pdf}
 			\caption{Comparision of best variants of all categories for CCSD.}
 			\label{fig:ratio_to_optimal_best_ccsd}
 		\end{figure}
@@ -1085,8 +1088,10 @@
 		
 		
 		\begin{figure*}[htb]
-			\includegraphics[scale=0.5]{./results/plots/inverse_ratio_to_optimal_batch-best.pdf}
-			\caption{Best variants of all categories where heuristics are applied in the batches of 100 tasks.\todo[inline]{LED: Here also I believe you should plot the actual ratio $r$ and not $1/r$.}}
+%%			\includegraphics[scale=0.5]{./results/plots/inverse_ratio_to_optimal_batch-best.pdf}
+			\includegraphics[scale=0.5]{./results/plots/ratio_to_optimal_batch-best.pdf}
+			\caption{Best variants of all categories where heuristics are applied in the batches of 100 tasks.}
+%%			\todo[inline]{LED: Here also I believe you should plot the actual ratio $r$ and not $1/r$.}
 			\label{fig:best_variants_batch}
 		\end{figure*}
 		

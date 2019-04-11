@@ -27,8 +27,10 @@ get_melted_data_frame<-function(file_name)
 {
 library(reshape2)
 dftest<-read.table(file_name, header=T)
-colnames(dftest)[colnames(dftest) == "sum_comm_comp" ] <- "sum_comm+sum_comp"
-colnames(dftest)[colnames(dftest) == "max.sum_comm.sum_comp." ] <- "max(sum_comm,sum_comp)"
+colnames(dftest)[colnames(dftest) == "sum_comm" ] <- "sum comm"
+colnames(dftest)[colnames(dftest) == "sum_comp" ] <- "sum comp"
+colnames(dftest)[colnames(dftest) == "sum_comm_comp" ] <- "sum comm + sum comp"
+colnames(dftest)[colnames(dftest) == "max.sum_comm.sum_comp." ] <- "max(sum comm, sum comp)"
 dftest[,1:ncol(dftest)]<-dftest[,1:ncol(dftest)]/dftest[,5]
 dftest[,5]<-NULL
 dftestMelted<-melt(dftest)
@@ -43,6 +45,7 @@ dfMelted <- rbind(dfMelted1, dfMelted2)
 library(ggplot2)
 p<-ggplot(dfMelted, aes(x=Parameter, y=ratio_to_optimal, color=Parameter))  + geom_boxplot(outlier.color="black") + geom_hline(yintercept=1, linetype="dashed", color = "red") +
           facet_wrap(~application) + scale_y_continuous(breaks=seq(0.0, 2.0, 0.5), limits=c(0, 2)) +
-          theme(legend.position='none', axis.text.x = element_text(angle = 45, hjust=1, vjust = 1)) + xlab(" ")
+          theme(legend.position='none', axis.text.x = element_text(angle = 45, hjust=1, vjust = 1)) + xlab(" ") +
+          ylab("Ratio to Optimal")
 ggsave(file="application_properties.pdf", p, width=7, height=4)
 

@@ -356,4 +356,39 @@ eprint = {https://doi.org/10.1287/opre.12.5.655},
  publisher = {ACM},
  address = {New York, NY, USA},
 } 
+@misc{Cascade,
+    year  =        2019,
+    title =        "Computing: Cascade",
+    url =          "https://www.emsl.pnl.gov/emslweb/10.25582/inst.34218",
+}
 
+@Article{GlobalArray,
+    author="Nieplocha, Jaroslaw
+        and Harrison, Robert J.
+        and Littlefield, Richard J.",
+    title="Global arrays: A nonuniform memory access programming model for high-performance computers",
+    journal="The Journal of Supercomputing",
+    year="1996",
+    month="Jun",
+    day="01",
+    volume="10",
+    number="2",
+    pages="169--189",
+    abstract="Portability, efficiency, and ease of coding are all important considerations in choosing the programming
+        model for a scalable parallel application. The message-passing programming model is widely used because of its
+        portability, yet some applications are too complex to code in it while also trying to maintain a balanced
+        computation load and avoid redundant computations. The shared-memory programming model simplifies coding, but it
+        is not portable and often provides little control over interprocessor data transfer costs. This paper describes
+        an approach, called Global Arrays (GAs), that combines the better features of both other models, leading to both
+        simple coding and efficient execution. The key concept of GAs is that they provide a portable interface through
+        which each process in a MIMD parallel program can asynchronously access logical blocks of physically distributed
+        matrices, with no need for explicit cooperation by other processes. We have implemented the GA library on a
+        variety of computer systems, including the Intel Delta and Paragon, the IBM SP-1 and SP-2 (all message passers),
+    the Kendall Square Research KSR-1/2 and the Convex SPP-1200 (nonuniform access shared-memory machines), the CRAY T3D
+        (a globally addressable distributed-memory computer), and networks of UNIX workstations. We discuss the design
+        and implementation of these libraries, report their performance, illustrate the use of GAs in the context of
+        computational chemistry applications, and describe the use of a GA performance visualization tool.",
+    issn="1573-0484",
+    doi="10.1007/BF00130708",
+    url="https://doi.org/10.1007/BF00130708"
+}

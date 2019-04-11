@@ -208,7 +208,6 @@
 	
 	\todo[inline]{theoretical/performance work on molecular chemistry kernels}
 	
-	%%	\todo[inline]{SKumar: Modify both proofs }
 	\section{Data Transfer Problem Formulation}
 	\label{sec:theoreticalProof}
 	
@@ -250,8 +249,6 @@
 	\noindent Given $L$, is there a feasible schedule $S$ for $ST$ such that
 	makespan of $S$, $\mu(S) \le L$?
 	
-	%%	\todo[inline]{Mention that memory occupation of a task is the same as its communication time. Skumar: it is not required at all, but we use this for simplicity in Theorem~\ref{th:npComplete}}
-	%%	\todo[inline]{Mention that it is always best to use the same order on both machines.}
 	
 	Given a schedule, \scomm($i$) and \scomp($i$) represent the
 	start times of task $i$ on communication and computation
@@ -474,8 +471,6 @@
 		\begin{center}
 			\begin{tabular}{|c|c|c|c|}
 				\hline
-				%%				\multirow{2}{*}{Task} & Comm Time & \multirow{2}{*}{Comp Time}\\ 
-				%%				&=Comm Volume& \\ \hline
 				Task & Comm Volume & Comm Time & Comp Time\\ \hline 
 				A & 0 & 0 & 5\\ \hline
 				B & 4 & 4 & 3\\ \hline
@@ -571,16 +566,6 @@
 	
 	In Algorithm~\ref{alg:OrderOfExecutionInfinteMemory}, compute intensive tasks are sorted in increasing order of communication times. It allows tasks to utilize the computation resource maximally and make enough margin on the communication resource to accommodate more communication intensive tasks with maximum overlap. Communication intensive tasks are sorted in decreasing order of computation time, which allows tasks to utilize the margin created on communication resource. Hence, in this section, we obtain the orders by sorting tasks based on different combinations of communication and computation times.
 	
-	%%%%name = "optimal_time_infinite_case";
-	%%%%string alg_name="order_of_optimal_strategy_infinite_memory";
-	%%%%string alg_name="increasing_order_of_communication_strategy";
-	%%%%string alg_name="decreasing_order_of_computation_strategy";
-	%%%%string alg_name="increasing_order_of_communication_plus_computation_strategy";
-	%%%%string alg_name="decreasing_order_of_communication_plus_computation_strategy";
-	%%%%string alg_name="optimal_order_infinite_memory_largest_communication\_task\_respects\_memory\_restriction";
-	%%%%string alg_name="optimal_order_infinite_memory_smallest_communication\_task\_respects\_memory\_restriction";
-	%%%%string alg_name="optimal_order_infinite_memory_maximum_accelerated\_task\_respects\_memory\_restriction";
-	
 	\begin{enumerate}[label=\roman*)]
 		\item \textit{Order  of  optimal strategy infinite memory} ($OOSIM$): This heuristic uses the order given by Algorithm~\ref{alg:OrderOfExecutionInfinteMemory}, but respects the memory constraint at each point in the schedule. Hence the makespan of this heuristic may be completely different from $OMIM$.
 		
@@ -666,7 +651,6 @@
 			\end{tikzpicture}
 		}
 		
-		
 		\caption{ \label{fig:staticOrderExample} Different static order heuristic schedules for Table~\ref{tab:staticOrderExample}}. 
 		%%			Optimal schedule length	is 14. 
 	\end{figure}
@@ -682,10 +666,6 @@
 	
 	
 	\subsection{Dynamic Selection}
-	%%%%string alg_name="largest_communication \_ \allowbreak task \_ \allowbreak respects \_ \allowbreak memory \_ \allowbreak restriction";
-	%%%%string alg_name="smallest_communication \_ \allowbreak task \_ \allowbreak respects \_ \allowbreak memory \_ \allowbreak restriction";
-	%%%%string alg_name="maximum_accelerated \_ \allowbreak task \_ \allowbreak respects \_ \allowbreak memory \_ \allowbreak restriction";
-	
 	Dynamic strategies are based on the following principle: when the communication resource is idle, a task is chosen based on a ranking criterion which differ depending on the heuristic, among those which fit in memory. For example, if the selection criteria is to choose a highly compute intensive task, then we compute the ratio of compute time and communication time for all tasks, and we select the task which fit in the currently available memory and whose ratio is maximum (ties are broken arbitrarily). If no task satisfies the selection criteria thee we leave the resource idle at that point and proceed to the next event point. We also ensure that the order on both resources is the same, by ordering tasks on the computing resource accordingly.
 	
 %%	\todo[inline]{LED: I added this part ``among those which fit in memory'', is it correct? SKumar: Yes, you are correct.}
@@ -693,10 +673,6 @@
 	
 	%% We select a set of tasks which induce minimum idle time on compute resource and satisfy available memory requirement. Then a task is chosen for processing from this set based on the following heuristics.
 	\begin{enumerate}[label=\roman*)]
-		%%	\item $largest_communication \_ \allowbreak task \_ \allowbreak respects \_ \allowbreak memory \_ \allowbreak restriction$: We select a set of tasks which induce minimum idle time on compute channel. A task with the largest communication time is chosen from this set. Memory requirement of this task should not be more than presently available memory. 
-		%%	\item $smallest_communication \_ \allowbreak task \_ \allowbreak respects \_ \allowbreak memory \_ \allowbreak restriction$: A task with the smallest communication time is chosen. Memory requirement of this task should not be more than presently available memory. 
-		%%	\item $maximum_accelerated \_ \allowbreak task \_ \allowbreak respects \_ \allowbreak memory \_ \allowbreak restriction$: We select a set of tasks which induce minimum idle time on compute channel. A task with the maximum ratio of compute time to communication time is chosen from this set. Memory requirement of this task should not be more than presently available memory.
-		
 		\item \textit{largest communication task respects memory restriction} ($LCMR$): a task with the largest communication time is chosen. 
 		\item \textit{smallest communication task respects memory restriction} ($SCMR$): a task with the smallest communication time is chosen.
 		\item \textit{maximum accelerated task respects memory restriction} ($MAMR$): a task with the maximum ratio of compute time to communication time is chosen.
@@ -706,8 +682,6 @@
 			
 			\begin{tabular}{|c|c|c|c|}
 				\hline
-				%%				\multirow{2}{*}{Task} & Comm Time & \multirow{2}{*}{Comp Time}\\ 
-				%%				&=Comm Volume& \\ \hline
 				Task & Comm Volume & Comm Time & Comp Time\\ \hline 
 				A & 3 & 3 & 2\\ \hline
 				B & 1 & 1 &  6\\ \hline
@@ -753,23 +727,14 @@
 		\caption{ \label{fig:dynamicSelectionExample} Different dynamic heuristic schedules for a task set of Table~\ref{tab:dynamicSelectionExample} for a memory capacity of 6.}
 		%%		 Optimal schedule length is 23.
 	\end{figure} 
-	
-	%%\begin{figure}[htb]
-	%%
-	%%\includegraphics[scale=0.05]{Figs/dynamiSelectionSchedules}
-	%%\caption{Task set and schedules where orders are precomputed based on different heuristics.}
-	%%\label{fig:dynamicSelectionExample}
-	%%\end{figure}
+
 	
 	We highlight the different dynamic heuristics with the instance described on Table~\ref{tab:dynamicSelectionExample} (these heuristics are too similar on the instance from the previous class), and Figure~\ref{fig:dynamicSelectionExample} shows the corresponding schedules.
 	
 	\subsection{Static Order with Dynamic Corrections}
 	
 	In this class of strategy, we precompute the order of tasks based on some criterion and then follow this ordering as much as possible. But when the communication resource is idle because the memory requirement of the next task is too high, then we select a task  with a dynamic strategy. After a task is dynamically selected, we update the remaining order without this task. This class of strategy takes advantage of static information in the form of precomputed order and dynamic corrections to minimize the idle time due to memory constraint.
-	%%%%alg_name="optimal_order_infinite_memory_largest_communication \_ \allowbreak task \_ \allowbreak respects \_ \allowbreak memory \_ \allowbreak restriction";
-	%%%%string alg_name="optimal_order_infinite_memory_smallest_communication \_ \allowbreak task \_ \allowbreak respects \_ \allowbreak memory \_ \allowbreak restriction";
-	%%%%string alg_name="optimal_order_infinite_memory_maximum_accelerated \_ \allowbreak task \_ \allowbreak respects \_ \allowbreak memory \_ \allowbreak restriction";
-	
+
 	In all strategies, the initial order is obtained by Algorithm~\ref{alg:OrderOfExecutionInfinteMemory}. We define the following heuristics based on how we select a task from the set of tasks which fit in memory. If not any task fits in the memory then we leave the resource idle and forward to the next event point.
 %%	\todo[inline]{LED: What happens if no task fit in memory?}
 	
@@ -784,8 +749,6 @@
 			
 			\begin{tabular}{|c|c|c|c|}
 				\hline
-				%%				\multirow{2}{*}{Task} & Comm Time & \multirow{2}{*}{Comp Time}\\ 
-				%%				&=Comm Volume& \\ \hline
 				Task & Comm Volume & Comm Time & Comp Time\\ \hline 
 				A & 4 & 4 &  1\\ \hline
 				B & 2 & 2 & 6\\ \hline
@@ -921,7 +884,6 @@
 		Based on the definition of proposed strategies and the optimality of Algorithm~\ref{alg:OrderOfExecutionInfinteMemory}, we present favorable scenarios for different heuristics in Table~\ref{tab:heuristicsAndFavorableScenarios}. This allows programmers to use appropriate strategies to maximize communication-computation overlap for their applications.
 		
 		\begin{table}[htb]
-			%%	\scriptsize
 			\begin{tabular}{|c|p{6.5cm}|}
 				\hline
 				\textbf{Heuristic} & \textbf{\hspace{2cm}Favorable Situation} \\ \hline
@@ -945,28 +907,13 @@
 		
 		\section{Experimental Results}
 		\label{sec:exp}
-		
-		%%	\todo[inline]{Machine information and our model}
 		\subsection{Experimental Settings}
 		
-		We consider a machine called Cascade~\cite{Cascade}, available at PNNL, for our experiments. We obtain traces by running two molecular chemistry applications, double precision version of Hartree-Fock (HF) and Coupled Cluster Single Double (CCSD) of NWChem\todo{cite or url} package on 10 nodes of this machine. Each node is composed of 16 Intel Xeon E5-2670 cores. NWChem takes advantages of a Partitioned Global Address Space Programming Model called Global Arrays (GA)~\cite{GlobalArray} to use shared-memory programming APIs on distributed memory computers. GA dedicates one core of each node to handle other cores, hence we can view a node as being composed of 15 computational cores. We use 150 processes for each application and obtain 150 trace files. We run CCSD with Uracil molecules input and HF with SiOSi molecules (for Uracil molecules, HF has a much smaller workload, each processor executes only around 20 tasks, that is why we chose SiOSi input for HF execution). Each process executes around 300-800 tasks. Our data transfer model is quite simple and we consider that all data transfers between the local memory of each process and the GA memory take the same route. Modeling of different routes of data transfers for the same source-destination pair, bandwidth sharing for different source-destination pairs and network congestion is more challenging and part of our future work. This simple model is enough to provide insight to the application developers (or runtime system) about the ordering of data transfers for the same source-destination pair so as to maximize communication-computation overlap. Our model is easily adaptable to any source-destination pair when there is one fixed route between source and destination (such as between CPU and GPU, one copy engine to transfer data from CPU (resp. GPU) to GPU (resp. CPU) ).
+		We consider a machine called Cascade~\cite{Cascade}, available at PNNL, for our experiments. We obtain traces by running two molecular chemistry applications, double precision version of Hartree-Fock (HF) and Coupled Cluster Single Double (CCSD) of NWChem~\cite{NWChem} package on 10 nodes of this machine. Each node is composed of 16 Intel Xeon E5-2670 cores. NWChem takes advantages of a Partitioned Global Address Space Programming Model called Global Arrays (GA)~\cite{GlobalArray} to use shared-memory programming APIs on distributed memory computers. GA dedicates one core of each node to handle other cores, hence we can view a node as being composed of 15 computational cores. We use 150 processes for each application and obtain 150 trace files. We run CCSD with Uracil molecules input and HF with SiOSi molecules (for Uracil molecules, HF has a much smaller workload, each processor executes only around 20 tasks, that is why we chose SiOSi input for HF execution). Each process executes around 300-800 tasks. Our data transfer model is quite simple and we consider that all data transfers between the local memory of each process and the GA memory take the same route. Modeling of different routes of data transfers for the same source-destination pair, bandwidth sharing for different source-destination pairs and network congestion is more challenging and part of our future work. This simple model is enough to provide insight to the application developers (or runtime system) about the ordering of data transfers for the same source-destination pair so as to maximize communication-computation overlap. Our model is easily adaptable to any source-destination pair when there is one fixed route between source and destination (such as between CPU and GPU, one copy engine to transfer data from CPU (resp. GPU) to GPU (resp. CPU) ).
 		\todo[inline]{More about tiling}
 		Both applications mainly perform two types of computations, tensor transpose and tensor contraction. HF expects to specify a tile size and we set it to 100, so that each core can be used efficiently. CCSD automatically determines tile sizes at different program points based on the input molecules. Hence, HF operates on almost homogeneous tiles while CCSD uses more heterogeneous tiles.
 		
 		\subsection{Workload Characteristics}
-		
-		%%		\begin{figure}[htb]
-		%%			%\begin{tabular}{c}
-		%%			\subfloat[HF workloads\label{fig:hfProperties}]{%
-		%%				\includegraphics[width=.45\linewidth]{./results/plots/application_properties_hf.pdf}
-		%%			}%\\
-		%%			\subfloat[CCSD workloads\label{fig:ccsdProperties}]{%
-		%%				\includegraphics[width=.45\linewidth]{./results/plots/application_properties_ccsd.pdf}
-		%%			}%\\
-		%%			%\end{tabular}
-		%%			\caption{HF and CCSD tasks characteristics.}
-		%%			\label{fig:ApplicationProperties}
-		%%		\end{figure}
 		
 		\begin{figure}[htb]
 			%\begin{tabular}{c}
@@ -975,52 +922,23 @@
 %%				\todo[inline]{ylab(``Ratio to optimal'') (or to OSIM). Ideally remove underscores from the X axis.}
 			\label{fig:ApplicationProperties}
 		\end{figure}	
-		
-		
-		
-		%% 
-		%%\begin{figure}[htb]
-		%%	\centering
-		%%	\begin{subfigure}{.5\textwidth}
-		%%		\centering
-		%%		\includegraphics[width=.95\linewidth]{../ExperimentalResults/application_properties_hf.pdf}
-		%%		\caption{HF workloads}
-		%%		\label{fig:hfProperties}
-		%%	\end{subfigure}%
-		%%	\begin{subfigure}{.5\textwidth}
-		%%		\centering
-		%%		\includegraphics[width=.95\linewidth]{../ExperimentalResults/application_properties_ccsd.pdf}
-		%%		\caption{CCSD workloads}
-		%%		\label{fig:ccsdProperties}
-		%%	\end{subfigure}
-		%%	\caption{HF and CCSD tasks characteristics.}
-		%%	\label{fig:ApplicationProperties}
-		%%\end{figure}
-		
+
 		To get more insights into the considered workloads, we provide in Figure~\ref{fig:ApplicationProperties} information about
 		the instances we consider. For each instance, we compute the sum of communication times (\textit{sum comm}) and sum of computation times  (\textit{sum comp}), and normalize it relatively to the $OMIM$ value. Figure~\ref{fig:ApplicationProperties} also shows the maximum of both values, which is a lower bound on the possible makespan of a schedule for this instance, and their sum, which is an upper bound: this represents the makespan of the sequential schedule, obtained with zero overlap between computation and communication. We can see that HF is a communication intensive application and at most 20\% overlap can be expected in the best scenario. On the other hand, in the CCSD workload, communications and computations are almost evenly distributed and a more significant overlap is possible.
 		
 		\subsection{Additional heuristics from previous work}
-		
-		
+	
 		%%	\todo[inline]{Scheduled based on Gilmore-Gomory algorithm and its performance }
 		We also consider two other static heuristics for evaluation. The first heuristic is based on an algorithm, proposed by Gilmore and Gomory, to obtain the minimal cost sequence for a set of jobs~\cite{Gilmore-Gomory:1964}. This is a classic algorithm for 2-machine no-wait flow shop. In this algorithm, each job has a start and end state and a cost is associated to change the state. In our context, this cost can be seen as non-overlap time of computation for two adjacent tasks. Here is the main idea of this algorithm. Initially, a partial sequence of jobs is represented by a graph such that their overlap is maximum. Subsequently edges are greedily added to this graph to connect two components while minimizing the total non-overlap cost. When the graph is  connected, an edge interchange mechanism is used to determine the sequence of jobs, which ensures that the sequence has minimal cost. More details can be found in the original paper~\cite{Gilmore-Gomory:1964} and our implementation is publicly available~\cite{gitworkrepo}. This algorithm does not take memory constraints into account and only provides the sequence of processing. We use this sequence with a memory capacity restriction just like for other static heuristcs, and we call this heuristic \textit{Gilmore-Gomory} ($GG$).
 		
 		The second heuristic is based on the first fit algorithm for the bin packing problem. The idea of this heuristic is to identify groups of tasks which can fit in memory together, called \emph{bins}. In First-Fit, tasks are considered in an arbitrary order and added to the first bin in which they can fit. If no suitable bin is found then a new bin is created and this task is added to it. When all tasks have been assigned to bins, we consider the sequence made of all tasks from the first bin, then tasks for the second bin, and so on. We call this heuristic \textit{Bin Packing} ($BP$). 
 		
-		%%		\todo[inline]{increase font size in all plots, may be free scale-y}
-		%%	\todo[inline]{SKumar: decide metrics: ratio to optimal, percentage overlap, 100 - percentage non overlap}
 		
 		\subsection{Experimental results}
 		We evaluate our scheduling heuristics for several memory capacities. From the obtained traces, we first determine the minimum requirement of the memory capacity $m_c$ to execute all tasks. Then we observe the behavior of all heuristics with memory capacity $m_c$ to $2m_c$, in increments of $0.125m_c$. Our performance metric is the ratio to optimal $r$: if heuristic $H$ has makespan $M_H$ on an instance, and the optimal makespan for the infinite memory case is $OMIM$, then $r(H)=\frac{M_H}{OMIM}$ (lower values are better). This ratio is at least $1$, and a value close to $1$ indicates a well-suited  heuristic which achives maximum possible communication-computation overlap.
 		
 		Figures ~\ref{fig:ratio_to_optimal_hf} and ~\ref{fig:ratio_to_optimal_ccsd} show the distribution of the performance of each heuristic for all considered memory capacities, where plots are categorized by memory capacities. For each memory capacity and each heuristic, the box on the plot displays the median, first and last quartile, and the whiskers indicate minimum and maximum values, with outliers are shown by black dots.
 		\subsection{HF Performance}	
-		%%	\begin{figure*}[htb]
-		%%		\includegraphics[scale=0.25]{./results/plots/ratio_to_optimal_selected_hf.pdf}
-		%%		\caption{Comparison of different heuristics for HF.}
-		%%		\label{fig:ratio_to_optimal_hf}
-		%%	\end{figure*}
 		\begin{figure*}[htb]
 			\includegraphics[scale=0.5]{./all-binpack/ratio_to_optimal_selected_hf.pdf}
 			\caption{Comparison of different heuristics for HF.\todo[inline]{LED: Wouldn't it be easier to read if facet labels were expressed as ratios of $m_c$ ($1$, $1.125$, $1.25$, ...) instead of absolute values? Skumar: It'll provide a nice view but $m_c$ values of both experiments are quite different. In that case, we have to explicitly mention $m_c$ values.}}
@@ -1045,13 +963,6 @@
 		\todo[inline]{SKumar: If you look at Figure~\ref{fig:ratio_to_optimal_best_hf} carefully,  in the beginning dynamics variants outperform others. This behavior is easily noticeable in Figure~\ref{fig:ratio_to_optimal_hf}. }
 		
 		\subsection{CCSD Performance}
-		
-		%%	\begin{figure*}[htb]
-		%%		\includegraphics[scale=0.25]{./results/plots/ratio_to_optimal_selected_ccsd.pdf}
-		%%		\caption{Comparison of different heuristics for CCSD.}
-		%%		\label{fig:ratio_to_optimal_ccsd}
-		%%	\end{figure*}	
-		
 		\begin{figure*}[htb]
 			\includegraphics[scale=0.5]{./all-binpack/ratio_to_optimal_selected_ccsd.pdf}
 			\caption{Comparison of different heuristics for CCSD.}
@@ -1072,20 +983,6 @@
 		
 		\subsection{Scheduling in Batches}
 		In most applications, the runtime scheduler may only observe a limited batch of independent tasks. Therefore we organize tasks of each trace file in batches of 100 (the last batch may have less than 100 tasks). We apply each heuristic on each group independently. Figure~\ref{fig:best_variants_batch} shows the performance of the best variants of each category for both applications. The plots exhibit behavior similar to Figures~\ref{fig:ratio_to_optimal_best_hf} and~\ref{fig:ratio_to_optimal_best_ccsd}: static order with dynamic correction variants attain maximum communication-computation overlap and outperform other heuristics.
-		%%		\todo[inline]{SKumar:combine both plots}
-		
-		%%		
-		%%		\begin{figure*}[htb]
-		%%			\subfloat[Best variants of HF.\label{fig:hf_best_variants_batch}]{%
-		%%				\includegraphics[width=.45\linewidth]{./results/plots/inverse_ratio_to_optimal_hf_batch-best.pdf}
-		%%			}%\\
-		%%			\subfloat[Best variants of CCSD.\label{fig:ccsd_best_variants_batch}]{%
-		%%				\includegraphics[width=.45\linewidth]{./results/plots/inverse_ratio_to_optimal_ccsd_batch-best.pdf}
-		%%			}%\\
-		%%			\caption{Best variants of all categories where heuristics are applied in the batches of 100 tasks.}
-		%%			\label{fig:best_variants_batch}
-		%%		\end{figure*}
-		
 		
 		\begin{figure*}[htb]
 %%			\includegraphics[scale=0.5]{./results/plots/inverse_ratio_to_optimal_batch-best.pdf}
@@ -1130,10 +1027,8 @@
 		\section{Conclusion and Perspectives}
 		\label{sec:conclusion}
 		
-		
 		%%We also plan to extend our model by taking bandwidth sharing and different possible routes for the same source-destination pair into account.
-		
-		
+				
 		In this paper, we consider the problem of deciding the order of data transfers between two memory nodes such that overlap of communication and computation is maximized. With Exascale computing, applications face bottlenecks due to communications. Hence, it is extremely important to achieve the maximum overlap of computation and communication in order to exploit the full potential of the system. We show that determining the order of data transfers is an NP complete problem. We propose several data transfer heuristics and evaluate them on two molecular chemistry kernels, HF and CCSD. Our results show that some of our heuristics achieve significant overlap and perform very close to the lower bound. We plan to evaluate our strategies on different applications coming from multiple domains. We also plan to study the behavior of our strategies in the context of overlapping CPU-GPU communications with computations. A runtime system aiming at exposing different heuristics to maximize the communication-computation overlap at the developer level and automatically selecting the best one is currently underway.
 		
 		
@@ -1143,10 +1038,7 @@
 			%% 			Identification of funding sources and other support, and thanks to individuals and groups that assisted in the research and the preparation of the work should be included in an acknowledgment section, which is placed just before the reference section in your document. 
 			
 		\end{acks}
-		
-		
-		
-		
+
 		%
 		% The next two lines define the bibliography style to be used, and the bibliography file.
 		\bibliographystyle{ACM-Reference-Format}

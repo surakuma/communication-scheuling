@@ -224,12 +224,12 @@
 	viewed as a 3-machine flowshop problem, where processing time on the first machine is 
 	input data transfer time, processing time on the second machine is task execution time, 
 	and processing time on the third machine is output data transfer time; and the objective is 
-	to minimize the total makespan. This is a well known hard problem~\cite{NPComplete3Machine,johnson}.
+	to minimize the total makespan. This is a well known NP-complete problem~\cite{3machineFlowShopNPComplete}.
 	
 	
 	In many cases, output data that needs to be retrieved after task execution is much smaller than the input data. It is often the case that future tasks running on the same memory node require output data of the past tasks. Therefore, most runtime systems transfer data to other memory nodes based on the demand -- not immediately after they were produced. It is also possible that all output data can be stored in a preallocated separate buffer on a memory node. Hence, we do not consider output data explicitely in our analysis and assume that output data is negligible or stored in a separate buffer for each task. Thus problem considered here is thus more similar to a 2-machine flowshop problem. We prove that ordering the execution of such tasks with finite memory capacity is an NP-complete problem: %%We also present an optimal algorithm to determine the order of execution of tasks when there is not any restriction on memory limit.
 	
-	\todo[inline]{Find a citation saying 3-machine flowshop problem is NP-Complete.}
+%%	\todo[inline]{Find a citation saying 3-machine flowshop problem is NP-Complete.}
 	%%%%	done:\todo[inline]{Rewrite both paragraphs together.}
 	%%	In general, order of task execution with input and output data transfers can be 
 	%%	viewed as 3-machine flowshop problem, where processing time on 1st machine is 
@@ -258,11 +258,11 @@
 	amount of memory required by all tasks such that $\scomm(i) \leq t
 	\leq \scomp(i) + COMP_i$ is not more than the memory capacity
 	$C$. 
-%%	\todo[inline]{SKumar: We do not need this assumption throughout the paper. CommVolume=CommTime is not true for experimental section. We used this assumption only in NP-hard proof for simplicity.}
+	\todo[inline]{SKumar: Why not a direct statement?  For simplicity, we assume in all of this paper that the amount of memory required by a task is equal to its communication volume.}
 	For simplicity, we assume in all of this paper that the
 	amount of memory required by a task is proportional to its
 	communication time, and without loss of generality we consider
-	that memory size of a task is equal to its communication volume.
+	that memory size of a task is equal to its communication time.
 
 %% We assume through out the paper that communication time of a task is proportional to memory required by it, and follow conventional \textit{Comm Time = Latency + (Comm Volume)/Bandwidth} model.
 %%	
@@ -475,7 +475,9 @@
 		\begin{center}
 			\begin{tabular}{|c|c|c|c|}
 				\hline
-				Task & Comm Volume & Comm Time & Comp Time\\ \hline 
+%%				Task & Comm Volume & Comm Time & Comp Time\\ \hline 
+				\multirow{2}{*}{Task} & Memory Req & \multirow{2}{*}{Comm Time} & \multirow{2}{*}{Comp Time}\\  
+				&=Comm Volume && \\ \hline
 				A & 0 & 0 & 5\\ \hline
 				B & 4 & 4 & 3\\ \hline
 				C & 1 & 1 & 6\\ \hline
@@ -587,7 +589,9 @@
 				\hline
 				%%				\multirow{2}{*}{Task} & Comm Time & \multirow{2}{*}{Comp Time}\\ 
 				%%				&=Comm Volume& \\ \hline
-				Task & Comm Volume & Comm Time & Comp Time\\ \hline 
+%%				Task & Comm Volume & Comm Time & Comp Time\\ \hline 
+				\multirow{2}{*}{Task} & Memory Req & \multirow{2}{*}{Comm Time} & \multirow{2}{*}{Comp Time}\\  
+				&=Comm Volume && \\ \hline
 				A & 3 & 3 &  2\\ \hline
 				B & 1 & 1 & 3\\ \hline
 				C & 4 & 4 & 4\\ \hline
@@ -691,7 +695,9 @@
 			
 			\begin{tabular}{|c|c|c|c|}
 				\hline
-				Task & Comm Volume & Comm Time & Comp Time\\ \hline 
+%%				Task & Comm Volume & Comm Time & Comp Time\\ \hline 
+				\multirow{2}{*}{Task} & Memory Req & \multirow{2}{*}{Comm Time} & \multirow{2}{*}{Comp Time}\\  
+				&=Comm Volume && \\ \hline
 				A & 3 & 3 & 2\\ \hline
 				B & 1 & 1 &  6\\ \hline
 				C & 4 & 4 & 6\\ \hline
@@ -758,7 +764,9 @@
 			
 			\begin{tabular}{|c|c|c|c|}
 				\hline
-				Task & Comm Volume & Comm Time & Comp Time\\ \hline 
+%%				Task & Comm Volume & Comm Time & Comp Time\\ \hline 
+				\multirow{2}{*}{Task} & Memory Req & \multirow{2}{*}{Comm Time} & \multirow{2}{*}{Comp Time}\\  
+				&=Comm Volume && \\ \hline
 				A & 4 & 4 &  1\\ \hline
 				B & 2 & 2 & 6\\ \hline
 				C & 8 & 8 & 8\\ \hline

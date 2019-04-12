@@ -259,13 +259,13 @@
 	\leq \scomp(i) + COMP_i$ is not more than the memory capacity
 	$C$. 
 %%	\todo[inline]{SKumar: We do not need this assumption throughout the paper. CommVolume=CommTime is not true for experimental section. We used this assumption only in NP-hard proof for simplicity.}
-%%	For simplicity, we assume in all of this paper that the
-%%	amount of memory required by a task is proportional to its
-%%	communication time, and without loss of generality we consider
-%%	that memory size of a task is equal to its communication time.
+	For simplicity, we assume in all of this paper that the
+	amount of memory required by a task is proportional to its
+	communication time, and without loss of generality we consider
+	that memory size of a task is equal to its communication volume.
 
- We assume through out the paper that communication time of a task is proportional to memory required by it, and follow conventional \textit{Comm Time = Latency + (Comm Volume)/Bandwidth} model.
-	
+%% We assume through out the paper that communication time of a task is proportional to memory required by it, and follow conventional \textit{Comm Time = Latency + (Comm Volume)/Bandwidth} model.
+%%	
 	We call a task $i$ compute intensive if $COMP_i \ge COMM_i$, and
 	communication intensive otherwise.
 	
@@ -359,8 +359,7 @@
 		\end{table}
 		
 		
-%%		As \textit{Transfer time = Latency + (Data Volume)/Bandwidth}. 
-		For simplicity, we consider input transfer time is same as input data volume (i.e., \textit{Latency = 0} and \textit{Bandwidth = 1}). Otherwise, we can adjust $C$ such that at any point in a schedule at max one $K_i$ and three $A_i$ tasks can be active.
+		As \textit{Transfer time = Latency + (Data Volume)/Bandwidth}. For simplicity, we consider input transfer time is same as input data volume (i.e., \textit{Latency = 0} and \textit{Bandwidth = 1}). Otherwise, we can adjust $C$ such that at any point in a schedule at max one $K_i$ and three $A_i$ tasks can be active.
 		
 		We show that $I$ has a schedule $S$ with makespan at most $L$ if and
 		only if the original \threepart instance has a solution. Notice that
@@ -1048,7 +1047,7 @@ The second heuristic is based on the First-Fit algorithm for the bin packing pro
 		
 		\begin{acks}
 			
-			We are grateful to Ajay Panyala for his help in installation of  NWChem on Cascade machine and providing internal details about the package and its inputs. This work was supported in part by the U.S. Department of Energy’s (DOE), Office of Science, Office of Advanced Scientific Computing Research, under awards 63823. Pacific Northwest National Laboratory is operated by Battelle for DOE under Contract DE-AC05-76RL01830.
+			We are grateful to Ajay Panyala for his help in installation of  NWChem on Cascade machine and providing internal details about the package and its inputs. This work was supported in part by the U.S. Department of Energy’s (DOE), Office of Science, Office of Advanced Scientific Computing Research, under award 63823. Pacific Northwest National Laboratory is operated by Battelle for DOE under Contract DE-AC05-76RL01830.
 		\end{acks}
 		
 		%

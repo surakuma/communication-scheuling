@@ -133,7 +133,7 @@
 	% The abstract is a short summary of the work to be presented in the article.
 	\begin{abstract}
 		\todo[inline]{Initial submission deadline: April 15}
-		With increasing complexity of hardwares, systems with different memory nodes are ubiquitous in high performance computing (HPC). It is paramount to develop strategies to overlap the data transfers between memory nodes with computations in order to exploit the full potential of these systems. In this paper, we consider the problem of deciding the order of data transfers between two memory nodes for a set of independent tasks with the objective to minimize the makespan. We prove that with limited memory capacity, obtaining the optimal order of data transfers is a NP-complete problem. We propose several heuristics for this problem and provide details about their favorable situations. We present analysis of our heuristics on traces, obtained by running 2 molecular chemistry kernels, namely, Hartree–Fock (HF) and Coupled Cluster Single Double (CCSD) on 10 nodes of an HPC system. Our results show that some of our heuristics achieve significant overlap for moderate memory capacities and are very close to the lower bound of makespan.
+		With increasing complexity of hardwares, systems with different memory nodes are ubiquitous in High Performance Computing (HPC). It is paramount to develop strategies to overlap the data transfers between memory nodes with computations in order to exploit the full potential of these systems. In this paper, we consider the problem of deciding the order of data transfers between two memory nodes for a set of independent tasks with the objective to minimize the makespan. We prove that with limited memory capacity, obtaining the optimal order of data transfers is a NP-complete problem. We propose several heuristics for this problem and provide details about their favorable situations. We present analysis of our heuristics on traces, obtained by running 2 molecular chemistry kernels, namely, Hartree–Fock (HF) and Coupled Cluster Single Double (CCSD) on 10 nodes of an HPC system. Our results show that some of our heuristics achieve significant overlap for moderate memory capacities and are very close to the lower bound of makespan.
 	\end{abstract}
 	
 	%%\begin{CCSXML}
@@ -201,7 +201,7 @@
 	Historically there has been a great emphasis on the development of parallel algorithms and minimizing the complexity of computations. As the number of computation cores has increased drastically in recent years, supercomputers face bottleneck due to communication required by an application. Hence, in recent years the focus has changed towards developing communication avoiding algorithms, strategies to hiding communications and minimizing the data accessed by applications~\cite{yelick2016}. 
 	
 	
-	The problem of scheduling tasks has been highly studied in the literature and many formulations are known to be NP-Complete~\cite{GareyJohnson}. Many static and dynamic strategies have been proposed and analyzed for scheduling tasks on heterogeneous resources~\cite{heft-Topcuoglu,hipc16multiresource,ipdps16starpu}. There is also a number of studies in the direction of task scheduling with the emphasis on improving locality and minimizing the communication cost~\cite{starpu,heft-Topcuoglu}. Stanisic et. al~\cite{luka-dmdar} proposed a heuristic to schedule tasks on a computing resource where most of its data is available. A similar approach has been adopted by Agullo et. al for the scheduling of sparse linear algebra kernels~\cite{agullo_fmm}. Predari et. al proposed heuristics to partition the task graph across a number of processors such that inter-processor communication can be minimized~\cite{predari:tel-01518956}.
+	The problem of scheduling tasks has been highly studied in the literature and many formulations are known to be NP-Complete~\cite{GareyJohnson}. Many static and dynamic strategies have been proposed and analyzed for scheduling tasks on heterogeneous resources~\cite{heft-Topcuoglu,hipc16multiresource,ipdps16starpu}. There is also a number of studies in the direction of task scheduling with the emphasis on improving locality and minimizing the communication cost~\cite{starpu,heft-Topcuoglu}. Stanisic et. al~\cite{luka-dmdar} proposed a heuristic to schedule tasks on a computational resource where most of its data is available. A similar approach has been adopted by Agullo et. al for the scheduling of sparse linear algebra kernels~\cite{agullo_fmm}. Predari et. al proposed heuristics to partition the task graph across a number of processors such that inter-processor communication can be minimized~\cite{predari:tel-01518956}.
 	
 	The problem considered in this paper also can be viewed as a flow shop problem: the communication link can be seen as a processing resource, and each task needs to first be handled by the communication link and then by the computational resource. Communication and computation times of a task can thus be considered as processing times on different machines. Johnson has provided scheduling strategies for 2 and 3-machine flow shop problems with infinite memory capacity~\cite{johnson}. 2-machine flow shop problem with finite buffer has been proven NP-Complete by Papadimitriou et. al~\cite{Papadimitriou:1980:FSL:322203.322213}, in which a constraint is imposed on the number of tasks that can await execution on the second machine.
 	
@@ -264,14 +264,14 @@
 %%	communication time, and without loss of generality we consider
 %%	that memory size of a task is equal to its communication time.
 
- We assume through out the paper that communication time of a task is proportional to memory required by it, and follow \textit{Comm Time = Latency + (Comm Volume)/Bandwidth} model.
+ We assume through out the paper that communication time of a task is proportional to memory required by it, and follow conventional \textit{Comm Time = Latency + (Comm Volume)/Bandwidth} model.
 	
 	We call a task $i$ compute intensive if $COMP_i \ge COMM_i$, and
 	communication intensive otherwise.
 	
 	\subsection{Special case: Infinite Memory}
 	
-	When the computing resource has a very large memory, our problem
+	When the computational resource has a very large memory, our problem
 	becomes a classic 2-machine flowshop problem: communication time is
 	the processing time on the first machine and computation time is the
 	processing time on the second machine. Johnson's
@@ -670,8 +670,13 @@
 	In order to highlight the different behaviors of these static strategies, we propose on Table~\ref{tab:staticOrderExample} an example instance, and on Figure~\ref{fig:staticOrderExample} the corresponding schedules for all these heuristics.
 	
 	
+	
+	
 	\subsection{Dynamic Selection}
-	Dynamic strategies are based on the following principle: when the communication resource is idle, a task is chosen based on a ranking criterion which differ depending on the heuristic, among those which fit in memory. For example, if the selection criteria is to choose a highly compute intensive task, then we compute the ratio of computation time and communication time for all tasks, and we select the task which induces minimum idle time on the computing resource, fit in the currently available memory and whose ratio is maximum (ties are broken arbitrarily). If no task fits in memory then we leave the resource idle at that point and proceed to the next event point. We also ensure that the order on both resources is the same, by ordering tasks on the computing resource accordingly.
+	Dynamic strategies are based on the following principle: when the communication resource is idle, a task is chosen based on a ranking criterion which differ depending on the heuristic, among those which fit in memory. For example, if the selection criteria is to choose a highly compute intensive task, then we compute the ratio of computation time and communication time for all tasks, and we select a task with the maximum ratio among which induce minimum idle time on the computation resource and fit in the currently available memory. If no task fits in memory then we leave the resource idle at that point and proceed to the next event point. We also ensure that the order on both resources is the same, by ordering tasks on the computation resource accordingly.
+	
+%%	If $COMM_A = 1, COMP_A=1, COMM_B=2, COMP_B=4$, then $MAMR$ heuristic first selects task $A$ (A induces less idle tim eon the computation resource).  
+	
 	
 	%%	\todo[inline]{LED: I added this part ``among those which fit in memory'', is it correct? SKumar: Yes, you are correct.}
 	%%	\todo[inline]{LED: What happens if no task fit in memory? Skumar: look at the next event point :)}
@@ -740,7 +745,7 @@
 	
 	In this class of strategy, we precompute the order of tasks based on some criterion and then follow this ordering as much as possible. But when the communication resource is idle because the memory requirement of the next task is too high, then we select a task  with a dynamic strategy. After a task is dynamically selected, we update the remaining order without this task. This class of strategy takes advantage of static information in the form of precomputed order and dynamic corrections to minimize the idle time due to memory constraint.
 	
-	In all strategies, the initial order is obtained by Algorithm~\ref{alg:OrderOfExecutionInfinteMemory}. We define the following heuristics based on how we select a task from the set of tasks which fit in memory and induces minimum idle time on the computing resource. If no task fits in memory then we leave the resource idle and forward to the next event point.
+	In all strategies, the initial order is obtained by Algorithm~\ref{alg:OrderOfExecutionInfinteMemory}. We define the following heuristics based on how we select a task from the set of tasks which fit in memory and induces minimum idle time on the computation resource. If no task fits in memory then we leave the resource idle and forward to the next event point.
 	%%	\todo[inline]{LED: What happens if no task fit in memory?}
 	
 	\begin{enumerate}[label=\roman*)]

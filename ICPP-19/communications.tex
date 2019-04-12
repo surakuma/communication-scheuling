@@ -208,7 +208,7 @@
 	A number of other studies have focused on scheduling with limited memory and storage, starting with the work of register allocation for arithmetic expressions by Sethi and Ulman~\cite{Sethi:1970:GOC:321607.321620}. Sarkar et. al worked on the scheduling of graphs of smaller-grain tasks with limited memory, where each task requires homogeneous data size~\cite{vsarkar-pact}. The same work has been extend by Marchal et. al for task graphs where memory requirement of each task is highly irregular~\cite{loris-ipdps18}.
 	
 	
-%	\todo[inline]{theoretical/performance work on molecular chemistry kernels}
+	%	\todo[inline]{theoretical/performance work on molecular chemistry kernels}
 	
 	\section{Data Transfer Problem Formulation}
 	\label{sec:theoreticalProof}
@@ -229,7 +229,7 @@
 	
 	In many cases, output data that needs to be retrieved after task execution is much smaller than the input data. It is often the case that future tasks running on the same memory node require output data of the past tasks. Therefore, most runtime systems transfer data to other memory nodes based on the demand -- not immediately after they were produced. It is also possible that all output data can be stored in a preallocated separate buffer on a memory node. Hence, we do not consider output data explicitely in our analysis and assume that output data is negligible or stored in a separate buffer for each task. Thus problem considered here is thus more similar to a 2-machine flowshop problem. We prove that ordering the execution of such tasks with finite memory capacity is an NP-complete problem: %%We also present an optimal algorithm to determine the order of execution of tasks when there is not any restriction on memory limit.
 	
-%%	\todo[inline]{Find a citation saying 3-machine flowshop problem is NP-Complete.}
+	%%	\todo[inline]{Find a citation saying 3-machine flowshop problem is NP-Complete.}
 	%%%%	done:\todo[inline]{Rewrite both paragraphs together.}
 	%%	In general, order of task execution with input and output data transfers can be 
 	%%	viewed as 3-machine flowshop problem, where processing time on 1st machine is 
@@ -258,15 +258,16 @@
 	amount of memory required by all tasks such that $\scomm(i) \leq t
 	\leq \scomp(i) + COMP_i$ is not more than the memory capacity
 	$C$. 
-	\todo[inline]{SKumar: How about this?  For simplicity, we assume throughout the paper that tasks do not have any intermediate memory requirement. Hence, amount of memory required by a task is equal to its communication volume.}
-	\todo[inline]{Skumar2LED: Actually adding internal memory requirement will make NP-completeness proof straightforward. I started with this problem ;).}
-	For simplicity, we assume in all of this paper that the
-	amount of memory required by a task is proportional to its
-	communication time, and without loss of generality we consider
-	that memory size of a task is equal to its communication time.
-
-%% We assume through out the paper that communication time of a task is proportional to memory required by it, and follow conventional \textit{Comm Time = Latency + (Comm Volume)/Bandwidth} model.
-%%	
+	For simplicity, we assume throughout he paper that tasks
+	require memory only to store their input data, and thus that
+	the amount of memory required by a task is proportional to its
+	communication time. Without loss of generality, we consider in
+	all examples of Sections~\ref{sec:theoreticalProof}
+	and~\ref{sec:heuristics} that the memory requirement of a task
+	is equal to its communication time.
+	
+	%% We assume through out the paper that communication time of a task is proportional to memory required by it, and follow conventional \textit{Comm Time = Latency + (Comm Volume)/Bandwidth} model.
+	%%	
 	We call a task $i$ compute intensive if $COMP_i \ge COMM_i$, and
 	communication intensive otherwise.
 	
@@ -359,10 +360,10 @@
 			\label{table:np.completeness.tasks}
 		\end{table}
 		
-		\todo[inline]{SKumar: Do we need to mention here separately that memory requirement is equal to communication volume? I think no. right?}
-		As \textit{Transfer time = Latency + (Comm Volume)/Bandwidth}. For simplicity, we consider  transfer time is same as communication volume (i.e., \textit{Latency = 0} and \textit{Bandwidth = 1}). Otherwise, we can adjust $C$ such that at any point in a schedule at max one $K_i$ and three $A_i$ tasks can be active.
-	
-			
+		%% \todo[inline]{SKumar: Do we need to mention here separately that memory requirement is equal to communication volume? I think no. right?}
+		%% As \textit{Transfer time = Latency + (Comm Volume)/Bandwidth}. For simplicity, we consider  transfer time is same as communication volume (i.e., \textit{Latency = 0} and \textit{Bandwidth = 1}). Otherwise, we can adjust $C$ such that at any point in a schedule at max one $K_i$ and three $A_i$ tasks can be active.
+		
+		
 		We show that $I$ has a schedule $S$ with makespan at most $L$ if and
 		only if the original \threepart instance has a solution. Notice that
 		the sum of transfer times and the sum of computation times are both
@@ -477,7 +478,7 @@
 		\begin{center}
 			\begin{tabular}{|c|c|c|c|}
 				\hline
-%%				Task & Comm Volume & Comm Time & Comp Time\\ \hline 
+				%%				Task & Comm Volume & Comm Time & Comp Time\\ \hline 
 				\multirow{2}{*}{Task} & Memory Req & \multirow{2}{*}{Comm Time} & \multirow{2}{*}{Comp Time}\\  
 				&=Comm Volume && \\ \hline
 				A & 0 & 0 & 5\\ \hline
@@ -591,7 +592,7 @@
 				\hline
 				%%				\multirow{2}{*}{Task} & Comm Time & \multirow{2}{*}{Comp Time}\\ 
 				%%				&=Comm Volume& \\ \hline
-%%				Task & Comm Volume & Comm Time & Comp Time\\ \hline 
+				%%				Task & Comm Volume & Comm Time & Comp Time\\ \hline 
 				\multirow{2}{*}{Task} & Memory Req & \multirow{2}{*}{Comm Time} & \multirow{2}{*}{Comp Time}\\  
 				&=Comm Volume && \\ \hline
 				A & 3 & 3 &  2\\ \hline
@@ -680,7 +681,7 @@
 	\subsection{Dynamic Selection}
 	Dynamic strategies are based on the following principle: when the communication resource is idle, a task is chosen based on a selection criterion which differ depending on the heuristic, among those which fit in memory and induce minimum idle time on the computation resource.  For example, if the selection criterion is to choose a highly compute intensive task, then we compute the ratio of computation time and communication time for all tasks, and we select a task with the maximum ratio among those which induce minimum idle time on the computation resource and fit in the currently available memory. If no task fits in memory then we leave the resource idle at that point and proceed to the next event point. We also ensure that the order on both resources is the same, by ordering tasks on the computation resource accordingly.
 	
-%%	If $COMM_A = 1, COMP_A=1, COMM_B=2, COMP_B=4$, then $MAMR$ heuristic first selects task $A$ (A induces less idle tim eon the computation resource).  
+	%%	If $COMM_A = 1, COMP_A=1, COMM_B=2, COMP_B=4$, then $MAMR$ heuristic first selects task $A$ (A induces less idle tim eon the computation resource).  
 	
 	
 	%%	\todo[inline]{LED: I added this part ``among those which fit in memory'', is it correct? SKumar: Yes, you are correct.}
@@ -697,7 +698,7 @@
 			
 			\begin{tabular}{|c|c|c|c|}
 				\hline
-%%				Task & Comm Volume & Comm Time & Comp Time\\ \hline 
+				%%				Task & Comm Volume & Comm Time & Comp Time\\ \hline 
 				\multirow{2}{*}{Task} & Memory Req & \multirow{2}{*}{Comm Time} & \multirow{2}{*}{Comp Time}\\  
 				&=Comm Volume && \\ \hline
 				A & 3 & 3 & 2\\ \hline
@@ -766,7 +767,7 @@
 			
 			\begin{tabular}{|c|c|c|c|}
 				\hline
-%%				Task & Comm Volume & Comm Time & Comp Time\\ \hline 
+				%%				Task & Comm Volume & Comm Time & Comp Time\\ \hline 
 				\multirow{2}{*}{Task} & Memory Req & \multirow{2}{*}{Comm Time} & \multirow{2}{*}{Comp Time}\\  
 				&=Comm Volume && \\ \hline
 				A & 4 & 4 &  1\\ \hline
@@ -795,13 +796,13 @@
 		\taskC{17}
 		\end{scope}
 		\begin{scope}[yshift=-2.75cm]
-%%		\schedule{36}{OOSCMR}{2,5,8,11,14,18,26,34}
-%%		\taskB{0}
-%%		\taskE[3]{2}
-%%		\taskA[1]{5}
-%%		\taskD{9}
-%%		\taskC{18}
-%%		\end{scope}
+		%%		\schedule{36}{OOSCMR}{2,5,8,11,14,18,26,34}
+		%%		\taskB{0}
+		%%		\taskE[3]{2}
+		%%		\taskA[1]{5}
+		%%		\taskD{9}
+		%%		\taskC{18}
+		%%		\end{scope}
 		\schedule{36}{OOSCMR}{2,5,8,11,15,19,27,35}
 		\taskB{0}
 		\taskE[3]{2}
@@ -839,12 +840,12 @@
 	
 	As previously, we propose on Table~\ref{tab:staticOrderDynamicCorrectionsExample} an example instance for this class of strategies, and provide on Figure~\ref{fig:staticOrderDynamicCorrectionsExample} the corresponding schedules.
 	
-		\subsection{Additional heuristics from previous work}
-
-We also consider two other static heuristics for evaluation. The first heuristic is based on an algorithm, proposed by Gilmore and Gomory, to obtain the minimal cost sequence for a set of jobs~\cite{Gilmore-Gomory:1964}. This is a classic algorithm for 2-machine no-wait flow shop. In this algorithm, each job has a start and end state and a cost is associated to change the state. In our context, this cost can be seen as non-overlap time of computation for two adjacent tasks. Here is the main idea of this algorithm. Initially, a partial sequence of jobs is represented by a graph such that their overlap is maximum. Subsequently edges are greedily added to this graph to connect two components while minimizing the total non-overlap cost. When the graph is  connected, an edge interchange mechanism is used to determine the sequence of jobs, which ensures that the sequence has minimal cost. More details can be found in the original paper~\cite{Gilmore-Gomory:1964} and our implementation is publicly available~\cite{gitworkrepo}. This algorithm does not take memory constraints into account and only provides the sequence of processing. We use this sequence with a memory capacity restriction just like for other static heuristcs, and we call this heuristic \textit{Gilmore-Gomory} ($GG$).
-
-The second heuristic is based on the First-Fit algorithm for the bin packing problem. The idea of this heuristic is to identify groups of tasks which can fit in memory together, called \emph{bins}. In First-Fit, tasks are considered in an arbitrary order and added to the first bin in which they can fit. If no suitable bin is found then a new bin is created and this task is added to it. When all tasks have been assigned to bins, we consider the sequence made of all tasks from the first bin, then tasks for the second bin, and so on. We call this heuristic \textit{Bin Packing} ($BP$). 
-
+	\subsection{Additional heuristics from previous work}
+	
+	We also consider two other static heuristics for evaluation. The first heuristic is based on an algorithm, proposed by Gilmore and Gomory, to obtain the minimal cost sequence for a set of jobs~\cite{Gilmore-Gomory:1964}. This is a classic algorithm for 2-machine no-wait flow shop. In this algorithm, each job has a start and end state and a cost is associated to change the state. In our context, this cost can be seen as non-overlap time of computation for two adjacent tasks. Here is the main idea of this algorithm. Initially, a partial sequence of jobs is represented by a graph such that their overlap is maximum. Subsequently edges are greedily added to this graph to connect two components while minimizing the total non-overlap cost. When the graph is  connected, an edge interchange mechanism is used to determine the sequence of jobs, which ensures that the sequence has minimal cost. More details can be found in the original paper~\cite{Gilmore-Gomory:1964} and our implementation is publicly available~\cite{gitworkrepo}. This algorithm does not take memory constraints into account and only provides the sequence of processing. We use this sequence with a memory capacity restriction just like for other static heuristcs, and we call this heuristic \textit{Gilmore-Gomory} ($GG$).
+	
+	The second heuristic is based on the First-Fit algorithm for the bin packing problem. The idea of this heuristic is to identify groups of tasks which can fit in memory together, called \emph{bins}. In First-Fit, tasks are considered in an arbitrary order and added to the first bin in which they can fit. If no suitable bin is found then a new bin is created and this task is added to it. When all tasks have been assigned to bins, we consider the sequence made of all tasks from the first bin, then tasks for the second bin, and so on. We call this heuristic \textit{Bin Packing} ($BP$). 
+	
 	
 	\subsection{Solving Linear Program Iteratively}
 	\label{subsec:linearprogrammingformulation}
@@ -934,15 +935,15 @@ The second heuristic is based on the First-Fit algorithm for the bin packing pro
 		\end{table}
 		
 		Some of these favorable scenarios can be clearly observed in our experimental results, on Figures~\ref{fig:ratio_to_optimal_hf} and~\ref{fig:ratio_to_optimal_ccsd}. For example, HF compute intensive tasks have small communication times, which explains why the $SCMR$ heuristic exhibits very good performance in limited memory cases. CCSD has significant percentage of both types of tasks, and indeed the performance of $OOLCMR$ and $OOSCMR$ is very close to optimality in moderate memory cases. 
-%%		\todo[inline]{Skumar: Initially I placed this table after results. Then I realized that this is our hypothesis not conclusion. Only few favorable scenarios are matched with results. We do not have enough results to show favorable scenarios for all of them.}
-%%		\todo[inline]{LED: Ok. I did a rephrasing there to go in this direction, make sure it fits the message you wanted to say.}
+		%%		\todo[inline]{Skumar: Initially I placed this table after results. Then I realized that this is our hypothesis not conclusion. Only few favorable scenarios are matched with results. We do not have enough results to show favorable scenarios for all of them.}
+		%%		\todo[inline]{LED: Ok. I did a rephrasing there to go in this direction, make sure it fits the message you wanted to say.}
 		
 		\section{Experimental Settings}
 		\label{sec:expSetting}
 		
 		We consider a machine called Cascade~\cite{Cascade}, available at PNNL, for our experiments. We obtain traces by running two molecular chemistry applications, double precision version of Hartree-Fock (HF) and Coupled Cluster Single Double (CCSD) of NWChem~\cite{NWChem} package on 10 nodes of this machine. Each node is composed of 16 Intel Xeon E5-2670 cores. NWChem takes advantages of a Partitioned Global Address Space Programming Model called Global Arrays (GA)~\cite{GlobalArray} to use shared-memory programming APIs on distributed memory computers. GA dedicates one core of each node to handle other cores, hence we can view a node as being composed of 15 computational cores. We use 150 processes for each application and obtain 150 trace files. We run CCSD with Uracil molecules input and HF with SiOSi molecules (for Uracil molecules, HF has a much smaller workload, each processor executes only around 20 tasks, that is why we chose SiOSi input for HF execution). Each process executes around 300-800 tasks. Our data transfer model is quite simple and we consider that all data transfers between the local memory of each process and the GA memory take the same route. Modeling of different routes of data transfers for the same source-destination pair, bandwidth sharing for different source-destination pairs and network congestion is more challenging and part of our future work. This simple model is enough to provide insight to the application developers (or runtime system) about the ordering of data transfers for the same source-destination pair so as to maximize communication-computation overlap. Our model is easily adaptable to any source-destination pair when there is one fixed route between source and destination (such as between CPU and GPU, one copy engine to transfer data from CPU (resp. GPU) to GPU (resp. CPU) ).
 		
-%%		\todo[inline]{More about tiling}
+		%%		\todo[inline]{More about tiling}
 		Both applications mainly perform two types of computations, tensor transpose and tensor contraction. HF expects to specify a tile size and we set it to 100, so that each core can be used efficiently. CCSD automatically determines tile sizes at different program points based on the input molecules. Hence, HF operates on almost homogeneous tiles while CCSD uses more heterogeneous tiles.
 		
 		\subsection{Workload Characteristics}
@@ -966,7 +967,7 @@ The second heuristic is based on the First-Fit algorithm for the bin packing pro
 		\subsection{HF Performance}	
 		\begin{figure*}[htb]
 			\includegraphics[scale=0.5]{./all-binpack/ratio_to_optimal_selected_hf.pdf}
-			\caption{Comparison of different heuristics for HF with $m_c=..$.}
+			\caption{Comparison of different heuristics for HF with $m_c=176KB$.}
 			\label{fig:ratio_to_optimal_hf}
 		\end{figure*}
 		
@@ -983,13 +984,13 @@ The second heuristic is based on the First-Fit algorithm for the bin packing pro
 		
 		Figure~\ref{fig:ratio_to_optimal_best_hf} shows the performance comparison of the best variant in each category, in addition to the \textit{order of submission} ($OS$) strategy which orders tasks in the (arbitrary) sequence in which they are given. Static strategies are expected to perform better when there is not any memory capacity restriction, and indeed this plot shows that static strategies face capacity bottleneck and underperform with limited memory. Dynamic strategies achieve slightly better performance with limited memory capacity, but when memory capacity is larger, static order with dynamic correction strategies outperform all others.
 		
-%%		\todo[inline]{SKumar: If you look at Figure~\ref{fig:ratio_to_optimal_best_hf} carefully,  in the beginning dynamics variants outperform others. This behavior is easily noticeable in Figure~\ref{fig:ratio_to_optimal_hf}. }
-%%		\todo[inline]{LED: Ok, I rephrased here a bit to mention this.}
+		%%		\todo[inline]{SKumar: If you look at Figure~\ref{fig:ratio_to_optimal_best_hf} carefully,  in the beginning dynamics variants outperform others. This behavior is easily noticeable in Figure~\ref{fig:ratio_to_optimal_hf}. }
+		%%		\todo[inline]{LED: Ok, I rephrased here a bit to mention this.}
 		
 		\subsection{CCSD Performance}
 		\begin{figure*}[htb]
 			\includegraphics[scale=0.5]{./all-binpack/ratio_to_optimal_selected_ccsd.pdf}
-			\caption{Comparison of different heuristics for CCSD with $m_c=$.}
+			\caption{Comparison of different heuristics for CCSD with $m_c=1.8GB$.}
 			\label{fig:ratio_to_optimal_ccsd}
 		\end{figure*}	
 		
@@ -1057,7 +1058,7 @@ The second heuristic is based on the First-Fit algorithm for the bin packing pro
 		
 		\begin{acks}
 			
-			We are grateful to Ajay Panyala for his help in installation of  NWChem on Cascade machine and providing internal details about the package and its inputs. This work was supported in part by the U.S. Department of Energy’s (DOE), Office of Science, Office of Advanced Scientific Computing Research, under award 63823. Pacific Northwest National Laboratory is operated by Battelle for DOE under Contract DE-AC05-76RL01830.
+			We are grateful to Ajay Panyala for his help in installation of  NWChem on Cascade machine and providing internal details about the package and its inputs. This work was supported in part by the U.S. Department of Energy (DOE), Office of Science, Office of Advanced Scientific Computing Research, under award 63823. Pacific Northwest National Laboratory is operated by Battelle for DOE under Contract DE-AC05-76RL01830.
 		\end{acks}
 		
 		%

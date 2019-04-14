@@ -133,7 +133,7 @@
 	% The abstract is a short summary of the work to be presented in the article.
 	\begin{abstract}
 		\todo[inline]{Initial submission deadline: April 15}
-		With increasing complexity of hardwares, systems with different memory nodes are ubiquitous in High Performance Computing (HPC). It is paramount to develop strategies to overlap the data transfers between memory nodes with computations in order to exploit the full potential of these systems. In this paper, we consider the problem of deciding the order of data transfers between two memory nodes for a set of independent tasks with the objective to minimize the makespan. We prove that with limited memory capacity, obtaining the optimal order of data transfers is a NP-complete problem. We propose several heuristics for this problem and provide details about their favorable situations. We present analysis of our heuristics on traces, obtained by running 2 molecular chemistry kernels, namely, Hartree–Fock (HF) and Coupled Cluster Single Double (CCSD) on 10 nodes of an HPC system. Our results show that some of our heuristics achieve significant overlap for moderate memory capacities and are very close to the lower bound of makespan.
+		With increasing complexity of hardwares, systems with different memory nodes are ubiquitous in High Performance Computing (HPC). It is paramount to develop strategies to overlap the data transfers between memory nodes with computations in order to exploit the full potential of these systems. In this paper, we consider the problem of deciding the order of data transfers between two memory nodes for a set of independent tasks with the objective to minimize the makespan. We prove that with limited memory capacity, obtaining the optimal order of data transfers is a NP-complete problem. We propose several heuristics for this problem and provide details about their favorable situations. We present an analysis of our heuristics on traces, obtained by running 2 molecular chemistry kernels, namely, Hartree–Fock (HF) and Coupled Cluster Single Double (CCSD) on 10 nodes of an HPC system. Our results show that some of our heuristics achieve significant overlap for moderate memory capacities and are very close to the lower bound of makespan.
 	\end{abstract}
 	
 	%%\begin{CCSXML}
@@ -181,7 +181,7 @@
 	In the last few decades, we have witnessed a drastic improvement in the hardware to provide higher rate of computation, but comparatively smaller improvement has been achieved for the rate of data movement. With extreme scale computing, supercomputers face bottlenecks due to the need of large amount of data~\cite{ascaccommitteereport2014,yelick2016}. Therefore, the HPC community is now focusing on avoiding, hiding and minimizing communication costs.
 	
 	
-	Certain applications such as dense linear algebra kernels have regular structure. Therefore, it is possible to associate priorities to computations, based on the task graph structure, and to use them at runtime to make the execution efficient. In irregular applications, programmers do not know the precise structure of the task graphs in advance: tasks are added recursively based on certain sentinel constraints. For such applications, the runtime system sees a set of independent tasks and schedules them on different processing units. It is extremely important for runtimes to decide the order of data transfers for these scheduled computations so as to maximize the overlap between computations and communications. This is the main topic of this paper. We prove that the order of communications on two memory nodes with the objective of minimizing the makespan is a NP-Complete problem if the memory of the target node is limited. Our proof is inspired from work by~\cite{Papadimitriou:1980:FSL:322203.322213}, which applies a similar technique for 2-machine flowshop problem with bounded capacity. The main difference between both approaches is that they consider all tasks have the same occupation on the second machine and the memory occupation starts when the processing finishes on the first machine. On the contrary, our approach is designed for tasks appearing in scientific workloads whose memory requirements are highly irregular and we consider that memory is acquired before starting the data transfer on communication resource. We propose different runtime strategies in order to maximize the overlap of computations and communications. We evaluate our strategies on the context of a cluster of homogeneous nodes. However, our approach is generic and easily adaptable to any system which operates on different memory spaces. Here are the important contributions of this paper:
+	Certain applications such as dense linear algebra kernels have regular structure. Therefore, it is possible to associate priorities to computations, based on the task graph structure, and to use them at runtime to make the execution efficient. In irregular applications, programmers do not know the precise structure of the task graphs in advance: tasks are added recursively based on certain sentinel constraints. For such applications, the runtime system sees a set of independent tasks and schedules them on different processing units. It is extremely important for runtimes to decide the order of data transfers for these scheduled computations so as to maximize the overlap between computations and communications. This is the main topic of this paper. We prove that the order of communications on two memory nodes with the objective of minimizing the makespan is a NP-Complete problem if the memory of the target node is limited. Our proof is inspired from work by~\cite{Papadimitriou:1980:FSL:322203.322213}, which applies a similar technique for 2-machine flowshop problem with bounded capacity. The main difference between both approaches is that they consider all tasks have the same occupation on the second machine and the memory occupation starts when the processing finishes on the first machine. On the contrary, our approach is designed for tasks appearing in scientific workloads whose memory requirements are highly irregular and we consider that memory is acquired before starting the data transfer on the communication resource. We propose different runtime strategies in order to maximize the overlap of computations and communications. We evaluate our strategies on the context of a cluster of homogeneous nodes. However, our approach is generic and easily adaptable to any system which operates on different memory spaces. Here are the important contributions of this paper:
 	
 	
 	\renewcommand{\labelitemi}{$\bullet$}
@@ -227,7 +227,7 @@
 	to minimize the total makespan. This is a well known NP-complete problem~\cite{3machineFlowShopNPComplete}.
 	
 	
-	In many cases, output data that needs to be retrieved after task execution is much smaller than the input data. It is often the case that future tasks running on the same memory node require output data of the past tasks. Therefore, most runtime systems transfer data to other memory nodes based on the demand -- not immediately after they were produced. It is also possible that all output data can be stored in a preallocated separate buffer on a memory node. Hence, we do not consider output data explicitely in our analysis and assume that output data is negligible or stored in a separate buffer for each task. Thus problem considered here is thus more similar to a 2-machine flowshop problem. We prove that ordering the execution of such tasks with finite memory capacity is an NP-complete problem: %%We also present an optimal algorithm to determine the order of execution of tasks when there is not any restriction on memory limit.
+	In many cases, output data that needs to be retrieved after task execution is much smaller than the input data. It is often the case that future tasks running on the same memory node require output data of the past tasks. Therefore, most runtime systems transfer data to other memory nodes based on the demand -- not immediately after they were produced. It is also possible that all output data can be stored in a preallocated separate buffer on a memory node. Hence, we do not consider output data explicitely in our analysis and assume that output data is negligible or stored in a separate buffer for each task. Thus problem considered here is more similar to a 2-machine flowshop problem. We prove that ordering the execution of such tasks with finite memory capacity is a NP-complete problem: %%We also present an optimal algorithm to determine the order of execution of tasks when there is not any restriction on memory limit.
 	
 	%%	\todo[inline]{Find a citation saying 3-machine flowshop problem is NP-Complete.}
 	%%%%	done:\todo[inline]{Rewrite both paragraphs together.}
@@ -240,7 +240,7 @@
 	\noindent\textbf{Problem $DT$} : A set of tasks $ST=\{T_1,
 	\cdots, T_n\}$ is scheduled on a processing unit $P$ with
 	memory unit $M$ of capacity $C$. Input data for tasks of $ST$
-	reside on another memory unit $M'$. $COMM_i$ is the time to
+	reside on another memory unit $M'$. $COMM_i$ is the communication time to
 	transfer input data from $M'$ to $M$ for task $i$ and $COMP_i$
 	is the computation time of task $i$ on $P$. We assume that these
 	tasks do not produce any output data. There can be only one
@@ -258,7 +258,7 @@
 	amount of memory required by all tasks such that $\scomm(i) \leq t
 	\leq \scomp(i) + COMP_i$ is not more than the memory capacity
 	$C$. 
-	For simplicity, we assume throughout he paper that tasks
+	For simplicity, we assume throughout the paper that tasks
 	require memory only to store their input data, and thus that
 	the amount of memory required by a task is proportional to its
 	communication time. Without loss of generality, we consider in
@@ -462,10 +462,10 @@
 	%% requirement). Hence, problem $DT$ with intermediate memory requirement is also NP-complete.
 	
 	
-	This Theorem shows that adding a memory constraint to our
+	This theorem shows that adding a memory constraint to our
 	problem makes it more difficult. One additional difficulty
 	compared to limited capacity 2-machine
-	flowshop~\cite{Papadimitriou:1980:FSL:322203.322213} is that
+	flowshop~\cite{Papadimitriou:1980:FSL:322203.322213}  \todo{I think you mean: infinite memory capacity 2-machine flowshop~\cite{johnson}} is that
 	it may not be optimal to consider the same ordering on both
 	machines:
 	
@@ -680,7 +680,7 @@
 	
 	
 	\subsection{Dynamic Selection}
-	Dynamic strategies are based on the following principle: when the communication resource is idle, a task is chosen based on a selection criterion which differ depending on the heuristic, among those which fit in memory and induce minimum idle time on the computation resource.  For example, if the selection criterion is to choose a highly compute intensive task, then we compute the ratio of computation time and communication time for all tasks, and we select a task with the maximum ratio among those which induce minimum idle time on the computation resource and fit in the currently available memory. If no task fits in memory then we leave the resource idle at that point and proceed to the next event point. We also ensure that the order on both resources is the same, by ordering tasks on the computation resource accordingly.
+	Dynamic strategies are based on the following principle: when the communication resource is idle, a task is chosen based on a selection criterion which differs depending on the heuristic, among those which fit in memory and induce minimum idle time on the computation resource.  For example, if the selection criterion is to choose a highly compute intensive task, then we compute the ratio of computation time and communication time for all tasks, and we select a task with the maximum ratio among those which induce minimum idle time on the computation resource and fit in the currently available memory. If no task fits in memory then we leave the resource idle at that point and proceed to the next event point. We also ensure that the order on both resources is the same, by ordering tasks on the computation resource accordingly.
 	
 	%%	If $COMM_A = 1, COMP_A=1, COMM_B=2, COMP_B=4$, then $MAMR$ heuristic first selects task $A$ (A induces less idle tim eon the computation resource).  
 	
@@ -850,7 +850,7 @@
 	
 	\subsection{Solving Linear Program Iteratively}
 	\label{subsec:linearprogrammingformulation}
-	We use a mixed integer linear program to obtain the order of communications and computations. Recall that $COMP_i$ and $COMM_i$ represent computation and communication times of task $i$, and that the memory capacity of the target system is $C$. In the linear program formulation, $s_i$ and $e_i$ (resp. $s'_i$ and $e'_i$) represent the start and end times of communication (resp. computation) for task $i$. The formulation also contains for each pair of tasks $i$ and $j$ \textit{i)} a boolean variable $a_{ij}$ to denote the order of $i$ and $j$ on the communication resource \textit{ii)} a boolean variables $b_{ij}$ to denote the order of $i$ and $j$ on the computation resource, and \textit{iii)} a boolean variables $c_{ij}$ to denote the order of $s_i$ and $e'_j$. 
+	We use a mixed integer linear program to obtain the order of communications and computations. Recall that $COMP_i$ and $COMM_i$ represent computation and communication times of task $i$, and the memory capacity of the target system is $C$. In the linear program formulation, $s_i$ and $e_i$ (resp. $s'_i$ and $e'_i$) represent the start and end times of communication (resp. computation) for task $i$, and $MC(i)$ is the memory capacity requirement of task $i$. The formulation also contains for each pair of tasks $i$ and $j$ \textit{i)} a boolean variable $a_{ij}$ to denote the order of $i$ and $j$ on the communication resource \textit{ii)} a boolean variables $b_{ij}$ to denote the order of $i$ and $j$ on the computation resource, and \textit{iii)} a boolean variables $c_{ij}$ to denote the order of $s_i$ and $e'_j$. 
 	
 	
 	%% $TM(i)$ denotes intermediate memory requirement of task $T_i$ . 
@@ -865,7 +865,7 @@
 	\begin{align*}
 	& \text{Minimize $l$ subject to:}\\
 	\forall i, \quad & e'_i \leq l && \text{(task $i$ completes)}\\
-	\forall i, \quad & e_i \leq s'_i&& \text{(valid ordering for task $i$)}\\
+	\forall i, \quad & e_i \leq s'_i&& \text{(task $i$ valid ordering)}\\
 	\forall i, \forall j\ne i, \quad & \left\{\begin{aligned}
 	e_j & \leq s_i +(1-a_{ij})L\\
 	e_i & \leq s_j +a_{ij}L 
@@ -892,7 +892,7 @@
 	&\text{(respect ordering}\\
 	&\text{ of variables $c_{ij}$)}
 	\end{aligned}\\
-	\forall i, \quad & \sum_{r\ne i} (a_{ir} - c_{ir})CM(r) + CM(i) \le C && \text{(memory constraint)}\\
+	\forall i, \quad & \sum_{r\ne i} (a_{ir} - c_{ir})MC(r) + MC(i) \le C && \text{(memory constraint)}\\
 	%% %%\forall i, \forall j\ne i, \quad & \text{task }T_i \text{ respects memory capacity on computation resource:}\\
 	%% %%& s_j < e'_i +(1-d_{ij})L\\
 	%% %%& e'_i\leq s_j +d_{ij}L\\
@@ -915,7 +915,7 @@
 		%%		\end{figure}
 		
 		\subsection{Favorable Situations for Heuristics}
-		Based on the definition of proposed strategies and the optimality of Algorithm~\ref{alg:OrderOfExecutionInfinteMemory}, we present the scenarios which should be more favorable for each heuristic in Table~\ref{tab:heuristicsAndFavorableScenarios}. This allows programmers to use appropriate strategies to maximize communication-computation overlap for their applications. In this table, ``moderate memory capacity'' refers to the case where memory is constrained, but is close to the maximal memory requirement of the $OMIM$ schedule.
+		Based on the definition of proposed strategies and the optimality of Algorithm~\ref{alg:OrderOfExecutionInfinteMemory}, we present the scenarios which should be more favorable for each heuristic in Table~\ref{tab:heuristicsAndFavorableScenarios}. This allows programmers to use appropriate strategies to maximize communication-computation overlap for their applications. In this table, ``moderate memory capacity'' refers to the case where memory is constrained, but close to the maximal memory requirement of the $OMIM$ schedule.
 		
 		\begin{table}[htb]
 			\begin{tabular}{|c|p{6.5cm}|}
@@ -942,7 +942,7 @@
 		\section{Experimental Settings}
 		\label{sec:expSetting}
 		
-		We consider a machine called Cascade~\cite{Cascade}, available at PNNL, for our experiments. We obtain traces by running two molecular chemistry applications, double precision version of Hartree-Fock (HF) and Coupled Cluster Single Double (CCSD) of NWChem~\cite{NWChem} package on 10 nodes of this machine. Each node is composed of 16 Intel Xeon E5-2670 cores. NWChem takes advantages of a Partitioned Global Address Space Programming Model called Global Arrays (GA)~\cite{GlobalArray} to use shared-memory programming APIs on distributed memory computers. GA dedicates one core of each node to handle other cores, hence we can view a node as being composed of 15 computational cores. We use 150 processes for each application and obtain 150 trace files. We run CCSD with Uracil molecules input and HF with SiOSi molecules (for Uracil molecules, HF has a much smaller workload, each processor executes only around 20 tasks, that is why we chose SiOSi input for HF execution). Each process executes around 300-800 tasks. Our data transfer model is quite simple and we consider that all data transfers between the local memory of each process and the GA memory take the same route. Modeling of different routes of data transfers for the same source-destination pair, bandwidth sharing for different source-destination pairs and network congestion is more challenging and part of our future work. This simple model is enough to provide insight to the application developers (or runtime system) about the ordering of data transfers for the same source-destination pair so as to maximize communication-computation overlap. Our model is easily adaptable to any source-destination pair when there is one fixed route between source and destination (such as between CPU and GPU, one copy engine to transfer data from CPU (resp. GPU) to GPU (resp. CPU) ).
+		We consider a machine called Cascade~\cite{Cascade}, available at PNNL, for our experiments. We obtain traces by running two molecular chemistry applications, double precision version of  HF and CCSD of NWChem~\cite{NWChem} package on 10 nodes of this machine. Each node is composed of 16 Intel Xeon E5-2670 cores. NWChem takes advantages of a Partitioned Global Address Space Programming Model called Global Arrays (GA)~\cite{GlobalArray} to use shared-memory programming APIs on distributed memory computers. GA dedicates one core of each node to handle other cores, hence we can view a node as being composed of 15 computational cores. We use 150 processes for each application and obtain 150 trace files. We run CCSD with Uracil molecules input and HF with SiOSi molecules (for Uracil molecules, HF has a much smaller workload, each processor executes only around 20 tasks, that is why we chose SiOSi input for HF execution). Each process executes around 300-800 tasks. Our data transfer model is quite simple and we consider that all data transfers between the local memory of each process and the GA memory take the same route. Modeling of different routes of data transfers for the same source-destination pair, bandwidth sharing for different source-destination pairs and network congestion is more challenging and part of our future work. This simple model is enough to provide insight to the application developers (or runtime system) about the ordering of data transfers for the same source-destination pair so as to maximize communication-computation overlap. Our model is easily adaptable to any source-destination pair when there is one fixed route between source and destination (such as between CPU and GPU, one copy engine to transfer data from CPU (resp. GPU) to GPU (resp. CPU) ).
 		
 		%%		\todo[inline]{More about tiling}
 		Both applications mainly perform two types of computations, tensor transpose and tensor contraction. HF expects to specify a tile size and we set it to 100, so that each core can be used efficiently. CCSD automatically determines tile sizes at different program points based on the input molecules. Hence, HF operates on almost homogeneous tiles while CCSD uses more heterogeneous tiles.
@@ -956,8 +956,7 @@
 			\label{fig:ApplicationProperties}
 		\end{figure}	
 		
-		To get more insights into the considered workloads, we provide in Figure~\ref{fig:ApplicationProperties} information about
-		the instances we consider. For each instance, we compute the sum of communication times (\textit{sum comm}) and sum of computation times  (\textit{sum comp}), and normalize it relatively to the $OMIM$ value. Figure~\ref{fig:ApplicationProperties} also shows the maximum of both values, which is a lower bound on the possible makespan of a schedule for this instance, and their sum, which is an upper bound: this represents the makespan of the sequential schedule, obtained with zero overlap between computation and communication. We can see that HF is a communication intensive application and at most 20\% overlap can be expected in the best scenario. On the other hand, in the CCSD workload, communications and computations are almost evenly distributed and a more significant overlap is possible.
+		To get more insights into the considered workloads, we provide  information about the instances we consider in Figure~\ref{fig:ApplicationProperties}. For each instance, we compute the sum of communication times (\textit{sum comm}) and sum of computation times  (\textit{sum comp}), and normalize it relatively to the $OMIM$ value. Figure~\ref{fig:ApplicationProperties} also shows the maximum of both values, which is a lower bound on the possible makespan of a schedule for this instance, and their sum, which is an upper bound: this represents the makespan of the sequential schedule, obtained with zero overlap between computation and communication. We can see that HF is a communication intensive application and at most 20\% overlap can be expected in the best scenario. On the other hand, in the CCSD workload, communications and computations are almost evenly distributed and a more significant overlap is possible.
 		
 		
 		\section{Experimental Results}
@@ -983,7 +982,7 @@
 		\end{figure}
 		
 		
-		Figure~\ref{fig:ratio_to_optimal_best_hf} shows the performance comparison of the best variant in each category, in addition to the \textit{order of submission} ($OS$) strategy which orders tasks in the (arbitrary) sequence in which they are given. Static strategies are expected to perform better when there is not any memory capacity restriction, and indeed this plot shows that static strategies face capacity bottleneck and underperform with limited memory. Dynamic strategies achieve slightly better performance with limited memory capacity, but when memory capacity is larger, static order with dynamic correction strategies outperform all others.
+		Figure~\ref{fig:ratio_to_optimal_best_hf} shows the performance comparison of the best variant in each category, in addition to the \textit{order of submission} ($OS$) strategy which orders tasks in the (arbitrary) sequence in which they are given. Static strategies are expected to perform better when there is not any memory capacity restriction, and indeed this plot shows that static strategies face capacity bottleneck and underperform with limited memory. Dynamic strategies achieve slightly better performance with limited memory capacity, but when memory capacity is larger, static order with dynamic corrections strategies outperform all others.
 		
 		%%		\todo[inline]{SKumar: If you look at Figure~\ref{fig:ratio_to_optimal_best_hf} carefully,  in the beginning dynamics variants outperform others. This behavior is easily noticeable in Figure~\ref{fig:ratio_to_optimal_hf}. }
 		%%		\todo[inline]{LED: Ok, I rephrased here a bit to mention this.}

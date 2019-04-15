@@ -227,7 +227,7 @@
 	to minimize the total makespan. This is a well known NP-complete problem~\cite{3machineFlowShopNPComplete}.
 	
 	
-	In many cases, output data that needs to be retrieved after task execution is much smaller than the input data. It is often the case that future tasks running on the same memory node require output data of the past tasks. Therefore, most runtime systems transfer data to other memory nodes based on the demand -- not immediately after they were produced. It is also possible that all output data can be stored in a preallocated separate buffer on a memory node. Hence, we do not consider output data explicitely in our analysis and assume that output data is negligible or stored in a separate buffer for each task. Thus problem considered here is more similar to a 2-machine flowshop problem. We prove that ordering the execution of such tasks with finite memory capacity is a NP-complete problem: %%We also present an optimal algorithm to determine the order of execution of tasks when there is not any restriction on memory limit.
+	In many cases, output data that needs to be retrieved after task execution is much smaller than the input data. It is often the case that future tasks running on the same memory node require output data of the past tasks. Therefore, most runtime systems transfer data to other memory nodes based on the demand -- not immediately after they were produced. It is also possible that all output data can be stored in a preallocated separate buffer on a memory node. Hence, we do not consider output data explicitly in our analysis and assume that output data is negligible or stored in a separate buffer for each task. Thus problem considered here is more similar to a 2-machine flowshop problem. We prove that ordering the execution of such tasks with finite memory capacity is a NP-complete problem: %%We also present an optimal algorithm to determine the order of execution of tasks when there is not any restriction on memory limit.
 	
 	%%	\todo[inline]{Find a citation saying 3-machine flowshop problem is NP-Complete.}
 	%%%%	done:\todo[inline]{Rewrite both paragraphs together.}
@@ -361,8 +361,9 @@
 			\label{table:np.completeness.tasks}
 		\end{table}
 		
-		\todo[inline]{SKumar: I understand that proving for an instance with memory requirement = communication time, also proves that, in general, DT problem is NP-hard. I was thinking we can directly prove the general version by adding a single line saying what to change.  I am not sure whether it is good to explicitly mention how to prove the general version. I added a line below. Feel free to remove it.}
-		As mentioned previously, we consider memory requirement of a task is equal to its communication time. If it is not the case, we can adjust $C$ such that at any point in a schedule at max one $K_i$ and three $A_i$ tasks can be active.
+		%%		\todo[inline]{SKumar: I understand that proving for an instance with memory requirement = communication time, also proves that, in general, DT problem is NP-hard. I was thinking we can directly prove the general version by adding a single line saying what to change.  I am not sure whether it is good to explicitly mention how to prove the general version. I added a line below. Feel free to remove it.}
+		%%                \todo[inline]{I feel like it does not add anything, and risks confusing the reader.}
+		%% As mentioned previously, we consider memory requirement of a task is equal to its communication time. If it is not the case, we can adjust $C$ such that at any point in a schedule at max one $K_i$ and three $A_i$ tasks can be active.
 		
 		
 		We show that $I$ has a schedule $S$ with makespan at most $L$ if and
@@ -417,7 +418,7 @@
 		place during the computation of task $K_{i-1}$, and the computations
 		of tasks in $TR_i$ take place during the communication of task
 		$K_i$. Since the memory capacity is $C=b'+3$, all tasks from a triplet
-		can fit in memory with a task $K_i$, and their durations are exactly
+		can fit in memory with a task $K_i$, and their computation times are exactly
 		equal to the communication time of $K_i$. This schedule is thus
 		feasible, and has length exactly $L$.
 		
@@ -432,7 +433,7 @@
 		
 		Any schedule $S$ of $I$ having no idle time must start with $K_0$. We
 		first show that no other $K_i$ task can be active with $K_0$,
-		otherwise we would get idle time on computation resource. Indeed, the
+		otherwise we would get idle time on the computation resource. Indeed, the
 		communication of such a task $K_i$ would end at time at least $b'>3 +
 		6x$, but at most two $A_i$ tasks can be computed, and they end at time
 		at most $3+2max\{a_i':1\le i\le 3m\} = 3 + 6x$
@@ -445,7 +446,8 @@
 		
 		With these $K_i$ tasks in place, the schedule on the computation
 		resource contains $m$ slots of length exactly $b'$, in which all $A_i$
-		tasks must fit without preemption. We can thus define triplet $TR_i$
+		tasks must fit without preemption. \todo[inline]{SKumar: It is not clear why it would be triplet}
+		\todo[inline]{At each point in $S$, exactly one $K_i$ task is active, hence we define triplet $TR_{i+}$ as the set of tasks which complete their data transfers when $K_i$ task is in computation phase. As $C=b'+3$ and $S$ has no idle time on the communication resource, total computation time of tasks in $TR_{i+1}$ must not be more than $b'$. $S$ also has no idle time on the computation resource, therefore total computation time of tasks in $TR_i$ is exactly $b'$, and thus $a_{i_1} + a_{i_2} + a_{i_3} = b$. } We can thus define triplet $TR_i$
 		as the set of tasks which execute during the communication phase of
 		task $K_i$. Since at each point in $S$, exactly one $K_i$ task is
 		active, and since $S$ has no idle time on the computation resource,
@@ -463,11 +465,11 @@
 	
 	
 	This theorem shows that adding a memory constraint to our
-	problem makes it more difficult. One additional difficulty
-	compared to limited capacity 2-machine
-	flowshop~\cite{Papadimitriou:1980:FSL:322203.322213}  \todo{I think you mean: infinite memory capacity 2-machine flowshop~\cite{johnson}} is that
-	it may not be optimal to consider the same ordering on both
-	machines:
+	problem makes it more difficult, just like it does for limited capacity 2-machine
+	flowshop~\cite{Papadimitriou:1980:FSL:322203.322213}. One additional difficulty of our problem however 
+	%%       \todo[inline]{I think you mean: infinite memory capacity 2-machine flowshop~\cite{johnson} ? LED: No, I really mean this one. Does this rephrasing help ?} 
+	is that it may not be
+	optimal to consider the same order on both machines.
 	
 	\begin{proposition}
 		There exists an instance of $DT$ for which in all optimal
@@ -760,7 +762,7 @@
 	\begin{enumerate}[label=\roman*)]
 		\item \textit{optimal order infinite memory largest communication task respects memory restriction} ($OOLCMR$): A task with the largest communication time is chosen from the set.
 		\item \textit{optimal order infinite memory smallest communication task respects memory restriction} ($OOSCMR$): A task with the smallest communication time is chosen from the set.
-		\item \textit{optimal order infinite memory maximum accelerated task respects memory restriction} ($OOMAMR$): A task  with the highest ratio of computation time to communication time is chosen from the set.
+		\item \textit{optimal order infinite memory maximum accelerated task respects memory restriction} ($OOMAMR$): A task  with the maximum ratio of computation time to communication time is chosen from the set.
 	\end{enumerate}
 	
 	\begin{table}[htb]
@@ -863,40 +865,40 @@
 	
 	\vspace*{-0.5cm}
 	\begin{align*}
-	& \text{Minimize $l$ subject to:}\\
-	\forall i, \quad & e'_i \leq l && \text{(task $i$ completes)}\\
-	\forall i, \quad & e_i \leq s'_i&& \text{(task $i$ valid ordering)}\\
-	\forall i, \forall j\ne i, \quad & \left\{\begin{aligned}
-	e_j & \leq s_i +(1-a_{ij})L\\
-	e_i & \leq s_j +a_{ij}L 
-	\end{aligned} \right. &&
-	\begin{aligned}
-	&\text{(exclusive use of}\\
-	&\text{  communication link)}
-	\end{aligned}\\
-	\forall i, \forall j\ne i, \quad & \left\{
-	\begin{aligned}
-	e'_j &\leq s'_i +(1-b_{ij})L\\
-	e'_i &\leq s'_j +b_{ij}L
-	\end{aligned}\right. && 
-	\begin{aligned}
-	&\text{(exclusive use of}\\
-	&\text{  computation resource)}
-	\end{aligned}\\
-	\forall i, \forall j\ne i, \quad &\left\{
-	\begin{aligned}
-	e'_j &\leq s_i +(1-c_{ij})L\\
-	s_i  &< e'_j +c_{ij}L\\
-	\end{aligned}\right.&&
-	\begin{aligned}
-	&\text{(respect ordering}\\
-	&\text{ of variables $c_{ij}$)}
-	\end{aligned}\\
-	\forall i, \quad & \sum_{r\ne i} (a_{ir} - c_{ir})MC(r) + MC(i) \le C && \text{(memory constraint)}\\
-	%% %%\forall i, \forall j\ne i, \quad & \text{task }T_i \text{ respects memory capacity on computation resource:}\\
-	%% %%& s_j < e'_i +(1-d_{ij})L\\
-	%% %%& e'_i\leq s_j +d_{ij}L\\
-	%% %%& \sum_r (d_{ir} - b_{ir})CM(r) + TM(i) \le C\\
+		& \text{Minimize $l$ subject to:}\\
+		\forall i, \quad & e'_i \leq l && \text{(task $i$ completes)}\\
+		\forall i, \quad & e_i \leq s'_i&& \text{(task $i$ valid ordering)}\\
+		\forall i, \forall j\ne i, \quad & \left\{\begin{aligned}
+			e_j & \leq s_i +(1-a_{ij})L\\
+			e_i & \leq s_j +a_{ij}L 
+		\end{aligned} \right. &&
+		\begin{aligned}
+			&\text{(exclusive use of}\\
+			&\text{  communication link)}
+		\end{aligned}\\
+		\forall i, \forall j\ne i, \quad & \left\{
+		\begin{aligned}
+			e'_j &\leq s'_i +(1-b_{ij})L\\
+			e'_i &\leq s'_j +b_{ij}L
+		\end{aligned}\right. && 
+		\begin{aligned}
+			&\text{(exclusive use of}\\
+			&\text{  computation resource)}
+		\end{aligned}\\
+		\forall i, \forall j\ne i, \quad &\left\{
+		\begin{aligned}
+			e'_j &\leq s_i +(1-c_{ij})L\\
+			s_i  &< e'_j +c_{ij}L\\
+		\end{aligned}\right.&&
+		\begin{aligned}
+			&\text{(respect ordering}\\
+			&\text{ of variables $c_{ij}$)}
+		\end{aligned}\\
+		\forall i, \quad & \sum_{r\ne i} (a_{ir} - c_{ir})MC(r) + MC(i) \le C && \text{(memory constraint)}\\
+		%% %%\forall i, \forall j\ne i, \quad & \text{task }T_i \text{ respects memory capacity on computation resource:}\\
+		%% %%& s_j < e'_i +(1-d_{ij})L\\
+		%% %%& e'_i\leq s_j +d_{ij}L\\
+		%% %%& \sum_r (d_{ir} - b_{ir})CM(r) + TM(i) \le C\\
 	\end{align*} 
 	
 	
@@ -1007,7 +1009,7 @@
 		Figure~\ref{fig:ratio_to_optimal_best_ccsd} shows that best variants of dynamic and static order with dynamic corrections strategies achieve similar performance at minimum memory capacity $m_c$. But as memory capacity increases, heterogeneity allows static order with dynamic corrections based strategies to take advantage of static knowledge to get maximum overlap and dynamic correction to select another task in case of memory capacity limitation. Static strategies also start performing better at the end, which indicates that this application has potential for significant communication-computation overlap and pure dynamic strategies are unable to take this information into account while making scheduling decisions.
 		
 		\subsection{Scheduling in Batches}
-		In most applications, the runtime scheduler may only observe a limited batch of independent tasks. Therefore we organize tasks of each trace file in batches of 100 (the last batch may have less than 100 tasks). We apply each heuristic on each group in succession. Figure~\ref{fig:best_variants_batch} shows the performance of the best variants of each category for both applications. The plots exhibit behavior similar to Figures~\ref{fig:ratio_to_optimal_best_hf} and~\ref{fig:ratio_to_optimal_best_ccsd}: static order with dynamic corrections variants attain maximum communication-computation overlap and outperform other heuristics.
+		In most applications, the runtime scheduler may only observe a limited batch of independent tasks. Therefore we organize tasks of each trace file in batches of 100 (the last batch may have less than 100 tasks). We apply each heuristic on each group in succession. Figure~\ref{fig:best_variants_batch} shows the performance of the best variant of each category for both applications. The plots exhibit behavior similar to Figures~\ref{fig:ratio_to_optimal_best_hf} and~\ref{fig:ratio_to_optimal_best_ccsd}: static order with dynamic corrections variants attain maximum communication-computation overlap and outperform other heuristics.
 		
 		\begin{figure*}[htb]
 			%%			\includegraphics[scale=0.5]{./results/inverse_ratio_to_optimal_batch-best.pdf}

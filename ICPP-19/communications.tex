@@ -300,7 +300,7 @@
 		\end{algorithmic}
 	\end{algorithm}
 	
-	We also prove optimality of Algorithm~\ref{alg:OrderOfExecutionInfinteMemory} differently in an extended version(cite).
+	We also prove optimality of Algorithm~\ref{alg:OrderOfExecutionInfinteMemory} differently in an extended version~\cite{waitingForExactBib}.
 	\subsection{Finite Memory}
 	
 	We now consider the general case, in which the memory limit is a
@@ -901,7 +901,7 @@
 	
 	
 	We use GLPK solver v4.65 to solve the above formulation. We also add the following constraints to help the solver: $\forall i, \forall j\ne i$, $a_{ij} + a_{ji}=1$, $b_{ij} + b_{ji} = 1$, $c_{ij} \le a_{ij}$, $c_{ij} \le b_{ij}$, and  $c_{ij} + c_{ji} \le 1$. The solver was unable to  solve this MILP at the scale of our interest in limited time. Hence, we solve the linear program iteratively for a small subset of size $k=3, 4, 5, 6$: at the boundary of two iterations we fix the event (communication or computation) of an unfinished task started before the boundary point and consider other events flexible. The subsets are formed in the order in which tasks are submitted, which is arbitrary. For a given size $k$, we represent the makespan calculated by this heuristic as $lp.k$.
-	We compute various $lp.k$ values for different memory capacities and observe that most of the other heuristics perform better than this heuristic. Hence, we do not include this heuristic for the comparison in Section~{\ref{sec:expResults}. Performance comparison of different heuristics with MILP based heuristics is available in an extended version(cite).
+	We compute various $lp.k$ values for different memory capacities and observe that most of the other heuristics perform better than this heuristic. Hence, we do not include this heuristic for the comparison in Section~{\ref{sec:expResults}. Performance comparison of different heuristics with MILP based heuristics is available in an extended version~\cite{waitingForExactBib}.
 		
 		%%		\todo[inline]{SKumar: Move to an extended version and more clear about results and implementation}
 		%%		Figure~\ref{fig:iterativeLpSolution} shows the performance of different heuristics with MILP based heuristics for various memory capacities of a single trace file.
@@ -928,14 +928,14 @@
 				$DOCCS$ & Moderate memory capacity and most tasks are highly communication intensive \\ \hline
 				$LCMR$ & Limited memory capacity and significant percentage of tasks with large communication times are compute intensive\\ \hline
 				$SCMR$ & Limited memory capacity and significant percentage of tasks with small communication times are compute intensive\\ \hline
-				$MAMR$ & Limited memory capacity and significant percentage of tasks of both types\\ \hline
-				$OOLCMR$ & Moderate memory capacity and significant percentage of tasks are communication intensive\\ \hline
-				$OOSCMR$ & Moderate memory capacity and significant percentage of tasks are compute intensive \\ \hline
-				$OOMAMR$ & Moderate memory capacity and significant percentage of highly compute and communication intensive tasks \\ \hline
+				$MAMR$ & Limited memory capacity and significant percentage of all types of tasks\\ \hline
+				$OOLCMR$ & Moderate memory capacity and significant percentage of slightly communication intensive tasks have large communication times\\ \hline
+				$OOSCMR$ & Moderate memory capacity and significant percentage of slightly communication intensive tasks have small communication times\\ \hline
+				$OOMAMR$ & Moderate memory capacity and significant percentage of all types of tasks \\ \hline
 			\end{tabular}\caption{~\label{tab:heuristicsAndFavorableScenarios}Heuristics and their favorable scenarios.}
 		\end{table}
 		
-		Some of these favorable scenarios can be clearly observed in our experimental results, on Figures~\ref{fig:ratio_to_optimal_hf} and~\ref{fig:ratio_to_optimal_ccsd}. For example, HF compute intensive tasks have small communication times, which explains why the $SCMR$ heuristic exhibits very good performance in limited memory cases. CCSD has significant percentage of both types of tasks, and indeed the performance of $OOLCMR$ and $OOSCMR$ is very close to optimality in moderate memory cases. 
+		Some of these favorable scenarios can be clearly observed in our experimental results, on Figures~\ref{fig:ratio_to_optimal_hf} and~\ref{fig:ratio_to_optimal_ccsd}. For example, HF compute intensive tasks have small communication times, which explains why the $SCMR$ heuristic exhibits very good performance in limited memory cases. CCSD has significant percentage of large as well as small types of slightly communication intensive tasks, and indeed the performance of $OOLCMR$ and $OOSCMR$ is very close to optimality in moderate memory cases. 
 		%%		\todo[inline]{Skumar: Initially I placed this table after results. Then I realized that this is our hypothesis not conclusion. Only few favorable scenarios are matched with results. We do not have enough results to show favorable scenarios for all of them.}
 		%%		\todo[inline]{LED: Ok. I did a rephrasing there to go in this direction, make sure it fits the message you wanted to say.}
 		

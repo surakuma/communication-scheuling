@@ -35,6 +35,7 @@
 \usepackage{todonotes}
 \usepackage{subfig}
 \usepackage{multirow}
+\usepackage{dblfloatfix}
 
 \usepackage[shortlabels]{enumitem}
 
@@ -210,7 +211,8 @@
 	
 	%	\todo[inline]{theoretical/performance work on molecular chemistry kernels}
 	
-	\section{Data Transfer Problem Formulation}
+%%	\section{Data Transfer Problem Formulation}
+	\section{Problem Formulation}
 	\label{sec:theoreticalProof}
 	
 	To exploit the full potential of a system it may be necessary to execute tasks on processing
@@ -271,7 +273,7 @@
 	We call a task $i$ compute intensive if $COMP_i \ge COMM_i$, and
 	communication intensive otherwise.
 	
-	\subsection{Special case: Infinite Memory}
+	\subsection{Special Case: Infinite Memory}
 	
 	When the computational resource has a very large memory, our problem
 	becomes a classic 2-machine flowshop problem: communication time is
@@ -300,7 +302,7 @@
 		\end{algorithmic}
 	\end{algorithm}
 	
-	We also prove optimality of Algorithm~\ref{alg:OrderOfExecutionInfinteMemory} differently in an extended version~\cite{waitingForExactBib}.
+	We also prove optimality of Algorithm~\ref{alg:OrderOfExecutionInfinteMemory} differently in an extended version~\cite{extendedVersion}.
 	\subsection{Finite Memory}
 	
 	We now consider the general case, in which the memory limit is a
@@ -665,7 +667,7 @@
 			\end{tikzpicture}
 		}
 		
-		\caption{ \label{fig:staticOrderExample} Different static order heuristic schedules for Table~\ref{tab:staticOrderExample}}. 
+		\caption{ \label{fig:staticOrderExample} Different static order heuristic schedules for Table~\ref{tab:staticOrderExample}.} 
 		%%			Optimal schedule length	is 14. 
 	\end{figure}
 	
@@ -843,7 +845,7 @@
 	
 	As previously, we propose on Table~\ref{tab:staticOrderDynamicCorrectionsExample} an example instance for this class of strategies, and provide on Figure~\ref{fig:staticOrderDynamicCorrectionsExample} the corresponding schedules.
 	
-	\subsection{Additional heuristics from previous work}
+	\subsection{Additional Heuristics from Previous Work}
 	
 	We also consider two other static heuristics for evaluation. The first heuristic is based on an algorithm, proposed by Gilmore and Gomory, to obtain the minimal cost sequence for a set of jobs~\cite{Gilmore-Gomory:1964}. This is a classical algorithm for 2-machine no-wait flow shop. In this algorithm, each job has a start and end state and a cost is associated to change the state. In our context, this cost can be seen as non-overlap time of computation for two adjacent tasks. Here is the main idea of this algorithm. Initially, a partial sequence of jobs is represented by a graph such that their overlap is maximum. Subsequently edges are greedily added to this graph to connect two components while minimizing the total non-overlap cost. When the graph is  connected, an edge interchange mechanism is used to determine the sequence of jobs, which ensures that the sequence has minimal cost. More details can be found in the original paper~\cite{Gilmore-Gomory:1964} and our implementation is publicly available~\cite{gitworkrepo}. This algorithm does not take memory constraints into account and only provides the sequence of processing. We use this sequence with a memory capacity restriction just like for other static heuristcs, and we call this heuristic \textit{Gilmore-Gomory} ($GG$).
 	
@@ -903,7 +905,7 @@
 	
 	
 	We use GLPK solver v4.65 to solve the above formulation. We also add the following constraints to help the solver: $\forall i, \forall j\ne i$, $a_{ij} + a_{ji}=1$, $b_{ij} + b_{ji} = 1$, $c_{ij} \le a_{ij}$, $c_{ij} \le b_{ij}$, and  $c_{ij} + c_{ji} \le 1$. The solver was unable to  solve this MILP at the scale of our interest in limited time. Hence, we solve the linear program iteratively for a small subset of size $k=3, 4, 5, 6$: at the boundary of two iterations we fix the event (communication or computation) of an unfinished task started before the boundary point and consider other events flexible. The subsets are formed in the order in which tasks are submitted, which is arbitrary. For a given size $k$, we represent the makespan calculated by this heuristic as $lp.k$.
-	We compute various $lp.k$ values for different memory capacities and observe that most of the other heuristics perform better than this heuristic. Hence, we do not include this heuristic for the comparison in Section~{\ref{sec:expResults}. Performance comparison of different heuristics with MILP based heuristics is available in an extended version~\cite{waitingForExactBib}.
+	We compute various $lp.k$ values for different memory capacities and observe that most of the other heuristics perform better than this heuristic. Hence, we do not include this heuristic for the comparison in Section~{\ref{sec:expResults}. Performance comparison of different heuristics with MILP based heuristics is available in an extended version~\cite{extendedVersion}.
 		
 		%%		\todo[inline]{SKumar: Move to an extended version and more clear about results and implementation}
 		%%		Figure~\ref{fig:iterativeLpSolution} shows the performance of different heuristics with MILP based heuristics for various memory capacities of a single trace file.
@@ -912,7 +914,7 @@
 		%%		\todo[inline]{SKumar: Figure~\ref{fig:iterativeLpSolution} would be removed and I will redraw this or similar figure for extended version}
 		%%		\begin{figure}[htb]
 		%%			\includegraphics[scale=0.5]{./results/makespan_with_lp.pdf}
-		%%			\caption{Comparision of different heuristics with MILP solution based heuristic.\todo[inline]{LED: I understand that this figure will be removed? Otherwise, use aes(fill=) instead of aes(color=) to have color filled bars.}}
+		%%			\caption{Comparison of different heuristics with MILP solution based heuristic.\todo[inline]{LED: I understand that this figure will be removed? Otherwise, use aes(fill=) instead of aes(color=) to have color filled bars.}}
 		%%			\label{fig:iterativeLpSolution}
 		%%		\end{figure}
 		
@@ -979,7 +981,7 @@
 		\begin{figure}[htb]
 			%%			\includegraphics[scale=0.5]{./results/inverse_ratio_to_optimal_hf-best.pdf}
 			\includegraphics[scale=0.5]{./results/ratio_to_optimal_hf-best.pdf}
-			\caption{Comparision of best variants of all categories for HF.}
+			\caption{Best variants of all categories for HF.}
 			\label{fig:ratio_to_optimal_best_hf}
 		\end{figure}
 		
@@ -1002,7 +1004,7 @@
 		\begin{figure}[htb]
 			%%			\includegraphics[scale=0.5]{./results/inverse_ratio_to_optimal_ccsd-best.pdf}
 			\includegraphics[scale=0.5]{./results/ratio_to_optimal_ccsd-best.pdf}
-			\caption{Comparision of best variants of all categories for CCSD.}
+			\caption{Best variants of all categories for CCSD.}
 			\label{fig:ratio_to_optimal_best_ccsd}
 		\end{figure}
 		

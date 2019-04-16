@@ -447,7 +447,7 @@
 		With these $K_i$ tasks in place, the schedule on the computation
 		resource contains $m$ slots of length exactly $b'$, in which all $A_i$
 		tasks must fit without preemption. \todo[inline]{SKumar: It is not clear why it would be triplet}
-		\todo[inline]{At each point in $S$, exactly one $K_i$ task is active, hence we define triplet $TR_{i+}$ as the set of tasks which complete their data transfers when $K_i$ task is in computation phase. As $C=b'+3$ and $S$ has no idle time on the communication resource, total computation time of tasks in $TR_{i+1}$ must not be more than $b'$. $S$ also has no idle time on the computation resource, therefore total computation time of tasks in $TR_i$ is exactly $b'$, and thus $a_{i_1} + a_{i_2} + a_{i_3} = b$. } We can thus define triplet $TR_i$
+		\todo[inline]{At each point in $S$, exactly one $K_i$ task is active, hence we define triplet $TR_{i}$ as the set of tasks which complete their data transfers when $K_i$ task is in computation phase. As $C=b'+3$ and $S$ has no idle time on the communication resource, total computation time of tasks in $TR_{i}$ must not be more than $b'$. $S$ also has no idle time on the computation resource, therefore total computation time of tasks in $TR_i$ is exactly $b'$, and thus $a_{i_1} + a_{i_2} + a_{i_3} = b$. } We can thus define triplet $TR_i$
 		as the set of tasks which execute during the communication phase of
 		task $K_i$. Since at each point in $S$, exactly one $K_i$ task is
 		active, and since $S$ has no idle time on the computation resource,

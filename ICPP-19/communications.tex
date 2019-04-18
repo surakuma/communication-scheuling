@@ -133,7 +133,7 @@
 	%
 	% The abstract is a short summary of the work to be presented in the article.
 	\begin{abstract}
-		\todo[inline]{Initial submission deadline: April 15}
+		%%		\todo[inline]{Initial submission deadline: April 15}
 		With increasing complexity of hardwares, systems with different memory nodes are ubiquitous in High Performance Computing (HPC). It is paramount to develop strategies to overlap the data transfers between memory nodes with computations in order to exploit the full potential of these systems. In this paper, we consider the problem of deciding the order of data transfers between two memory nodes for a set of independent tasks with the objective to minimize the makespan. We prove that with limited memory capacity, obtaining the optimal order of data transfers is a NP-complete problem. We propose several heuristics for this problem and provide details about their favorable situations. We present an analysis of our heuristics on traces, obtained by running 2 molecular chemistry kernels, namely, Hartree–Fock (HF) and Coupled Cluster Single Double (CCSD) on 10 nodes of an HPC system. Our results show that some of our heuristics achieve significant overlap for moderate memory capacities and are very close to the lower bound of makespan.
 	\end{abstract}
 	
@@ -211,7 +211,7 @@
 	
 	%	\todo[inline]{theoretical/performance work on molecular chemistry kernels}
 	
-%%	\section{Data Transfer Problem Formulation}
+	%%	\section{Data Transfer Problem Formulation}
 	\section{Problem Formulation}
 	\label{sec:theoreticalProof}
 	
@@ -447,13 +447,10 @@
 		each point in $S$ exactly one $K_i$ task is active.
 		
 		With these $K_i$ tasks in place, the schedule on the computation
-		resource contains $m$ slots of length exactly $b'$, in which all $A_i$
-		tasks must fit without preemption. \todo[inline]{SKumar: It is not clear why it would be triplet}
-		\todo[inline]{At each point in $S$, exactly one $K_i$ task is active, hence we define triplet $TR_{i}$ as the set of tasks which complete their data transfers when $K_i$ task is in computation phase. As $C=b'+3$ and $S$ has no idle time on the communication resource, total computation time of tasks in $TR_{i}$ must not be more than $b'$. $S$ also has no idle time on the computation resource, therefore total computation time of tasks in $TR_i$ is exactly $b'$, and thus $a_{i_1} + a_{i_2} + a_{i_3} = b$. } We can thus define triplet $TR_i$
-		as the set of tasks which execute during the communication phase of
-		task $K_i$. Since at each point in $S$, exactly one $K_i$ task is
-		active, and since $S$ has no idle time on the computation resource,
-		the total computation time of tasks in $TR_i$ is exactly $b'$, and thus
+		resource contains $m$ slots of length exactly $b'$, in which all $3m$ $A_i$ tasks must fit without preemption. 
+		%%\todo[inline]{SKumar: It is not clear why it would be triplet.\\ LED: because two tasks last at most $2\max a'_i =6x$, whereas $b'>6x$. And if any triplet actually contains $4$ tasks, it means one contains only two tasks, and cannot fit in $b'$. Or equivalently, the number of tasks per triplet is at least $3$, and the average number is $3$, hence each triplet contains $3$ tasks.}
+		%%	\todo[inline]{At each point in $S$, exactly one $K_i$ task is active, hence we define triplet $TR_{i}$ as the set of tasks which complete their data transfers when $K_i$ task is in computation phase. As $C=b'+3$ and $S$ has no idle time on the communication resource, total computation time of tasks in $TR_{i}$ must not be more than $b'$. $S$ also has no idle time on the computation resource, therefore total computation time of tasks in $TR_i$ is exactly $b'$, and thus $a_{i_1} + a_{i_2} + a_{i_3} = b$. } 
+		We thus define $TR_i$ as the set of tasks which execute during the communication phase of task $K_i$.  At each point in $S$, exactly one $K_i$ task is active and the total memory capacity is $b' +3$, hence $TR_i$ contains exactly 3 tasks. Since $S$ has no idle time on the computation resource, the total computation time of tasks in $TR_i$ is exactly $b'$, and thus
 		$a_{i_1} + a_{i_2} + a_{i_3} = b$. This partition is thus a valid
 		solution for the \threepart instance $A$. 
 		
@@ -667,7 +664,7 @@
 			\end{tikzpicture}
 		}
 		
-		\caption{ \label{fig:staticOrderExample} Different static order heuristic schedules for Table~\ref{tab:staticOrderExample}.} 
+		\caption{ \label{fig:staticOrderExample} Static order heuristic schedules for Table~\ref{tab:staticOrderExample}.} 
 		%%			Optimal schedule length	is 14. 
 	\end{figure}
 	
@@ -684,7 +681,8 @@
 	
 	
 	\subsection{Dynamic Selection}
-	Dynamic strategies are based on the following principle: when the communication resource is idle, a task is chosen based on a selection criterion which differs depending on the heuristic, among those which fit in memory and induce minimum idle time on the computation resource.  For example, if the selection criterion is to choose a highly compute intensive task, then we compute the ratio of computation time and communication time for all tasks, and we select a task with the maximum ratio among those which induce minimum idle time on the computation resource and fit in the currently available memory. If no task fits in memory then we leave the resource idle at that point and proceed to the next event point. We also ensure that the order on both resources is the same, by ordering tasks on the computation resource accordingly.
+	Dynamic strategies are based on the following principle: when the communication resource is idle, a task is chosen based on a selection criterion which differs depending on the heuristic, among those which fit in memory and induce minimum idle time on the computation resource.  For example, if the selection criterion is to choose a highly compute intensive task, then we compute the ratio of computation time and communication time for all tasks, and we select a task with the maximum ratio among those which induce minimum idle time on the computation resource and fit in the currently available memory. If no task fits in memory then we leave the resource idle at that point and proceed to the next event point. 
+%%	We also ensure that the order on both resources is the same, by ordering tasks on the computation resource accordingly.
 	
 	%%	If $COMM_A = 1, COMP_A=1, COMM_B=2, COMP_B=4$, then $MAMR$ heuristic first selects task $A$ (A induces less idle tim eon the computation resource).  
 	
@@ -955,7 +953,7 @@
 		
 		\begin{figure}[htb]
 			%\begin{tabular}{c}
-			\includegraphics[scale=0.5]{./results/application_properties.pdf}
+			\includegraphics[scale=0.48]{./results/application_properties.pdf}
 			\caption{HF and CCSD tasks characteristics.}
 			\label{fig:ApplicationProperties}
 		\end{figure}	

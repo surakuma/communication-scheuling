@@ -12,10 +12,10 @@ static int counter = 0;
 void formulate_lp(int n, unsigned int capacity, double* CM, double* CP, unsigned int* cap, unsigned int* tm, int* fixed_start_comm_time, double* start_comm_time, int* fixed_start_comp_time, double* start_comp_time)
 {
     glp_prob *lp;
-    int ia[1+100000];
-    int ja[1+100000];
+    int ia[1+1000];
+    int ja[1+1000];
 
-    double ar[1+100000];
+    double ar[1+1000];
 
 
     int iter1, iter2;
@@ -29,8 +29,7 @@ void formulate_lp(int n, unsigned int capacity, double* CM, double* CP, unsigned
     glp_set_prob_name(lp, "lp_formulation_for_communication_proble");
     glp_set_obj_dir(lp, GLP_MIN);
 
-    //int ncols = 4 * n * (n+1) + 1 + 1;
-    int ncols = 4 * n + 3 * n* n + 1 + 1;
+    int ncols = 4 * n * (n+1) + 1 + 1;
     glp_add_cols(lp, ncols);
 
     int icol = 0;
@@ -161,7 +160,7 @@ void formulate_lp(int n, unsigned int capacity, double* CM, double* CP, unsigned
             
         }
     }
-/*
+
 
     //n*n binary variables to denote computation order with other communications
     //d_i_j = 1 => s_j <= e'_i
@@ -181,7 +180,7 @@ void formulate_lp(int n, unsigned int capacity, double* CM, double* CP, unsigned
             
         }
     }
-*/
+
     // objective variable to minimize
     {
         ++icol;
@@ -208,25 +207,11 @@ void formulate_lp(int n, unsigned int capacity, double* CM, double* CP, unsigned
 
     assert(icol == ncols); 
 
-    //int nrows = n * (8*n - 2) + n;
-    int nrows = n * (6*n - 1) + n;
+    int nrows = n * (8*n - 2) + n;
     
     //a_i_j >= c_i_j  and d_i_j >= b_i_j
     // a/b_i_j + a/b_j_i = 1
-    //nrows += 2*n*n + n*(n-1);
-
-
-    //a_i_j > = c_i_j
-    nrows += n*n -n;
-
-    //b_i_j > = c_i_j
-    nrows += n*n -n;
-
-    // a/b_i_j + a/b_j_i = 1
-    nrows += n*(n-1);
-
-    // c_i_j + c_j_i = 1
-    nrows += n*(n-1)/2;
+    nrows += 2*n*n + n*(n-1);
 
     glp_add_rows(lp, nrows);
     int irow = 0;
@@ -246,7 +231,7 @@ void formulate_lp(int n, unsigned int capacity, double* CM, double* CP, unsigned
 
         ncoeffs++; ia[ncoeffs] = irow; ja[ncoeffs] = 3*n + iter1; ar[ncoeffs] = 1;
         printf("ja[%d] = %d\n", ncoeffs, ja[ncoeffs]);
-        ncoeffs++; ia[ncoeffs] = irow; ja[ncoeffs] = ncols-1; ar[ncoeffs] = -1;
+        ncoeffs++; ia[ncoeffs] = irow; ja[ncoeffs] = 4 * n * (n+1) + 1 ; ar[ncoeffs] = -1;
 
         //e_i <= tmax_comm
         irow++;
@@ -257,7 +242,7 @@ void formulate_lp(int n, unsigned int capacity, double* CM, double* CP, unsigned
 
         ncoeffs++; ia[ncoeffs] = irow; ja[ncoeffs] = n + iter1; ar[ncoeffs] = 1;
         printf("ja[%d] = %d\n", ncoeffs, ja[ncoeffs]);
-        ncoeffs++; ia[ncoeffs] = irow; ja[ncoeffs] =  ncols; ar[ncoeffs] = -1;
+        ncoeffs++; ia[ncoeffs] = irow; ja[ncoeffs] = 4 * n * (n+1) + 2 ; ar[ncoeffs] = -1;
 
 
         //s_i + CM(i) = e_i
@@ -403,7 +388,6 @@ void formulate_lp(int n, unsigned int capacity, double* CM, double* CP, unsigned
         }
         
 
-        /*
         //order of communications with respect to ith computation
         for(iter2 = 1; iter2 <= n; iter2++)
         {
@@ -453,20 +437,17 @@ void formulate_lp(int n, unsigned int capacity, double* CM, double* CP, unsigned
 
             }
         }
-        */
  
     }
 
 
     // a_i_j >= c_i_j
-    // c_i_j >= c_i_j
+    // d_i_j >= b_i_j
 
     for(iter1 = 1; iter1 <= n; iter1++)
     {
         for(iter2 = 1; iter2 <= n; iter2++)
         {
-            if(iter1 == iter2) continue;
-
             char name[100];
 
             irow++;
@@ -479,18 +460,17 @@ void formulate_lp(int n, unsigned int capacity, double* CM, double* CP, unsigned
 
 
             irow++;
-            sprintf(name, "b_%d_%d>=c_%d_%d", iter1, iter2, iter1, iter2);
+            sprintf(name, "d_%d_%d>=b_%d_%d", iter1, iter2, iter1, iter2);
             glp_set_row_name(lp, irow, name);
             glp_set_row_bnds(lp, irow, GLP_UP, 0.0, 0.0);
 
+            ncoeffs++; ia[ncoeffs] = irow; ja[ncoeffs] = 3*n*n + 4*n + n*(iter1-1) + iter2; ar[ncoeffs] = -1;
+            ncoeffs++; ia[ncoeffs] = irow; ja[ncoeffs] = n*n + 4*n + n*(iter1-1) + iter2; ar[ncoeffs] = 1;
 
-            ncoeffs++; ia[ncoeffs] = irow; ja[ncoeffs] = n*n + 4*n + n*(iter1-1) + iter2; ar[ncoeffs] = -1;
-            ncoeffs++; ia[ncoeffs] = irow; ja[ncoeffs] = 2*n*n + 4*n + n*(iter1-1) + iter2; ar[ncoeffs] = 1;
         }
     }
 
     //a/b_i_j + a/b_j_i = 1
-    //c_i_j + c_j_i <= 1
     for(iter1 = 1; iter1 <= n; iter1++)
     {
         for(iter2 = iter1 + 1; iter2 <=n; iter2++)
@@ -509,12 +489,6 @@ void formulate_lp(int n, unsigned int capacity, double* CM, double* CP, unsigned
             glp_set_row_bnds(lp, irow, GLP_FX, 1.0, 1.0);
             ncoeffs++; ia[ncoeffs] = irow; ja[ncoeffs] = n*n + 4*n + n*(iter1-1) + iter2; ar[ncoeffs] = 1;
             ncoeffs++; ia[ncoeffs] = irow; ja[ncoeffs] = n*n + 4*n + n*(iter2-1) + iter1; ar[ncoeffs] = 1;
-
-            irow++;
-            sprintf(name, "c_%d_%d+c_%d_%d<=1", iter1, iter2, iter2, iter1);
-            glp_set_row_bnds(lp, irow, GLP_UP, 0.0, 1.0);
-            ncoeffs++; ia[ncoeffs] = irow; ja[ncoeffs] = 2*n*n + 4*n + n*(iter1-1) + iter2; ar[ncoeffs] = 1;
-            ncoeffs++; ia[ncoeffs] = irow; ja[ncoeffs] = 2*n*n + 4*n + n*(iter2-1) + iter1; ar[ncoeffs] = 1;
 
     /*
             irow++;
@@ -539,8 +513,8 @@ void formulate_lp(int n, unsigned int capacity, double* CM, double* CP, unsigned
 
     glp_load_matrix(lp, ncoeffs, ia, ja, ar);
     char file_name[100];
-//    sprintf(file_name, "data_transfer_mintmax_%d.lp", counter);
-//    //glp_write_lp(lp, NULL, "communication_data_transfer.lp");
+    sprintf(file_name, "communication_data_transfer_%d.lp", counter++);
+    //glp_write_lp(lp, NULL, "communication_data_transfer.lp");
 //    glp_write_lp(lp, NULL, file_name);
     //glp_simplex(lp, NULL);
 
@@ -557,7 +531,7 @@ void formulate_lp(int n, unsigned int capacity, double* CM, double* CP, unsigned
         glp_set_obj_coef(lp, ncols-1, 0.0);
         glp_set_obj_coef(lp, ncols, 1.0);
 
-//        sprintf(file_name, "communication_data_transfer_mintmaxcomm_%d.lp", counter);
+        sprintf(file_name, "communication_data_transfer_%d.lp", counter++);
 //        glp_write_lp(lp, NULL, file_name);
 
         //glp_simplex(lp, NULL);
@@ -572,7 +546,6 @@ void formulate_lp(int n, unsigned int capacity, double* CM, double* CP, unsigned
             */
         }
     }
-    counter++;
     //    glp_write_lp(lp, NULL, "first1.lp");
 
     for(iter1 = 1; iter1 <= n; iter1++)

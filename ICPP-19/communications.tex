@@ -195,7 +195,7 @@
 		\item Numerous experiments to assess the effectiveness of our strategies on molecular chemistry kernels 
 	\end{itemize}
 	
-	The outline of the paper is the following. Section~\ref{sec:relatedWork} describes past work on the computations with limited memory and similar problems in the literature. In section~\ref{sec:theoreticalProof}, we present an algorithm to obtain the order of data transfers when there is not any memory capacity restriction. Then, we also prove that in general data transfer problem is NP-complete. In Section~\ref{sec:heuristics}, we propose several heuristics and discuss the conditions that might be favorable to them. We mainly consider three categories of heuristics: static heuristics, dynamic heuristics and static heuristics with dynamic corrections. Sections~\ref{sec:expSetting} describes our experimental setup and we evaluate our proposed strategies on two molecular chemistry kernels in Section~\ref{sec:expResults}. Our results show that static heuristics with dynamic corrections achieve good performance in most cases. We finally propose conclusions and perspectives in Section~\ref{sec:conclusion}.
+	The outline of the paper is the following. Section~\ref{sec:relatedWork} describes past work on the computations with limited memory and similar problems in the literature. In section~\ref{sec:theoreticalProof}, we present an algorithm to obtain the order of data transfers when there is not any memory capacity restriction. Then, we also prove that in general data transfer problem is NP-complete. In Section~\ref{sec:heuristics}, we propose several heuristics and discuss the conditions that might be favorable to them. We mainly consider three categories of heuristics: static order based heuristics, dynamic selection based heuristics, and static order with dynamic correction based heuristics. Sections~\ref{sec:expSetting} describes our experimental setup and we evaluate our proposed strategies on two molecular chemistry kernels in Section~\ref{sec:expResults}. Our results show that static order with dynamic correction based heuristics achieve good performance in most cases. We finally propose conclusions and perspectives in Section~\ref{sec:conclusion}.
 	
 	\section{Related Work}
 	\label{sec:relatedWork}
@@ -232,7 +232,7 @@
 	
 	In many cases, output data that needs to be retrieved after task execution is much smaller than the input data. It is often the case that future tasks running on the same memory node require output data of the past tasks. Therefore, most runtime systems transfer data to other memory nodes based on the demand -- not immediately after they were produced. It is also possible that all output data can be stored in a preallocated separate buffer on a memory node. Hence, we do not consider output data explicitly in our analysis and assume that output data is negligible or stored in a separate buffer for each task. Thus problem considered here is more similar to a 2-machine flowshop problem. We prove that ordering the execution of such tasks with finite memory capacity is a NP-complete problem: %%We also present an optimal algorithm to determine the order of execution of tasks when there is not any restriction on memory limit.
 	
-	
+	\medskip
 	\noindent\textbf{Problem $DT$} : A set of tasks $ST=\{T_1,
 	\cdots, T_n\}$ is scheduled on a processing unit $P$ with
 	memory unit $M$ of capacity $C$. Input data for tasks of $ST$
@@ -277,6 +277,7 @@
 	which results in an optimal makespan. This algorithm is rewritten in
 	Algorithm~\ref{alg:OrderOfExecutionInfinteMemory}.
 	
+	\vspace*{-0.25cm}
 	\begin{algorithm}
 		\caption{\label{alg:OrderOfExecutionInfinteMemory}Johnson's~\cite{johnson} algorithm (infinite memory case).}
 		\begin{algorithmic}[1]
@@ -472,9 +473,9 @@
 		\begin{center}
 			\begin{tabular}{|c|c|c|c|}
 				\hline
-				%%				Task & Comm Volume & Comm Time & Comp Time\\ \hline 
-				\multirow{2}{*}{Task} & Memory Req & \multirow{2}{*}{Comm Time} & \multirow{2}{*}{Comp Time}\\  
-				&=Comm Volume && \\ \hline
+				Task & Memory Req & Comm Time & Comp Time\\ \hline 
+%%				\multirow{2}{*}{Task} & Memory Req & \multirow{2}{*}{Comm Time} & \multirow{2}{*}{Comp Time}\\  
+%%				&=Comm Volume && \\ \hline
 				A & 0 & 0 & 5\\ \hline
 				B & 4 & 4 & 3\\ \hline
 				C & 1 & 1 & 6\\ \hline
@@ -562,7 +563,7 @@
 	Algorithm~\ref{alg:OrderOfExecutionInfinteMemory} presented in Section~\ref{sec:theoreticalProof} achieves an optimal makespan when there is no memory constraint. This optimal value indicates a lower bound on the makespan of the constrained case. We denote this value with \textit{optimal makespan infinite memory} ($OMIM$). In this section, we propose different heuristics for the limited memory case, and we assess their efficiency with respect to $OMIM$ in Section~\ref{sec:expResults}.
 	
 	
-	We classify our heuristics into mainly three categories. In the first category, the order of all computations and communications is computed in advance and the same order is followed on both resources. In the second category, the next task to schedule is dynamically chosen based on different criteria. The final category is based on combining strategies from the first two categories: a static ordering is precomputed and corrected dynamically to avoid idle time caused by memory limitations. In all of our strategies (except linear programming based strategy), communication and computations take place in the same order.
+	We classify our heuristics into mainly three categories. In the first category, the order of all computations and communications is computed in advance and the same order is followed on both resources. In the second category, the next task to schedule is dynamically chosen based on different criteria. The final category is based on combining strategies from the first two categories: a static order is precomputed and corrected dynamically to avoid idle time caused by memory limitations. In all of our strategies (except linear programming based strategy), communication and computations take place in the same order.
 	
 	\subsection{Static Ordering}
 	In this class of strategies, we compute the order of processing in advance based on criteria such as communication time and computation time. After computing the order, we follow the same sequence on computation and communication resources and make sure that the memory constraint is respected at each point in the schedule.
@@ -575,10 +576,10 @@
 	\newcommand{\taskB}[2][0]{\task[#1]{$B$}{#2}{1}{3}{blue!40!white}}
 	\newcommand{\taskC}[2][0]{\task[#1]{$C$}{#2}{4}{4}{blue!70!white}}
 	\newcommand{\taskD}[2][0]{\task[#1]{$D$}{#2}{2}{1}{blue}}
-\vspace*{-0.25cm}	
+\vspace*{-0.30cm}	
 	\centering
 	\subfloat[][Infinite Memory Capacity]{
-		\begin{tikzpicture}[scale=0.6]
+		\begin{tikzpicture}[yscale=0.5, xscale=0.6]
 		\schedule{12.5}{OMIM}{1,4,5,8,9,10,11,12}
 		\taskB{0}
 		\taskC{1}
@@ -586,9 +587,9 @@
 		\taskD[1]{8}
 		\end{tikzpicture}
 	}
-	
+
 	\subfloat[][Memory Capacity: 6]{
-		\begin{tikzpicture}[yscale=0.6, xscale=0.45]
+		\begin{tikzpicture}[yscale=0.5, xscale=0.45]
 		\begin{scope}
 		\schedule{15.5}{OOSIM}{1,4,5,9,12,14,15}
 		\taskB{0}
@@ -638,9 +639,9 @@
 			\hline
 			%%				\multirow{2}{*}{Task} & Comm Time & \multirow{2}{*}{Comp Time}\\ 
 			%%				&=Comm Volume& \\ \hline
-			%%				Task & Comm Volume & Comm Time & Comp Time\\ \hline 
-			\multirow{2}{*}{Task} & Memory Req & \multirow{2}{*}{Comm Time} & \multirow{2}{*}{Comp Time}\\  
-			&=Comm Volume && \\ \hline
+	    	Task & Memory Req & Comm Time & Comp Time\\ \hline 
+%%			\multirow{2}{*}{Task} & Memory Req & \multirow{2}{*}{Comm Time} & \multirow{2}{*}{Comp Time}\\  
+%%			&=Comm Volume && \\ \hline
 			A & 3 & 3 &  2\\ \hline
 			B & 1 & 1 & 3\\ \hline
 			C & 4 & 4 & 4\\ \hline
@@ -702,7 +703,7 @@
 		\newcommand{\taskD}[2][0]{\task[#1]{$D$}{#2}{5}{1}{blue}}
 		
 		\centering
-		\begin{tikzpicture}[yscale=0.6,xscale=0.3]
+		\begin{tikzpicture}[yscale=0.5,xscale=0.3]
 		\begin{scope}
 		\schedule{24}{LCMR}{1,6,7,8,11,13,17,23}
 		\taskB{0}
@@ -733,23 +734,23 @@
 	\begin{center}
 		\begin{tabular}{|c|c|c|c|}
 			\hline
-			%%				Task & Comm Volume & Comm Time & Comp Time\\ \hline 
-			\multirow{2}{*}{Task} & Memory Req & \multirow{2}{*}{Comm Time} & \multirow{2}{*}{Comp Time}\\  
-			&=Comm Volume && \\ \hline
+			Task & Memory Req & Comm Time & Comp Time\\ \hline 
+%%			\multirow{2}{*}{Task} & Memory Req & \multirow{2}{*}{Comm Time} & \multirow{2}{*}{Comp Time}\\  
+%%			&=Comm Volume && \\ \hline
 			A & 3 & 3 & 2\\ \hline
 			B & 1 & 1 &  6\\ \hline
 			C & 4 & 4 & 6\\ \hline
 			D & 5 & 5 & 1\\ \hline
 		\end{tabular}
-		\caption{\label{tab:dynamicSelectionExample} A task set for dynamic schedules.\vspace*{-0.5cm}}
+		\caption{\label{tab:dynamicSelectionExample} A task set for dynamic schedules.\vspace*{-0.75cm}}
 	\end{center}
 	\end{table}
 	
 	We highlight the different dynamic heuristics with the instance described on Table~\ref{tab:dynamicSelectionExample} (these heuristics are too similar on the instance from the previous class), and Figure~\ref{fig:dynamicSelectionExample} shows the corresponding schedules.
 	
-	\subsection{Static Order with Dynamic Corrections}
+	\subsection{Static Order with Dynamic Correction}
 	
-	In this class of strategy, we precompute the order of tasks based on some criterion and then follow this ordering as much as possible. But when the communication resource is idle because the memory requirement of the next task is too high, then we select a task  with a dynamic strategy. After a task is dynamically selected, we update the remaining order without this task. This class of strategy takes advantage of static information in the form of precomputed order and dynamic corrections to minimize the idle time due to memory constraint.
+	In this class of strategy, we precompute the order of tasks based on some criterion and then follow this ordering as much as possible. But when the communication resource is idle because the memory requirement of the next task is too high, then we select a task  with a dynamic strategy. After a task is dynamically selected, we update the remaining order without this task. This class of strategy takes advantage of static information in the form of precomputed order and dynamic correction to minimize the idle time due to memory constraint.
 	
 	In all strategies of this class, the initial order is $OMIM$ order,  obtained by Algorithm~\ref{alg:OrderOfExecutionInfinteMemory}. We define the following heuristics based on how we select a task from the set of tasks which fit in memory and induce minimum idle time on the computation resource. If no task fits in memory then we leave the resource idle and forward to the next event point.
 	%%	\todo[inline]{LED: What happens if no task fit in memory?}
@@ -763,9 +764,9 @@
 
 	
 	%%\begin{figure}[htb]
-	%%\includegraphics[scale=0.05]{Figs/staticOrderDynamicCorrectionsSchedules}
+	%%\includegraphics[scale=0.05]{Figs/staticOrderDynamiccorrectionSchedules}
 	%%\caption{Task set and schedules where orders are precomputed based on different heuristics.}
-	%%\label{fig:staticOrderDynamicCorrectionsExample}
+	%%\label{fig:staticOrderDynamiccorrectionExample}
 	%%\end{figure}
 \begin{figure}[!htb]
 	\newcommand{\taskA}[2][0]{\task[#1]{$A$}{#2}{4}{1}{cyan}}
@@ -773,7 +774,8 @@
 	\newcommand{\taskC}[2][0]{\task[#1]{$C$}{#2}{8}{8}{blue!40!white}}
 	\newcommand{\taskD}[2][0]{\task[#1]{$D$}{#2}{5}{4}{blue!70!white}}
 	\newcommand{\taskE}[2][0]{\task[#1]{$E$}{#2}{3}{2}{blue}}
-	\begin{tikzpicture}[yscale=0.6,xscale=0.2]
+	\vspace*{-0.35cm}
+	\begin{tikzpicture}[yscale=0.5,xscale=0.2]
 	\begin{scope}
 	\schedule{35}{OOLCMR}{2,8,12,15,17,25,33}
 	\taskB{0}
@@ -815,33 +817,36 @@
 	%%		\end{scope}
 	
 	\end{tikzpicture}
-	\caption{ \label{fig:staticOrderDynamicCorrectionsExample} Different static order dynamic corrections heuristic schedules for a task set of Table~\ref{tab:staticOrderDynamicCorrectionsExample} with a memory capacity of 9. The $OMIM$ order is $BCDAE$.\vspace*{-0.5cm}}
+	\caption{ \label{fig:staticOrderDynamiccorrectionExample} Different static order dynamic correction heuristic schedules for a task set of Table~\ref{tab:staticOrderDynamiccorrectionExample} with a memory capacity of 9. The $OMIM$ order is $BCDEA$.\vspace*{-0.5cm}}
 \end{figure} 
 
-
-\begin{table}[!b]
+\begin{table}[!htb]
 	\begin{center}
 		\begin{tabular}{|c|c|c|c|}
 			\hline
-			%%				Task & Comm Volume & Comm Time & Comp Time\\ \hline 
-			\multirow{2}{*}{Task} & Memory Req & \multirow{2}{*}{Comm Time} & \multirow{2}{*}{Comp Time}\\  
-			&=Comm Volume && \\ \hline
+			Task & Memory Req & Comm Time & Comp Time\\ \hline 
+%%			\multirow{2}{*}{Task} & Memory Req & \multirow{2}{*}{Comm Time} & \multirow{2}{*}{Comp Time}\\  
+%%			&=Comm Volume && \\ \hline
 			A & 4 & 4 &  1\\ \hline
 			B & 2 & 2 & 6\\ \hline
 			C & 8 & 8 & 8\\ \hline
 			D & 5 & 5 & 4\\ \hline
 			E & 3 & 3 & 2\\ \hline
 		\end{tabular}
-		\caption{\label{tab:staticOrderDynamicCorrectionsExample} A task set for static order dynamic corrections schedules.}
+		\caption{\label{tab:staticOrderDynamiccorrectionExample} A task set for static order dynamic correction schedules.\vspace*{-0.75cm}}
 	\end{center}
 \end{table}	
 
 
 	
-	As previously, we propose on Table~\ref{tab:staticOrderDynamicCorrectionsExample} an example instance for this class of strategies, and provide on Figure~\ref{fig:staticOrderDynamicCorrectionsExample} the corresponding schedules.
+	As previously, we propose on Table~\ref{tab:staticOrderDynamiccorrectionExample} an example instance for this class of strategies, and provide on Figure~\ref{fig:staticOrderDynamiccorrectionExample} the corresponding schedules.
 	
 
+	\subsection{Additional Heuristics from Previous Work}
 
+We also consider two other static heuristics for evaluation. The first heuristic is based on an algorithm, proposed by Gilmore and Gomory, to obtain the minimal cost sequence for a set of jobs~\cite{Gilmore-Gomory:1964}. This is a classical algorithm for 2-machine no-wait flow shop problem. In this algorithm, each job has a start and end state and a cost is associated to change the state. In our context, this cost can be seen as non-overlap time of computation for two adjacent tasks. Here is the main idea of this algorithm. Initially, a partial sequence of jobs is represented by a graph such that their overlap is maximum. Subsequently edges are greedily added to this graph to connect two components while minimizing the total non-overlap cost. When the graph is  connected, an edge interchange mechanism is used to determine the sequence of jobs, which ensures that the sequence has minimal cost. More details can be found in the original paper~\cite{Gilmore-Gomory:1964} and our implementation is publicly available~\cite{gitworkrepo}. This algorithm does not take memory constraints into account and only provides the sequence of processing. We use this sequence with a memory capacity restriction just like for other static heuristics, and we call this heuristic \textit{Gilmore-Gomory} ($GG$).
+
+The second heuristic is based on the First-Fit algorithm for the bin packing problem. The idea of this heuristic is to identify groups of tasks which can fit in memory together, called \emph{bins}. In First-Fit, tasks are considered in an arbitrary order and added to the first bin in which they can fit. If no suitable bin is found then a new bin is created and this task is added to it. When all tasks have been assigned to bins, we consider the sequence made of all tasks from the first bin, then tasks for the second bin, and so on. We call this heuristic \textit{Bin Packing} ($BP$). 
 
 	
 
@@ -913,16 +918,14 @@
 		%%			\label{fig:iterativeLpSolution}
 		%%		\end{figure}
 
-	\subsection{Additional Heuristics from Previous Work}
 
-We also consider two other static heuristics for evaluation. The first heuristic is based on an algorithm, proposed by Gilmore and Gomory, to obtain the minimal cost sequence for a set of jobs~\cite{Gilmore-Gomory:1964}. This is a classical algorithm for 2-machine no-wait flow shop problem. In this algorithm, each job has a start and end state and a cost is associated to change the state. In our context, this cost can be seen as non-overlap time of computation for two adjacent tasks. Here is the main idea of this algorithm. Initially, a partial sequence of jobs is represented by a graph such that their overlap is maximum. Subsequently edges are greedily added to this graph to connect two components while minimizing the total non-overlap cost. When the graph is  connected, an edge interchange mechanism is used to determine the sequence of jobs, which ensures that the sequence has minimal cost. More details can be found in the original paper~\cite{Gilmore-Gomory:1964} and our implementation is publicly available~\cite{gitworkrepo}. This algorithm does not take memory constraints into account and only provides the sequence of processing. We use this sequence with a memory capacity restriction just like for other static heuristics, and we call this heuristic \textit{Gilmore-Gomory} ($GG$).
-
-The second heuristic is based on the First-Fit algorithm for the bin packing problem. The idea of this heuristic is to identify groups of tasks which can fit in memory together, called \emph{bins}. In First-Fit, tasks are considered in an arbitrary order and added to the first bin in which they can fit. If no suitable bin is found then a new bin is created and this task is added to it. When all tasks have been assigned to bins, we consider the sequence made of all tasks from the first bin, then tasks for the second bin, and so on. We call this heuristic \textit{Bin Packing} ($BP$). 
 		
 		\subsection{Favorable Situations for Heuristics}
 
-		
+			Based on the definition of proposed strategies and the optimality of Algorithm~\ref{alg:OrderOfExecutionInfinteMemory}, we discuss the scenarios which might be more favorable for each heuristic in Table~\ref{tab:heuristicsAndFavorableScenarios}. This allows programmers to use appropriate strategies to maximize communication-computation overlap for their applications. In this table, ``moderate memory capacity'' refers to the case where memory is constrained, but close to the maximal memory requirement of the $OMIM$ schedule.
+			
 		\begin{table}[!h]
+			\begin{center}
 			\begin{tabular}{|c|p{6.5cm}|}
 				\hline
 				\textbf{Heuristic} & \textbf{\hspace{2cm}Favorable Situation} \\ \hline
@@ -937,9 +940,10 @@ The second heuristic is based on the First-Fit algorithm for the bin packing pro
 				$OOLCMR$ & Moderate memory capacity and significant percentage of slightly communication intensive tasks have large communication times\\ \hline
 				$OOSCMR$ & Moderate memory capacity and significant percentage of slightly communication intensive tasks have small communication times\\ \hline
 				$OOMAMR$ & Moderate memory capacity and significant percentage of all types of tasks \\ \hline
-			\end{tabular}\caption{~\label{tab:heuristicsAndFavorableScenarios}Heuristics and their favorable scenarios.}
+			\end{tabular}\caption{~\label{tab:heuristicsAndFavorableScenarios}Heuristics and their favorable scenarios.\vspace*{-0.75cm}}
+			\end{center}
 		\end{table}
-			Based on the definition of proposed strategies and the optimality of Algorithm~\ref{alg:OrderOfExecutionInfinteMemory}, we discuss the scenarios which might be more favorable for each heuristic in Table~\ref{tab:heuristicsAndFavorableScenarios}. This allows programmers to use appropriate strategies to maximize communication-computation overlap for their applications. In this table, ``moderate memory capacity'' refers to the case where memory is constrained, but close to the maximal memory requirement of the $OMIM$ schedule.
+
 	
 		
 		Some of these favorable scenarios can be clearly observed in our experimental results, on Figures~\ref{fig:ratio_to_optimal_hf} and~\ref{fig:ratio_to_optimal_ccsd}. For example, HF compute intensive tasks have small communication times, which explains why the $SCMR$ heuristic exhibits very good performance in limited memory cases. CCSD has significant percentage of large as well as small types of slightly communication intensive tasks, and indeed the performance of $OOLCMR$ and $OOSCMR$ is very close to optimal in moderate memory cases. 
@@ -953,23 +957,24 @@ The second heuristic is based on the First-Fit algorithm for the bin packing pro
 		
 		%%		\todo[inline]{More about tiling}
 		Both applications mainly perform two types of computations, tensor transpose and tensor contraction. HF expects to specify a tile size and we set it to 100, so that each core can be used efficiently. CCSD automatically determines tile sizes at different program points based on the input molecules. Hence, HF operates on almost homogeneous tiles while CCSD uses more heterogeneous tiles.
-\begin{figure*}[!t]
-	\includegraphics[scale=0.5]{./results/ratio_to_optimal_selected_hf.pdf}
-	\vspace*{-0.85cm}\caption{Comparison of different heuristics for HF with $m_c=176KB$.			\vspace*{-0.35cm}}
-	\label{fig:ratio_to_optimal_hf}
-\end{figure*}			
+		
 		\subsection{Workload Characteristics}
-		
 		\begin{figure}[htb]
-\begin{center}
-			\includegraphics[scale=0.48]{./results/application_properties.pdf}
-			\vspace*{-0.9cm}\caption{HF and CCSD tasks characteristics.\vspace*{-0.5cm}}
-			\label{fig:ApplicationProperties}
-\end{center}
+			\vspace*{-0.3cm}
+			\begin{center}
+				\includegraphics[scale=0.48]{./results/application_properties.pdf}
+				\vspace*{-0.9cm}\caption{HF and CCSD tasks characteristics.\vspace*{-0.35cm}}
+				\label{fig:ApplicationProperties}
+			\end{center}
 		\end{figure}
+			\begin{figure*}[!t]
+			\includegraphics[scale=0.5]{./results/ratio_to_optimal_selected_hf.pdf}
+			\vspace*{-0.85cm}\caption{Comparison of different heuristics for HF with $m_c=176KB$.			\vspace*{-0.35cm}}
+			\label{fig:ratio_to_optimal_hf}
+		\end{figure*}	
 
-		
-		To get more insights into the considered workloads, we provide  information about the instances we consider in Figure~\ref{fig:ApplicationProperties}. For each instance, we compute the sum of communication times (\textit{sum comm}) and the sum of computation times  (\textit{sum comp}), and normalize it relatively to the $OMIM$ value. Figure~\ref{fig:ApplicationProperties} also shows the maximum of both values, which is a lower bound on the possible makespan of a schedule for this instance, and their sum, which is an upper bound: this represents the makespan of the sequential schedule, obtained with zero overlap between computation and communication. We can see that HF is a communication intensive application and at most 20\% overlap can be expected in the best scenario. On the other hand, in the CCSD workload, communications and computations are almost evenly distributed and a more significant overlap is possible.
+
+		\noindent To get more insights into the considered workloads, we provide  information about the instances we consider in Figure~\ref{fig:ApplicationProperties}. For each instance, we compute the sum of communication times (\textit{sum comm}) and the sum of computation times  (\textit{sum comp}), and normalize it relatively to the $OMIM$ value. Figure~\ref{fig:ApplicationProperties} also shows the maximum of both values, which is a lower bound on the possible makespan of a schedule for this instance, and their sum, which is an upper bound: this represents the makespan of the sequential schedule, obtained with zero overlap between computation and communication. We can see that HF is a communication intensive application and at most 20\% overlap can be expected in the best scenario. On the other hand, in the CCSD workload, communications and computations are almost evenly distributed and a more significant overlap is possible.
 		
 		
 		\section{Experimental Results}
@@ -980,50 +985,54 @@ The second heuristic is based on the First-Fit algorithm for the bin packing pro
 		\subsection{HF Performance}	
 
 		
-		As indicated above, HF tasks operate on less heterogeneous tiles, this is also noticeable in Figure~\ref{fig:ratio_to_optimal_hf}. All heuristics depict similar behavior for minimum memory capacity $m_c$ and increasing the memory capacity slightly does not change the performance of all heuristics. As memory capacity is increased further, dynamic variants of heuristics start performing better. For the moderate memory capacities (close to $2m_c$), static order with dynamic corrections variants outperform others. $GG$ heuristic does not achieve good performance, because its task sequence is obtained considering no extra memory is available, but is then applied in a different scenario where memory is limited. Surprisingly, the $BP$ heuristic which considers only memory constraint obtains good performance for a static heuristic, but is outperformed by more dynamic approaches.
+		As indicated above, HF tasks operate on less heterogeneous tiles, this is also noticeable in Figure~\ref{fig:ratio_to_optimal_hf}. All heuristics depict similar behavior for minimum memory capacity $m_c$ and increasing the memory capacity slightly does not change the performance of all heuristics. As memory capacity is increased further, dynamic variants of heuristics start performing better. For the moderate memory capacities (close to $2m_c$), static order with dynamic correction variants outperform others. $GG$ heuristic does not achieve good performance, because its task sequence is obtained considering no extra memory is available, but is then applied in a different scenario where memory is limited. Surprisingly, the $BP$ heuristic which considers only memory constraint obtains good performance for a static heuristic, but is outperformed by more dynamic approaches.
 		%%		\todo{you mean infinite memory? SKumar: GG is classic in no-wait (or no buffer) 2-macine flowshop}
+	\begin{figure}[!tb]
+	\includegraphics[scale=0.5]{./results/ratio_to_optimal_hf-best.pdf}
+	\vspace*{-0.85cm}\caption{Best variants of all categories for HF.\vspace*{-0.8cm}}
+	\label{fig:ratio_to_optimal_best_hf}
+\end{figure}
 
 \begin{figure*}[htb]
 	\includegraphics[scale=0.5]{./results/ratio_to_optimal_selected_ccsd.pdf}
 	\vspace*{-0.95cm}\caption{Comparison of different heuristics for CCSD with $m_c=1.8GB$.\vspace*{-0.15cm}}
 	\label{fig:ratio_to_optimal_ccsd}
 \end{figure*}	
-	\begin{figure}[!h]
-	%%			\includegraphics[scale=0.5]{./results/inverse_ratio_to_optimal_hf-best.pdf}
-	\includegraphics[scale=0.45]{./results/ratio_to_optimal_hf-best.pdf}
-	\vspace*{-0.45cm}\caption{Best variants of all categories for HF.\vspace*{-0.45cm}}
-	\label{fig:ratio_to_optimal_best_hf}
-\end{figure}
-			
+
+
+
 
 	
 		
-		Figure~\ref{fig:ratio_to_optimal_best_hf} shows the performance comparison of the best variant in each category, in addition to the \textit{order of submission} ($OS$) strategy which orders tasks in the (arbitrary) sequence in which they are given. Static strategies are expected to perform better when there is not any memory capacity restriction, and indeed this plot shows that static strategies face capacity bottleneck and underperform with limited memory. Dynamic strategies achieve slightly better performance with limited memory capacity, but when memory capacity is larger, static order with dynamic corrections strategies outperform all others.
+		Figure~\ref{fig:ratio_to_optimal_best_hf} shows the performance comparison of the best variant in each category, in addition to the \textit{order of submission} ($OS$) strategy which orders tasks in the (arbitrary) sequence in which they are given. Static strategies are expected to perform better when there is not any memory capacity restriction, and indeed this plot shows that static strategies face capacity bottleneck and underperform with limited memory. Dynamic strategies achieve slightly better performance with limited memory capacity, but when memory capacity is larger, static order with dynamic correction strategies outperform all others.
 		
 		
 		\subsection{CCSD Performance}
 
 		
-		The CCSD application operates on tasks of different sizes, hence different heuristics exhibit distinct behaviors even at minimum memory capacity $m_c$. Heterogeneity favors dynamic strategies, as can be seen by the fact that both dynamic and static order with dynamic corrections based strategies perform better than static based strategies. Similar to HF, static order with dynamic corrections based strategies outperform others as memory capacity becomes moderate. 
+		The CCSD application operates on tasks of different sizes, hence different heuristics exhibit distinct behaviors even at minimum memory capacity $m_c$. Heterogeneity favors dynamic strategies, as can be seen by the fact that both dynamic and static order with dynamic correction based strategies perform better than static based strategies. Similar to HF, static order with dynamic correction based strategies outperform others as memory capacity becomes moderate. 
 		
-		\begin{figure}[!t]
-			\includegraphics[scale=0.45]{./results/ratio_to_optimal_ccsd-best.pdf}
-			\vspace*{-0.45cm}\caption{Best variants of all categories for CCSD.\vspace*{-0.45cm}}
-			\label{fig:ratio_to_optimal_best_ccsd}
-		\end{figure}
+\begin{figure}[htb]
+	\includegraphics[scale=0.5]{./results/ratio_to_optimal_ccsd-best.pdf}
+	\vspace*{-0.25cm}\caption{Best variants of all categories for CCSD.\vspace*{-0.25cm}}
+	\label{fig:ratio_to_optimal_best_ccsd}
+\end{figure}
+		
+		\noindent Figure~\ref{fig:ratio_to_optimal_best_ccsd} shows that best variants of dynamic and static order with dynamic correction strategies achieve similar performance at minimum memory capacity $m_c$. But as memory capacity increases, heterogeneity allows static order with dynamic correction based strategies to take advantage of static knowledge to get maximum overlap and dynamic correction to select another task in case of memory capacity limitation. Static strategies also start performing better at the end, which indicates that this application has potential for significant communication-computation overlap and pure dynamic strategies are unable to take this information into account while making scheduling decisions.
+		
 
 		
-		Figure~\ref{fig:ratio_to_optimal_best_ccsd} shows that best variants of dynamic and static order with dynamic corrections strategies achieve similar performance at minimum memory capacity $m_c$. But as memory capacity increases, heterogeneity allows static order with dynamic corrections based strategies to take advantage of static knowledge to get maximum overlap and dynamic correction to select another task in case of memory capacity limitation. Static strategies also start performing better at the end, which indicates that this application has potential for significant communication-computation overlap and pure dynamic strategies are unable to take this information into account while making scheduling decisions.
+		\begin{figure*}[!t]
+			%%			\includegraphics[scale=0.5]{./results/inverse_ratio_to_optimal_batch-best.pdf}
+			\includegraphics[scale=0.5]{./results/ratio_to_optimal_batch-best.pdf}
+			\vspace*{-0.5cm}\caption{Best variants of all categories where heuristics are applied in the batches of 100 tasks.\vspace*{-0.25cm}}
+			\label{fig:best_variants_batch}
+		\end{figure*}		
 		
 		\subsection{Scheduling in Batches}
 				
-		\begin{figure*}[!t]
-			%%			\includegraphics[scale=0.5]{./results/inverse_ratio_to_optimal_batch-best.pdf}
-			\includegraphics[scale=0.45]{./results/ratio_to_optimal_batch-best.pdf}
-			\vspace*{-0.5cm}\caption{Best variants of all categories where heuristics are applied in the batches of 100 tasks.\vspace*{-0.25cm}}
-			\label{fig:best_variants_batch}
-		\end{figure*}
-		In most applications, the runtime scheduler may only observe a limited batch of independent tasks. Therefore we organize tasks of each trace file in the batches of 100 (the last batch may have less than 100 tasks). We apply each heuristic on each group in succession. Figure~\ref{fig:best_variants_batch} shows the performance of the best variant of each category for both applications. The plots exhibit behavior similar to Figures~\ref{fig:ratio_to_optimal_best_hf} and~\ref{fig:ratio_to_optimal_best_ccsd}: static order with dynamic corrections variants attain maximum communication-computation overlap and outperform other heuristics.
+
+		In most applications, the runtime scheduler may only observe a limited batch of independent tasks. Therefore we organize tasks of each trace file in the batches of 100 (the last batch may have less than 100 tasks). We apply each heuristic on the batches in sequential order. Figure~\ref{fig:best_variants_batch} shows the performance of the best variant of each category for both applications. The plots exhibit behavior similar to Figures~\ref{fig:ratio_to_optimal_best_hf} and~\ref{fig:ratio_to_optimal_best_ccsd}: static order with dynamic correction variants attain maximum communication-computation overlap and outperform other heuristics.
 
 		
 		
@@ -1066,10 +1075,10 @@ The second heuristic is based on the First-Fit algorithm for the bin packing pro
 		In this paper, we consider the problem of deciding the order of data transfers between two memory nodes such that overlap of communications and computations is maximized. With Exascale computing, applications face bottlenecks due to communications. Hence, it is extremely important to achieve the maximum  communication-computation overlap in order to exploit the full potential of the system. We show that determining the order of data transfers is a NP complete problem. We propose several data transfer heuristics and evaluate them on two molecular chemistry kernels, HF and CCSD. Our results show that some of our heuristics achieve significant overlap and their makespans are very close to the lower bound. We plan to evaluate our strategies on different applications coming from multiple domains. We also plan to study the behavior of our strategies in the context of overlapping CPU-GPU communications with computations. A runtime system aiming to expose different heuristics to maximize the communication-computation overlap at the developer level and automatically select the best one is currently underway.
 		
 		
-%%		\begin{acks}			
-%%			We are grateful to Ajay Panyala for his help in installation of  NWChem on Cascade machine and providing internal details about the package and its inputs. This work was supported in part by the U.S. Department of Energy (DOE), Office of Science, Office of Advanced Scientific Computing Research, under award 63823.
+		\begin{acks}			
+			We are grateful to Ajay Panyala for his help in installation of  NWChem on Cascade machine and providing internal details about the package and its inputs. This work was supported in part by the U.S. Department of Energy (DOE), Office of Science, Office of Advanced Scientific Computing Research, under award 63823.
 %%			 Pacific Northwest National Laboratory is operated by Battelle for DOE under Contract DE-AC05-76RL01830.
-%%		\end{acks}
+		\end{acks}
 		
 		%
 		% The next two lines define the bibliography style to be used, and the bibliography file.

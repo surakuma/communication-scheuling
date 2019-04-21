@@ -195,7 +195,7 @@
 		\item Numerous experiments to assess the effectiveness of our strategies on molecular chemistry kernels 
 	\end{itemize}
 	
-	The outline of the paper is the following. Section~\ref{sec:relatedWork} describes past work on the computations with limited memory and similar problems in the literature. In section~\ref{sec:theoreticalProof}, we present an algorithm to obtain the order of data transfers when there is not any memory capacity restriction. Then, we also prove that in general data transfer problem is NP-complete. In Section~\ref{sec:heuristics}, we propose several heuristics and discuss the conditions that might be favorable to them. We mainly consider three categories of heuristics: static order based heuristics, dynamic selection based heuristics, and static order with dynamic correction based heuristics. Sections~\ref{sec:expSetting} describes our experimental setup and we evaluate our proposed strategies on two molecular chemistry kernels in Section~\ref{sec:expResults}. Our results show that static order with dynamic correction based heuristics achieve good performance in most cases. We finally propose conclusions and perspectives in Section~\ref{sec:conclusion}.
+	The outline of the paper is the following. Section~\ref{sec:relatedWork} describes past work on the computations with limited memory and similar problems in the literature. In section~\ref{sec:theoreticalProof}, we present an algorithm to obtain the order of data transfers when there is not any memory capacity restriction. Then, we also prove that in general data transfer problem is NP-complete. In Section~\ref{sec:heuristics}, we propose several heuristics and discuss the conditions that might be favorable to them. We mainly consider three categories of heuristics: static order based heuristics, dynamic selection based heuristics, and static order with dynamic correction based heuristics. Sections~\ref{sec:expSetting} describes our experimental setup and we evaluate our proposed heuristics on two molecular chemistry kernels in Section~\ref{sec:expResults}. Our results show that static order with dynamic correction based heuristics achieve good performance in most cases. We finally propose conclusions and perspectives in Section~\ref{sec:conclusion}.
 	
 	\section{Related Work}
 	\label{sec:relatedWork}
@@ -433,7 +433,7 @@
 		otherwise we would get idle time on the computation resource. Indeed, the
 		communication of such a task $K_i$ would end at time at least $b'>3 +
 		6x$, but at most two $A_i$ tasks can be computed, and they end at time
-		at most $3+2max\{a_i':1\le i\le 3m\} = 3 + 6x$
+		at most $3+2max\{a_i':1\le i\le 3m\} = 3 + 6x$.
 		
 		Hence three $A_i$ tasks must follow $K_0$. The memory requirement of
 		other $K_i$ tasks is $b'$ and $2b'>C$, therefore at any point in the
@@ -557,7 +557,7 @@
 	
 	
 	
-	\section{Data Transfer Order heuristics}
+	\section{Data Transfer Order Heuristics}
 	\label{sec:heuristics}
 	
 	Algorithm~\ref{alg:OrderOfExecutionInfinteMemory} presented in Section~\ref{sec:theoreticalProof} achieves an optimal makespan when there is no memory constraint. This optimal value indicates a lower bound on the makespan of the constrained case. We denote this value with \textit{optimal makespan infinite memory} ($OMIM$). In this section, we propose different heuristics for the limited memory case, and we assess their efficiency with respect to $OMIM$ in Section~\ref{sec:expResults}.
@@ -652,7 +652,7 @@
 \end{table}
 	
 	\begin{enumerate}[label=\roman*)]
-		\item \textit{order  of  optimal strategy infinite memory} ($OOSIM$): This heuristic uses the order given by Algorithm~\ref{alg:OrderOfExecutionInfinteMemory}, but respects the memory constraint at each point in the schedule. Hence the makespan of this heuristic may be completely different from $OMIM$.
+		\item \textit{order of optimal strategy infinite memory} ($OOSIM$): This heuristic uses the order given by Algorithm~\ref{alg:OrderOfExecutionInfinteMemory}, but respects the memory constraint at each point in the schedule. Hence the makespan of this heuristic may be completely different from $OMIM$.
 		
 		\item \textit{increasing order of communication strategy} ($IOCMS$): Tasks are ordered  in non-decreasing order of communication time. 
 		
@@ -671,7 +671,7 @@
 	%%	\label{fig:staticOrderExample}
 	%%\end{figure}
 	
-	In order to highlight the different behaviors of these static strategies, we propose on Table~\ref{tab:staticOrderExample} an example instance, and on Figure~\ref{fig:staticOrderExample} the corresponding schedules for all these heuristics.
+	In order to highlight the different behaviors of these static heuristics, we propose on Table~\ref{tab:staticOrderExample} an example instance, and on Figure~\ref{fig:staticOrderExample} the corresponding schedules for all these heuristics.
 	
 	
 	
@@ -750,7 +750,7 @@
 	
 	\subsection{Static Order with Dynamic Correction}
 	
-	In this class of strategy, we precompute the order of tasks based on some criterion and then follow this ordering as much as possible. But when the communication resource is idle because the memory requirement of the next task is too high, then we select a task  with a dynamic strategy. After a task is dynamically selected, we update the remaining order without this task. This class of strategy takes advantage of static information in the form of precomputed order and dynamic correction to minimize the idle time due to memory constraint.
+	In this class of strategies, we precompute the order of tasks based on some criterion and then follow this ordering as much as possible. But when the communication resource is idle because the memory requirement of the next task is too high, then we select a task  with a dynamic strategy. After a task is dynamically selected, we update the remaining order without this task. This class of strategies take advantage of static information in the form of precomputed order and dynamic correction to minimize the idle time due to memory constraint.
 	
 	In all strategies of this class, the initial order is $OMIM$ order,  obtained by Algorithm~\ref{alg:OrderOfExecutionInfinteMemory}. We define the following heuristics based on how we select a task from the set of tasks which fit in memory and induce minimum idle time on the computation resource. If no task fits in memory then we leave the resource idle and forward to the next event point.
 	%%	\todo[inline]{LED: What happens if no task fit in memory?}
@@ -839,7 +839,7 @@
 
 
 	
-	As previously, we propose on Table~\ref{tab:staticOrderDynamiccorrectionExample} an example instance for this class of strategies, and provide on Figure~\ref{fig:staticOrderDynamiccorrectionExample} the corresponding schedules.
+	As previously, we propose on Table~\ref{tab:staticOrderDynamiccorrectionExample} an example instance for this class of heuristics, and provide on Figure~\ref{fig:staticOrderDynamiccorrectionExample} the corresponding schedules.
 	
 
 	\subsection{Additional Heuristics from Previous Work}
@@ -897,32 +897,16 @@ The second heuristic is based on the First-Fit algorithm for the bin packing pro
 			&\text{ of variables $c_{ij}$)}
 		\end{aligned}\\
 		\forall i, \quad & \sum_{r\ne i} (a_{ir} - c_{ir})MC(r) + MC(i) \le C && \text{(memory constraint)}\\
-		%% %%\forall i, \forall j\ne i, \quad & \text{task }T_i \text{ respects memory capacity on computation resource:}\\
-		%% %%& s_j < e'_i +(1-d_{ij})L\\
-		%% %%& e'_i\leq s_j +d_{ij}L\\
-		%% %%& \sum_r (d_{ir} - b_{ir})CM(r) + TM(i) \le C\\
 	\end{align*} 
 	\vspace*{-0.75cm}
 	
 	We use GLPK solver v4.65 to solve the above formulation. We also add the following constraints to help the solver: $\forall i, \forall j\ne i$, $a_{ij} + a_{ji}=1$, $b_{ij} + b_{ji} = 1$, $c_{ij} \le a_{ij}$, $c_{ij} \le b_{ij}$, and  $c_{ij} + c_{ji} \le 1$. The solver was unable to  solve this MILP at the scale of our interest in limited time. Hence, we solve the linear program iteratively for a small subset of size $k=3, 4, 5, 6$: at the boundary of two iterations we fix the event (communication or computation) of an unfinished task started before the boundary point and consider other events flexible. The subsets are formed in the order in which tasks are submitted, which is arbitrary. For a given size $k$, we represent the makespan calculated by this heuristic as $lp.k$.
 	We compute various $lp.k$ values for different memory capacities and observe that most of the other heuristics perform better than this heuristic. Hence, we do not include this heuristic for the comparison in Section~{\ref{sec:expResults}. Performance comparison of different heuristics with MILP based heuristics is available in an extended version~\cite{extendedVersion}.
 		
-		%%		\todo[inline]{SKumar: Move to an extended version and more clear about results and implementation}
-		%%		Figure~\ref{fig:iterativeLpSolution} shows the performance of different heuristics with MILP based heuristics for various memory capacities of a single trace file.
-		%%		%%	\subsection{MILP Based Strategy}
-		%%		%%We use GLPK solver v4.65 to solve the MILP formulation described in Section~\ref{subsec:linearprogrammingformulation}. The solver was unable to handle number of variables required to solve MILP at the scale of our interest. Hence, we solve the linear program iteratively for a small subset of size $k=3,4,5$ (solver was unable to handle number of variables required for $k\ge6$ ) and represent the makespan calculated by this heuristic as $lp.k$. At the boundary of two iterations we fixed the event (communication or computation) of an unfinished task who has started before the boundary point and consider other events flexible. We compute various $lp.k$ values for different memory capacities and observe that most of the other heuristics perform better than this heuristic. Figure~\ref{fig:iterativeLpSolution} shows the comparison of different heuristics with MILP based heuristic for various memory capacities of a single trace file.
-		%%		\todo[inline]{SKumar: Figure~\ref{fig:iterativeLpSolution} would be removed and I will redraw this or similar figure for extended version}
-		%%		\begin{figure}[htb]
-		%%			\includegraphics[scale=0.5]{./results/makespan_with_lp.pdf}
-		%%			\caption{Comparison of different heuristics with MILP solution based heuristic.\todo[inline]{LED: I understand that this figure will be removed? Otherwise, use aes(fill=) instead of aes(color=) to have color filled bars.}}
-		%%			\label{fig:iterativeLpSolution}
-		%%		\end{figure}
 
-
-		
 		\subsection{Favorable Situations for Heuristics}
 
-			Based on the definition of proposed strategies and the optimality of Algorithm~\ref{alg:OrderOfExecutionInfinteMemory}, we discuss the scenarios which might be more favorable for each heuristic in Table~\ref{tab:heuristicsAndFavorableScenarios}. This allows programmers to use appropriate strategies to maximize communication-computation overlap for their applications. In this table, ``moderate memory capacity'' refers to the case where memory is constrained, but close to the maximal memory requirement of the $OMIM$ schedule.
+			Based on the definition of proposed heuristics and the optimality of Algorithm~\ref{alg:OrderOfExecutionInfinteMemory}, we discuss the scenarios which might be more favorable for each heuristic in Table~\ref{tab:heuristicsAndFavorableScenarios}. This allows programmers to use appropriate strategies to maximize communication-computation overlap for their applications. In this table, ``moderate memory capacity'' refers to the case where memory is constrained, but close to the maximal memory requirement of the $OMIM$ schedule.
 			
 		\begin{table}[!h]
 			\begin{center}
@@ -1024,8 +1008,8 @@ The second heuristic is based on the First-Fit algorithm for the bin packing pro
 		
 		\begin{figure*}[!t]
 			%%			\includegraphics[scale=0.5]{./results/inverse_ratio_to_optimal_batch-best.pdf}
-			\includegraphics[scale=0.5]{./results/ratio_to_optimal_batch-best.pdf}
-			\vspace*{-0.5cm}\caption{Best variants of all categories where heuristics are applied in the batches of 100 tasks.\vspace*{-0.25cm}}
+			\includegraphics[scale=0.485]{./results/ratio_to_optimal_batch-best.pdf}
+			\vspace*{-0.5cm}\caption{Best variants of all categories where heuristics are applied in the batches of 100 tasks.\vspace*{-0.1cm}}
 			\label{fig:best_variants_batch}
 		\end{figure*}		
 		

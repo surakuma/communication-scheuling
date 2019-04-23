@@ -189,7 +189,7 @@
 	\renewcommand{\labelitemi}{$\bullet$}
 	\begin{itemize}
 		\item NP-completeness proof for the general data-transfer problem 
-		\item Proposed different scheduling strategies with the objective to minimize the makespan
+		\item Different scheduling strategies with the objective to minimize the makespan
 		%%		\item An optimal strategy and its proof, when there is not any memory capacity constraint on the target machine
 		\item Linear programming formulation of the problem
 		\item Numerous experiments to assess the effectiveness of our strategies on molecular chemistry kernels 
@@ -1056,7 +1056,7 @@ The second heuristic is based on the First-Fit algorithm for the bin packing pro
 		
 		%%We also plan to extend our model by taking bandwidth sharing and different possible routes for the same source-destination pair into account.
 		
-		In this paper, we consider the problem of deciding the order of data transfers between two memory nodes such that overlap of communications and computations is maximized. With Exascale computing, applications face bottlenecks due to communications. Hence, it is extremely important to achieve the maximum  communication-computation overlap in order to exploit the full potential of the system. We show that the problem of determining the optimal order of data transfers is NP-complete. We propose several data transfer heuristics and evaluate them on two molecular chemistry kernels, HF and CCSD. Our results show that some of our heuristics achieve significant overlap and their makespans are very close to the lower bound. We plan to evaluate our strategies on different applications coming from multiple domains. We also plan to study the behavior of our strategies in the context of overlapping CPU-GPU communications with computations. A runtime system aiming to expose different heuristics to maximize the communication-computation overlap at the developer level and automatically select the best one is currently underway.
+		In this paper, we consider the problem of deciding the order of data transfers between two memory nodes such that overlap of communications and computations is maximized. With Exascale computing, applications face bottlenecks due to communications. Hence, it is extremely important to achieve the maximum  communication-computation overlap in order to exploit the full potential of the system. We show that the problem of determining the optimal order of data transfers is NP-complete. We proposed several data transfer heuristics and evaluated them on two molecular chemistry kernels, HF and CCSD. Our results show that some of our heuristics achieve significant overlap and their makespans are very close to the lower bound. We plan to evaluate our strategies on different applications coming from multiple domains. We also plan to study the behavior of our strategies in the context of overlapping CPU-GPU communications with computations. A runtime system aiming to expose different heuristics to maximize the communication-computation overlap at the developer level and automatically select the best one is currently underway.
 		
 		
 		\begin{acks}			

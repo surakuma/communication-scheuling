@@ -8,11 +8,11 @@
 }
 
 @Misc{ascaccommitteereport2014,
-  howpublished = "ASCAC committee report, URL:
-                 \url{https://science.energy.gov/\~/media/ascr/ascac/pdf/meetings/20140210/Top10reportFEB14.pdf}",
-  note =         "",
-    year=   "2014",
-  title =        "Top Ten Exascale Research Challenges",
+author= {{ASCAC Committee Report}},
+url= "https://science.energy.gov/\~/media/ascr/ascac/pdf/meetings/20140210/Top10reportFEB14.pdf",
+note =         "",
+year=   "2014",
+title =  "Top Ten Exascale Research Challenges",
   
 }
 
@@ -21,7 +21,7 @@
   url = "https://people.eecs.berkeley.edu/~yelick/talks/exascale/Communication-Yelick-China16.pdf",
   note =         "",
   year=   "2016",
-  title =        " Avoiding, Hiding and Managing Communication at the Exasacle",
+  title =        "Avoiding, Hiding and Managing Communication at the Exascale",
 }
 
 
@@ -38,12 +38,14 @@
   publisher={Wiley Online Library}
 }
 
---- Quark ---
-@manual{YarKhan:2011:Quark:Manual,
-  author 	 = {A. YarKhan and J. Kurzak and J. Dongarra},
-  title 	 = {QUARK Users' Guide: QUeueing And Runtime for Kernels},
-  organization 	 = {UTK ICL},
-  year 		 = 2011
+@article {quark,
+	author = {Asim YarKhan and Jakub Kurzak and Jack Dongarra},
+	title = {{QUARK Users' Guide: QUeueing And Runtime for Kernels}},
+	journal = {University of Tennessee Innovative Computing Laboratory Technical Report},
+	number = {ICL-UT-11-02},
+	year = {2011},
+	month = {Feb},
+	keywords = {magma, plasma, quark},
 }
 
 @Article{starpu,
@@ -87,8 +89,8 @@
  numpages = {11},
  url = {http://dl.acm.org/citation.cfm?id=2388996.2389086},
  acmid = {2389086},
- publisher = {IEEE Computer Society Press},
- address = {Los Alamitos, CA, USA},
+ OPTpublisher = {IEEE Computer Society Press},
+ OPTaddress = {Los Alamitos, CA, USA},
 }
 
 
@@ -119,10 +121,11 @@
                J{\'e}r{\'e}mie Allard},
   title     = {{Multi-{GPU} and Multi-{CPU} Parallelization for Interactive
                Physics Simulations}},
-  booktitle = {Euro-Par (2)},
+  booktitle = {Euro-Par 2010 Parallel Processing},
+  OPTpublisher = {Springer Berlin Heidelberg},
   year      = {2010},
   pages     = {235-246},
-  ee        = {http://dx.doi.org/10.1007/978-3-642-15291-7_23},
+  url        = {http://dx.doi.org/10.1007/978-3-642-15291-7_23},
   bibsource = {DBLP, http://dblp.uni-trier.de}
 }
 
@@ -132,14 +135,10 @@ and Thibault, Samuel
 and Legrand, Arnaud
 and Videau, Brice
 and M{\'e}haut, Jean-Fran{\c{c}}ois",
-editor="Silva, Fernando
-and Dutra, In{\^e}s
-and Santos Costa, V{\'i}tor",
 title="Modeling and Simulation of a Dynamic Task-Based Runtime System for Heterogeneous Multi-core Architectures",
 booktitle="Euro-Par 2014 Parallel Processing",
 year="2014",
-publisher="Springer International Publishing",
-address="Cham",
+OPTpublisher="Springer International Publishing",
 pages="50--62",
 isbn="978-3-319-09873-9"
 }
@@ -210,32 +209,31 @@ month={Aug},}
  keywords = {DAG scheduling, task graphs, heterogeneous systems, list scheduling, mapping},
 }
 
-@inproceedings{ipdps16starpu,
-  author    = {Emmanuel Agullo and
-               Olivier Beaumont and
-               Lionel Eyraud{-}Dubois and
-               Suraj Kumar},
-  title     = {{Are Static Schedules so Bad? {A} Case Study on Cholesky Factorization}},
-  booktitle = {2016 {IEEE} International Parallel and Distributed Processing Symposium,
-               {IPDPS} 2016, Chicago, IL, USA, May 23-27, 2016},
-  pages     = {1021--1030},
-  year      = {2016},
-}
+@INPROCEEDINGS{ipdps16starpu, 
+author={E. {Agullo} and O. {Beaumont} and L. {Eyraud-Dubois} and S. {Kumar}}, 
+booktitle={2016 IEEE International Parallel and Distributed Processing Symposium (IPDPS)}, 
+title={Are Static Schedules so Bad? A Case Study on Cholesky Factorization}, 
+year={2016}, 
+volume={}, 
+number={}, 
+pages={1021-1030}, 
+keywords={graphics processing units;microprocessor chips;optimisation;performance evaluation;scheduling;static schedules;Cholesky factorization;dynamic strategies;task graph scheduling;GPU;CPU;static scheduling strategies;NP-Complete;parallelism;processing nodes;dynamic task-graph based runtime schedulers;StarPU;StarSs;QUARK;PaRSEC;dynamic schedulers;scheduling decisions;dense matrices;performance estimations;Kernel;Dynamic scheduling;Runtime;Heuristic algorithms;Optimal scheduling;Schedules;Acceleration;Runtime Systems;Scheduling;Accelerators;Cholesky Factorization;Heterogeneous Systems;Unrelated Machines}, 
+doi={10.1109/IPDPS.2016.90}, 
+ISSN={1530-2075}, 
+month={May},}
 
-@inproceedings{hipc16multiresource,
-  TITLE = {{Scheduling of Linear Algebra Kernels on Multiple Heterogeneous Resources}},
-  AUTHOR = {Beaumont, Olivier and Cojean, Terry and Eyraud-Dubois, Lionel and Guermouche, Abdou and Kumar, Suraj},
-  URL = {https://hal.inria.fr/hal-01361992},
-  BOOKTITLE = {{International Conference on High Performance Computing, Data, and Analytics (HiPC 2016)}},
-  ADDRESS = {Hyderabad, India},
-  YEAR = {2016},
-  MONTH = Dec,
-  KEYWORDS = {Cholesky Factorization ; Resource Aggregation ; StarPU ; Simulation ; Linear Algebra ; Heterogeneous Platforms ; Task-based Scheduling},
-  PDF = {https://hal.inria.fr/hal-01361992/file/HiPC.pdf},
-  HAL_ID = {hal-01361992},
-  HAL_VERSION = {v2},
-}
 
+@INPROCEEDINGS{hipc16multiresource, 
+author={O. {Beaumont} and T. {Cojean} and L. {Eyraud-Dubois} and A. {Guermouche} and S. {Kumar}}, 
+booktitle={2016 IEEE 23rd International Conference on High Performance Computing (HiPC)}, 
+title={Scheduling of Linear Algebra Kernels on Multiple Heterogeneous Resources}, 
+year={2016}, 
+volume={}, 
+number={}, 
+pages={321-330}, 
+doi={10.1109/HiPC.2016.045}, 
+ISSN={}, 
+month={Dec},}
 
 
 
@@ -255,7 +253,6 @@ month={Aug},}
   YEAR = {2016},
   MONTH = Dec,
   KEYWORDS = {numerical simulations ;  coupled simulations ;  parallelism ;  load balancing ;  graph partitioning ;  partitionnement de graphe ; simulations num{\'e}riques ;   simulations coupl{\'e}es ;  parall{\'e}lisme ;  {\'e}quilibrage de charge},
-  TYPE = {Theses},
 }
 
 
@@ -351,6 +348,7 @@ URL = {https://doi.org/10.1287/opre.12.5.655},
     url="https://doi.org/10.1007/BF00130708"
 }
 
+
 @article{NWChem,
 title = "NWChem: A comprehensive and scalable open-source solution for large scale molecular simulations",
 journal = "Computer Physics Communications",
@@ -361,6 +359,7 @@ year = "2010",
 issn = "0010-4655",
 doi = "https://doi.org/10.1016/j.cpc.2010.04.018",
 url = "http://www.sciencedirect.com/science/article/pii/S0010465510001438",
+author = "M. Valiev and E.J. Bylaska and N. Govind and K. Kowalski and T.P. Straatsma and H.J.J. Van Dam and D. Wang and J. Nieplocha and E. Apra and T.L. Windus and W.A. de Jong",
 }
 
 
@@ -383,13 +382,15 @@ url = "http://www.sciencedirect.com/science/article/pii/S0010465510001438",
  address = {Institute for Operations Research and the Management Sciences (INFORMS), Linthicum, Maryland, USA},
  keywords = {NP-complete, computational complexity, jobshop scheduling},
 } 
+
 @article{extendedVersion,
-    author    = {Suraj Kumar and
-        Lionel Eyraud-Dubois and
-            Sriram Krishnamoorthy},
-    title     = {Performance Models for Data Transfers: A Case Study with Molecular Chemistry Kernels},
-    journal   = {CoRR},
-    volume    = {abs/1904.06825},
-    year      = {2019},
-    url       = {http://arxiv.org/abs/1904.06825},
-}
+  author    = {Suraj Kumar and
+               Lionel Eyraud{-}Dubois and
+               Sriram Krishnamoorthy},
+  title     = {Performance Models for Data Transfers: {A} Case Study with Molecular
+               Chemistry Kernels},
+  journal   = {CoRR},
+  volume    = {abs/1904.06825},
+  year      = {2019},
+  url       = {http://arxiv.org/abs/1904.06825},
+  }

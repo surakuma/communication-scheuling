@@ -1,0 +1,154 @@
+\ProvidesPackage{beamertheme340}
+\RequirePackage{pgf}
+% Copyright 2004 by Manuel Carro <mcarro@fi.upm.es>
+%
+% This program can be redistributed and/or modified under the terms
+% of the GNU Public License, version 2.
+
+\mode<presentation>
+
+\beamertemplateshadingbackground{orange!12}{blue!15}
+
+%\usecolortheme[rgb={0.2,0.2,0.7}]{structure}
+
+\useoutertheme{340}
+
+\setbeamercolor{title}{use=structure,fg=white,bg=structure.fg}
+
+\useinnertheme[shadow]{rounded}
+%\DefineNamedColor{mypurple}{\color{blue!50!red}}
+%% PURPLE: \usecolortheme[RGB={87,14,144}]{structure}
+\usecolortheme[RGB={0,100,100}]{structure} %% BLUE
+
+%\usecolortheme[RGB={0,100,100}]{structure}
+%\usecolortheme[RGB={0,0,100}]{structure}
+%\usecolortheme[RGB={0,100,0}]{structure}
+%\usecolortheme[RGB={130,14,13}]{structure}
+%\usecolortheme{340}
+
+\definecolor{macouleur}{RGB}{80,0,100}
+
+
+
+
+ \setbeamercolor{block title}{use=structure,fg=structure.fg,bg=structure.fg!20!bg}
+ \setbeamercolor{block title alerted}{use=alerted text,fg=alerted text.fg,bg=alerted text.fg!20!bg}
+ \setbeamercolor{block title example}{use=example text,fg=example text.fg,bg=example text.fg!20!bg}
+ 
+ \setbeamercolor{block body}{parent=normal text,use=block title,bg=block title.bg!50!bg}
+ \setbeamercolor{block body alerted}{parent=normal text,use=block title alerted,bg=block title alerted.bg!50!bg}
+ \setbeamercolor{block body example}{parent=normal text,use=block title example,bg=block title example.bg!50!bg}
+
+
+ \setbeamercolor{frametitle}{bg=structure,fg=structure.fg!40!white}
+% \setbeamercolor{item}{fg=structure}
+ 
+ \setbeamercolor*{palette primary}{use=structure,fg=black,bg=structure.fg!40!white}
+ \setbeamercolor*{palette secondary}{use=structure,fg=white,bg=structure.fg!60!white}
+ \setbeamercolor*{palette tertiary}{use=structure,fg=white,bg=structure.fg!90!white}
+ \setbeamercolor*{palette quaternary}{fg=white,bg=black}
+ 
+ \setbeamercolor*{sidebar}{use=structure,bg=structure.fg}
+   
+ \setbeamercolor*{palette sidebar primary}{use=structure,fg=structure.fg!10}
+ \setbeamercolor*{palette sidebar secondary}{fg=white}
+ \setbeamercolor*{palette sidebar tertiary}{use=structure,fg=structure.fg!50}
+ \setbeamercolor*{palette sidebar quaternary}{fg=white}
+
+\setbeamercolor*{titlelike}{use=structure,fg=structure.fg}
+
+\setbeamercolor*{separation line}{}
+\setbeamercolor*{fine separation line}{}
+
+
+
+
+% Tills' opinion: should be done in an inner theme, not here.
+
+\useitemizeitemtemplate{%
+%    \tiny\raise1.5pt\hbox{\color{blue!50!red}$\bigstar$}%
+%    \tiny\raise1.5pt\hbox{$\bigstar$}%
+     \tiny\raise1.5pt\hbox{$\newmoon$}%
+}
+
+\usesubitemizeitemtemplate{%
+    \tiny\raise1.5pt\hbox{$\blacktriangleright$}%
+}
+
+\usesubsubitemizeitemtemplate{%
+    \tiny\raise1.5pt\hbox{\textbullet}%
+}
+
+\setbeamertemplate{enumerate item}{\insertenumlabel.}
+\setbeamertemplate{enumerate subitem}{\insertenumlabel.}
+\setbeamertemplate{enumerate subsubitem}{\insertenumlabel.}
+
+\setbeamertemplate{section in toc}{\inserttocsectionnumber. \inserttocsection}%[subsections numbered]
+\setbeamertemplate{subsection in toc}[ball]
+\setbeamertemplate{subsubsection in toc}[square]
+
+
+%{\color{beamerstructure}$\bigstar$\leavevmode\leftskip=2em\inserttocsection\par}%[square]%{\color{beamerstructure}$\bigstar$ \inserttext}
+
+
+
+\setbeamertemplate{enumerate item}{\insertenumlabel.}
+
+\setbeamersize{text margin left=1.5em,text margin right=2em}
+
+\setbeamertemplate{background canvas}[vertical shading][bottom=white!10,top=blue!10]
+\newcommand{\cframe}[1]{\frame[label=current]{#1}}%
+
+
+\usenavigationsymbolstemplate{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% pour avoir une image en fond de slide
+%\pgfdeclareverticalshading{myshade}{\paperwidth}{color(0pt)=(bg);color(4pt)=(black!50!bg)}
+
+%\pgfdeclareimage[interpolate=true,height=96mm,width=128mm]{fond.!25!white}{toto}
+%\setbeamertemplate{background}{
+%\begin{colormixin}{25!white}
+%\pgfuseimage{fond}
+%\end{colormixin}
+%}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\pgfdeclareimage[height=96mm,width=128mm]{fond}{toto}
+%\setbeamertemplate{background}{
+%  \begin{colormixin}{25!white}
+%    \begin{pgfpicture}
+%    \pgfuseimage{fond}
+%    \end{pgfpicture}
+%  \end{colormixin}
+  
+%  }
+  
+%\setbeamertemplate{background}{stat_country_users.pdf}
+
+		      
+% Affichage a chaque section du plan
+% \AtBeginSection[]
+% {
+%   \frame<handout:0>
+%   {
+%     \frametitle{Plan de l'exposé}
+%     \tableofcontents[current,hidesubsections]
+%   }
+% }
+
+
+\definecolor{Cblue}{RGB}{0,0,250}
+\definecolor{Cgreen}{RGB}{0,250,0}
+\definecolor{Cred}{RGB}{250,0,0}
+
+\newcommand{\blue}[1]{{\color{Cblue}#1}}
+\newcommand{\red}[1]{{\color{Cred}#1}}
+\newcommand{\green}[1]{{\color{Cgreen}#1}}
+
+\definecolor{Cstruct}{RGB}{0,100,100}
+\newcommand{\colstruct}[1]{{\color{Cstruct}#1}}
+
+\mode<all>
+

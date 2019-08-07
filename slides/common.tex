@@ -1,0 +1,425 @@
+\newcommand{\ignore}[1]{}
+ 
+\usepackage{color}
+\usepackage{subfigure}
+\usepackage{colortbl}
+\usepackage{epsfig}
+\usepackage{verbatim}
+\usepackage{array}
+\usepackage{fancybox}
+\usepackage{longtable}
+\usepackage{epic,eepic}
+%%\usepackage{algorithmic} 
+%\usepackage{algorithmic2}   % for Lyon's algo format
+%\usepackage{algorithm}
+\usepackage{xspace} 
+\usepackage{psfrag}         % for modifying figures
+\usepackage{wasysym}        % for smileys
+\usepackage{amsmath,amsthm,amssymb,subfigure}
+\usepackage{times}
+\usepackage{url}
+\usepackage[boxed,vlined]{algorithm2e}
+\usepackage{wasysym}        % for smileys                              
+
+
+\newcommand{\VIO}[1]{\ifthenelse{\equal{#1}{}}{\ensuremath{V^{I/O}}\xspace}{\ensuremath{V^{I/O}_{#1}}\xspace}}
+
+
+%%%%%% MIN_IO
+\newcommand{\mat}[1]{{\small \tt #1}}
+\newcommand{\order}[1]{{\small \tt #1}}
+\newcommand{\soft}[1]{{\tt #1}}
+\newcommand{\MinMem}{{\tt MinMEM}\xspace}
+\newcommand{\MinMembf}{{\small \bf MinMEM}\xspace}
+\newcommand{\MinIO}{{\tt MinIO}\xspace}
+\newcommand{\MinIObf}{{\small \bf MinIO}\xspace}
+\newcommand{\inplace}{{\emph{in-place}}\xspace}
+\newcommand{\maxcbinplace}{{\emph{max-in-place}}\xspace}
+\newcommand{\lastcbinplace}{{\emph{last-in-place}}\xspace}
+\newcommand{\classical}{{\emph{classical}}\xspace}
+\newcommand{\Maxcbinplace}{{\emph{Max-in-place}}\xspace}
+\newcommand{\Lastcbinplace}{{\emph{Last-in-place}}\xspace}
+\newcommand{\Classical}{{\emph{Classical}}\xspace}
+
+%%%%%% Cite beamer
+\newcommand{\citefull}[2]{{\footnotesize {\tt #1} '{$#2$}}}
+
+%%%%% Colors
+\newcommand<>{\blue}[1]{{\color#2{blue!100!black!100}#1}}
+\newcommand<>{\green}[1]{{\color#2{green!100!black!100}#1}}
+\newcommand<>{\red}[1]{{\color#2{red!100!black!100}#1}}
+
+%%%%% Theorems
+\newtheorem{myprop}{Property}
+\newtheorem{mydef}{Definition}
+
+
+
+%smileys % green - red
+\def\smiley{\green{\wasyfamily\char44}\xspace}
+\def\frownie{\red{\wasyfamily\char47}\xspace}
+
+%%% OOC %%%
+\newcommand{\IO}{\emph{I/O}\xspace}
+\newcommand{\IOs}{\IO{}s\xspace}
+\newcommand{\Vmin}{{V_{\IO}}_{min}}
+\newcommand{\ic}{{in-core}\xspace}
+\newcommand{\ooc}{{out-of-core}\xspace}
+\newcommand{\AllCB}{{\tt All-CB}\xspace}
+\newcommand{\OneCB}{{\tt One-CB}\xspace}
+\newcommand{\OnlyF}{{\tt Pa\-rent-On\-ly}\xspace}
+
+%%% FLEX %%%
+\newtheorem{mytheorem}{Theorem}
+\def\posfather{\ensuremath{p}\xspace}
+\def\nbchildren#1{\ensuremath{n}\xspace}
+\def\i2p{\ensuremath{\mathcal{I}_{2P}}\xspace}
+\def\imm{\ensuremath{\mathcal{I}_{TMM}}\xspace}
+\def\mbold{\mathversion{bold}}
+\def\mnorm{\mathversion{normal}}
+\def\OPT#1{{\mbold\textsc{#1}}\xspace}
+\newcommand{\class}{\textit{classic}}
+\newcommand{\flex}{\textit{flex}}
+\newcommand{\ant}{\textit{early}}
+\newcommand{\classip}{\textit{class\_ip}}
+\newcommand{\flexip}{\textit{flex\_ip}}
+\newcommand{\antip}{\textit{early\_ip}}
+\newcommand{\T}[2]{\ifthenelse{\equal{#1}{}}{\ensuremath{T^{#2}}\xspace}{
+\ensuremath{T^{#2}_{#1}}\xspace}}
+\newcommand{\M}[1]{\ifthenelse{\equal{#1}{}}{\ensuremath{M}\xspace}{\ensu
+remath{M_{#1}}\xspace}}
+\newcommand{\cb}[1]{\ifthenelse{\equal{#1}{}}{\ensuremath{\textit{cb}}\xs
+pace}{\ensuremath{\textit{cb}_{#1}}\xspace}}
+\newcommand{\factor}[1]{\ifthenelse{\equal{#1}{}}{\ensuremath{F}\xspace}{
+\ensuremath{F_{#1}}\xspace}}
+\newcommand{\child}[2]{\ensuremath{#2}\xspace}
+\newcommand{\storage}[1]{\ensuremath{m}\xspace}
+\newcommand{\storageforcearg}[1]{\ensuremath{m_{#1}}\xspace}
+\renewcommand{\thesubfigure}{}
+
+
+% Empeche les numérotations des subfigure
+\renewcommand{\thesubfigure}{}
+
+
+\newcommand{\psfragSimul}{
+\psfrag{Number of processors}{{\footnotesize Number of processors}}%
+\psfrag{Memory peak (millions of reals)}{{\footnotesize Memory peak (millions of reals)}}%
+\psfrag{Total memory}{\hspace{-.1cm}{\footnotesize Total memory}}%
+\psfrag{Active memory}{{\footnotesize Stack \ic{}}}%
+\psfrag{Pessimistic scheme}{\hspace{.05cm}{\footnotesize \AllCB{} scheme}}%
+\psfrag{Intermediate scheme}{\hspace{.18cm}{\footnotesize \OneCB{} scheme}}%
+\psfrag{Optimistic scheme}{\hspace{-1.05cm}{\footnotesize \OnlyF{}
+    scheme}}%
+}
+\newcommand{\psfragFurther}{
+\psfrag{Nombre de processeurs}{{\footnotesize Number of processors}}%
+\psfrag{Saving (percentage)}{{\footnotesize Savings (percentage)}}%
+\psfrag{In-core stack scheme}{\hspace{.70cm}{\footnotesize Stack \ic{}}}%
+\psfrag{All-CB scheme}{\hspace{-.50cm}{\footnotesize \AllCB{} scheme}}%
+\psfrag{One-CB scheme}{\hspace{-.30cm}{\footnotesize \OneCB{} scheme}}%
+\psfrag{Parent-Only scheme}{\hspace{-.80cm}{\footnotesize
+    \OnlyF{} scheme}}%
+}
+
+
+%%%%%%%% Matrices %%%%%%%%%%%%
+\newcommand{\bbmat}{{\small \sc bbmat}}
+\newcommand{\ecl}{{\small \sc ecl32}}
+\newcommand{\extr}{{\small \sc invextr1}}
+\newcommand{\fidap}{{\small \sc fidapm11}}
+\newcommand{\garon}{{\small \sc garon2}}
+\newcommand{\lhr}{{\small \sc lhr71c}}
+\newcommand{\lnsp}{{\small \sc lnsp3937}}
+\newcommand{\mix}{{\small \sc mixtank}}
+\newcommand{\nasasrbrua}{{\footnotesize \sc nasasrb.rua}}
+\newcommand{\nasasrb}{{\small \sc nasasrb}}
+\newcommand{\rma}{{\small \sc rma10}}
+\newcommand{\twotone}{{\small \sc twotone}}
+\newcommand{\wangf}{{\small \sc wang4}}
+% symmetric
+\newcommand{\bmwcra}{{\small \sc bmwcra\_1}}
+\newcommand{\bmwtrois}{{\small \sc bmw3\_2}}
+\newcommand{\cranksegdeux}{{\small \sc cranksg2}}
+\newcommand{\shiptroisrsa}{{\small \sc ship\_003.rsa}}
+\newcommand{\shiptroisrse}{{\small \sc ship\_003.rse}}
+\newcommand{\shiptrois}{{\small \sc ship\_003}}
+\newcommand{\inline}{\small \sc inline\_1}
+
+ 
+%%%%%%%% Snodal %%%%%%%%%%%%
+\newcommand{\Forupto}[4]{
+  \For{$#1 = #2 \; \mbox{\bf to}\; #3$}{#4}
+}
+\newcommand{\Foruptostep}[5]{
+  \For{$#1 = #2 \; \mbox{\bf to}\; #3\; \mbox{\bf step}\; #4$}{#5}
+}
+\newcommand{\Fordownto}[4]{
+  \For{$#1 = #2 \; \mbox{\bf downto}\; #3$}{#4}
+}
+\newcommand{\spcolor}{\color{blue} \footnotesize}
+
+\newcommand{\pmf}{{\em multifrontal}\xspace}% pure multifrontal
+\newcommand{\prl}{{\em right-looking}\xspace}% pure right-looking
+\newcommand{\pll}{{\em left-looking}\xspace}% pure left-looking
+\newcommand{\Pmf}{{\em Multifrontal}\xspace}% pure multifronal
+\newcommand{\Prl}{{\em Right-looking}\xspace}% pure right-looking
+\newcommand{\Pll}{{\em Left-looking}\xspace}% pure left-looking
+\newcommand{\llrl}{{\em left-looking/right-looking}\xspace}% left/right
+\newcommand{\llll}{{\em left-looking/left-looking}\xspace}% left/left
+\newcommand{\rlrl}{{\em right-looking/right-looking}\xspace}% right/right
+\newcommand{\rlll}{{\em right-looking/left-looking}\xspace}% right/left
+\newcommand{\Llrl}{{\em Left-looking/right-looking}\xspace}% left/right
+\newcommand{\Llll}{{\em Left-looking/left-looking}\xspace}% left/left
+\newcommand{\Rlrl}{{\em Right-looking/right-looking}\xspace}% right/right
+\newcommand{\Rlll}{{\em Right-looking/left-looking}\xspace}% right/left
+\newcommand{\LLRL}{{\tt LL-RL}\xspace}
+\newcommand{\LLLL}{{\tt LL-LL}\xspace}
+\newcommand{\RLRL}{{\tt RL-RL}\xspace}
+\newcommand{\RLLL}{{\tt RL-LL}\xspace}
+\newcommand{\RL}{{\tt RL}\xspace}
+\newcommand{\LL}{{\tt LL}\xspace}
+\newcommand{\scgt}{{\em scatter/gather}\xspace}
+\newcommand{\WORZ}{{\tt W1/R0}\xspace}
+\newcommand{\WORO}{{\tt W1/R1}\xspace}
+\newcommand{\WORM}{{\tt W1/RM}\xspace}
+\newcommand{\WMRM}{{\tt WM/RM}\xspace}
+\newcommand{\outterancestor}{{\emph{outer ancestor}}\xspace}
+\newcommand{\outterancestors}{{\emph{outer ancestors}}\xspace}
+\newcommand{\Outterancestor}{{\emph{Outer ancestor}}\xspace}
+\newcommand{\Outterancestors}{{\emph{Outer ancestors}}\xspace}
+\newcommand{\outersubtree}{{\emph{outer subtree}}\xspace}
+\newcommand{\outersubtrees}{{\emph{outer subtrees}}\xspace}
+\newcommand{\Outersubtree}{{\emph{Outer subtree}}\xspace}
+\newcommand{\Outersubtrees}{{\emph{Outer subtrees}}\xspace}
+
+\newcommand{\node}[1]{{\footnotesize \ensuremath{{\mathcal
+        N}_{#1}}}\xspace}
+\newcommand{\nodeps}[1]{{\tiny \ensuremath{{\mathcal N}_{#1}}}\xspace}
+\newcommand{\subtree}[1]{{\ensuremath{S_{#1}}}\xspace}
+\newcommand{\etree}{{\ensuremath{\textit{etree}}}\xspace}
+\newcommand{\SET}{{\footnotesize \ensuremath{{\mathcal
+        S}}}\xspace}
+\newcommand{\SUBSET}{{\footnotesize \ensuremath{{\mathcal
+        S}_{0}}}\xspace}
+\newcommand{\nodeSET}[1]{{\ensuremath{s_{#1}}}\xspace}
+\newcommand{\TOTSET}{{\footnotesize \ensuremath{{S}}}\xspace}
+\newcommand{\XSET}{{\footnotesize \ensuremath{{\mathcal
+        X}}}\xspace}
+\newcommand{\XSUBSET}{{\footnotesize \ensuremath{{\mathcal
+        X}_{0}}}\xspace}
+\newcommand{\nodexSET}[1]{{\ensuremath{x_{#1}}}\xspace}
+\newcommand{\TOTXSET}{{\footnotesize \ensuremath{{X}}}\xspace}
+
+\newcommand{\psfragnumbering}{
+        \psfrag{2}{{2}}\psfrag{3}{{3}}\psfrag{4}{{4}}
+        \psfrag{5}{{5}}\psfrag{6}{{6}}\psfrag{7}{{7}}\psfrag{8}{{8}}
+        \psfrag{9}{{9}}\psfrag{10}{{10}}\psfrag{11}{{11}}\psfrag{12}{{12}}
+        \psfrag{13}{{13}}\psfrag{14}{{14}}\psfrag{15}{{15}}
+}
+
+\newcommand{\psfragnumberingcolored}{
+        \psfrag{1}{{\spcolor 1}}
+        \psfrag{2}{{\spcolor 2}}\psfrag{3}{{\spcolor 3}}
+        \psfrag{4}{{\spcolor 4}} \psfrag{5}{{\spcolor 5}}
+}
+
+\newcommand{\psfraglegend}{
+    \psfrag{P}{{Node being processed}}%
+    \psfrag{C}{{Nodes in memory}}%
+    \psfrag{D}{{Node on disk}}%
+    \psfrag{N}{{Node not yet loaded}}%
+}
+\newcommand{\psfragsubtrees}{
+  \psfrag{S1}{{\footnotesize \subtree{1}}}
+  \psfrag{S2}{{\footnotesize \subtree{2}}}
+  \psfrag{S3}{{\footnotesize \subtree{3}}}
+  \psfrag{S4}{{\footnotesize \subtree{4}}}
+}
+\newcommand{\psfraglocRL}{
+        \psfrag{n1}{{\nodeps{1}}}\psfrag{n2}{{\nodeps{2}}}\psfrag{n3}{{\nodeps{3}}}
+        \psfrag{S1}{{\subtree{1}}}\psfrag{S2}{{\subtree{2}}}
+}
+\newcommand{\psfraglocLL}{
+  \psfragsubtrees
+  \psfrag{SP}{{\SP}}
+}
+\newcommand{\psfragLLRL}{\psfragsubtrees} 
+\newcommand{\psfragLLLL}{\psfragsubtrees} 
+\newcommand{\psfraglegendLLRL}{
+  \psfragsubtrees 
+  \psfrag{SP}{{Current \SuperPanel}}
+  \psfrag{S}{{Subtree}}
+  \psfrag{US}{{Updating Subtree}}
+} 
+\newcommand{\psfraglegendLLRLtoLLLL}{
+  \psfragsubtrees 
+  \psfrag{SP}{{Focused subgraph}}
+  \psfrag{S}{{Subtree}}
+  \psfrag{US}{{Updating Subtree}}
+} 
+\newcommand{\psfraglegendLLLL}{
+  \psfragsubtrees 
+  \psfrag{SP}{{\SuperPanel}}
+  \psfrag{CSP}{{\SuperPanel being processed}}
+} 
+\newcommand{\psfragreversibledchain}{
+  \psfrag{3}{{\spcolor $3$}}
+  \psfrag{5}{{\spcolor $5$}}
+}
+\newcommand{\psfragreversibledchainfullrlll}{
+  \psfrag{Method}{{\RLLL}}
+  \psfrag{4}{{\spcolor $4$}}
+  \psfrag{1}{{\spcolor $1$}}
+}
+\newcommand{\psfragreversibledchainfullllrl}{
+  \psfrag{Method}{{\LLRL}}
+  \psfrag{7}{{\spcolor $7 \leq 4 + 4$}}
+  \psfrag{0}{{\spcolor $0 \leq 1$}}
+}
+\newcommand{\psfragreversibledchainvio}{
+  \psfrag{Method}{{}}
+  \psfrag{4}{{\spcolor $4 \times 1$}}
+  \psfrag{1}{{\spcolor $1 \times 2$}}
+}
+\newcommand{\psfragreversibledchainviollrl}{
+  \psfrag{Method}{{}}
+  \psfrag{6}{{\spcolor $6 \times 1$}}
+  \psfrag{4}{{\spcolor $4 \times 2$}}
+}
+\newcommand{\psfragnodeSET}{
+  \psfrag{S0}{{\nodeSET{0}}}
+  \psfrag{S1}{{\nodeSET{1}}}
+  \psfrag{S2}{{\nodeSET{2}}}
+  \psfrag{S3}{{\nodeSET{3}}}
+  \psfrag{S4}{{\nodeSET{4}}}
+  \psfrag{S5}{{\nodeSET{5}}}
+  \psfrag{S6}{{\nodeSET{6}}}
+  \psfrag{Sn}{{\nodeSET{n}}}
+}
+\newcommand{\psfragsumSET}{
+  \psfrag{S0}{{}}
+  \psfrag{S1}{{\nodexSET{1}}}
+  \psfrag{S2}{{\nodexSET{2}}}
+  \psfrag{S3}{{\nodexSET{3}}}
+  \psfrag{S4}{{\nodexSET{4}}}
+  \psfrag{S5}{{\nodexSET{5}}}
+  \psfrag{S6}{{\nodexSET{6}}}
+  \psfrag{Sn}{{\nodexSET{n}}}
+}
+\newcommand{\psfragpeigne}{
+  \psfrag{k}{{$k$}}
+}
+
+\newcommand{\SuperPanel}{{SuperPanel}\xspace}
+\newcommand{\SuperPanels}{{SuperPanels}\xspace}
+\newcommand{\HyperNode}{{HyperNode}\xspace}
+\newcommand{\HyperNodes}{{HyperNodes}\xspace}
+\newcommand{\SP}{{\ensuremath{\mbox{SP}}}\xspace}
+\newcommand{\HN}{{\ensuremath{\mbox{HN}}}\xspace}
+\newcommand{\SPA}{{\ensuremath{\mbox{SPA}}}\xspace}% Sparse Accumulator
+
+\def\bydefn{\stackrel{def}{=}}
+\def\comment#1{\textit{/*#1*/}}
+\newcommand{\LU}{{${\bf L}{\bf U}$}}
+\newcommand{\lu}{{${\bf L}{\bf U}$}}
+\newcommand{\LDLT}{{${\bf L}{\bf D}{\bf L}^T$}}
+\newcommand{\ldlt}{{${\bf L}{\bf D}{\bf L}^T$}}
+\newcommand{\mumps}{{\tt MUMPS}\xspace}
+\newcommand{\MUMPS}{{\tt MUMPS}\xspace}
+\newcommand{\WinMUMPS}{{\tt WinMumps}\xspace}
+%\newcommand{\PLASMA}{{\tt PLASMA}\xspace}
+\newcommand{\MPI}{{\tt MPI}\xspace}
+\newcommand{\OpenMP}{{\tt OpenMP}\xspace}
+\newcommand{\MPICHV}{{\tt MPICH-V}\xspace}
+\newcommand{\superlu}{{\tt SuperLU}\xspace}
+\newcommand{\SuperLU}{{\tt SuperLU}\xspace}
+\newcommand{\blas}{{\small \tt BLAS}\xspace}         
+\newcommand{\CEACESTA}{{\sc Cea-Cesta}\xspace}
+\newcommand{\AQUILON}{{\sc Aquilon}\xspace}
+\newcommand{\fantome}{\phantom{0}}
+\newcommand{\NP}{{NP-complete}}
+\newcommand{\NPess}{{NP-completeness}}
+\newcommand{\panelizellll}{{Panelize-LL-LL}}
+\newcommand{\panelizellllopt}{{Panelize-LL-LL-OPT}}
+\newcommand{\panelizelllldec}{{Panelize-LL-LL-DEC}}
+\newcommand{\maximumsubsetsum}{{Maximum-Subset-Sum}}
+
+
+\newtheorem{proposition}{Proposition}
+\newtheorem{property}{Property}
+\newtheorem{assumedef}{Assumption}
+
+
+%%%  LARGE_PBS  %%%
+\newcommand{\Store}[1]{\ifthenelse{\equal{#1}{}}{\ensuremath{S}\xspace}{\ensuremath{S_{#1}}\xspace}}
+\newcommand{\EffMemMax}{{\ensuremath{e}}\xspace}
+\newcommand{\EffMemAvg}{{\ensuremath{e_{avg}}}\xspace}
+\newcommand{\work}[1]{\ifthenelse{\equal{#1}{}}{\ensuremath{W}\xspace}{\ensuremath{W_{#1}}\xspace}}
+
+
+%%% PLASMA %%%
+\newcommand{\MAGMA}{{\tt MAGMA}\xspace}
+\newcommand{\PLASMA}{{\tt PLASMA}\xspace}
+\newcommand{\TBLAS}{{\tt TBLAS}\xspace}
+\newcommand{\PESSL}{{\tt PESSL}\xspace}
+\newcommand{\ESSL}{{\tt ESSL}\xspace}
+\newcommand{\MKL}{{\tt MKL}\xspace}
+\newcommand{\SCALAPACK}{{\tt SCALAPACK}\xspace}
+\newcommand{\LAPACK}{{\tt LAPACK}\xspace}
+\newcommand{\DPOTRF}{{\tt DPOTRF}\xspace}
+\newcommand{\DGEQRF}{{\tt DGEQRF}\xspace}
+\newcommand{\DGETRF}{{\tt DGETRF}\xspace}
+\newcommand{\DGEMM}{{\tt DGEMM}\xspace}
+\newcommand{\DGEMV}{{\tt DGEMV}\xspace}
+\newcommand{\Intel}{{\tt Intel64}\xspace}
+\newcommand{\Power}{{\tt Power6}\xspace}
+
+
+%%% Smileys
+\def\smiley{\green{\wasyfamily\char44}\xspace}
+\def\frownie{\red{\wasyfamily\char47}\xspace}
+
+% Add some command for name
+\usepackage{xspace}
+\newcommand{\linpack}{{\sc LinPACK}\xspace}
+\newcommand{\lapack}{{\sc LAPACK}\xspace}
+\newcommand{\scalapack}{{\sc ScaLAPACK}\xspace}
+\newcommand{\pblas}{{\sc PBLAS}\xspace}
+\newcommand{\plasma}{{\sc PLASMA}\xspace}
+\newcommand{\magma}{{\sc MAGMA}\xspace}
+\newcommand{\starpu}{{\sc StarPU}\xspace}
+\newcommand{\goto}{{\sc GotoBLAS2}\xspace}
+\newcommand{\gflops}{Gflop/s\xspace}
+\newcommand{\mordor}{Opteron-Tesla\xspace}
+\newcommand{\hannibal}{Nehalem-Quadro\xspace}
+
+
+\newcommand{\kernel}[1]{\texttt{#1}\xspace}
+%%\newcommand{\kernel}[1]{\emph{#1}\xspace}
+
+\newcommand{\gemm}{\kernel{gemm}}
+\newcommand{\sgemm}{\kernel{sgemm}}
+\newcommand{\dgemm}{\kernel{dgemm}}
+\newcommand{\trmm}{\kernel{trmm}}
+\newcommand{\strmm}{\kernel{strmm}}
+\newcommand{\dtrmm}{\kernel{dtrmm}}
+\newcommand{\geqrt}{\kernel{geqrt}}
+\newcommand{\sgeqrt}{\kernel{sgeqrt}}
+\newcommand{\dgeqrt}{\kernel{dgeqrt}}
+\newcommand{\ormqr}{\kernel{ormqr}}
+\newcommand{\sormqr}{\kernel{sormqr}}
+\newcommand{\dormqr}{\kernel{dormqr}}
+\newcommand{\tsqrt}{\kernel{tsqrt}}
+\newcommand{\stsqrt}{\kernel{stsqrt}}
+\newcommand{\dtsqrt}{\kernel{dtsqrt}}
+\newcommand{\tsmqr}{\kernel{tsmqr}}
+\newcommand{\stsmqr}{\kernel{stsmqr}}
+\newcommand{\dtsmqr}{\kernel{dtsmqr}}
+
+\newcommand{\ttqrt}{\kernel{ttqrt}}
+\newcommand{\ttmqr}{\kernel{ttmqr}}
+
+\newcommand{\geqrf}{\kernel{geqrt}}
+\newcommand{\sgeqrf}{\kernel{SGEQRF}}
+\newcommand{\dgeqrf}{\kernel{DGEQRF}}

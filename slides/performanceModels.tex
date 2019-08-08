@@ -131,7 +131,7 @@
 
 
 
-\date{\includegraphics[width=.25\linewidth]{icpp.png}\\August 8, 2019}
+\date{\includegraphics[width=.25\linewidth]{./diagrams/icpp.png}\\August 8, 2019\\ Kyoto, Japan}
 \newcommand{\highlight}[1]{\colorbox{red}{$\displaystyle #1$}}
 \pdfcompresslevel=2             %-- 0 = none, 9 = best
 
@@ -168,9 +168,9 @@
 
 \logo{%
 	\makebox[0.95\paperwidth]{%
-		\includegraphics[width=.3\linewidth]{logo_pnnl.png}
+		\includegraphics[width=.3\linewidth]{./logo/logo_pnnl.png}
 		\hfill%
-		\includegraphics[width=.3\linewidth]{logo_inria.png}
+		\includegraphics[width=.3\linewidth]{./logo/logo_inria.png}
 	}%
 }
 
@@ -247,7 +247,7 @@
 	\end{column}
 	\begin{column}{0.5\linewidth}
 		\begin{itemize}
-			   	 \item Applications can be expressed as task graphs
+			   	 \item Application can be expressed as a task graph
 			   	 \item Vertices represent tasks
 			   	 \item Edges represent dependencies among tasks
 		\end{itemize}
@@ -258,7 +258,7 @@
 %%\end{center}
 \begin{block}{Task Based Runtime Systems}
 		\begin{itemize}
-	\item StarPU, QUARK, PaRSEC, StarSs, Legion, KAAPI
+	\item QUARK, PaRSEC, StarPU, StarSs, Legion
 %%	\item Manages scheduling of computations and communications
 	\item May only see a set of ready (independent) tasks
 	\item A memory node may require data from other memory nodes 
@@ -268,16 +268,23 @@
 	\only<2>{\item Order of data transfers \textcolor{red}{between two memory nodes} such that communication-computation overlap is maximized}
 \end{itemize}
 \end{block}
-
 \end{frame}
 
+
+
 \section{Problem Definition}
+
+\begin{frame}
+\frametitle{Table of Contents}
+\tableofcontents[currentsection, subsectionstyle=shaded]
+\end{frame}
+
 \begin{frame}{Problem Definition}
 \begin{itemize}
-	\item Communication and computation times are known in advance
+	\item Communication and computation times are known
 	\begin{itemize}
-		\item Approximated based on number of computations and hardware details
-		\item Obtained from previous executions
+		\item Based on number of computations and hardware details
+		\item Obtained from previous executions (or iterations)
 	\end{itemize}
 %%\item Tasks do not produce output data (or store in a separate buffer)
 \end{itemize}
@@ -351,7 +358,7 @@ $\bullet$ $OMIM$ denotes the makespan of this algorithm
 \end{frame}
 
 
-\begin{frame}{Approach for the optimality proof}
+\begin{frame}{Approach for the Optimality Proof}
 \vspace*{-0.5cm}
 \begin{center}
 \includegraphics[scale=0.32]{./diagrams/original_swapped_schedules-eps-converted-to.pdf}
@@ -373,7 +380,7 @@ $\bullet$ $OMIM$ denotes the makespan of this algorithm
 \begin{frame}{Limited Memory Capacity}
 \begin{itemize}
 	\item Memory is required only to store input data (from the definition of our problem)
-	\item As Communication time $\propto$ amount of communication, for each task:
+	\item As communication time $\propto$ amount of communication, for each task:
 	\begin{itemize}
 		\item Communication time = Amount of communication  (\textcolor{green}{for simplification})
 		\item Communication time = Amount of input data
@@ -478,6 +485,9 @@ $b=(1/m) \sum a_i $?
 	F & 7 & 7 & 0.5\\ \hline
 \end{tabular}
 		\end{center}
+
+
+Memory Capacity = $10$
 	\end{column}
 
 	\newcommand{\taskA}[1]{\node[comp=$A$ start #1 length 5 color cyan] {};}
@@ -496,8 +506,7 @@ $b=(1/m) \sum a_i $?
 %%%%	\begin{figure}[!htb]
 %%	\centering
 \footnotesize
-	\begin{block}{Common ordering on both
-			resources}
+	\begin{block}{Common ordering on both resources}
 %%\renewcommand{\schedule}[3]{
 %%	\draw[->] (-0.2, 0) -- (#1, 0) node[below] {$t$};
 %%	\draw (0, 0) -- (0, 1.5);
@@ -726,6 +735,7 @@ We consider common order on both resources for all of our heuristics.
 \begin{columns}
 	\footnotesize
 	\begin{column}[c]{0.4\linewidth}
+		\begin{center}
 		\begin{tabular}{|c|c|c|c|}
 			\hline
 	Task & Memory & Comm & Comp\\
@@ -738,6 +748,9 @@ We consider common order on both resources for all of our heuristics.
 			D & 5 & 5 & 4\\ \hline
 			E & 3 & 3 & 2\\ \hline
 		\end{tabular}
+\end{center}
+	
+$OMIM$ order = $BCDEA$
 	\end{column}
 	\begin{column}[c]{0.6\linewidth}
 		\begin{block}{Memory Capacity=9}
@@ -822,7 +835,7 @@ We consider common order on both resources for all of our heuristics.
 		\item First-Fit algorithm for the bin packing problem
 		\item Tasks added to the first bin in which they fit
 		\item If no bin is found then a new bin is created
-		\item Sequence made of all tasks from consecutive bins
+		\item Sequence is made of all tasks from consecutive bins
 	\end{itemize}
 \end{block}
 \end{frame}
@@ -891,7 +904,7 @@ $\bullet$ Dynamic strategies are best suited for limited memory capacities\\
 $\bullet$ Static order with dynamic correction variants outperform others for moderate memory capacities
 \end{frame}
 
-\begin{frame}{CCSD performance with $m_c=1.8GB$}
+\begin{frame}{CCSD Performance with $m_c=1.8GB$}
 \begin{center}
 	\includegraphics[width=1.05\linewidth]{./diagrams/results/ratio_to_optimal_selected_ccsd.pdf}
 \end{center}
@@ -899,7 +912,7 @@ $\bullet$ Highly heterogeneous tasks\\
 $\bullet$ Static order with dynamic correction variants outperform others in most cases
 \end{frame}
 
-\begin{frame}{Best variants of all categories}
+\begin{frame}{Best Variants of All Categories}
 %%\begin{columns}
 %%	\begin{column}{0.55\linewidth}
 \begin{block}{\only<1>{HF} \only<2>{CCSD} Performance}
@@ -910,14 +923,14 @@ $\bullet$ Static order with dynamic correction variants outperform others in mos
 \end{block}
 \end{frame}
 
-\begin{frame}{Implementation challenges}
+\begin{frame}{Implementation Challenges}
 \begin{itemize}
 	\vfill
-	\item Impact of Congestion on communication/computation times
+	\item Impact of congestion on communication/computation times
 	\vfill
 	\item Output data of a task
 	\vfill
-	\item Routes between two memory nodes
+	\item Multiple routes between two memory nodes
 	\vfill
 	\item Communications from multiple memory nodes can happen at the same time
 	\vfill
@@ -944,17 +957,17 @@ Ongoing work:
   \item Evaluation of our heuristics in the context of accelerators
   \item Implementation of the proposed heuristics
  \item Automatic selection of the best heuristic
- \item Model bandwidth sharing to support multiple simultaneous communications
+%% \item Model bandwidth sharing to support multiple simultaneous communications
  \end{itemize}
  \end{frame}
 
 
-%% \begin{frame}
-%%  \begin{center}
-%%   {\huge Thank \newline You!}
-%%    
-%%  \end{center}
-%% \end{frame}
+ \begin{frame}
+  \begin{center}
+   {\huge Thank \newline You!}
+    
+  \end{center}
+ \end{frame}
 
 \end{document}
 
